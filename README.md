@@ -2,6 +2,7 @@
 
 Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'avó Oratório: Parmalat Fit (três espaços), Batavo Pense Zero, Président e Sobremesas Batavo. Base: *Planejamento Estratégico Lactalis no D'avó Oratório* (23/10/2026), a VT da loja e todo o refit feito no job (`Documents/75LAB/lactalis-davo-oratorio`).
 
+- **Apresentação:** https://projetos.75lab.com.br/lactalis-davo-oratorio/
 - Apresentadora: Vanessa Morelli, Diretora Comercial 75LAB
 
 ## Roteiro: 17 telas
