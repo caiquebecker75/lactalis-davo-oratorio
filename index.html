@@ -4,835 +4,456 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lactalis no D'avó Oratório · 75LAB</title>
-<meta name="description" content="Ambientação de categorias Lactalis no D'avó Oratório: seis espaços, uma arquitetura de escolha. Proposta 75LAB.">
+<meta name="description" content="Ambientação de categorias Lactalis no D'avó Oratório: seis espaços, do antes ao depois, com peças simples de aplicar. Proposta 75LAB.">
 <meta property="og:title" content="Lactalis no D'avó Oratório · 75LAB">
-<meta property="og:description" content="Seis espaços, uma arquitetura de escolha. Ambientação de categorias Parmalat Fit, Batavo Pense Zero, Président e Sobremesas Batavo.">
+<meta property="og:description" content="Seis espaços, do antes ao depois: Parmalat Fit, Batavo Pense Zero, Président e Sobremesas Batavo.">
 <meta property="og:image" content="https://projetos.75lab.com.br/lactalis-davo-oratorio/assets/img/og.jpg">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#F1F2EE">
+<meta name="theme-color" content="#E1261C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..900&display=swap">
 <link rel="stylesheet" href="assets/css/deck.css">
 </head>
-<body data-theme="light">
+<body data-theme="red">
 
 <main id="stage" aria-live="polite">
 
-  <!-- Placa de corredor: número e área da tela -->
-  <div id="sign" aria-hidden="true"><i class="wire"></i><i class="wire"></i><div class="plate"><b id="signNum">01</b><span id="signTxt">Abertura</span></div></div>
+  <!-- Faixa da fachada: vermelho e verde do D'avó -->
+  <div id="band" aria-hidden="true"></div>
 
   <header id="top">
-    <button id="backBtn" class="hb" type="button" hidden>← Voltar à apresentação</button>
-    <span class="who">Lactalis × D'avó Oratório</span>
     <button id="menuBtn" class="hb" type="button" aria-haspopup="dialog"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h8"/></svg>Índice</button>
-    <img class="lab-logo dk" src="assets/img/brand/75lab-black.png" alt="75LAB" width="185" height="120">
-    <img class="lab-logo lt" src="assets/img/brand/75lab-lime.png" alt="" width="185" height="120">
+    <img class="lab-logo" src="assets/img/brand/75lab-black.png" alt="75LAB" width="185" height="120">
   </header>
 
-  <!-- Trilho de preço: progresso da apresentação -->
-  <nav id="rail" aria-label="Telas"><div class="line"></div><div class="ticks"></div></nav>
+  <footer id="foot">
+    <span class="who">Lactalis × D'avó Oratório</span>
+    <nav id="spaces" aria-label="Espaços"></nav>
+    <span id="count">01 / 15</span>
+  </footer>
   <button id="cnext" type="button" aria-label="Próxima tela"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
 
   <!-- ================================================================ 01 CAPA -->
-  <section class="slide cover" id="capa" data-ch="0" data-theme="light" data-title="Capa">
-    <div class="ctop">
-      <div>
-        <p class="eyebrow rv">Lactalis no D'avó Oratório · Ambientação de categorias</p>
-        <h1 class="rv" style="--d:1">Seis espaços, uma <em>arquitetura de escolha</em>.</h1>
+  <section class="slide cover" id="capa" data-theme="red" data-title="Capa">
+    <div class="wall">
+      <div class="sign rv">
+        <p class="eyebrow">Proposta 75LAB · Ambientação de categorias</p>
+        <h1>Lactalis no D'avó Oratório</h1>
+        <p class="lead">Seis espaços, do antes ao depois. Peças simples de aplicar, sobre a estrutura que a loja já tem.</p>
       </div>
-      <div class="cside">
-        <p class="lead rv" style="--d:2">Presença de marca que vira clareza de escolha, desejo e resultado no ponto de venda, sem móvel novo e sem mais ruído.</p>
-        <p class="meta rv" style="--d:3"><span>Proposta 75LAB</span><span>Estratégia → Design → Produção</span><span>Apresentação: Vanessa Morelli</span></p>
-      </div>
+      <p class="by rv" style="--d:2">Apresentação<b>Vanessa Morelli</b>Diretora Comercial · 75LAB</p>
     </div>
-    <div class="strip">
-      <a href="#whey" data-goto="whey" class="rv" style="--d:2"><img src="assets/img/whey/a-depois.webp" alt="Ilha quadrada Parmalat Fit com o refit" style="object-position:50% 30%"><span>Ilha quadrada</span></a>
-      <a href="#nutricao" data-goto="nutricao" class="rv" style="--d:3"><img src="assets/img/nutricao/a-depois.webp" alt="Ilha de nutrição esportiva com o refit" style="object-position:30% 40%"><span>Ilha de nutrição</span></a>
-      <a href="#seca" data-goto="seca" class="rv" style="--d:4"><img src="assets/img/seca/depois.webp" alt="Gôndola seca Parmalat Fit com o refit" style="object-position:50% 18%"><span>Gôndola seca</span></a>
-      <a href="#pensezero" data-goto="pensezero" class="rv" style="--d:5"><img src="assets/img/pensezero/depois.webp" alt="Ponta refrigerada Pense Zero com a nova comunicação" style="object-position:30% 30%"><span>Pense Zero</span></a>
-      <a href="#president" data-goto="president" class="rv" style="--d:6"><img src="assets/img/president/premium.webp" alt="Gôndola fria Président com as bandejas e a testeira premium" style="object-position:50% 22%"><span>Président</span></a>
-      <a href="#sobremesas" data-goto="sobremesas" class="rv" style="--d:7"><img src="assets/img/sobremesas/f-depois.webp" alt="Gôndola de sobremesas Batavo com o refit" style="object-position:50% 16%"><span>Sobremesas</span></a>
+    <div class="awning" aria-hidden="true"></div>
+    <div class="vitrine">
+      <a href="#whey" data-goto="whey" class="rv" style="--d:3"><span>Whey</span><img src="assets/img/whey/a-depois.webp" alt="Ilha quadrada Parmalat Fit depois" style="object-position:50% 28%"></a>
+      <a href="#nutricao" data-goto="nutricao" class="rv" style="--d:4"><span>Nutrição esportiva</span><img src="assets/img/nutricao/a-depois.webp" alt="Ilha de nutrição esportiva depois" style="object-position:30% 30%"></a>
+      <a href="#seca" data-goto="seca" class="rv" style="--d:5"><span>Gôndola seca</span><img src="assets/img/seca/depois.webp" alt="Gôndola seca Parmalat Fit depois" style="object-position:50% 14%"></a>
+      <a href="#pensezero" data-goto="pensezero" class="rv" style="--d:6"><span>Pense Zero</span><img src="assets/img/pensezero/depois.webp" alt="Ponta refrigerada Pense Zero depois" style="object-position:32% 40%"></a>
+      <a href="#president" data-goto="president" class="rv" style="--d:7"><span>Président</span><img src="assets/img/president/premium.webp" alt="Gôndola Président depois" style="object-position:50% 18%"></a>
+      <a href="#sobremesas" data-goto="sobremesas" class="rv" style="--d:8"><span>Sobremesas</span><img src="assets/img/sobremesas/f-depois.webp" alt="Gôndola de sobremesas Batavo depois" style="object-position:50% 12%"></a>
     </div>
-    <aside class="notes" hidden><p>Abrir pela tese: não são seis cenografias, é uma lógica de escolha aplicada a seis pontos que já existem. Tudo o que aparece nas fotos foi aplicado sobre as fotos da visita técnica.</p></aside>
+    <aside class="notes" hidden><p>Abrir pela promessa: seis espaços que já existem, transformados com peças que a loja aplica sem trocar nenhum móvel. As fotos são montagens sobre as fotos da visita técnica.</p></aside>
   </section>
 
-  <!-- ================================================================ 02 DESAFIO -->
-  <section class="slide" id="desafio" data-ch="1" data-theme="light" data-title="O desafio">
+  <!-- ================================================================ 02 CONTEXTO -->
+  <section class="slide ctx" id="contexto" data-theme="cream" data-title="O contexto">
     <div class="pad">
-      <p class="eyebrow rv">O desafio</p>
-      <h2 class="rv xl" style="--d:1">O pedido é ambientar. <em>A necessidade é ajudar a escolher.</em></h2>
-      <div class="trio">
-        <div class="rv" style="--d:3"><span class="lbl"><b>01</b>O que foi pedido</span><p>Ambientação econômica e premium dos espaços Lactalis que já existem no D'avó Oratório.</p></div>
-        <div class="rv" style="--d:4"><span class="lbl"><b>02</b>O que a loja precisa</span><p>Transformar áreas dispersas e carregadas em pontos fáceis de escolher, desejáveis e simples de manter.</p></div>
-        <div class="rv hi" style="--d:5"><span class="lbl"><b>03</b>A oportunidade</span><p>Uma loja-referência em execução de categoria: o shopper acha a resposta rápido, o produto continua protagonista e a operação mantém o padrão.</p></div>
-      </div>
-      <p class="rules-line rv" style="--d:6"><span class="lbl">Regras do jogo</span>Sem móvel novo e sem piso <i>·</i> loja aberta durante a implantação <i>·</i> preço, refrigeração, limpeza e fluxo intactos <i>·</i> convivência com a comunicação do D'avó</p>
-    </div>
-    <aside class="notes" hidden><p>O cliente pediu ambientação em dois níveis. O que a loja precisa é clareza: cada marca se destacar sem criar mais ruído numa loja que já é muito estimulada.</p></aside>
-  </section>
-
-  <!-- ================================================================ 03 A LOJA HOJE -->
-  <section class="slide" id="loja" data-ch="1" data-theme="light" data-title="A loja hoje">
-    <div class="pad">
-      <p class="eyebrow rv">A loja hoje · visita técnica</p>
-      <h2 class="rv" style="--d:1">Seis pontos, quatro marcas, muito estímulo.</h2>
-      <p class="sub rv" style="--d:2">Hipermercado de grande porte, com promoção forte, sinalização própria e mix profundo.</p>
-      <div class="vt">
-        <figure class="rv" style="--d:2"><figcaption><b>1</b>Ilha quadrada <small>Parmalat Fit</small></figcaption><button type="button" class="ph" data-zoom="assets/img/whey/a-antes.webp" data-gallery="vt" data-caption="Ilha quadrada · Parmalat Fit|Foto da visita técnica"><img src="assets/img/whey/a-antes.webp" alt="Ilha quadrada Parmalat Fit antes" style="object-position:50% 45%"></button><p>Placa central sem mensagem e garrafinhas em sacos plásticos.</p></figure>
-        <figure class="rv" style="--d:3"><figcaption><b>2</b>Ilha de nutrição <small>Parmalat Fit</small></figcaption><button type="button" class="ph" data-zoom="assets/img/nutricao/vt-lado-longo.webp" data-gallery="vt" data-caption="Ilha de nutrição esportiva · Parmalat Fit|Foto da visita técnica"><img src="assets/img/nutricao/vt-lado-longo.webp" alt="Ilha de nutrição esportiva antes" style="object-position:22% 50%"></button><p>Metade Fit, metade concorrência; sacos e caixas de estoque à vista.</p></figure>
-        <figure class="rv" style="--d:4"><figcaption><b>3</b>Gôndola seca <small>Parmalat Fit</small></figcaption><button type="button" class="ph" data-zoom="assets/img/seca/antes.webp" data-gallery="vt" data-caption="Gôndola seca · Parmalat Fit|Foto da visita técnica"><img src="assets/img/seca/antes.webp" alt="Gôndola seca Parmalat Fit antes" style="object-position:50% 40%"></button><p>Cartaz de combo na frente do produto e nenhuma leitura de ocasião.</p></figure>
-        <figure class="rv" style="--d:5"><figcaption><b>4</b>Ponta refrigerada <small>Batavo Pense Zero</small></figcaption><button type="button" class="ph" data-zoom="assets/img/pensezero/antes.webp" data-gallery="vt" data-caption="Ponta refrigerada · Batavo Pense Zero|Foto da visita técnica"><img src="assets/img/pensezero/antes.webp" alt="Ponta refrigerada Pense Zero antes" style="object-position:38% 50%"></button><p>Cartazes de oferta sobre a frente e nenhuma navegação por ocasião.</p></figure>
-        <figure class="rv" style="--d:6"><figcaption><b>5</b>Gôndola fria <small>Président</small></figcaption><button type="button" class="ph" data-zoom="assets/img/president/vt.webp" data-gallery="vt" data-caption="Gôndola fria · Président|Foto da visita técnica"><img src="assets/img/president/vt.webp" alt="Gôndola Président antes" style="object-position:40% 50%"></button><p>Displays de papelão em alturas diferentes e famílias misturadas.</p></figure>
-        <figure class="rv" style="--d:7"><figcaption><b>6</b>Gôndola fria <small>Sobremesas Batavo</small></figcaption><button type="button" class="ph" data-zoom="assets/img/sobremesas/f-antes.webp" data-gallery="vt" data-caption="Gôndola fria · Sobremesas Batavo|Foto da visita técnica"><img src="assets/img/sobremesas/f-antes.webp" alt="Gôndola de sobremesas antes" style="object-position:50% 50%"></button><p>Réguas genéricas, tipos sem ordem e saco plástico no poço.</p></figure>
-      </div>
-      <p class="note rv" style="--d:8"><span class="lbl">Alerta de escopo</span>O briefing cita cinco espaços; a visita técnica registrou seis, além da ilha Titanic. O escopo final fecha antes da produção.</p>
-    </div>
-    <aside class="notes" hidden><p>Os seis pontos registrados na VT. As fotos ampliam. Lembrar que o escopo contratado (cinco pontos) ainda precisa ser fechado.</p></aside>
-  </section>
-
-  <!-- ================================================================ 04 SHOPPER -->
-  <section class="slide" id="shopper" data-ch="1" data-theme="light" data-title="O shopper">
-    <div class="pad">
-      <p class="eyebrow rv">O shopper</p>
-      <h2 class="rv" style="--d:1">Em poucos segundos, o shopper precisa achar a resposta.</h2>
-      <p class="sub rv" style="--d:2">A compra acontece sob duas pressões: valor e bem-estar. Ele busca preço, mas também proteína, zero lactose, conveniência e prazer em casa.</p>
-      <ol class="moments">
-        <li class="rv" style="--d:3"><span class="step"><b>1</b>Chegada à área</span><p class="need">Reconhecer a categoria rápido</p><p class="bar"><small>Barreira</small>Ambiente de loja intenso e competitivo</p><p class="opp"><small>Resposta</small>Testeira curta e marca legível a distância</p></li>
-        <li class="rv" style="--d:4"><span class="step"><b>2</b>Comparação</span><p class="need">Saber qual produto faz sentido</p><p class="bar"><small>Barreira</small>Muitos SKUs, preços e claims</p><p class="opp"><small>Resposta</small>Navegação por ocasião ou família</p></li>
-        <li class="rv" style="--d:5"><span class="step"><b>3</b>Decisão</span><p class="need">Escolher com segurança</p><p class="bar"><small>Barreira</small>O preço promocional domina a leitura</p><p class="opp"><small>Resposta</small>Benefício junto do produto</p></li>
-        <li class="rv" style="--d:6"><span class="step"><b>4</b>Retirada</span><p class="need">Pegar e levar o produto</p><p class="bar"><small>Barreira</small>Caixas, reposição e divisórias ruins</p><p class="opp"><small>Resposta</small>Frente limpa e exposição estável</p></li>
-      </ol>
-      <p class="tension rv" style="--d:7"><span class="lbl">Tensão central</span><span>Como criar valor percebido e clareza num varejo de alta intensidade visual, <em>sem transformar a ambientação em mais ruído?</em></span></p>
-    </div>
-    <aside class="notes" hidden><p>Quatro momentos de compra, cada um com uma barreira observada na VT e uma resposta de PDV. A tensão central explica por que a proposta é baixa e organizada, e não cenográfica.</p></aside>
-  </section>
-
-  <!-- ================================================================ 05 INSIGHTS -->
-  <section class="slide" id="insights" data-ch="1" data-theme="light" data-title="O que aprendemos">
-    <div class="pad">
-      <p class="eyebrow rv">O que aprendemos</p>
-      <h2 class="rv" style="--d:1">Quatro ideias guiam o projeto.</h2>
-      <div class="ins">
-        <div class="rv" style="--d:2"><b>01</b><h3>A categoria já é a mídia.</h3><p>A ambientação dá ordem à abundância. Não compete com ela.</p></div>
-        <div class="rv" style="--d:3"><b>02</b><h3>O shopper compra uma resposta, não um portfólio.</h3><p>Cada espaço precisa responder ao momento dele.</p></div>
-        <div class="rv" style="--d:4"><b>03</b><h3>Président: valor antes de variedade.</h3><p>Qualidade primeiro, navegação por família depois.</p></div>
-        <div class="rv" style="--d:5"><b>04</b><h3>A versão econômica também tem impacto.</h3><p>Quando investe em hierarquia, blocagem e acabamento.</p></div>
-      </div>
-    </div>
-    <aside class="notes" hidden><p>Os sete insights completos estão no material de apoio (tecla M). Aqui ficam os quatro que mais mudam o desenho das peças.</p></aside>
-  </section>
-
-  <!-- ================================================================ 06 ESTRATÉGIA -->
-  <section class="slide" id="estrategia" data-ch="2" data-theme="light" data-title="A estratégia">
-    <div class="pad">
-      <p class="eyebrow rv">Território recomendado</p>
-      <h2 class="rv xl" style="--d:1">Escolhas que <em>acompanham seu dia</em>.</h2>
-      <p class="sub rv" style="--d:2">Cada marca responde a um momento real da rotina. A loja fica unida pela lógica de escolha, e cada marca mantém os próprios códigos.</p>
-      <div class="day">
-        <svg class="arc rv" style="--d:2" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 110 Q500 -50 1000 110"/></svg>
-        <a class="stop rv fit" style="--d:3;--y:75px" href="#whey" data-goto="whey"><i></i><span class="cue">Manhã e treino</span><h3>Rotina ativa</h3><span class="brand">Parmalat Fit · 3 espaços</span><p>Resolve a navegação: whey em pó, pronto para beber e para levar.</p></a>
-        <a class="stop rv pz" style="--d:4;--y:35px" href="#pensezero" data-goto="pensezero"><i></i><span class="cue">Ao longo do dia</span><h3>Leveza</h3><span class="brand">Batavo Pense Zero</span><p>Disciplina operacional no ponto mais seguro: promotora fixa e reposição diária.</p></a>
-        <a class="stop rv pres" style="--d:5;--y:35px" href="#president" data-goto="president"><i></i><span class="cue">Na refeição</span><h3>Refeição</h3><span class="brand">Président · hero</span><p>A maior ambição estética: valor do queijo e famílias claras.</p></a>
-        <a class="stop rv sob" style="--d:6;--y:75px" href="#sobremesas" data-goto="sobremesas"><i></i><span class="cue">Depois da refeição</span><h3>Prazer</h3><span class="brand">Batavo Sobremesas</span><p>Constrói desejo e ordena os sabores sem poluir.</p></a>
-      </div>
-      <div class="dpa rv" style="--d:7">
-        <div><span class="lbl">De</span><p>Exposições fragmentadas, dependentes de embalagem e preço.</p></div>
-        <div><span class="lbl">Para</span><p>Pontos de categoria legíveis, desejáveis e fáceis de abastecer.</p></div>
-        <div><span class="lbl">Através de</span><p>Arquitetura de escolha: blocagem, códigos de marca, mensagem de ocasião e acabamento proporcional ao ponto.</p></div>
-      </div>
-    </div>
-    <aside class="notes" hidden><p>Entre os quatro territórios estudados, este é o recomendado porque une sem apagar as marcas. Os outros três estão no apoio. A ordem das telas seguintes segue o dia.</p></aside>
-  </section>
-
-  <!-- ================================================================ 07 SISTEMA -->
-  <section class="slide" id="sistema" data-ch="2" data-theme="light" data-title="O sistema">
-    <div class="pad">
-      <p class="eyebrow rv">Como funciona</p>
-      <h2 class="rv" style="--d:1">Um sistema em três camadas, o mesmo nos seis espaços.</h2>
-      <div class="sys">
-        <svg class="dg rv" style="--d:2" viewBox="0 0 420 520" aria-hidden="true">
-          <rect class="frame" x="20" y="20" width="380" height="480" rx="6"/>
-          <g class="l l1"><rect x="34" y="34" width="352" height="54" rx="4"/></g>
-          <g class="shelf"><rect x="34" y="104" width="352" height="78"/><rect x="34" y="196" width="352" height="78"/><rect x="34" y="288" width="352" height="78"/><rect x="34" y="380" width="352" height="62"/></g>
-          <g class="l l2"><rect x="34" y="182" width="352" height="12" rx="2"/><rect x="34" y="274" width="352" height="12" rx="2"/><rect x="34" y="366" width="352" height="12" rx="2"/></g>
-          <g class="l l3"><rect x="48" y="120" width="96" height="62" rx="3"/><rect x="162" y="120" width="96" height="62" rx="3"/><rect x="276" y="120" width="96" height="62" rx="3"/><rect x="34" y="452" width="352" height="34" rx="3"/></g>
-          <g class="pins"><circle cx="402" cy="61" r="15"/><text x="402" y="66">1</text><circle cx="402" cy="188" r="15"/><text x="402" y="193">2</text><circle cx="402" cy="469" r="15"/><text x="402" y="474">3</text></g>
-        </svg>
-        <div class="layers">
-          <ol>
-            <li class="rv" style="--d:3" data-l="1"><b>1</b><div><h3>Encontrar</h3><p>Uma testeira baixa, no contorno do móvel ou no suporte que já existe, com marca e ocasião.</p></div></li>
-            <li class="rv" style="--d:4" data-l="2"><b>2</b><div><h3>Escolher</h3><p>Réguas no trilho de preço que navegam por formato, família ou ocasião. A etiqueta do D'avó fica sempre por cima.</p></div></li>
-            <li class="rv" style="--d:5" data-l="3"><b>3</b><div><h3>Sustentar</h3><p>Bandejas, cartões e nomes trocáveis no lugar de papelão e sacos. A loja limpa, repõe e mantém.</p></div></li>
-          </ol>
-          <div class="rules rv" style="--d:6">
-            <span class="lbl">Regras de projeto</span>
-            <ul>
-              <li>A estrutura do móvel não muda: sem móvel novo, sem piso.</li>
-              <li>Nenhum topo alto e nenhuma lateral volumosa.</li>
-              <li>Nada na frente de prateleira ou abertura.</li>
-              <li>Preço, ventilação e acesso técnico sempre livres.</li>
-              <li>Sem LED dentro da área refrigerada.</li>
-              <li>Perto do chão, só marca e imagem.</li>
-            </ul>
-          </div>
+      <div class="ctx-top">
+        <div>
+          <p class="eyebrow rv">O contexto</p>
+          <h2 class="rv" style="--d:1">Seis espaços Lactalis que já existem na loja.</h2>
+          <p class="sub rv" style="--d:2">A ambientação veste cada espaço com a marca sem trocar o móvel: as peças entram na sanefa, no mastro, no trilho de preço, nas placas e nas prateleiras. As etiquetas de preço do D'avó continuam no lugar.</p>
         </div>
-      </div>
-    </div>
-    <aside class="notes" hidden><p>A mesma gramática nos seis pontos: encontrar, escolher, sustentar. As regras saíram do que não funcionou na proposta anterior (topos altos, laterais volumosas, cenografia dominante) e das conversas com o cliente durante o refit.</p></aside>
-  </section>
-
-  <!-- ================================================================ 08 ILHA QUADRADA WHEY -->
-  <section class="slide space" id="whey" data-ch="3" data-theme="fit" data-title="Ilha quadrada · Parmalat Fit" data-sign="Parmalat Fit">
-    <div class="sp">
-      <div class="info">
-        <div class="head">
-          <p class="eyebrow rv">Rotina ativa · <b>Parmalat Fit</b></p>
-          <h2 class="rv" style="--d:1">Ilha quadrada Whey</h2>
-          <p class="msg rv" style="--d:2">“Qual é o seu momento Fit?”</p>
-          <p class="role rv" style="--d:3">Referência de proteína e rotina ativa. Só PS e adesivo sobre as placas que já existem; nada na frente das prateleiras e sem wobbler.</p>
-        </div>
-        <div class="body">
-          <ol class="kit rv" style="--d:4">
-            <li><b>1</b><div><strong>Testeira dupla face com faca especial</strong><span>PS 3 mm, no mastro atual · 78 × 34 cm</span></div><em>1</em></li>
-            <li><b>2</b><div><strong>Adesivo da placa central</strong><span>Vinil, frente e fundo · 34 × 31 cm</span></div><em>2</em></li>
-            <li><b>3</b><div><strong>Adesivo do painel com janela</strong><span>Vinil, lateral esquerda · 80 × 93 cm</span></div><em>1</em></li>
-            <li><b>4</b><div><strong>Adesivo do painel lateral</strong><span>Vinil, lateral direita · 39 × 93 cm</span></div><em>1</em></li>
-            <li><b>5</b><div><strong>Rodapé</strong><span>Vinil, nas 4 faces · 80 × 10 cm</span></div><em>4</em></li>
-            <li><b>6</b><div><strong>Colunas e triângulo do topo</strong><span>Vinil, só nas faces brancas</span></div><em>7</em></li>
-            <li><b>7</b><div><strong>Fita de borda</strong><span>Vinil 2 cm no tampo e nas prateleiras</span></div><em>6,7 m</em></li>
-          </ol>
-          <div class="arts rv" style="--d:5">
-            <span class="lbl">As peças</span>
-            <div class="row">
-              <button type="button" class="tile" data-zoom="assets/img/whey/p1-testeira.webp" data-gallery="whey-p" data-caption="Testeira dupla face|PS 3 mm com faca especial · 78 × 34 cm"><img src="assets/img/whey/p1-testeira.webp" alt="Arte da testeira"></button>
-              <button type="button" class="tile" data-zoom="assets/img/whey/p3-painel-janela.webp" data-gallery="whey-p" data-caption="Adesivo do painel com janela|Vinil · 80 × 93 cm, janela vazada"><img src="assets/img/whey/p3-painel-janela.webp" alt="Arte do painel com janela"></button>
-              <button type="button" class="tile" data-zoom="assets/img/whey/p4-painel-lateral.webp" data-gallery="whey-p" data-caption="Adesivo do painel lateral|Vinil · 39 × 93 cm"><img src="assets/img/whey/p4-painel-lateral.webp" alt="Arte do painel lateral"></button>
-              <button type="button" class="tile" data-zoom="assets/img/whey/p2-placa-central.webp" data-gallery="whey-p" data-caption="Adesivo da placa central|Vinil · 34 × 31 cm"><img src="assets/img/whey/p2-placa-central.webp" alt="Arte da placa central"></button>
-            </div>
-            <div class="strips">
-              <button type="button" class="tile st" data-zoom="assets/img/whey/p5-rodape.webp" data-gallery="whey-p" data-caption="Rodapé|Vinil · 80 × 10 cm, nas 4 faces"><img src="assets/img/whey/p5-rodape.webp" alt="Arte do rodapé"></button>
-            </div>
-          </div>
-        </div>
-        <div class="ifoot rv" style="--d:6">
-          <p class="tot"><b>16</b> peças <small>+ ≈ 6,7 m de fita de borda</small></p>
-          <p class="fnote">Sai o wobbler. A promotora repõe as garrafinhas sem saco plástico.</p>
-          <div class="btns">
-            <button type="button" class="pr" data-zoom="assets/img/whey/prancha-4-vistas.webp" data-gallery="whey-pr" data-caption="Ilha quadrada · 4 vistas|Peças numeradas nas quatro faces (face D assumida igual à frontal)">Pranchas técnicas <span>2</span></button>
-            <button type="button" hidden data-zoom="assets/img/whey/prancha-materiais.webp" data-gallery="whey-pr" data-caption="Ilha quadrada · materiais|Lista de materiais para produzir"></button>
-          </div>
-        </div>
-      </div>
-      <div class="media rv" style="--d:1">
-        <div class="cmp" data-mode="slide" data-ar="0.5625">
-          <img class="ib" src="assets/img/whey/a-antes.webp" alt="Antes: face frontal da ilha quadrada na visita técnica">
-          <img class="ia" src="assets/img/whey/a-depois.webp" alt="Depois: face frontal com o refit Parmalat Fit">
-          <span class="lab lb">Antes</span><span class="lab la">Depois</span>
-          <div class="handle" tabindex="0" role="slider" aria-label="Arraste para comparar antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
-          <button type="button" class="cz" aria-label="Ampliar as imagens"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg></button>
-        </div>
-        <div class="ctl">
-          <div class="views" role="group" aria-label="Vistas">
-            <button type="button" class="on" data-b="assets/img/whey/a-antes.webp" data-a="assets/img/whey/a-depois.webp" data-ar="0.5625" data-cap="Face A · frente">A · frente</button>
-            <button type="button" data-b="assets/img/whey/b-antes.webp" data-a="assets/img/whey/b-depois.webp" data-ar="0.5625" data-cap="Face B · lateral esquerda">B · lateral</button>
-            <button type="button" data-b="assets/img/whey/c-antes.webp" data-a="assets/img/whey/c-depois.webp" data-ar="0.5625" data-cap="Face C · lateral direita">C · lateral</button>
-          </div>
-          <div class="ab"><button type="button" data-ab="b">Antes</button><button type="button" data-ab="a">Depois</button></div>
-        </div>
-      </div>
-    </div>
-    <aside class="notes" hidden><p>Ilha sem ponto de energia: tudo é impresso. A testeira usa a mesma fixação da atual; só a aba do logo passa cerca de 10 cm acima. A face D não foi fotografada e foi assumida igual à frontal.</p></aside>
-  </section>
-
-  <!-- ================================================================ 09 ILHA NUTRIÇÃO -->
-  <section class="slide space" id="nutricao" data-ch="3" data-theme="fit" data-title="Ilha de nutrição esportiva · Parmalat Fit" data-sign="Parmalat Fit">
-    <div class="sp">
-      <div class="info">
-        <div class="head">
-          <p class="eyebrow rv">Rotina ativa · <b>Parmalat Fit</b></p>
-          <h2 class="rv" style="--d:1">Ilha de nutrição esportiva</h2>
-          <p class="msg rv" style="--d:2">“Mais que proteína para a sua rotina”</p>
-          <p class="role rv" style="--d:3">Ajudar a comparar e escolher. Sem acrílico: réguas no trilho atual, placas baixas na base e uma testeira em T que fica em pé sozinha.</p>
-        </div>
-        <div class="body">
-          <ol class="kit rv" style="--d:4">
-            <li><b>1</b><div><strong>Réguas de 130 cm</strong><span>Whey em pó, Pronto para beber e Para levar · 130 × 4 cm</span></div><em>6</em></li>
-            <li><b>2</b><div><strong>Réguas de 90 cm</strong><span>Cabeceira · 90 × 4 cm</span></div><em>3</em></li>
-            <li><b>3</b><div><strong>Placas de base</strong><span>PS 3 mm com pé, só marca e imagem · 40 × 20 cm</span></div><em>5</em></li>
-            <li><b>4</b><div><strong>Testeira central em T</strong><span>2 placas de PS 3 mm em L, dobra a quente · 110 × 62 cm</span></div><em>1</em></li>
-            <li><b>5</b><div><strong>Faixa de rodapé</strong><span>Vinil, só logo e grafismo · 3 cm de altura</span></div><em>3,8 m</em></li>
-          </ol>
-          <div class="arts rv" style="--d:5">
-            <span class="lbl">As peças</span>
-            <div class="row">
-              <button type="button" class="tile" data-zoom="assets/img/nutricao/p7-testeira-central.webp" data-gallery="nutricao-p" data-caption="Testeira central em T|Dupla face · 110 × 62 cm, topo a ≈ 1,47 m do chão"><img src="assets/img/nutricao/p7-testeira-central.webp" alt="Arte da testeira central em T"></button>
-              <button type="button" class="tile" data-zoom="assets/img/nutricao/p3-placa-marca.webp" data-gallery="nutricao-p" data-caption="Placa de base · marca e sabores|PS 3 mm · 40 × 20 cm, sem texto"><img src="assets/img/nutricao/p3-placa-marca.webp" alt="Placa de base com marca e sabores"></button>
-              <button type="button" class="tile" data-zoom="assets/img/nutricao/p5-placa-momentos.webp" data-gallery="nutricao-p" data-caption="Placa de base · momentos|PS 3 mm · 40 × 20 cm, sem texto"><img src="assets/img/nutricao/p5-placa-momentos.webp" alt="Placa de base com momentos"></button>
-              <button type="button" class="tile" hidden data-zoom="assets/img/nutricao/p4-placa-shake.webp" data-gallery="nutricao-p" data-caption="Placa de base · shake|PS 3 mm · 40 × 20 cm, marca o fim do trecho Fit"></button>
-            </div>
-            <div class="strips">
-              <button type="button" class="tile st" data-zoom="assets/img/nutricao/p1-regua-whey.webp" data-gallery="nutricao-p" data-caption="Régua · Whey em pó|PS 0,5 mm · 130 × 4 cm"><img src="assets/img/nutricao/p1-regua-whey.webp" alt="Régua Whey em pó"></button>
-              <button type="button" class="tile st" data-zoom="assets/img/nutricao/p1-regua-pronto.webp" data-gallery="nutricao-p" data-caption="Régua · Pronto para beber|PS 0,5 mm · 130 × 4 cm"><img src="assets/img/nutricao/p1-regua-pronto.webp" alt="Régua Pronto para beber"></button>
-              <button type="button" class="tile st" data-zoom="assets/img/nutricao/p1-regua-levar.webp" data-gallery="nutricao-p" data-caption="Régua · Para levar|PS 0,5 mm · 130 × 4 cm, só o nome (prateleira baixa)"><img src="assets/img/nutricao/p1-regua-levar.webp" alt="Régua Para levar"></button>
-            </div>
-          </div>
-        </div>
-        <div class="ifoot rv" style="--d:6">
-          <p class="tot"><b>15</b> peças <small>+ ≈ 3,8 m de rodapé</small></p>
-          <p class="fnote">Topo da testeira abaixo da linha dos olhos. Perto do chão, nenhuma frase.</p>
-          <div class="btns">
-            <button type="button" class="pr" data-zoom="assets/img/nutricao/prancha-4-vistas.webp" data-gallery="nutricao-pr" data-caption="Ilha de nutrição · 4 vistas|Lado C assumido espelhado do A; cabeceira D sem intervenção">Pranchas técnicas <span>3</span></button>
-            <button type="button" hidden data-zoom="assets/img/nutricao/prancha-testeira-central.webp" data-gallery="nutricao-pr" data-caption="Testeira central em T|Frente, corte, montagem e planificação"></button>
-            <button type="button" hidden data-zoom="assets/img/nutricao/prancha-materiais.webp" data-gallery="nutricao-pr" data-caption="Ilha de nutrição · materiais|Lista de materiais para produzir"></button>
-          </div>
-        </div>
-      </div>
-      <div class="media rv" style="--d:1">
-        <div class="cmp" data-mode="slide" data-ar="1.0707">
-          <img class="ib" src="assets/img/nutricao/a-antes.webp" alt="Antes: lado longo da ilha de nutrição na visita técnica">
-          <img class="ia" src="assets/img/nutricao/a-depois.webp" alt="Depois: lado longo com réguas, placas de base e testeira em T">
-          <span class="lab lb">Antes</span><span class="lab la">Depois</span>
-          <div class="handle" tabindex="0" role="slider" aria-label="Arraste para comparar antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
-          <button type="button" class="cz" aria-label="Ampliar as imagens"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg></button>
-        </div>
-        <div class="ctl">
-          <div class="views" role="group" aria-label="Vistas">
-            <button type="button" class="on" data-b="assets/img/nutricao/a-antes.webp" data-a="assets/img/nutricao/a-depois.webp" data-ar="1.0707" data-cap="Lado longo A · trecho Parmalat Fit">A · lado longo</button>
-            <button type="button" data-b="assets/img/nutricao/b-antes.webp" data-a="assets/img/nutricao/b-depois.webp" data-ar="0.535" data-cap="Cabeceira B">B · cabeceira</button>
-          </div>
-          <div class="ab"><button type="button" data-ab="b">Antes</button><button type="button" data-ab="a">Depois</button></div>
-        </div>
-      </div>
-    </div>
-    <aside class="notes" hidden><p>Metade do lado longo é de outras marcas e fica como está. A testeira em T é feita de duas placas dobradas a quente e contra-coladas; os pouches em cima do pé travam a peça. Sem furar o móvel.</p></aside>
-  </section>
-
-  <!-- ================================================================ 10 GÔNDOLA SECA -->
-  <section class="slide space" id="seca" data-ch="3" data-theme="fit" data-title="Gôndola seca · Parmalat Fit" data-sign="Parmalat Fit">
-    <div class="sp">
-      <div class="info">
-        <div class="head">
-          <p class="eyebrow rv">Rotina ativa · <b>Parmalat Fit</b></p>
-          <h2 class="rv" style="--d:1">Ponta de gôndola seca</h2>
-          <p class="msg rv" style="--d:2">“Whey 21 g de proteína”</p>
-          <p class="role rv" style="--d:3">Uma moldura em volta do whey em pó e réguas num modelo só, com uma frase a cada duas prateleiras. As etiquetas do D'avó ficam em janelas fixas.</p>
-        </div>
-        <div class="body">
-          <ol class="kit rv" style="--d:4">
-            <li><b>1</b><div><strong>Testeira com faca especial</strong><span>PS 3 mm (premium: ACM 3 mm) · ≈ 133 × 34 cm</span></div><em>1</em></li>
-            <li><b>2</b><div><strong>Moldura vazada do whey em pó</strong><span>PS 3 mm, aba “Whey 21 g” no mesmo corte · 96 × 56 cm</span></div><em>1</em></li>
-            <li><b>3</b><div><strong>Réguas com frase</strong><span>Energia para o seu dia · Proteína líquida · Nutrição em qualquer rotina · 130 × 5,8 cm</span></div><em>3</em></li>
-            <li><b>4</b><div><strong>Réguas gráficas</strong><span>Mesma arte, sem texto · 130 × 5,8 cm</span></div><em>4</em></li>
-          </ol>
-          <div class="arts rv" style="--d:5">
-            <span class="lbl">As peças</span>
-            <div class="row">
-              <button type="button" class="tile" data-zoom="assets/img/seca/p1-testeira.webp" data-gallery="seca-p" data-caption="Testeira com faca especial|PS 3 mm · ≈ 133 × 34 cm"><img src="assets/img/seca/p1-testeira.webp" alt="Arte da testeira da gôndola seca"></button>
-              <button type="button" class="tile" data-zoom="assets/img/seca/p2-moldura.webp" data-gallery="seca-p" data-caption="Moldura vazada · whey em pó|PS 3 mm · 96 × 56 cm, borda de 3 cm"><img src="assets/img/seca/p2-moldura.webp" alt="Arte da moldura do whey em pó"></button>
-            </div>
-            <div class="strips">
-              <button type="button" class="tile st" data-zoom="assets/img/seca/p3-regua-energia.webp" data-gallery="seca-p" data-caption="Régua · Energia para o seu dia|Café da manhã · 130 × 5,8 cm"><img src="assets/img/seca/p3-regua-energia.webp" alt="Régua Energia para o seu dia"></button>
-              <button type="button" class="tile st" data-zoom="assets/img/seca/p3-regua-grafica.webp" data-gallery="seca-p" data-caption="Régua gráfica|Sem texto, alterna com as réguas de frase"><img src="assets/img/seca/p3-regua-grafica.webp" alt="Régua gráfica"></button>
-              <button type="button" class="tile st" data-zoom="assets/img/seca/p3-regua-proteina.webp" data-gallery="seca-p" data-caption="Régua · Proteína líquida|Leve e prática · 130 × 5,8 cm"><img src="assets/img/seca/p3-regua-proteina.webp" alt="Régua Proteína líquida"></button>
-              <button type="button" class="tile st" data-zoom="assets/img/seca/p3-regua-nutricao.webp" data-gallery="seca-p" data-caption="Régua · Nutrição em qualquer rotina|Pré e pós-treino · 130 × 5,8 cm"><img src="assets/img/seca/p3-regua-nutricao.webp" alt="Régua Nutrição em qualquer rotina"></button>
-            </div>
-          </div>
-        </div>
-        <div class="ifoot rv" style="--d:6">
-          <p class="tot"><b>9</b> peças</p>
-          <p class="fnote">O cartaz “Monte seu combo” sai da frente do produto: combinar com o D'avó onde ele fica.</p>
-          <div class="btns">
-            <button type="button" class="pr" data-zoom="assets/img/seca/prancha-vista-frontal.webp" data-gallery="seca-pr" data-caption="Gôndola seca · vista frontal|Antes e depois, com as peças numeradas">Pranchas técnicas <span>4</span></button>
-            <button type="button" hidden data-zoom="assets/img/seca/prancha-decupagem.webp" data-gallery="seca-pr" data-caption="Gôndola seca · decupagem|Cada peça aberta, com medidas"></button>
-            <button type="button" hidden data-zoom="assets/img/seca/reguas-padronizadas.webp" data-gallery="seca-pr" data-caption="As 7 réguas|Um modelo só: frase alinhada e janelas fixas para as etiquetas"></button>
-            <button type="button" hidden data-zoom="assets/img/seca/prancha-materiais.webp" data-gallery="seca-pr" data-caption="Gôndola seca · materiais|Lista de materiais para produzir"></button>
-          </div>
-        </div>
-      </div>
-      <div class="media rv" style="--d:1">
-        <div class="cmp" data-mode="slide" data-ar="0.5625">
-          <img class="ib" src="assets/img/seca/antes.webp" alt="Antes: ponta de gôndola seca na visita técnica">
-          <img class="ia" src="assets/img/seca/depois.webp" alt="Depois: testeira, moldura do whey e réguas Parmalat Fit">
-          <span class="lab lb">Antes</span><span class="lab la">Depois</span>
-          <div class="handle" tabindex="0" role="slider" aria-label="Arraste para comparar antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
-          <button type="button" class="cz" aria-label="Ampliar as imagens"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg></button>
-        </div>
-        <div class="ctl">
-          <div class="views" role="group" aria-label="Vistas"><button type="button" class="on" data-b="assets/img/seca/antes.webp" data-a="assets/img/seca/depois.webp" data-ar="0.5625" data-cap="Vista frontal">Vista frontal</button></div>
-          <div class="ab"><button type="button" data-ab="b">Antes</button><button type="button" data-ab="a">Depois</button></div>
-        </div>
-      </div>
-    </div>
-    <aside class="notes" hidden><p>As réguas foram padronizadas num modelo só: frases alinhadas na mesma margem e janelas brancas sempre no mesmo lugar para as etiquetas. A régua de baixo e a de dentro da moldura são só gráficas.</p></aside>
-  </section>
-
-  <!-- ================================================================ 11 PENSE ZERO -->
-  <section class="slide space wide" id="pensezero" data-ch="3" data-theme="pz" data-title="Ponta refrigerada · Batavo Pense Zero" data-sign="Batavo Pense Zero" data-maxw="0.6">
-    <div class="sp">
-      <div class="info">
-        <div class="head">
-          <p class="eyebrow rv">Leveza · <b>Batavo Pense Zero</b></p>
-          <h2 class="rv" style="--d:1">Ponta refrigerada</h2>
-          <p class="msg rv" style="--d:2">“Seu dia com mais sabor”</p>
-          <p class="role rv" style="--d:3">O ponto mais seguro de executar: promotora fixa e reposição diária. Cada prateleira responde a uma ocasião.</p>
-        </div>
-        <div class="body">
-          <ol class="kit rv" style="--d:4">
-            <li><b>1</b><div><strong>Testeira superior</strong><span>PS 2 mm, faca nas frutas (premium: ACM 3 mm) · 230 × 14,2 cm</span></div><em>1</em></li>
-            <li><b>2</b><div><strong>Adesivos laterais internos</strong><span>Vinil eletrostático no gabarito do vidro · ≈ 37–46 × 130 cm</span></div><em>2</em></li>
-            <li><b>3</b><div><strong>Réguas por ocasião</strong><span>PS 0,5 mm ou PETG para frio · 108 × 5 cm</span></div><em>6</em></li>
-            <li class="opt"><b>+</b><div><strong>Adesivos externos · opcional</strong><span>Mesma arte, na face do vidro voltada para o corredor</span></div><em>2</em></li>
-          </ol>
-          <div class="arts rv" style="--d:5">
-            <span class="lbl">As peças</span>
-            <div class="strips">
-              <button type="button" class="tile st" data-zoom="assets/img/pensezero/p1-testeira.webp" data-gallery="pz-p" data-caption="Testeira superior|PS 2 mm · 230 × 14,2 cm"><img src="assets/img/pensezero/p1-testeira.webp" alt="Arte da testeira Pense Zero"></button>
-              <button type="button" class="tile st" data-zoom="assets/img/pensezero/p4-regua-cafe.webp" data-gallery="pz-p" data-caption="Régua · Pro café da manhã|108 × 5 cm"><img src="assets/img/pensezero/p4-regua-cafe.webp" alt="Régua Pro café da manhã"></button>
-              <button type="button" class="tile st" data-zoom="assets/img/pensezero/p4-regua-levar.webp" data-gallery="pz-p" data-caption="Régua · Pra levar|108 × 5 cm"><img src="assets/img/pensezero/p4-regua-levar.webp" alt="Régua Pra levar"></button>
-              <button type="button" class="tile st" hidden data-zoom="assets/img/pensezero/p4-regua-compartilhar.webp" data-gallery="pz-p" data-caption="Régua · Pra compartilhar|108 × 5 cm"></button>
-              <button type="button" class="tile st" hidden data-zoom="assets/img/pensezero/p4-regua-rapido.webp" data-gallery="pz-p" data-caption="Régua · No seu lanche rápido|108 × 5 cm"></button>
-              <button type="button" class="tile st" hidden data-zoom="assets/img/pensezero/p4-regua-tarde.webp" data-gallery="pz-p" data-caption="Régua · Pro lanche da tarde|108 × 5 cm"></button>
-              <button type="button" class="tile st" hidden data-zoom="assets/img/pensezero/p4-regua-colher.webp" data-gallery="pz-p" data-caption="Régua · De colher · De sobremesa|108 × 5 cm"></button>
-              <button type="button" class="tile st" hidden data-zoom="assets/img/pensezero/p2-adesivo-esq.webp" data-gallery="pz-p" data-caption="Adesivo lateral esquerdo|Vinil eletrostático · ≈ 37 × 130 cm"></button>
-              <button type="button" class="tile st" hidden data-zoom="assets/img/pensezero/p2-adesivo-dir.webp" data-gallery="pz-p" data-caption="Adesivo lateral direito|Vinil eletrostático · ≈ 46 × 130 cm"></button>
-            </div>
-          </div>
-        </div>
-        <div class="ifoot rv" style="--d:6">
-          <p class="tot"><b>9</b> peças <small>+ 2 opcionais</small></p>
-          <p class="fnote">Arte de referência recortada e endireitada. Na arte final: “0% adição de açúcar” e packshot oficial.</p>
-          <div class="btns">
-            <button type="button" class="pr" data-zoom="assets/img/pensezero/prancha-vista-frontal.webp" data-gallery="pz-pr" data-caption="Pense Zero · vista frontal|A arte de referência com as peças numeradas">Pranchas técnicas <span>3</span></button>
-            <button type="button" hidden data-zoom="assets/img/pensezero/prancha-decupagem.webp" data-gallery="pz-pr" data-caption="Pense Zero · decupagem|Cada peça aberta, com medidas"></button>
-            <button type="button" hidden data-zoom="assets/img/pensezero/prancha-materiais.webp" data-gallery="pz-pr" data-caption="Pense Zero · materiais|Lista de materiais para produzir"></button>
-          </div>
-        </div>
-      </div>
-      <div class="media rv" style="--d:1">
-        <div class="cmp" data-mode="fade" data-ar="1.7778">
-          <img class="ib" src="assets/img/pensezero/antes.webp" alt="Antes: ponta refrigerada Pense Zero na visita técnica">
-          <img class="ia" src="assets/img/pensezero/depois.webp" alt="Depois: testeira Pense Zero, adesivos laterais e réguas por ocasião">
-          <span class="lab lb">Antes</span><span class="lab la">Depois</span>
-          <button type="button" class="cz" aria-label="Ampliar as imagens"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg></button>
-        </div>
-        <div class="ctl">
-          <div class="views" role="group" aria-label="Vistas"><button type="button" class="on" data-b="assets/img/pensezero/antes.webp" data-a="assets/img/pensezero/depois.webp" data-ar="1.7778" data-cap="Vista frontal">Vista frontal</button></div>
-          <div class="ab"><button type="button" data-ab="b">Antes</button><button type="button" data-ab="a">Depois</button></div>
-        </div>
-      </div>
-    </div>
-    <aside class="notes" hidden><p>A promotora pediu prioridade para este ponto: ela abastece todos os dias. As réguas foram tiradas da própria arte de referência, sem as etiquetas de preço, para deixar as janelas livres para o D'avó. Testar o eletrostático no vidro frio antes de produzir.</p></aside>
-  </section>
-
-  <!-- ================================================================ 12 PRÉSIDENT -->
-  <section class="slide space" id="president" data-ch="3" data-theme="pres" data-title="Gôndola fria · Président" data-sign="Président · hero">
-    <div class="sp">
-      <div class="info">
-        <div class="head">
-          <p class="eyebrow rv">Refeição · <b>Président</b> <span class="hero">Hero do projeto</span></p>
-          <h2 class="rv" style="--d:1">Gôndola fria Président</h2>
-          <p class="msg rv" style="--d:2">“O queijo certo para cada momento”</p>
-          <p class="role rv" style="--d:3">Bandejas de polionda no lugar dos displays de papelão, com um cartão de família que o promotor troca conforme o estoque. Nada acima do letreiro do D'avó.</p>
-        </div>
-        <div class="body">
-          <ol class="kit rv" style="--d:4">
-            <li><b>1</b><div><strong>Testeira</strong><span>Premium: ACM champanhe · econômica: PS vermelho · 93 × 9,2 cm</span></div><em>1</em></li>
-            <li><b>2</b><div><strong>Bandejas de prateleira</strong><span>Polionda 4 mm vermelha, sem cola · 30 × 38 cm</span></div><em>13</em></li>
-            <li><b>3</b><div><strong>Bandeja do poço</strong><span>Mesma construção, sob a muçarela · 60 × 38 cm</span></div><em>1</em></li>
-            <li><b>4</b><div><strong>Bolsos frontais</strong><span>PVC cristal 0,5 mm · janela de 28 × 4 cm</span></div><em>13</em></li>
-            <li><b>5</b><div><strong>Cartões de família trocáveis</strong><span>Muçarela, Especiais, Prato, Minas, Gouda, Ralado</span></div><em>19</em></li>
-            <li><b>6</b><div><strong>Wobblers na borda da prateleira</strong><span>PS 1 mm · Ø 8 cm, Lasanha e Hambúrguer</span></div><em>2</em></li>
-          </ol>
-          <div class="arts rv" style="--d:5">
-            <span class="lbl">As peças</span>
-            <div class="row">
-              <button type="button" class="tile" data-zoom="assets/img/president/p2-bandeja-3d.webp" data-gallery="pres-p" data-caption="Bandeja de polionda|Uma peça só, montada sem cola em 1 minuto"><img src="assets/img/president/p2-bandeja-3d.webp" alt="Bandeja de polionda em 3D"></button>
-              <button type="button" class="tile" data-zoom="assets/img/president/p6-wobbler-mucarela.webp" data-gallery="pres-p" data-caption="Wobbler · Lasanha|PS 1 mm frente e verso · Ø 8 cm"><img src="assets/img/president/p6-wobbler-mucarela.webp" alt="Wobbler Lasanha"></button>
-              <button type="button" class="tile" data-zoom="assets/img/president/p6-wobbler-prato.webp" data-gallery="pres-p" data-caption="Wobbler · Hambúrguer|PS 1 mm frente e verso · Ø 8 cm"><img src="assets/img/president/p6-wobbler-prato.webp" alt="Wobbler Hambúrguer"></button>
-            </div>
-            <div class="strips">
-              <button type="button" class="tile st" data-zoom="assets/img/president/p1-testeira-premium.webp" data-gallery="pres-p" data-caption="Testeira premium|ACM 3 mm champanhe escovado, faixa vermelha · 93 × 9,2 cm"><img src="assets/img/president/p1-testeira-premium.webp" alt="Testeira premium"></button>
-              <button type="button" class="tile st" data-zoom="assets/img/president/p1-testeira-economica.webp" data-gallery="pres-p" data-caption="Testeira econômica|PS 2 mm vermelho impresso · 93 × 9,2 cm"><img src="assets/img/president/p1-testeira-economica.webp" alt="Testeira econômica"></button>
-              <button type="button" class="tile st" data-zoom="assets/img/president/p2-frente-bandeja.webp" data-gallery="pres-p" data-caption="Frente da bandeja com o bolso|PVC cristal 0,5 mm, aberto em cima"><img src="assets/img/president/p2-frente-bandeja.webp" alt="Frente da bandeja com o bolso"></button>
-              <button type="button" class="tile st" hidden data-zoom="assets/img/president/p5-cartao-mucarela.webp" data-gallery="pres-p" data-caption="Cartão · Muçarela|PS 0,5 mm · 27,8 × 3,8 cm"></button>
-              <button type="button" class="tile st" hidden data-zoom="assets/img/president/p5-cartao-especiais.webp" data-gallery="pres-p" data-caption="Cartão · Especiais|PS 0,5 mm · 27,8 × 3,8 cm"></button>
-              <button type="button" class="tile st" hidden data-zoom="assets/img/president/p5-cartao-prato.webp" data-gallery="pres-p" data-caption="Cartão · Prato|PS 0,5 mm · 27,8 × 3,8 cm"></button>
-            </div>
-          </div>
-        </div>
-        <div class="ifoot rv" style="--d:6">
-          <p class="tot"><b>49</b> peças</p>
-          <p class="fnote">Premium e econômica usam as mesmas bandejas, bolsos e cartões. Muda a testeira.</p>
-          <div class="btns">
-            <button type="button" class="pr" data-zoom="assets/img/president/prancha-vista-final.webp" data-gallery="pres-pr" data-caption="Président · vista final|Peças numeradas, corte da bandeja e regras">Pranchas técnicas <span>3</span></button>
-            <button type="button" hidden data-zoom="assets/img/president/prancha-bandeja.webp" data-gallery="pres-pr" data-caption="Président · engenharia da bandeja|Faca com cotas, montagem em 5 passos e bolso de PVC"></button>
-            <button type="button" hidden data-zoom="assets/img/president/prancha-materiais.webp" data-gallery="pres-pr" data-caption="Président · materiais|Lista de materiais para produzir"></button>
-          </div>
-        </div>
-      </div>
-      <div class="media rv" style="--d:1">
-        <div class="cmp" data-mode="slide" data-ar="0.6079">
-          <img class="ib" src="assets/img/president/antes.webp" alt="Antes: gôndola Président com displays de papelão">
-          <img class="ia" src="assets/img/president/premium.webp" alt="Depois: bandejas vermelhas com cartões de família e testeira premium">
-          <span class="lab lb">Antes</span><span class="lab la">Depois</span>
-          <div class="handle" tabindex="0" role="slider" aria-label="Arraste para comparar antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
-          <button type="button" class="cz" aria-label="Ampliar as imagens"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg></button>
-        </div>
-        <div class="ctl">
-          <div class="views" role="group" aria-label="Nível">
-            <button type="button" class="on" data-b="assets/img/president/antes.webp" data-a="assets/img/president/premium.webp" data-ar="0.6079" data-cap="Premium · testeira em ACM champanhe">Premium</button>
-            <button type="button" data-b="assets/img/president/antes.webp" data-a="assets/img/president/economica.webp" data-ar="0.6079" data-cap="Econômica · testeira em PS vermelho">Econômica</button>
-          </div>
-          <div class="ab"><button type="button" data-ab="b">Antes</button><button type="button" data-ab="a">Depois</button></div>
-        </div>
-      </div>
-    </div>
-    <aside class="notes" hidden><p>O hero. Os displays de papelão saem; entram bandejas de polionda vermelha com bolso de PVC cristal na frente, onde o promotor troca o cartão da família. 19 cartões: Muçarela 5, Especiais 4, Prato 4, Minas 2, Gouda 2, Ralado 2 (lista a confirmar). Sem luz na área refrigerada.</p></aside>
-  </section>
-
-  <!-- ================================================================ 13 SOBREMESAS -->
-  <section class="slide space" id="sobremesas" data-ch="3" data-theme="sob" data-title="Gôndola fria · Sobremesas Batavo" data-sign="Sobremesas Batavo">
-    <div class="sp">
-      <div class="info">
-        <div class="head">
-          <p class="eyebrow rv">Prazer · <b>Batavo Sobremesas</b></p>
-          <h2 class="rv" style="--d:1">Gôndola de sobremesas</h2>
-          <p class="msg rv" style="--d:2">“Hora da sobremesa”</p>
-          <p class="role rv" style="--d:3">Abrir o apetite e ordenar a escolha sem poluir. Os nomes são soltos: o promotor encaixa e move conforme o estoque.</p>
-        </div>
-        <div class="body">
-          <ol class="kit rv" style="--d:4">
-            <li><b>1</b><div><strong>Testeira na sanefa</strong><span>PS 1 mm, logo e as sobremesas em foto · 125 × 16 cm</span></div><em>1</em></li>
-            <li><b>2</b><div><strong>Réguas-base</strong><span>Marrom e creme contínuo, sem separar os tipos · 125 × 3,9 cm</span></div><em>5</em></li>
-            <li><b>3</b><div><strong>Nomes soltos</strong><span>PETG 0,5 mm: Pudim e Manjar, Flan e Creamy, 8 de cada</span></div><em>24</em></li>
-            <li><b>4</b><div><strong>Faixa do poço</strong><span>Sem texto · 125 × 3 cm</span></div><em>1</em></li>
-            <li><b>5</b><div><strong>Stoppers, um por tipo</strong><span>PS 2 mm frente e verso · 16 × 20 cm</span></div><em>3</em></li>
-          </ol>
-          <div class="arts rv" style="--d:5">
-            <span class="lbl">As peças</span>
-            <div class="row">
-              <button type="button" class="tile" data-zoom="assets/img/sobremesas/p5-stopper-pudim.webp" data-gallery="sob-p" data-caption="Stopper · Pudim e Manjar|PS 2 mm · 16 × 20 cm"><img src="assets/img/sobremesas/p5-stopper-pudim.webp" alt="Stopper Pudim e Manjar"></button>
-              <button type="button" class="tile" data-zoom="assets/img/sobremesas/p5-stopper-flan.webp" data-gallery="sob-p" data-caption="Stopper · Flan|PS 2 mm · 16 × 20 cm"><img src="assets/img/sobremesas/p5-stopper-flan.webp" alt="Stopper Flan"></button>
-              <button type="button" class="tile" data-zoom="assets/img/sobremesas/p5-stopper-creamy.webp" data-gallery="sob-p" data-caption="Stopper · Creamy|PS 2 mm · 16 × 20 cm"><img src="assets/img/sobremesas/p5-stopper-creamy.webp" alt="Stopper Creamy"></button>
-            </div>
-            <div class="strips">
-              <button type="button" class="tile st" data-zoom="assets/img/sobremesas/p1-testeira.webp" data-gallery="sob-p" data-caption="Testeira na sanefa|PS 1 mm · 125 × 16 cm"><img src="assets/img/sobremesas/p1-testeira.webp" alt="Testeira Hora da sobremesa"></button>
-              <button type="button" class="tile st" data-zoom="assets/img/sobremesas/p2-regua-base.webp" data-gallery="sob-p" data-caption="Régua-base|PS 0,5 mm · 125 × 3,9 cm, a mesma nas 5 prateleiras"><img src="assets/img/sobremesas/p2-regua-base.webp" alt="Régua-base marrom e creme"></button>
-              <div class="names">
-                <button type="button" class="tile" data-zoom="assets/img/sobremesas/p3-nome-pudim.webp" data-gallery="sob-p" data-caption="Nome solto · Pudim e Manjar|PETG 0,5 mm · 16,5 × 3,9 cm"><img src="assets/img/sobremesas/p3-nome-pudim.webp" alt="Nome Pudim e Manjar"></button>
-                <button type="button" class="tile" data-zoom="assets/img/sobremesas/p3-nome-flan.webp" data-gallery="sob-p" data-caption="Nome solto · Flan|PETG 0,5 mm · 9,5 × 3,9 cm"><img src="assets/img/sobremesas/p3-nome-flan.webp" alt="Nome Flan"></button>
-                <button type="button" class="tile" data-zoom="assets/img/sobremesas/p3-nome-creamy.webp" data-gallery="sob-p" data-caption="Nome solto · Creamy|PETG 0,5 mm · 11,5 × 3,9 cm"><img src="assets/img/sobremesas/p3-nome-creamy.webp" alt="Nome Creamy"></button>
-              </div>
-              <button type="button" class="tile st" hidden data-zoom="assets/img/sobremesas/p4-faixa-poco.webp" data-gallery="sob-p" data-caption="Faixa do poço|Sem texto · 125 × 3 cm"></button>
-            </div>
-          </div>
-        </div>
-        <div class="ifoot rv" style="--d:6">
-          <p class="tot"><b>34</b> peças</p>
-          <p class="fnote">Luz, saída de ar e grade de retorno livres. Sem wobbler e sem acrílico.</p>
-          <div class="btns">
-            <button type="button" class="pr" data-zoom="assets/img/sobremesas/prancha-vista-frontal.webp" data-gallery="sob-pr" data-caption="Sobremesas · vista frontal e corte|Peças numeradas e a cortina de ar livre">Pranchas técnicas <span>3</span></button>
-            <button type="button" hidden data-zoom="assets/img/sobremesas/prancha-nomes-e-stoppers.webp" data-gallery="sob-pr" data-caption="Nomes soltos e stoppers|Como o promotor ajusta os nomes conforme o estoque"></button>
-            <button type="button" hidden data-zoom="assets/img/sobremesas/prancha-materiais.webp" data-gallery="sob-pr" data-caption="Sobremesas · materiais|Lista de materiais para produzir"></button>
-          </div>
-        </div>
-      </div>
-      <div class="media rv" style="--d:1">
-        <div class="cmp" data-mode="slide" data-ar="0.5625">
-          <img class="ib" src="assets/img/sobremesas/f-antes.webp" alt="Antes: gôndola de sobremesas na visita técnica">
-          <img class="ia" src="assets/img/sobremesas/f-depois.webp" alt="Depois: testeira Hora da sobremesa, réguas, nomes e stoppers">
-          <span class="lab lb">Antes</span><span class="lab la">Depois</span>
-          <div class="handle" tabindex="0" role="slider" aria-label="Arraste para comparar antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
-          <button type="button" class="cz" aria-label="Ampliar as imagens"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg></button>
-        </div>
-        <div class="ctl">
-          <div class="views" role="group" aria-label="Vistas">
-            <button type="button" class="on" data-b="assets/img/sobremesas/f-antes.webp" data-a="assets/img/sobremesas/f-depois.webp" data-ar="0.5625" data-cap="Vista frontal">Frontal</button>
-            <button type="button" data-b="assets/img/sobremesas/a-antes.webp" data-a="assets/img/sobremesas/a-depois.webp" data-ar="0.5625" data-cap="Em ângulo">Em ângulo</button>
-          </div>
-          <div class="ab"><button type="button" data-ab="b">Antes</button><button type="button" data-ab="a">Depois</button></div>
-        </div>
-      </div>
-    </div>
-    <aside class="notes" hidden><p>Os nomes soltos encaixam na canaleta como a etiqueta de preço: faltou Flan, o promotor tira o nome e encaixa outro. Ficam rentes, sem aba, então a criança não puxa. Confirmar com a Lactalis quais itens são Batavo e os nomes das famílias.</p></aside>
-  </section>
-
-  <!-- ================================================================ 14 O KIT -->
-  <section class="slide" id="kit" data-ch="4" data-theme="light" data-title="O kit completo">
-    <div class="pad">
-      <p class="eyebrow rv">O kit completo</p>
-      <h2 class="rv xl" style="--d:1"><span class="num" data-count="132">132</span> peças. <em>Nenhum móvel novo.</em></h2>
-      <p class="sub rv" style="--d:2">Tudo entra sobre o que a loja já tem: sanefa, mastro, trilho de preço, placas e prateleiras.</p>
-      <div class="kgrid">
-        <a class="kc fit rv" style="--d:3" href="#whey" data-goto="whey"><span class="br">Parmalat Fit</span><h3>Ilha quadrada</h3><b data-count="16">16</b><p>1 testeira dupla face · 15 adesivos sobre as placas · ≈ 6,7 m de fita de borda</p><i>Ver o espaço →</i></a>
-        <a class="kc fit rv" style="--d:4" href="#nutricao" data-goto="nutricao"><span class="br">Parmalat Fit</span><h3>Ilha de nutrição</h3><b data-count="15">15</b><p>9 réguas · 5 placas de base · 1 testeira em T · ≈ 3,8 m de rodapé</p><i>Ver o espaço →</i></a>
-        <a class="kc fit rv" style="--d:5" href="#seca" data-goto="seca"><span class="br">Parmalat Fit</span><h3>Gôndola seca</h3><b data-count="9">9</b><p>1 testeira · 1 moldura · 7 réguas, 3 delas com frase</p><i>Ver o espaço →</i></a>
-        <a class="kc pz rv" style="--d:6" href="#pensezero" data-goto="pensezero"><span class="br">Batavo Pense Zero</span><h3>Ponta refrigerada</h3><b data-count="9">9</b><p>1 testeira · 2 adesivos laterais · 6 réguas por ocasião · 2 adesivos externos opcionais</p><i>Ver o espaço →</i></a>
-        <a class="kc pres rv" style="--d:7" href="#president" data-goto="president"><span class="br">Président</span><h3>Gôndola fria</h3><b data-count="49">49</b><p>1 testeira · 14 bandejas · 13 bolsos · 19 cartões · 2 wobblers</p><i>Ver o espaço →</i></a>
-        <a class="kc sob rv" style="--d:8" href="#sobremesas" data-goto="sobremesas"><span class="br">Batavo Sobremesas</span><h3>Gôndola fria</h3><b data-count="34">34</b><p>1 testeira · 5 réguas · 24 nomes soltos · 1 faixa · 3 stoppers</p><i>Ver o espaço →</i></a>
-      </div>
-      <div class="mix rv" style="--d:9">
-        <span class="lbl">Por tipo de peça</span>
-        <div class="bar" aria-hidden="true"><i style="--w:6"></i><i style="--w:27"></i><i style="--w:17"></i><i style="--w:27"></i><i class="k" style="--w:43"></i><i style="--w:12"></i></div>
-        <ul>
-          <li><b>6</b> testeiras</li><li><b>27</b> réguas</li><li><b>17</b> adesivos</li><li><b>27</b> bandejas e bolsos</li><li class="k"><b>43</b> cartões e nomes trocáveis</li><li><b>12</b> placas, moldura, stoppers e wobblers</li>
+        <ul class="stats rv" style="--d:3">
+          <li><b>6</b>espaços</li>
+          <li><b>132</b>peças no kit</li>
+          <li><b>0</b>móvel novo</li>
         </ul>
       </div>
-      <p class="fn rv" style="--d:10">Mais ≈ 10,5 m de fita de borda e rodapé. Quantidades confirmadas depois da medição na loja.</p>
+      <p class="lbl rv" style="--d:4">A loja hoje</p>
+      <div class="today">
+        <a href="#whey" data-goto="whey" class="rv" style="--d:4"><img src="assets/img/whey/a-antes.webp" alt="Ilha quadrada hoje" style="object-position:50% 45%"><span><b>01</b>Ilha quadrada<small>Parmalat Fit</small></span></a>
+        <a href="#nutricao" data-goto="nutricao" class="rv" style="--d:5"><img src="assets/img/nutricao/a-antes.webp" alt="Ilha de nutrição esportiva hoje" style="object-position:30% 50%"><span><b>02</b>Ilha de nutrição<small>Parmalat Fit</small></span></a>
+        <a href="#seca" data-goto="seca" class="rv" style="--d:6"><img src="assets/img/seca/antes.webp" alt="Gôndola seca hoje" style="object-position:50% 35%"><span><b>03</b>Gôndola seca<small>Parmalat Fit</small></span></a>
+        <a href="#pensezero" data-goto="pensezero" class="rv" style="--d:7"><img src="assets/img/pensezero/antes.webp" alt="Ponta refrigerada Pense Zero hoje" style="object-position:38% 50%"><span><b>04</b>Ponta refrigerada<small>Batavo Pense Zero</small></span></a>
+        <a href="#president" data-goto="president" class="rv" style="--d:8"><img src="assets/img/president/antes.webp" alt="Gôndola Président hoje" style="object-position:45% 40%"><span><b>05</b>Gôndola fria<small>Président</small></span></a>
+        <a href="#sobremesas" data-goto="sobremesas" class="rv" style="--d:9"><img src="assets/img/sobremesas/f-antes.webp" alt="Gôndola de sobremesas hoje" style="object-position:50% 40%"><span><b>06</b>Gôndola fria<small>Sobremesas Batavo</small></span></a>
+      </div>
     </div>
-    <aside class="notes" hidden><p>Um terço do kit são cartões e nomes trocáveis: é o que permite à promotora manter o padrão quando o mix muda, sem reimprimir nada.</p></aside>
+    <aside class="notes" hidden><p>Um minuto de contexto: seis pontos, quatro marcas, e a regra de não trocar móvel nem tirar o preço do D'avó do lugar. A partir daqui, cada espaço tem duas telas: o antes e depois, e as peças com o jeito de aplicar.</p></aside>
   </section>
 
-  <!-- ================================================================ 15 DOIS NÍVEIS -->
-  <section class="slide" id="niveis" data-ch="4" data-theme="light" data-title="Dois níveis de acabamento">
+  <!-- ================================================================ 03 WHEY · ANTES E DEPOIS -->
+  <section class="slide ab" id="whey" data-sp="whey" data-theme="cream" data-title="Ilha quadrada Whey · antes e depois" style="--bc:#1E3E94">
     <div class="pad">
-      <p class="eyebrow rv">Dois níveis de investimento</p>
-      <h2 class="rv" style="--d:1">A mesma arquitetura, em dois níveis de acabamento.</h2>
-      <div class="lv">
-        <div class="card rv" style="--d:2">
-          <span class="tag">Econômica</span>
-          <h3>Impacto pela hierarquia, pela blocagem e pelo acabamento.</h3>
-          <button type="button" class="pv" data-zoom="assets/img/president/p1-testeira-economica.webp" data-gallery="lv" data-caption="Testeira Président · econômica|PS 2 mm vermelho impresso"><img src="assets/img/president/p1-testeira-economica.webp" alt="Testeira Président econômica"></button>
-          <ul>
-            <li>Testeiras em PS impresso com laminação fosca.</li>
-            <li>Réguas, bandejas, cartões, nomes, stoppers e adesivos iguais aos da premium.</li>
-            <li>Kit de escala para as outras lojas D'avó.</li>
-          </ul>
-        </div>
-        <div class="card prem rv" style="--d:3">
-          <span class="tag">Premium</span>
-          <h3>Mais materialidade onde a marca pede valor.</h3>
-          <button type="button" class="pv" data-zoom="assets/img/president/p1-testeira-premium.webp" data-gallery="lv" data-caption="Testeira Président · premium|ACM 3 mm champanhe escovado com faixa vermelha"><img src="assets/img/president/p1-testeira-premium.webp" alt="Testeira Président premium"></button>
-          <ul>
-            <li>Testeiras em ACM 3 mm: champanhe escovado no Président, ACM no Pense Zero e na gôndola seca.</li>
-            <li>Adesivos externos nos vidros do Pense Zero, voltados para o corredor.</li>
-            <li>Luz só em moldura externa, com ponto elétrico e aval técnico. As ilhas Parmalat Fit não têm energia.</li>
-          </ul>
+      <div class="a-txt">
+        <span class="nr rv">01</span>
+        <p class="brand rv" style="--d:1">Parmalat Fit</p>
+        <h2 class="rv" style="--d:2">Ilha quadrada Whey</h2>
+        <ul class="chg rv" style="--d:3">
+          <li>Testeira dupla face no mastro que já existe.</li>
+          <li>Adesivos por cima das placas, das colunas e do rodapé.</li>
+          <li>Nada na frente das aberturas: o produto continua à mão.</li>
+        </ul>
+        <div class="views rv" style="--d:4" role="group" aria-label="Vistas">
+          <button type="button" class="on" data-antes="assets/img/whey/a-antes.webp" data-depois="assets/img/whey/a-depois.webp" data-ar="0.5625" data-cap="Face A · frente">Frente</button>
+          <button type="button" data-antes="assets/img/whey/b-antes.webp" data-depois="assets/img/whey/b-depois.webp" data-ar="0.5625" data-cap="Face B · lateral esquerda">Lateral esquerda</button>
+          <button type="button" data-antes="assets/img/whey/c-antes.webp" data-depois="assets/img/whey/c-depois.webp" data-ar="0.5625" data-cap="Face C · lateral direita">Lateral direita</button>
         </div>
       </div>
-      <p class="common rv" style="--d:4"><span class="lbl">Nos dois</span>Guia de implantação e reposição de uma página por ponto. Valores fechados depois da medição na loja e do escopo final.</p>
+      <div class="pair" data-ar="0.5625">
+        <figure class="ph ant"><img src="assets/img/whey/a-antes.webp" alt="Ilha quadrada antes"><span class="tag">Antes</span></figure>
+        <i class="arw" aria-hidden="true"></i>
+        <figure class="ph dep"><img src="assets/img/whey/a-depois.webp" alt="Ilha quadrada depois"><span class="tag">Depois</span></figure>
+      </div>
     </div>
-    <aside class="notes" hidden><p>O planejamento pede dois níveis. A diferença está no acabamento, não na lógica: navegação, bandejas e cartões são os mesmos. Os valores entram com o orçamento de produção, depois da medição.</p></aside>
+    <aside class="notes" hidden><p>A estrutura da ilha não muda. Entra uma testeira sobre a atual e adesivos sobre as placas, sem nada na frente das aberturas. As abas mostram as outras duas faces.</p></aside>
   </section>
 
-  <!-- ================================================================ 16 PRÓXIMOS PASSOS -->
-  <section class="slide" id="passos" data-ch="4" data-theme="light" data-title="Próximos passos">
+  <!-- ================================================================ 04 WHEY · PEÇAS -->
+  <section class="slide pcs" id="whey-pecas" data-sp="whey" data-theme="cream" data-title="Ilha quadrada Whey · as peças" style="--bc:#1E3E94">
     <div class="pad">
-      <p class="eyebrow rv">Próximos passos</p>
-      <h2 class="rv" style="--d:1">Da aprovação à loja montada.</h2>
-      <ol class="steps">
-        <li class="rv" style="--d:2"><b>1</b><h3>Fechar o escopo</h3><p>Quais cinco dos seis pontos entram, e se a ilha Titanic faz parte.</p></li>
-        <li class="rv" style="--d:3"><b>2</b><h3>Medir e fotografar</h3><p>Medidas finais na loja (a VT mistura mm e cm) e as faces que não foram fotografadas.</p></li>
-        <li class="rv" style="--d:4"><b>3</b><h3>Validar com as marcas</h3><p>Claims Triplo Zero e 21 g, famílias e SKUs, logos em vetor e packshots oficiais.</p></li>
-        <li class="rv" style="--d:5"><b>4</b><h3>Prototipar</h3><p>Um ponto refrigerado e um seco, com teste de leitura a 2 m e de fixação no frio.</p></li>
-        <li class="rv" style="--d:6"><b>5</b><h3>Produzir e implantar</h3><p>Kit por ponto e um guia de uma página para a promotora repor e manter.</p></li>
-        <li class="rv" style="--d:7"><b>6</b><h3>Medir o resultado</h3><p>Sell-out por SKU, ruptura, conformidade e tempo de reposição, contra um baseline.</p></li>
-      </ol>
-      <p class="note rv" style="--d:8"><span class="lbl">Com o D'avó</span>Onde fica o cartaz “Monte seu combo” e se o material de Outubro Rosa pode sair da ponta Pense Zero.</p>
+      <header class="b-head">
+        <p class="brand rv"><b>01</b>Ilha quadrada Whey · Parmalat Fit</p>
+        <h2 class="rv" style="--d:1">1 testeira e 15 adesivos, por cima do que já existe.</h2>
+      </header>
+      <div class="mesa rv" style="--d:2">
+        <div class="mi">
+          <div class="row">
+            <figure class="pc" style="--w:80;--h:93"><button type="button" class="pz" data-zoom="assets/img/whey/p3-painel-janela.webp" data-gallery="whey" data-caption="3 · Adesivo do painel com janela|Vinil · 80 × 93 cm · janela vazada igual à atual"><img src="assets/img/whey/p3-painel-janela.webp" alt="Adesivo do painel com janela"></button><figcaption><b>3</b><span>Painel com janela<small>Vinil · 80 × 93 cm · ×1</small></span></figcaption></figure>
+            <figure class="pc" style="--w:39;--h:93"><button type="button" class="pz" data-zoom="assets/img/whey/p4-painel-lateral.webp" data-gallery="whey" data-caption="4 · Adesivo do painel lateral|Vinil · 39 × 93 cm"><img src="assets/img/whey/p4-painel-lateral.webp" alt="Adesivo do painel lateral"></button><figcaption><b>4</b><span>Painel lateral<small>Vinil · 39 × 93 cm · ×1</small></span></figcaption></figure>
+            <figure class="pc" style="--w:28;--h:95"><div class="duo"><button type="button" class="pz" data-zoom="assets/img/whey/p6-coluna-larga.webp" data-gallery="whey" data-caption="6 · Adesivo da coluna larga|Vinil · 18 × 93 cm"><img src="assets/img/whey/p6-coluna-larga.webp" alt="Adesivo da coluna larga" style="--w:18;--h:93"></button><button type="button" class="pz" data-zoom="assets/img/whey/p6-coluna.webp" data-gallery="whey" data-caption="6 · Adesivo das colunas|Vinil · 4 × 94 cm"><img src="assets/img/whey/p6-coluna.webp" alt="Adesivo da coluna" style="--w:4;--h:95"></button></div><figcaption><b>6</b><span>Colunas<small>Vinil · ×5</small></span></figcaption></figure>
+            <div class="col">
+              <figure class="pc" style="--w:78;--h:34"><button type="button" class="pz" data-zoom="assets/img/whey/p1-testeira.webp" data-gallery="whey" data-caption="1 · Testeira dupla face|PS 3 mm com faca especial · 78 × 34 cm"><img src="assets/img/whey/p1-testeira.webp" alt="Testeira dupla face"></button><figcaption><b>1</b><span>Testeira dupla face<small>PS 3 mm · 78 × 34 cm · ×1</small></span></figcaption></figure>
+              <div class="row">
+                <figure class="pc" style="--w:34;--h:31"><button type="button" class="pz" data-zoom="assets/img/whey/p2-placa-central.webp" data-gallery="whey" data-caption="2 · Adesivo da placa central|Vinil · 34 × 31 cm · frente e fundo"><img src="assets/img/whey/p2-placa-central.webp" alt="Adesivo da placa central"></button><figcaption><b>2</b><span>Placa central<small>Vinil · 34 × 31 cm · ×2</small></span></figcaption></figure>
+                <figure class="pc" style="--w:12;--h:12"><button type="button" class="pz" data-zoom="assets/img/whey/p8-triangulo.webp" data-gallery="whey" data-caption="8 · Adesivo do triângulo do topo|Vinil · 12 × 12 cm"><img src="assets/img/whey/p8-triangulo.webp" alt="Adesivo do triângulo"></button><figcaption><b>8</b><span>Triângulo<small>12 × 12 cm · ×2</small></span></figcaption></figure>
+              </div>
+              <figure class="pc" style="--w:80;--h:10"><button type="button" class="pz" data-zoom="assets/img/whey/p5-rodape.webp" data-gallery="whey" data-caption="5 · Adesivo do rodapé|Vinil · 80 × 10 cm · nas 4 faces"><img src="assets/img/whey/p5-rodape.webp" alt="Adesivo do rodapé"></button><figcaption><b>5</b><span>Rodapé<small>Vinil · 80 × 10 cm · ×4</small></span></figcaption></figure>
+              <figure class="pc" style="--w:80;--h:2"><button type="button" class="pz" data-zoom="assets/img/whey/p7-borda.webp" data-gallery="whey" data-caption="7 · Fita de borda|Vinil · 2 cm de altura · ≈ 6,7 m"><img src="assets/img/whey/p7-borda.webp" alt="Fita de borda"></button><figcaption><b>7</b><span>Fita de borda<small>2 cm · ≈ 6,7 m</small></span></figcaption></figure>
+            </div>
+          </div>
+        </div>
+        <span class="scale"><i style="--cm:50"></i>50 cm · peças na mesma escala</span>
+      </div>
+      <aside class="how">
+        <p class="lbl rv" style="--d:3">Como aplica</p>
+        <div class="mc rv" style="--d:4"><i class="pg" data-pg="mastro"></i><div><h3>Na mesma fixação</h3><p>A testeira vai sobre a atual, no mastro que já existe.</p><span class="pn">Peça 1</span></div></div>
+        <div class="mc rv" style="--d:5"><i class="pg" data-pg="adesivo"></i><div><h3>Adesivo por cima</h3><p>Vinil laminado sobre as placas, as colunas e o rodapé atuais.</p><span class="pn">Peças 2 a 6 e 8</span></div></div>
+        <div class="mc rv" style="--d:6"><i class="pg" data-pg="fita"></i><div><h3>Fita rente à borda</h3><p>No tampo e nas prateleiras. A etiqueta de preço do D'avó vai por cima.</p><span class="pn">Peça 7</span></div></div>
+      </aside>
     </div>
-    <aside class="notes" hidden><p>Sem metas antes de ter o baseline. O protótipo de um ponto seco e um refrigerado valida leitura, fixação e manutenção antes da produção integral.</p></aside>
+    <aside class="notes" hidden><p>As peças estão na mesma escala entre si: dá para ver que é uma peça rígida e o resto é adesivo. Nada fura o móvel, nada fica na frente das aberturas.</p></aside>
   </section>
 
-  <!-- ================================================================ 17 CONTATO -->
-  <section class="slide close" id="contato" data-ch="5" data-theme="dark" data-title="Contato">
+  <!-- ================================================================ 05 NUTRIÇÃO · ANTES E DEPOIS -->
+  <section class="slide ab" id="nutricao" data-sp="nutricao" data-theme="cream" data-title="Ilha de nutrição esportiva · antes e depois" style="--bc:#1E3E94">
+    <div class="pad">
+      <div class="a-txt">
+        <span class="nr rv">02</span>
+        <p class="brand rv" style="--d:1">Parmalat Fit</p>
+        <h2 class="rv" style="--d:2">Ilha de nutrição esportiva</h2>
+        <ul class="chg rv" style="--d:3">
+          <li>Testeira em T no meio do topo, em pé sozinha.</li>
+          <li>Réguas por tipo de produto no trilho de preço.</li>
+          <li>Placas de base só com imagem; os vãos seguem com produto.</li>
+        </ul>
+        <div class="views rv" style="--d:4" role="group" aria-label="Vistas">
+          <button type="button" class="on" data-antes="assets/img/nutricao/a-antes.webp" data-depois="assets/img/nutricao/a-depois.webp" data-ar="1.0707" data-cap="Lado longo A · trecho Parmalat Fit">Lado longo</button>
+          <button type="button" data-antes="assets/img/nutricao/b-antes.webp" data-depois="assets/img/nutricao/b-depois.webp" data-ar="0.535" data-cap="Cabeceira B">Cabeceira</button>
+        </div>
+      </div>
+      <div class="pair" data-ar="1.0707">
+        <figure class="ph ant"><img src="assets/img/nutricao/a-antes.webp" alt="Ilha de nutrição antes"><span class="tag">Antes</span></figure>
+        <i class="arw" aria-hidden="true"></i>
+        <figure class="ph dep"><img src="assets/img/nutricao/a-depois.webp" alt="Ilha de nutrição depois"><span class="tag">Depois</span></figure>
+      </div>
+    </div>
+    <aside class="notes" hidden><p>Metade da ilha é Parmalat Fit e metade é concorrência. A testeira em T marca o trecho Fit sem prender nada no móvel; as réguas organizam por tipo: whey em pó, pronto para beber e para levar.</p></aside>
+  </section>
+
+  <!-- ================================================================ 06 NUTRIÇÃO · PEÇAS -->
+  <section class="slide pcs" id="nutricao-pecas" data-sp="nutricao" data-theme="cream" data-title="Ilha de nutrição esportiva · as peças" style="--bc:#1E3E94">
+    <div class="pad">
+      <header class="b-head">
+        <p class="brand rv"><b>02</b>Ilha de nutrição esportiva · Parmalat Fit</p>
+        <h2 class="rv" style="--d:1">Réguas no trilho e peças que ficam em pé sozinhas.</h2>
+      </header>
+      <div class="mesa rv" style="--d:2">
+        <div class="mi">
+          <div class="row">
+            <figure class="pc" style="--w:110;--h:62"><button type="button" class="pz" data-zoom="assets/img/nutricao/p7-testeira-central.webp" data-gallery="nutricao" data-caption="7 · Testeira central em T|2 placas de PS 3 mm em L, dupla face · 110 × 62 cm"><img src="assets/img/nutricao/p7-testeira-central.webp" alt="Testeira central em T"></button><figcaption><b>7</b><span>Testeira em T<small>PS 3 mm · 110 × 62 cm · ×1</small></span></figcaption></figure>
+            <figure class="pc" style="--w:40;--h:64"><div class="stk"><button type="button" class="pz" data-zoom="assets/img/nutricao/p3-placa-marca.webp" data-gallery="nutricao" data-caption="3 · Placa de base · marca e sabores|PS 3 mm com pé de apoio · 40 × 20 cm"><img src="assets/img/nutricao/p3-placa-marca.webp" alt="Placa de base marca e sabores" style="--w:40;--h:20"></button><button type="button" class="pz" data-zoom="assets/img/nutricao/p4-placa-shake.webp" data-gallery="nutricao" data-caption="4 · Placa de base · shake|PS 3 mm com pé de apoio · 40 × 20 cm"><img src="assets/img/nutricao/p4-placa-shake.webp" alt="Placa de base shake" style="--w:40;--h:20"></button><button type="button" class="pz" data-zoom="assets/img/nutricao/p5-placa-momentos.webp" data-gallery="nutricao" data-caption="5 · Placa de base · momentos|PS 3 mm com pé de apoio · 40 × 20 cm"><img src="assets/img/nutricao/p5-placa-momentos.webp" alt="Placa de base momentos" style="--w:40;--h:20"></button></div><figcaption><b>3–5</b><span>Placas de base<small>PS 3 mm · 40 × 20 cm · ×5</small></span></figcaption></figure>
+          </div>
+          <div class="row">
+            <figure class="pc" style="--w:130;--h:14"><div class="stk"><button type="button" class="pz" data-zoom="assets/img/nutricao/p1-regua-whey.webp" data-gallery="nutricao" data-caption="1 · Régua · Whey em pó|PS 0,5 mm · 130 × 4 cm"><img src="assets/img/nutricao/p1-regua-whey.webp" alt="Régua Whey em pó" style="--w:130;--h:4"></button><button type="button" class="pz" data-zoom="assets/img/nutricao/p1-regua-pronto.webp" data-gallery="nutricao" data-caption="1 · Régua · Pronto para beber|PS 0,5 mm · 130 × 4 cm"><img src="assets/img/nutricao/p1-regua-pronto.webp" alt="Régua Pronto para beber" style="--w:130;--h:4"></button><button type="button" class="pz" data-zoom="assets/img/nutricao/p1-regua-levar.webp" data-gallery="nutricao" data-caption="1 · Régua · Para levar|PS 0,5 mm · 130 × 4 cm"><img src="assets/img/nutricao/p1-regua-levar.webp" alt="Régua Para levar" style="--w:130;--h:4"></button></div><figcaption><b>1</b><span>Réguas 130 cm<small>PS 0,5 mm · 130 × 4 cm · ×6</small></span></figcaption></figure>
+            <div class="col">
+              <figure class="pc" style="--w:90;--h:9"><div class="stk"><button type="button" class="pz" data-zoom="assets/img/nutricao/p2-regua90-whey.webp" data-gallery="nutricao" data-caption="2 · Régua 90 · Whey em pó|PS 0,5 mm · 90 × 4 cm · cabeceira"><img src="assets/img/nutricao/p2-regua90-whey.webp" alt="Régua 90 Whey em pó" style="--w:90;--h:4"></button><button type="button" class="pz" data-zoom="assets/img/nutricao/p2-regua90-pronto.webp" data-gallery="nutricao" data-caption="2 · Régua 90 · Pronto para beber|PS 0,5 mm · 90 × 4 cm · cabeceira"><img src="assets/img/nutricao/p2-regua90-pronto.webp" alt="Régua 90 Pronto para beber" style="--w:90;--h:4"></button></div><figcaption><b>2</b><span>Réguas 90 cm<small>Cabeceira · 90 × 4 cm · ×3</small></span></figcaption></figure>
+              <figure class="pc" style="--w:90;--h:3"><button type="button" class="pz" data-zoom="assets/img/nutricao/p6-rodape.webp" data-gallery="nutricao" data-caption="6 · Faixa de rodapé|Vinil adesivo · 3 cm × ≈ 3,8 m · só logo e grafismo"><img src="assets/img/nutricao/p6-rodape.webp" alt="Faixa de rodapé" style="--w:90;--h:2.1"></button><figcaption><b>6</b><span>Faixa de rodapé<small>Vinil · 3 cm · ≈ 3,8 m</small></span></figcaption></figure>
+            </div>
+          </div>
+        </div>
+        <span class="scale"><i style="--cm:50"></i>50 cm · peças na mesma escala</span>
+      </div>
+      <aside class="how">
+        <p class="lbl rv" style="--d:3">Como aplica</p>
+        <div class="mc rv" style="--d:4"><i class="pg" data-pg="trilho"></i><div><h3>Encaixa no trilho</h3><p>A régua entra na canaleta de preço que já existe. A etiqueta do D'avó vai por cima.</p><span class="pn">Peças 1 e 2</span></div></div>
+        <div class="mc rv" style="--d:5"><i class="pg" data-pg="empe"></i><div><h3>Fica em pé sozinha</h3><p>A testeira em T e as placas têm pé de apoio. Os pouches em cima do pé travam a testeira.</p><span class="pn">Peças 3, 4, 5 e 7</span></div></div>
+        <div class="mc rv" style="--d:6"><i class="pg" data-pg="rodape"></i><div><h3>Faixa adesiva</h3><p>Na frente da base do trecho Fit, só com logo e grafismo.</p><span class="pn">Peça 6</span></div></div>
+      </aside>
+    </div>
+    <aside class="notes" hidden><p>Nenhuma peça fura ou prende no móvel. A testeira em T é feita de duas placas dobradas em L e coladas pelas costas; o peso dos pouches trava o pé.</p></aside>
+  </section>
+
+  <!-- ================================================================ 07 GÔNDOLA SECA · ANTES E DEPOIS -->
+  <section class="slide ab" id="seca" data-sp="seca" data-theme="cream" data-title="Gôndola seca · antes e depois" style="--bc:#1E3E94">
+    <div class="pad">
+      <div class="a-txt">
+        <span class="nr rv">03</span>
+        <p class="brand rv" style="--d:1">Parmalat Fit</p>
+        <h2 class="rv" style="--d:2">Ponta de gôndola seca</h2>
+        <ul class="chg rv" style="--d:3">
+          <li>Testeira com faca especial no topo dos montantes.</li>
+          <li>Moldura em volta das prateleiras de whey em pó.</li>
+          <li>Sete réguas iguais: três com frase, quatro só com grafismo.</li>
+        </ul>
+      </div>
+      <div class="pair" data-ar="0.5625">
+        <figure class="ph ant"><img src="assets/img/seca/antes.webp" alt="Gôndola seca antes"><span class="tag">Antes</span></figure>
+        <i class="arw" aria-hidden="true"></i>
+        <figure class="ph dep"><img src="assets/img/seca/depois.webp" alt="Gôndola seca depois"><span class="tag">Depois</span></figure>
+      </div>
+    </div>
+    <aside class="notes" hidden><p>A gôndola ganha leitura de cima para baixo: a testeira chama, a moldura destaca o whey em pó e as réguas alternam frase e grafismo, sempre com a mesma margem.</p></aside>
+  </section>
+
+  <!-- ================================================================ 08 GÔNDOLA SECA · PEÇAS -->
+  <section class="slide pcs" id="seca-pecas" data-sp="seca" data-theme="cream" data-title="Gôndola seca · as peças" style="--bc:#1E3E94">
+    <div class="pad">
+      <header class="b-head">
+        <p class="brand rv"><b>03</b>Ponta de gôndola seca · Parmalat Fit</p>
+        <h2 class="rv" style="--d:1">Uma testeira, uma moldura e sete réguas no trilho.</h2>
+      </header>
+      <div class="mesa rv" style="--d:2">
+        <div class="mi">
+          <div class="row">
+            <div class="col">
+              <figure class="pc" style="--w:133;--h:34"><button type="button" class="pz" data-zoom="assets/img/seca/p1-testeira.webp" data-gallery="seca" data-caption="1 · Testeira com faca especial|PS 3 mm · ≈ 133 × 34 cm"><img src="assets/img/seca/p1-testeira.webp" alt="Testeira com faca especial"></button><figcaption><b>1</b><span>Testeira com faca especial<small>PS 3 mm · ≈ 133 × 34 cm · ×1</small></span></figcaption></figure>
+              <figure class="pc" style="--w:130;--h:26"><div class="stk"><button type="button" class="pz" data-zoom="assets/img/seca/p3-regua-energia.webp" data-gallery="seca" data-caption="3 · Régua · Energia para o seu dia|Café da manhã · 130 × 5,8 cm"><img src="assets/img/seca/p3-regua-energia.webp" alt="Régua Energia para o seu dia" style="--w:130;--h:5.8"></button><button type="button" class="pz" data-zoom="assets/img/seca/p3-regua-grafica.webp" data-gallery="seca" data-caption="3 · Régua gráfica|Sem texto · 130 × 5,8 cm · ×4"><img src="assets/img/seca/p3-regua-grafica.webp" alt="Régua gráfica" style="--w:130;--h:5.8"></button><button type="button" class="pz" data-zoom="assets/img/seca/p3-regua-proteina.webp" data-gallery="seca" data-caption="3 · Régua · Proteína líquida|Leve e prática · 130 × 5,8 cm"><img src="assets/img/seca/p3-regua-proteina.webp" alt="Régua Proteína líquida" style="--w:130;--h:5.8"></button><button type="button" class="pz" data-zoom="assets/img/seca/p3-regua-nutricao.webp" data-gallery="seca" data-caption="3 · Régua · Nutrição em qualquer rotina|Pré e pós-treino · 130 × 5,8 cm"><img src="assets/img/seca/p3-regua-nutricao.webp" alt="Régua Nutrição em qualquer rotina" style="--w:130;--h:5.8"></button></div><figcaption><b>3</b><span>Réguas<small>PS 0,5 mm · 130 × 5,8 cm · ×7 (3 com frase)</small></span></figcaption></figure>
+            </div>
+            <figure class="pc" style="--w:96;--h:56"><button type="button" class="pz" data-zoom="assets/img/seca/p2-moldura.webp" data-gallery="seca" data-caption="2 · Moldura vazada · whey em pó|PS 3 mm · 96 × 56 cm · borda de 3 cm"><img src="assets/img/seca/p2-moldura.webp" alt="Moldura vazada do whey em pó"></button><figcaption><b>2</b><span>Moldura vazada<small>PS 3 mm · 96 × 56 cm · ×1</small></span></figcaption></figure>
+          </div>
+        </div>
+        <span class="scale"><i style="--cm:50"></i>50 cm · peças na mesma escala</span>
+      </div>
+      <aside class="how">
+        <p class="lbl rv" style="--d:3">Como aplica</p>
+        <div class="mc rv" style="--d:4"><i class="pg" data-pg="montantes"></i><div><h3>Apoiada nos montantes</h3><p>Dois suportes no topo dos montantes seguram a testeira.</p><span class="pn">Peça 1</span></div></div>
+        <div class="mc rv" style="--d:5"><i class="pg" data-pg="vhb"></i><div><h3>Fita VHB</h3><p>A moldura vazada cola em volta das duas prateleiras de whey em pó.</p><span class="pn">Peça 2</span></div></div>
+        <div class="mc rv" style="--d:6"><i class="pg" data-pg="trilho"></i><div><h3>Encaixa no trilho</h3><p>Todas na mesma medida, com janelas fixas para as etiquetas do D'avó.</p><span class="pn">Peça 3</span></div></div>
+      </aside>
+    </div>
+    <aside class="notes" hidden><p>As réguas seguem um modelo só: frase alinhada na mesma margem e duas janelas fixas para as etiquetas de preço. As gráficas alternam com as de frase.</p></aside>
+  </section>
+
+  <!-- ================================================================ 09 PENSE ZERO · ANTES E DEPOIS -->
+  <section class="slide ab" id="pensezero" data-sp="pensezero" data-theme="cream" data-title="Pense Zero · antes e depois" style="--bc:#0B7FB4">
+    <div class="pad">
+      <div class="a-txt">
+        <span class="nr rv">04</span>
+        <p class="brand rv" style="--d:1">Batavo Pense Zero</p>
+        <h2 class="rv" style="--d:2">Ponta refrigerada</h2>
+        <ul class="chg rv" style="--d:3">
+          <li>Testeira na sanefa, em toda a largura.</li>
+          <li>Adesivos nos vidros laterais.</li>
+          <li>Seis réguas por ocasião: café da manhã, lanche, sobremesa.</li>
+        </ul>
+        <p class="fn rv" style="--d:4">O depois é a arte de referência, com outro enquadramento da foto.</p>
+      </div>
+      <div class="pair" data-ar="1.7778">
+        <figure class="ph ant"><img src="assets/img/pensezero/antes.webp" alt="Ponta refrigerada Pense Zero antes"><span class="tag">Antes</span></figure>
+        <i class="arw" aria-hidden="true"></i>
+        <figure class="ph dep"><img src="assets/img/pensezero/depois.webp" alt="Ponta refrigerada Pense Zero depois"><span class="tag">Depois</span></figure>
+      </div>
+    </div>
+    <aside class="notes" hidden><p>O depois do Pense Zero é a arte de referência, não uma montagem sobre a foto da visita. As réguas levam o shopper por ocasião de consumo.</p></aside>
+  </section>
+
+  <!-- ================================================================ 10 PENSE ZERO · PEÇAS -->
+  <section class="slide pcs" id="pensezero-pecas" data-sp="pensezero" data-theme="cream" data-title="Pense Zero · as peças" style="--bc:#0B7FB4">
+    <div class="pad">
+      <header class="b-head">
+        <p class="brand rv"><b>04</b>Ponta refrigerada · Batavo Pense Zero</p>
+        <h2 class="rv" style="--d:1">Testeira, adesivos no vidro e seis réguas por ocasião.</h2>
+      </header>
+      <div class="mesa rv" style="--d:2">
+        <div class="mi">
+          <figure class="pc" style="--w:230;--h:14.2"><button type="button" class="pz" data-zoom="assets/img/pensezero/p1-testeira.webp" data-gallery="pz" data-caption="1 · Testeira superior|PS 2 mm com faca especial · 230 × 14,2 cm"><img src="assets/img/pensezero/p1-testeira.webp" alt="Testeira superior Pense Zero"></button><figcaption><b>1</b><span>Testeira<small>PS 2 mm · 230 × 14,2 cm · ×1</small></span></figcaption></figure>
+          <div class="row">
+            <figure class="pc" style="--w:88;--h:130"><div class="duo"><button type="button" class="pz" data-zoom="assets/img/pensezero/p2-adesivo-esq.webp" data-gallery="pz" data-caption="2 · Adesivo lateral esquerdo|Vinil eletrostático · ≈ 37 × 130 cm"><img src="assets/img/pensezero/p2-adesivo-esq.webp" alt="Adesivo lateral esquerdo" style="--w:37;--h:130"></button><button type="button" class="pz" data-zoom="assets/img/pensezero/p2-adesivo-dir.webp" data-gallery="pz" data-caption="2 · Adesivo lateral direito|Vinil eletrostático · ≈ 46 × 130 cm"><img src="assets/img/pensezero/p2-adesivo-dir.webp" alt="Adesivo lateral direito" style="--w:46;--h:130"></button></div><figcaption><b>2</b><span>Adesivos laterais<small>Eletrostático · ×2 (+2 externos opcionais)</small></span></figcaption></figure>
+            <figure class="pc" style="--w:108;--h:40"><div class="stk"><button type="button" class="pz" data-zoom="assets/img/pensezero/p4-regua-cafe.webp" data-gallery="pz" data-caption="4 · Régua · Pro café da manhã|PS 0,5 mm ou PETG · 108 × 5 cm"><img src="assets/img/pensezero/p4-regua-cafe.webp" alt="Régua Pro café da manhã" style="--w:108;--h:5"></button><button type="button" class="pz" data-zoom="assets/img/pensezero/p4-regua-compartilhar.webp" data-gallery="pz" data-caption="4 · Régua · Pra compartilhar|PS 0,5 mm ou PETG · 108 × 5 cm"><img src="assets/img/pensezero/p4-regua-compartilhar.webp" alt="Régua Pra compartilhar" style="--w:108;--h:5"></button><button type="button" class="pz" data-zoom="assets/img/pensezero/p4-regua-tarde.webp" data-gallery="pz" data-caption="4 · Régua · Pro lanche da tarde|PS 0,5 mm ou PETG · 108 × 5 cm"><img src="assets/img/pensezero/p4-regua-tarde.webp" alt="Régua Pro lanche da tarde" style="--w:108;--h:5"></button><button type="button" class="pz" data-zoom="assets/img/pensezero/p4-regua-levar.webp" data-gallery="pz" data-caption="4 · Régua · Pra levar|PS 0,5 mm ou PETG · 108 × 5 cm"><img src="assets/img/pensezero/p4-regua-levar.webp" alt="Régua Pra levar" style="--w:108;--h:5"></button><button type="button" class="pz" data-zoom="assets/img/pensezero/p4-regua-rapido.webp" data-gallery="pz" data-caption="4 · Régua · No seu lanche rápido|PS 0,5 mm ou PETG · 108 × 5 cm"><img src="assets/img/pensezero/p4-regua-rapido.webp" alt="Régua No seu lanche rápido" style="--w:108;--h:5"></button><button type="button" class="pz" data-zoom="assets/img/pensezero/p4-regua-colher.webp" data-gallery="pz" data-caption="4 · Régua · De colher, de sobremesa|PS 0,5 mm ou PETG · 108 × 5 cm"><img src="assets/img/pensezero/p4-regua-colher.webp" alt="Régua De colher" style="--w:108;--h:5"></button></div><figcaption><b>4</b><span>Réguas por ocasião<small>PS 0,5 mm ou PETG para frio · 108 × 5 cm · ×6</small></span></figcaption></figure>
+          </div>
+        </div>
+        <span class="scale"><i style="--cm:50"></i>50 cm · peças na mesma escala</span>
+      </div>
+      <aside class="how">
+        <p class="lbl rv" style="--d:3">Como aplica</p>
+        <div class="mc rv" style="--d:4"><i class="pg" data-pg="vhb"></i><div><h3>Fita VHB na sanefa</h3><p>A testeira cola na face da sanefa, de ponta a ponta.</p><span class="pn">Peça 1</span></div></div>
+        <div class="mc rv" style="--d:5"><i class="pg" data-pg="estatico"></i><div><h3>Vinil eletrostático</h3><p>Adere ao vidro sem cola e sai sem deixar resíduo.</p><span class="pn">Peça 2</span></div></div>
+        <div class="mc rv" style="--d:6"><i class="pg" data-pg="trilho"></i><div><h3>Encaixa no trilho</h3><p>Réguas de material próprio para o frio, na canaleta das três prateleiras.</p><span class="pn">Peça 4</span></div></div>
+      </aside>
+    </div>
+    <aside class="notes" hidden><p>Três tipos de aplicação, todos sem ferramenta. O vinil eletrostático deixa trocar a arte dos vidros a cada campanha sem limpar cola.</p></aside>
+  </section>
+
+  <!-- ================================================================ 11 PRÉSIDENT · ANTES E DEPOIS -->
+  <section class="slide ab" id="president" data-sp="president" data-theme="cream" data-title="Président · antes e depois" style="--bc:#BE0F2D">
+    <div class="pad">
+      <div class="a-txt">
+        <span class="nr rv">05</span>
+        <p class="brand rv" style="--d:1">Président</p>
+        <h2 class="rv" style="--d:2">Gôndola fria de queijos</h2>
+        <ul class="chg rv" style="--d:3">
+          <li>Testeira só sobre o bloco Président, abaixo do letreiro do D'avó.</li>
+          <li>Bandejas vermelhas no lugar dos displays de papelão.</li>
+          <li>Nome da família num cartão trocável na frente da bandeja.</li>
+        </ul>
+        <div class="views rv" style="--d:4" role="group" aria-label="Nível de acabamento">
+          <button type="button" class="on" data-antes="assets/img/president/antes.webp" data-depois="assets/img/president/premium.webp" data-ar="0.6079" data-cap="Premium · testeira em ACM champanhe">Premium</button>
+          <button type="button" data-antes="assets/img/president/antes.webp" data-depois="assets/img/president/economica.webp" data-ar="0.6079" data-cap="Econômica · testeira em PS vermelho">Econômica</button>
+        </div>
+      </div>
+      <div class="pair" data-ar="0.6079">
+        <figure class="ph ant"><img src="assets/img/president/antes.webp" alt="Gôndola Président antes"><span class="tag">Antes</span></figure>
+        <i class="arw" aria-hidden="true"></i>
+        <figure class="ph dep"><img src="assets/img/president/premium.webp" alt="Gôndola Président depois"><span class="tag">Depois</span></figure>
+      </div>
+    </div>
+    <aside class="notes" hidden><p>O hero do projeto. Nada acima do letreiro do D'avó, nada nas laterais. As abas mostram a versão premium (testeira em ACM champanhe) e a econômica (PS vermelho).</p></aside>
+  </section>
+
+  <!-- ================================================================ 12 PRÉSIDENT · PEÇAS -->
+  <section class="slide pcs" id="president-pecas" data-sp="president" data-theme="cream" data-title="Président · as peças" style="--bc:#BE0F2D">
+    <div class="pad">
+      <header class="b-head">
+        <p class="brand rv"><b>05</b>Gôndola fria · Président</p>
+        <h2 class="rv" style="--d:1">Bandejas que montam sem cola e cartões que trocam por cima.</h2>
+      </header>
+      <div class="mesa rv" style="--d:2">
+        <div class="mi">
+          <figure class="pc" style="--w:93;--h:20"><div class="stk"><button type="button" class="pz" data-zoom="assets/img/president/p1-testeira-premium.webp" data-gallery="pres" data-caption="1 · Testeira premium|ACM 3 mm champanhe escovado · 93 × 9,2 cm"><img src="assets/img/president/p1-testeira-premium.webp" alt="Testeira premium" style="--w:93;--h:9.2"></button><button type="button" class="pz" data-zoom="assets/img/president/p1-testeira-economica.webp" data-gallery="pres" data-caption="1 · Testeira econômica|PS 2 mm vermelho · 93 × 9,2 cm"><img src="assets/img/president/p1-testeira-economica.webp" alt="Testeira econômica" style="--w:93;--h:9.2"></button></div><figcaption><b>1</b><span>Testeira · premium e econômica<small>ACM 3 mm ou PS 2 mm · 93 × 9,2 cm · ×1</small></span></figcaption></figure>
+          <div class="row">
+            <figure class="pc" style="--w:44;--h:32.7"><button type="button" class="pz" data-zoom="assets/img/president/p2-bandeja-3d.webp" data-gallery="pres" data-caption="2 · Bandeja de polionda|Uma peça só, montada sem cola · 30 × 38 cm"><img src="assets/img/president/p2-bandeja-3d.webp" alt="Bandeja de polionda montada"></button><figcaption><b>2</b><span>Bandeja de polionda<small>4 mm · 30 × 38 cm · ×13 + 1 do poço</small></span></figcaption></figure>
+            <div class="col">
+              <figure class="pc" style="--w:30;--h:5"><button type="button" class="pz" data-zoom="assets/img/president/p2-frente-bandeja.webp" data-gallery="pres" data-caption="4 · Frente da bandeja com o bolso|PVC cristal 0,5 mm, aberto em cima"><img src="assets/img/president/p2-frente-bandeja.webp" alt="Frente da bandeja com o bolso"></button><figcaption><b>4</b><span>Bolso de PVC<small>Cristal 0,5 mm · ×13</small></span></figcaption></figure>
+              <figure class="pc" style="--w:27.8;--h:13.4"><div class="stk"><button type="button" class="pz" data-zoom="assets/img/president/p5-cartao-mucarela.webp" data-gallery="pres" data-caption="5 · Cartão · Muçarela|PS 0,5 mm · 27,8 × 3,8 cm"><img src="assets/img/president/p5-cartao-mucarela.webp" alt="Cartão Muçarela" style="--w:27.8;--h:3.8"></button><button type="button" class="pz" data-zoom="assets/img/president/p5-cartao-especiais.webp" data-gallery="pres" data-caption="5 · Cartão · Especiais|PS 0,5 mm · 27,8 × 3,8 cm"><img src="assets/img/president/p5-cartao-especiais.webp" alt="Cartão Especiais" style="--w:27.8;--h:3.8"></button><button type="button" class="pz" data-zoom="assets/img/president/p5-cartao-prato.webp" data-gallery="pres" data-caption="5 · Cartão · Prato|PS 0,5 mm · 27,8 × 3,8 cm"><img src="assets/img/president/p5-cartao-prato.webp" alt="Cartão Prato" style="--w:27.8;--h:3.8"></button></div><figcaption><b>5</b><span>Cartões de família<small>PS 0,5 mm · 27,8 × 3,8 cm · ×19</small></span></figcaption></figure>
+            </div>
+            <div class="col">
+              <figure class="pc" style="--w:27.8;--h:13.4"><div class="stk"><button type="button" class="pz" data-zoom="assets/img/president/p5-cartao-minas.webp" data-gallery="pres" data-caption="5 · Cartão · Minas|PS 0,5 mm · 27,8 × 3,8 cm"><img src="assets/img/president/p5-cartao-minas.webp" alt="Cartão Minas" style="--w:27.8;--h:3.8"></button><button type="button" class="pz" data-zoom="assets/img/president/p5-cartao-gouda.webp" data-gallery="pres" data-caption="5 · Cartão · Gouda|PS 0,5 mm · 27,8 × 3,8 cm"><img src="assets/img/president/p5-cartao-gouda.webp" alt="Cartão Gouda" style="--w:27.8;--h:3.8"></button><button type="button" class="pz" data-zoom="assets/img/president/p5-cartao-ralado.webp" data-gallery="pres" data-caption="5 · Cartão · Ralado|PS 0,5 mm · 27,8 × 3,8 cm"><img src="assets/img/president/p5-cartao-ralado.webp" alt="Cartão Ralado" style="--w:27.8;--h:3.8"></button></div><figcaption><b>5</b><span>Mais três famílias<small>Minas, Gouda e Ralado</small></span></figcaption></figure>
+              <figure class="pc" style="--w:18;--h:9"><div class="duo"><button type="button" class="pz" data-zoom="assets/img/president/p6-wobbler-mucarela.webp" data-gallery="pres" data-caption="6 · Wobbler · Lasanha|PS 1 mm frente e verso · Ø 8 cm"><img src="assets/img/president/p6-wobbler-mucarela.webp" alt="Wobbler Lasanha" style="--w:8;--h:9"></button><button type="button" class="pz" data-zoom="assets/img/president/p6-wobbler-prato.webp" data-gallery="pres" data-caption="6 · Wobbler · Hambúrguer|PS 1 mm frente e verso · Ø 8 cm"><img src="assets/img/president/p6-wobbler-prato.webp" alt="Wobbler Hambúrguer" style="--w:8;--h:9"></button></div><figcaption><b>6</b><span>Wobblers<small>Ø 8 cm · ×2</small></span></figcaption></figure>
+            </div>
+          </div>
+        </div>
+        <span class="scale"><i style="--cm:10"></i>10 cm · peças planas na mesma escala</span>
+      </div>
+      <aside class="how">
+        <p class="lbl rv" style="--d:3">Como aplica</p>
+        <div class="mc rv" style="--d:4"><i class="pg" data-pg="bandeja"></i><div><h3>Monta sem cola</h3><p>A bandeja chega plana. O promotor dobra e trava em 1 minuto, sem ferramenta.</p><span class="pn">Peça 2</span></div></div>
+        <div class="mc rv" style="--d:5"><i class="pg" data-pg="cartao"></i><div><h3>Cartão trocável</h3><p>Entra por cima no bolso de PVC e troca conforme o estoque. O trilho de preço fica livre.</p><span class="pn">Peças 4 e 5</span></div></div>
+        <div class="mc rv" style="--d:6"><i class="pg" data-pg="vhb"></i><div><h3>Fita VHB</h3><p>A testeira cola na faixa prateada sob o letreiro do D'avó.</p><span class="pn">Peça 1</span></div></div>
+      </aside>
+    </div>
+    <aside class="notes" hidden><p>A bandeja é uma peça só de polionda, cortada em faca: frente e fundo dobram por cima das abas e travam com linguetas, sem cola. O bolso já vem aplicado. Premium e econômica mudam só a testeira.</p></aside>
+  </section>
+
+  <!-- ================================================================ 13 SOBREMESAS · ANTES E DEPOIS -->
+  <section class="slide ab" id="sobremesas" data-sp="sobremesas" data-theme="cream" data-title="Sobremesas Batavo · antes e depois" style="--bc:#4E2C1B">
+    <div class="pad">
+      <div class="a-txt">
+        <span class="nr rv">06</span>
+        <p class="brand rv" style="--d:1">Sobremesas Batavo</p>
+        <h2 class="rv" style="--d:2">Gôndola de sobremesas</h2>
+        <ul class="chg rv" style="--d:3">
+          <li>Testeira "Hora da sobremesa" dentro da sanefa.</li>
+          <li>Uma régua contínua em marrom e creme nas cinco prateleiras.</li>
+          <li>Nomes soltos e três stoppers no trilho de preço.</li>
+        </ul>
+        <div class="views rv" style="--d:4" role="group" aria-label="Vistas">
+          <button type="button" class="on" data-antes="assets/img/sobremesas/f-antes.webp" data-depois="assets/img/sobremesas/f-depois.webp" data-ar="0.5625" data-cap="Vista frontal">Frontal</button>
+          <button type="button" data-antes="assets/img/sobremesas/a-antes.webp" data-depois="assets/img/sobremesas/a-depois.webp" data-ar="0.5625" data-cap="Em ângulo">Em ângulo</button>
+        </div>
+      </div>
+      <div class="pair" data-ar="0.5625">
+        <figure class="ph ant"><img src="assets/img/sobremesas/f-antes.webp" alt="Gôndola de sobremesas antes"><span class="tag">Antes</span></figure>
+        <i class="arw" aria-hidden="true"></i>
+        <figure class="ph dep"><img src="assets/img/sobremesas/f-depois.webp" alt="Gôndola de sobremesas depois"><span class="tag">Depois</span></figure>
+      </div>
+    </div>
+    <aside class="notes" hidden><p>A régua é uma arte só, igual nas cinco prateleiras. Quem diz o tipo de sobremesa são os nomes soltos, que o promotor move conforme o estoque.</p></aside>
+  </section>
+
+  <!-- ================================================================ 14 SOBREMESAS · PEÇAS -->
+  <section class="slide pcs" id="sobremesas-pecas" data-sp="sobremesas" data-theme="cream" data-title="Sobremesas Batavo · as peças" style="--bc:#4E2C1B">
+    <div class="pad">
+      <header class="b-head">
+        <p class="brand rv"><b>06</b>Gôndola de sobremesas · Batavo</p>
+        <h2 class="rv" style="--d:1">Uma régua só e nomes soltos que o promotor troca.</h2>
+      </header>
+      <div class="mesa rv" style="--d:2">
+        <div class="mi">
+          <figure class="pc" style="--w:125;--h:16"><button type="button" class="pz" data-zoom="assets/img/sobremesas/p1-testeira.webp" data-gallery="sob" data-caption="1 · Testeira na sanefa|PS 1 mm · 125 × 16 cm"><img src="assets/img/sobremesas/p1-testeira.webp" alt="Testeira Hora da sobremesa"></button><figcaption><b>1</b><span>Testeira na sanefa<small>PS 1 mm · 125 × 16 cm · ×1</small></span></figcaption></figure>
+          <figure class="pc" style="--w:125;--h:3.9"><button type="button" class="pz" data-zoom="assets/img/sobremesas/p2-regua-base.webp" data-gallery="sob" data-caption="2 · Régua-base|PS 0,5 mm · 125 × 3,9 cm · a mesma nas 5 prateleiras"><img src="assets/img/sobremesas/p2-regua-base.webp" alt="Régua-base marrom e creme"></button><figcaption><b>2</b><span>Régua-base<small>PS 0,5 mm · 125 × 3,9 cm · ×5</small></span></figcaption></figure>
+          <figure class="pc" style="--w:125;--h:3"><button type="button" class="pz" data-zoom="assets/img/sobremesas/p4-faixa-poco.webp" data-gallery="sob" data-caption="4 · Faixa do poço|Sem texto · 125 × 3 cm"><img src="assets/img/sobremesas/p4-faixa-poco.webp" alt="Faixa do poço"></button><figcaption><b>4</b><span>Faixa do poço<small>125 × 3 cm · ×1</small></span></figcaption></figure>
+          <div class="row">
+            <figure class="pc" style="--w:40;--h:3.9"><div class="duo"><button type="button" class="pz" data-zoom="assets/img/sobremesas/p3-nome-pudim.webp" data-gallery="sob" data-caption="3 · Nome solto · Pudim e Manjar|PETG 0,5 mm · 16,5 × 3,9 cm"><img src="assets/img/sobremesas/p3-nome-pudim.webp" alt="Nome Pudim e Manjar" style="--w:16.5;--h:3.9"></button><button type="button" class="pz" data-zoom="assets/img/sobremesas/p3-nome-flan.webp" data-gallery="sob" data-caption="3 · Nome solto · Flan|PETG 0,5 mm · 9,5 × 3,9 cm"><img src="assets/img/sobremesas/p3-nome-flan.webp" alt="Nome Flan" style="--w:9.5;--h:3.9"></button><button type="button" class="pz" data-zoom="assets/img/sobremesas/p3-nome-creamy.webp" data-gallery="sob" data-caption="3 · Nome solto · Creamy|PETG 0,5 mm · 11,5 × 3,9 cm"><img src="assets/img/sobremesas/p3-nome-creamy.webp" alt="Nome Creamy" style="--w:11.5;--h:3.9"></button></div><figcaption><b>3</b><span>Nomes soltos<small>PETG 0,5 mm · ×24 (8 de cada)</small></span></figcaption></figure>
+            <figure class="pc" style="--w:52;--h:20"><div class="duo"><button type="button" class="pz" data-zoom="assets/img/sobremesas/p5-stopper-pudim.webp" data-gallery="sob" data-caption="5 · Stopper · Pudim e Manjar|PS 2 mm frente e verso · 16 × 20 cm"><img src="assets/img/sobremesas/p5-stopper-pudim.webp" alt="Stopper Pudim e Manjar" style="--w:16;--h:20"></button><button type="button" class="pz" data-zoom="assets/img/sobremesas/p5-stopper-flan.webp" data-gallery="sob" data-caption="5 · Stopper · Flan|PS 2 mm frente e verso · 16 × 20 cm"><img src="assets/img/sobremesas/p5-stopper-flan.webp" alt="Stopper Flan" style="--w:16;--h:20"></button><button type="button" class="pz" data-zoom="assets/img/sobremesas/p5-stopper-creamy.webp" data-gallery="sob" data-caption="5 · Stopper · Creamy|PS 2 mm frente e verso · 16 × 20 cm"><img src="assets/img/sobremesas/p5-stopper-creamy.webp" alt="Stopper Creamy" style="--w:16;--h:20"></button></div><figcaption><b>5</b><span>Stoppers<small>PS 2 mm · 16 × 20 cm · ×3</small></span></figcaption></figure>
+          </div>
+        </div>
+        <span class="scale"><i style="--cm:10"></i>10 cm · peças na mesma escala</span>
+      </div>
+      <aside class="how">
+        <p class="lbl rv" style="--d:3">Como aplica</p>
+        <div class="mc rv" style="--d:4"><i class="pg" data-pg="nome"></i><div><h3>Nome solto</h3><p>Encaixa na canaleta como a etiqueta de preço e desliza com o polegar.</p><span class="pn">Peça 3</span></div></div>
+        <div class="mc rv" style="--d:5"><i class="pg" data-pg="presilha"></i><div><h3>Stopper com presilha</h3><p>Presilha de PVC cristal num trecho livre da canaleta.</p><span class="pn">Peça 5</span></div></div>
+        <div class="mc rv" style="--d:6"><i class="pg" data-pg="vhb"></i><div><h3>Fita dupla face</h3><p>Testeira na sanefa, régua-base no fundo da canaleta e faixa do poço.</p><span class="pn">Peças 1, 2 e 4</span></div></div>
+      </aside>
+    </div>
+    <aside class="notes" hidden><p>Fácil para o promotor e difícil para a criança: o nome solto fica rente, sem aba para puxar, e sai com a mesma espátula da etiqueta de preço. Oito de cada nome, cinco em uso e três de reserva.</p></aside>
+  </section>
+
+  <!-- ================================================================ 15 CONTATO -->
+  <section class="slide close" id="contato" data-theme="green" data-title="Contato">
     <div class="pad">
       <div class="cl">
-        <p class="eyebrow rv">75LAB · Estratégia, Design e Produção</p>
-        <h2 class="rv xl" style="--d:1">Da visita técnica <em>à loja montada.</em></h2>
-        <img class="big-logo rv" style="--d:2" src="assets/img/brand/75lab-lime.png" alt="75LAB" width="185" height="120">
+        <p class="eyebrow rv">Obrigado</p>
+        <h2 class="rv" style="--d:1">Do antes ao depois, com o que a loja já tem.</h2>
+        <p class="sub rv" style="--d:2">Próximo passo: medir na loja, fechar o escopo e produzir as peças.</p>
       </div>
-      <div class="cr">
-        <div class="ct rv" style="--d:3">
-          <span class="lbl">Fale com a gente</span>
-          <h3>Vanessa Morelli</h3>
-          <p class="role">Diretora Comercial</p>
-          <ul>
-            <li><span>E-mail</span><a href="mailto:vanessa.morelli@75lab.com.br">vanessa.morelli@75lab.com.br</a><button type="button" class="copy" data-copy="vanessa.morelli@75lab.com.br" aria-label="Copiar o e-mail da Vanessa">copiar</button></li>
-            <li><span>Telefone</span><a href="tel:+5511983982803">(11) 98398-2803</a></li>
-          </ul>
-        </div>
-        <div class="ct rv" style="--d:4">
-          <span class="lbl">75LAB</span>
-          <ul>
-            <li><span>Site</span><a href="https://75lab.com.br" target="_blank" rel="noopener">75lab.com.br</a></li>
-            <li><span>E-mail</span><a href="mailto:contato@75lab.com.br">contato@75lab.com.br</a></li>
-            <li><span>Instagram</span><a href="https://www.instagram.com/setecincolab/" target="_blank" rel="noopener">@setecincolab</a></li>
-          </ul>
-          <small>75LAB Estratégia, Design e Produção Ltda. · CNPJ 55.470.982/0001-77</small>
-        </div>
+      <div class="card rv" style="--d:3">
+        <span class="lbl">Fale com a gente</span>
+        <h3>Vanessa Morelli</h3>
+        <p class="role">Diretora Comercial · 75LAB</p>
+        <ul>
+          <li><span>E-mail</span><a href="mailto:vanessa.morelli@75lab.com.br">vanessa.morelli@75lab.com.br</a><button type="button" class="copy" data-copy="vanessa.morelli@75lab.com.br" aria-label="Copiar o e-mail da Vanessa">copiar</button></li>
+          <li><span>Telefone</span><a href="tel:+5511983982803">(11) 98398-2803</a></li>
+          <li><span>Site</span><a href="https://75lab.com.br" target="_blank" rel="noopener">75lab.com.br</a></li>
+          <li><span>Instagram</span><a href="https://www.instagram.com/setecincolab/" target="_blank" rel="noopener">@setecincolab</a></li>
+        </ul>
+        <img class="card-logo" src="assets/img/brand/75lab-black.png" alt="75LAB" width="185" height="120">
+        <small>75LAB Estratégia, Design e Produção Ltda. · CNPJ 55.470.982/0001-77</small>
       </div>
     </div>
-    <aside class="notes" hidden><p>Fechar com o próximo passo concreto: a reunião para fechar o escopo e a medição na loja.</p></aside>
-  </section>
-
-  <!-- ================================================================ APOIO -->
-  <section class="slide apx" id="a-briefing" data-ch="6" data-theme="light" data-title="Decupagem do briefing">
-    <div class="pad">
-      <p class="eyebrow">Material de apoio</p>
-      <h2>Decupagem do briefing</h2>
-      <table class="tb">
-        <tr><th>Contexto</th><td>Hipermercado de grande porte, com alto estímulo promocional, sinalização própria forte e mix profundo.</td></tr>
-        <tr><th>Marcas</th><td>Parmalat Fit, Batavo Pense Zero, Batavo Sobremesas e Président.</td></tr>
-        <tr><th>Desafio declarado</th><td>Ambientar móveis existentes em alternativa econômica e premium.</td></tr>
-        <tr><th>Desafio real</th><td>Simplificar a escolha e fazer cada marca se destacar sem criar mais ruído visual.</td></tr>
-        <tr><th>Objetivo de negócio</th><td>Aumentar sell-out, presença qualificada e valor percebido do portfólio Lactalis.</td></tr>
-        <tr><th>Objetivo de trade</th><td>Ganhar destaque sem comprometer abastecimento, preço, refrigeração, limpeza ou fluxo.</td></tr>
-        <tr><th>Restrições</th><td>Sem mobiliário novo e sem piso; orçamento aberto; prazo curto; loja ativa; convivência com as estruturas do D'avó.</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <section class="slide apx" id="a-marcas" data-ch="6" data-theme="light" data-title="Contexto de marca">
-    <div class="pad">
-      <p class="eyebrow">Material de apoio</p>
-      <h2>Contexto de marca</h2>
-      <table class="tb c3">
-        <tr><th></th><td class="h">Papel no PDV</td><td class="h">Direção de linguagem</td></tr>
-        <tr><th>Parmalat Fit</th><td>Rotina ativa, proteína e praticidade.</td><td>Clara, dinâmica e funcional. Benefício antes de tecnicismo.</td></tr>
-        <tr><th>Batavo Pense Zero</th><td>Escolha leve, com atributos objetivos de produto.</td><td>Direta, fresca e organizada por sabor e formato.</td></tr>
-        <tr><th>Président</th><td>Qualidade, especialidade e escolha de queijo.</td><td>Premium, sensorial e com curadoria de famílias.</td></tr>
-        <tr><th>Batavo Sobremesas</th><td>Prazer e repertório de sabores dentro da rotina.</td><td>Apetitosa, acolhedora e visualmente ordenada.</td></tr>
-      </table>
-      <p class="apx-note">A loja deve fazer o grupo parecer forte pelas boas experiências de marca. Uma identidade “Lactalis” muito visível sobre as marcas tende a diluir os códigos que já têm reconhecimento na categoria.</p>
-    </div>
-  </section>
-
-  <section class="slide apx" id="a-concorrencia" data-ch="6" data-theme="light" data-title="Concorrência e tensões">
-    <div class="pad">
-      <p class="eyebrow">Material de apoio</p>
-      <h2>Concorrência e tensões</h2>
-      <table class="tb c3">
-        <tr><th></th><td class="h">Concorrência e ruído</td><td class="h">Espaço de diferenciação</td></tr>
-        <tr><th>Nutrição esportiva</th><td>Integralmédica, Max Titanium, Nutrify, Nutren, Nescau Protein e outros códigos “maromba”.</td><td>Organizar por momento: pré, durante e pós-treino.</td></tr>
-        <tr><th>Pense Zero</th><td>Iogurtes zero, funcionais e proteicos, com muitos atributos parecidos.</td><td>Tornar o “Triplo Zero” instantâneo e fácil de navegar.</td></tr>
-        <tr><th>Président</th><td>Polenghi, Tirolez, Aurora, Sadia, Santa Clara e fracionados.</td><td>Curadoria premium: família, gramatura e descoberta.</td></tr>
-        <tr><th>Sobremesas</th><td>Danette, Chandelle, Nestlé, Vigor e pressão de preço.</td><td>Abrir o apetite e variar a escolha sem poluir.</td></tr>
-      </table>
-      <ul class="apx-list">
-        <li>O shopper quer decidir rápido, mas encontra categorias técnicas e visualmente poluídas.</li>
-        <li>A Lactalis precisa ganhar presença, mas não pode esconder produto, preço ou operação.</li>
-        <li>O briefing pede premiumização, mas a loja precisa de soluções resistentes, acessíveis e fáceis de manter.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="slide apx" id="a-insights" data-ch="6" data-theme="light" data-title="Os sete insights">
-    <div class="pad">
-      <p class="eyebrow">Material de apoio</p>
-      <h2>Os sete insights</h2>
-      <ol class="apx-ol">
-        <li>A categoria já é a mídia. A ambientação precisa dar ordem à abundância, não competir com ela.</li>
-        <li>O shopper não compra “portfólio Lactalis”; compra uma resposta para o momento dele.</li>
-        <li>Pense Zero é o ponto com maior segurança de execução, porque tem abastecimento diário dedicado.</li>
-        <li>Président precisa construir valor antes de explicar variedade: qualidade primeiro, navegação depois.</li>
-        <li>LED só cria valor quando reforça desejo, não quando cria risco de manutenção.</li>
-        <li>A presença Parmalat Fit está pulverizada: sem lógica de categoria, pode parecer dispersão em vez de domínio.</li>
-        <li>A versão econômica pode ter alto impacto se investir em hierarquia, blocagem e acabamento.</li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="slide apx" id="a-territorios" data-ch="6" data-theme="light" data-title="Territórios conceituais">
-    <div class="pad">
-      <p class="eyebrow">Material de apoio</p>
-      <h2>Territórios conceituais</h2>
-      <table class="tb c4">
-        <tr><th></th><td class="h">Ideia</td><td class="h">Aplicação</td><td class="h">Avaliação</td></tr>
-        <tr class="rec"><th>Escolhas que acompanham seu dia</th><td>Cada marca responde a um momento real da rotina.</td><td>Fit para o treino, Pense Zero para a leveza, Président para a refeição, Sobremesas para o prazer.</td><td><b>Recomendado:</b> une sem apagar as marcas.</td></tr>
-        <tr><th>Bom de escolher</th><td>A loja reduz dúvidas em categorias cheias de opções.</td><td>Subcategorias claras, réguas e mensagens diretas.</td><td>Mais funcional e econômico.</td></tr>
-        <tr><th>Sabor em destaque</th><td>A qualidade do produto vira a grande comunicação.</td><td>Luz, materialidade, blocagem e imagens pontuais.</td><td>Mais premium; forte para Président e Sobremesas.</td></tr>
-        <tr><th>Seu momento Lactalis</th><td>O portfólio responde a ocasiões diferentes.</td><td>Sinalização transversal discreta e marcas protagonistas.</td><td>Bom para uma escala futura.</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <section class="slide apx" id="a-tecnologia" data-ch="6" data-theme="light" data-title="Design, produção e tecnologia">
-    <div class="pad">
-      <p class="eyebrow">Material de apoio</p>
-      <h2>Design, produção e tecnologia</h2>
-      <table class="tb">
-        <tr><th>Design</th><td>Hierarquia clara: marca, benefício ou ocasião, produto. Não cobrir preço, faceamento ou acesso.</td></tr>
-        <tr><th>Produção</th><td>ACM, PVC e PS adequados, acrílico, metal leve e comunicação intercambiável. Evitar estruturas pesadas.</td></tr>
-        <tr><th>Refrigeração</th><td>Nunca obstruir ventilação ou acesso técnico. Fixação e adesivo precisam suportar frio, umidade e limpeza.</td></tr>
-        <tr><th>LED</th><td>Só em moldura externa, baixa tensão, IP adequado, acesso à manutenção e autorização técnica.</td></tr>
-        <tr><th>Digital</th><td>QR só para receita, combinação de queijo, inspiração ou conteúdo de treino. Sem tela ou gamificação nesta fase.</td></tr>
-      </table>
-      <p class="apx-note"><b>Decisão de proteção:</b> não recomendar LED dentro de área refrigerada antes da validação técnica. O ganho estético não compensa o risco de condensação, falha, limpeza complexa ou impacto no equipamento.</p>
-    </div>
-  </section>
-
-  <section class="slide apx" id="a-confirmar" data-ch="6" data-theme="light" data-title="O que ainda precisa ser confirmado">
-    <div class="pad">
-      <p class="eyebrow">Material de apoio</p>
-      <h2>O que ainda precisa ser confirmado</h2>
-      <table class="tb c3">
-        <tr><th></th><td class="h">Precisamos confirmar</td><td class="h">Impacto</td></tr>
-        <tr><th>Áreas físicas definidas</th><td>Quais cinco pontos são efetivamente contratados.</td><td><b>Crítico</b></td></tr>
-        <tr><th>Medidas iniciais</th><td>Medidas finais: há provável registro em mm como se fosse cm.</td><td><b>Crítico</b></td></tr>
-        <tr><th>Interesse em LED</th><td>Pontos elétricos, tensão, rota de cabo e aval do D'avó e do equipamento.</td><td><b>Crítico</b></td></tr>
-        <tr><th>Président</th><td>Planograma final, lista de cartões, dimensões de embalagens e lançamentos.</td><td>Importante</td></tr>
-        <tr><th>Claims e arquivos</th><td>“Triplo Zero” e “21 g de proteína”, SKUs Batavo, logos em vetor e packshots oficiais.</td><td>Importante</td></tr>
-        <tr><th>Ilha Titanic</th><td>Medidas, mix, permanência e disponibilidade comercial.</td><td>Importante</td></tr>
-      </table>
-      <p class="apx-note">Todos os materiais são modulares, removíveis e laváveis, e entram sem interferir em ventilação, acesso a produtos, trilhos, portas, manutenção ou limpeza.</p>
-    </div>
-  </section>
-
-  <section class="slide apx" id="a-entregaveis" data-ch="6" data-theme="light" data-title="Entregáveis e mensuração">
-    <div class="pad">
-      <p class="eyebrow">Material de apoio</p>
-      <h2>Entregáveis e mensuração</h2>
-      <table class="tb">
-        <tr><th>Must have</th><td>Diagnóstico e mapa de pontos; conceito; criação econômica e premium; fotomontagens; memorial de materiais e fixação; guia de implementação.</td></tr>
-        <tr><th>Should have</th><td>Protótipo de um ponto seco e um refrigerado; plano de reposição; checklist de execução; medição pré e pós.</td></tr>
-        <tr><th>Could have</th><td>QR por ocasião; ilha Titanic; iluminação premium; kit de escala para outras lojas D'avó.</td></tr>
-      </table>
-      <p class="apx-note"><b>Mensuração:</b> sell-out por SKU, ticket médio, giro de lançamentos, conformidade de planograma, ruptura, tempo de reposição, manutenção e leituras de QR quando houver. Sem metas antes do baseline.</p>
-    </div>
-  </section>
-
-  <section class="slide apx" id="a-premortem" data-ch="6" data-theme="light" data-title="Pré-mortem">
-    <div class="pad">
-      <p class="eyebrow">Material de apoio</p>
-      <h2>Pré-mortem</h2>
-      <table class="tb c2">
-        <tr><td class="h">Risco</td><td class="h">Mitigação</td></tr>
-        <tr><td>Custo inviável</td><td>Orçar desde o início uma lista essencial e uma lista premium fechadas.</td></tr>
-        <tr><td>A peça cobre produto ou preço</td><td>Aprovar mockup frontal e teste de leitura a 2 metros.</td></tr>
-        <tr><td>LED falha ou afeta o equipamento</td><td>Só instalação aprovada, externa e acessível.</td></tr>
-        <tr><td>O promotor não mantém o padrão</td><td>Guia visual de uma página por ponto.</td></tr>
-        <tr><td>O mix muda e a peça fica obsoleta</td><td>Áreas intercambiáveis para mensagens e lançamentos: cartões e nomes soltos.</td></tr>
-        <tr><td>O material não aguenta frio e limpeza</td><td>Materiais adequados e teste de fixação antes de escalar.</td></tr>
-        <tr><td>A ambientação vira mais ruído</td><td>Mensagem limitada a marca, benefício e navegação.</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <section class="slide apx" id="a-fontes" data-ch="6" data-theme="light" data-title="Fontes">
-    <div class="pad">
-      <p class="eyebrow">Material de apoio</p>
-      <h2>Fontes e base de análise</h2>
-      <ul class="apx-list src">
-        <li>Briefing do cliente e materiais fornecidos: VT Lactalis | D'avó Oratório; apresentação D'avó com fotos e planograma; apresentação da proposta anterior.</li>
-        <li>75LAB, Planejamento estratégico Lactalis no D'avó Oratório (23/10/2026).</li>
-        <li>Lactalis Brasil, “Nossas marcas”, lactalis.com.br (consulta em 23/10/2026).</li>
-        <li>Parmalat Brasil, “História” e páginas da linha WheyFit, parmalat.com.br (consulta em 23/10/2026).</li>
-        <li>Batavo, páginas da linha Pense Zero, batavo.com.br (consulta em 23/10/2026).</li>
-        <li>ABRAS, “Consumo nos lares encerrou 2025 com alta de 3,68%” (22/01/2026).</li>
-        <li>Kantar, “As novas tendências de consumo no Brasil” (24/07/2025).</li>
-      </ul>
-      <p class="apx-note">As fotomontagens são ilustrativas e foram feitas sobre as fotos da visita técnica. Preços, alguns textos de embalagem e as fotos de alimento são de referência. Medidas, mix final, energia e regras de instalação são validados antes de orçar ou produzir.</p>
-    </div>
+    <aside class="notes" hidden><p>Fechar com o próximo passo concreto: a medição na loja para fechar medidas e escopo.</p></aside>
   </section>
 
 </main>
 
 <!-- Índice -->
 <div id="menu" role="dialog" aria-modal="true" aria-label="Índice">
-  <div class="mc">
+  <div class="mc-box">
     <div class="mh"><span class="lbl">Índice</span><button id="menuClose" type="button" aria-label="Fechar o índice">×</button></div>
-    <div class="mcols"><div><h4>Apresentação</h4><ol id="menuA"></ol></div><div><h4>Material de apoio</h4><ol id="menuB"></ol></div></div>
+    <ol id="menuA"></ol>
     <p class="keys"><b>←</b> <b>→</b> navegar · <b>M</b> índice · <b>N</b> notas · <b>F</b> tela cheia</p>
   </div>
 </div>
@@ -848,7 +469,6 @@
 
 <div id="np" aria-live="polite"></div>
 <div id="toast" role="status"></div>
-<button id="apxOpen" type="button">Ver o material de apoio</button>
 
 <script src="assets/js/deck.js"></script>
 </body>

@@ -20,214 +20,289 @@ if (mobile) html.classList.add('m');
 if (!forceDesk) MQ.addEventListener?.('change', () => location.reload());
 
 const slides = $$('.slide', stage);
-const mainS = slides.filter(s => !s.classList.contains('apx'));
-const apxS = slides.filter(s => s.classList.contains('apx'));
-const CH = ['Abertura', 'Diagnóstico', 'Estratégia', 'Os seis espaços', 'Implantação', 'Contato', 'Material de apoio'];
-const chOf = s => +s.dataset.ch || 0;
 const pad = n => String(n).padStart(2, '0');
-let cur = null, busy = false, busyT = 0, returnTo = null;
+let cur = null, busy = false, busyT = 0;
+
+/* ---------------------------------------------------------------------
+   Pictogramas do jeito de aplicar (viewBox 160 × 100)
+   O desenho sem animação é a peça já aplicada; .a entra de --f, .fl pisca.
+   --------------------------------------------------------------------- */
+const C = { ink: '#2B2420', red: '#E1261C', redd: '#B8170F', grn: '#0E8C6C', crm: '#FFF8EA', gry: '#CDC1AC', tag: '#F7C531', brn: '#5A3322' };
+const tagSvg = (x, y) => `<rect x="${x}" y="${y}" width="30" height="22" rx="3" fill="${C.tag}" stroke="${C.ink}" stroke-width="1.5"/><rect x="${x + 6}" y="${y + 8}" width="18" height="6" rx="2" fill="${C.ink}"/>`;
+const PG = {
+  trilho: `
+    <rect x="8" y="38" width="144" height="34" rx="4" fill="${C.gry}"/>
+    <g class="a" style="--f:translateY(-40px) rotate(-4deg);--fo:0;--du:.8s">
+      <rect x="12" y="44" width="136" height="22" rx="2" fill="${C.red}"/>
+      <rect x="20" y="51" width="46" height="7" rx="3.5" fill="#fff"/>
+    </g>
+    <rect x="8" y="38" width="144" height="5" rx="2" fill="${C.ink}" opacity=".55"/>
+    <rect x="8" y="67" width="144" height="5" rx="2" fill="${C.ink}" opacity=".55"/>
+    <g class="a" style="--f:translateY(-22px) scale(.6);--fo:0;--dl:.8s;--du:.5s">${tagSvg(104, 44)}</g>
+    <g class="fl" style="--dl:.55s" stroke="${C.grn}" stroke-width="3" stroke-linecap="round"><path d="M10 31l-5-6M150 31l5-6M80 29v-8"/></g>`,
+  vhb: `
+    <rect x="8" y="20" width="144" height="60" rx="6" fill="${C.gry}"/>
+    <g fill="${C.grn}"><rect x="28" y="36" width="12" height="9" rx="1.5"/><rect x="120" y="36" width="12" height="9" rx="1.5"/><rect x="28" y="56" width="12" height="9" rx="1.5"/><rect x="120" y="56" width="12" height="9" rx="1.5"/></g>
+    <g class="a" style="--f:translate(16px,-34px) rotate(-7deg);--fo:0;--dl:.3s;--du:.85s;--e:cubic-bezier(.25,1.2,.5,1)">
+      <rect x="20" y="32" width="120" height="36" rx="3" fill="${C.red}"/>
+      <rect x="32" y="43" width="56" height="8" rx="4" fill="#fff"/>
+      <rect x="32" y="56" width="34" height="5" rx="2.5" fill="#fff" opacity=".7"/>
+    </g>
+    <path class="a" d="M124 30h18v18z" fill="#fff" stroke="${C.ink}" stroke-width="1.2" style="opacity:0;transform:translate(26px,-30px) rotate(40deg);--f:none;--fo:1;--du:.6s;--e:ease-in"/>
+    <g class="fl" style="--dl:1s" stroke="${C.grn}" stroke-width="3" stroke-linecap="round"><path d="M52 9v7M80 7v7M108 9v7"/></g>`,
+  adesivo: `
+    <rect x="22" y="12" width="116" height="76" rx="6" fill="${C.gry}"/>
+    <g class="a" style="--f:scaleX(0);--o:0% 50%;--du:1.1s;--e:cubic-bezier(.6,0,.3,1)">
+      <rect x="22" y="12" width="116" height="76" rx="6" fill="${C.red}"/>
+      <circle cx="108" cy="50" r="19" fill="${C.crm}"/>
+      <rect x="34" y="30" width="44" height="9" rx="4.5" fill="#fff"/>
+      <rect x="34" y="45" width="30" height="5" rx="2.5" fill="#fff" opacity=".7"/>
+      <rect x="34" y="70" width="48" height="6" rx="3" fill="#fff" opacity=".45"/>
+    </g>
+    <g class="a" style="--f:translateX(-118px);--du:1.1s;--e:cubic-bezier(.6,0,.3,1)">
+      <rect x="135" y="6" width="9" height="88" rx="4.5" fill="${C.grn}"/>
+      <rect x="141" y="38" width="13" height="24" rx="4" fill="${C.ink}"/>
+    </g>`,
+  fita: `
+    <rect x="6" y="36" width="148" height="8" rx="2" fill="#E6DAC2"/>
+    <rect x="6" y="44" width="148" height="18" rx="3" fill="${C.gry}"/>
+    <g class="a" style="--f:scaleX(0);--o:0% 50%;--du:1s;--e:cubic-bezier(.6,0,.3,1)">
+      <rect x="6" y="48" width="148" height="10" fill="${C.red}"/>
+      <rect x="14" y="51.5" width="28" height="3" rx="1.5" fill="#fff"/>
+      <rect x="118" y="51.5" width="28" height="3" rx="1.5" fill="#fff"/>
+    </g>
+    <g class="a" style="--f:translateX(-136px) rotate(-300deg);--du:1s;--e:cubic-bezier(.6,0,.3,1)">
+      <circle cx="146" cy="53" r="11" fill="#fff" stroke="${C.ink}" stroke-width="2"/>
+      <circle cx="146" cy="53" r="4.5" fill="${C.red}"/>
+      <rect x="145" y="42" width="2" height="5" fill="${C.ink}"/>
+    </g>
+    <g class="a" style="--f:translateY(-26px);--fo:0;--dl:1s;--du:.5s">${tagSvg(62, 42)}</g>`,
+  rodape: `
+    <rect x="6" y="30" width="148" height="40" rx="4" fill="${C.gry}"/>
+    <g class="a" style="--f:scaleX(0);--o:0% 50%;--du:1s;--e:cubic-bezier(.6,0,.3,1)">
+      <rect x="6" y="56" width="148" height="10" fill="${C.red}"/>
+      <rect x="14" y="59.5" width="28" height="3" rx="1.5" fill="#fff"/>
+      <rect x="118" y="59.5" width="28" height="3" rx="1.5" fill="#fff"/>
+    </g>
+    <g class="a" style="--f:translateX(-136px) rotate(-300deg);--du:1s;--e:cubic-bezier(.6,0,.3,1)">
+      <circle cx="146" cy="61" r="11" fill="#fff" stroke="${C.ink}" stroke-width="2"/>
+      <circle cx="146" cy="61" r="4.5" fill="${C.red}"/>
+      <rect x="145" y="50" width="2" height="5" fill="${C.ink}"/>
+    </g>
+    <line x1="6" y1="88" x2="154" y2="88" stroke="${C.ink}" stroke-width="3" stroke-linecap="round" opacity=".35"/>`,
+  empe: `
+    <line x1="8" y1="87" x2="152" y2="87" stroke="${C.ink}" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+    <g class="a" style="--f:translateY(-28px);--fo:0;--du:.75s;--e:cubic-bezier(.3,1.25,.5,1)">
+      <rect x="76" y="10" width="8" height="74" rx="2" fill="${C.red}"/>
+      <rect x="42" y="80" width="76" height="6" rx="2" fill="${C.red}"/>
+    </g>
+    <g class="a" style="--f:translateY(-36px);--fo:0;--dl:.65s;--du:.55s"><rect x="47" y="54" width="24" height="26" rx="5" fill="#fff" stroke="${C.ink}" stroke-width="2"/><rect x="52" y="62" width="14" height="5" rx="2.5" fill="${C.grn}"/></g>
+    <g class="a" style="--f:translateY(-36px);--fo:0;--dl:.85s;--du:.55s"><rect x="89" y="54" width="24" height="26" rx="5" fill="#fff" stroke="${C.ink}" stroke-width="2"/><rect x="94" y="62" width="14" height="5" rx="2.5" fill="${C.grn}"/></g>
+    <g class="fl" style="--dl:1.3s" stroke="${C.grn}" stroke-width="3" stroke-linecap="round"><path d="M34 76l-7-4M126 76l7-4"/></g>`,
+  estatico: `
+    <rect x="26" y="8" width="108" height="84" rx="4" fill="#D6ECF0" stroke="${C.ink}" stroke-width="2"/>
+    <path d="M40 84L64 16M54 84L68 44" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+    <g class="a" style="--f:translate(36px,-12px) rotate(11deg);--fo:0;--du:.95s;--e:cubic-bezier(.2,.9,.3,1)">
+      <rect x="44" y="20" width="72" height="60" rx="3" fill="#fff" stroke="${C.ink}" stroke-width="1.5"/>
+      <circle cx="80" cy="43" r="13" fill="${C.red}"/>
+      <rect x="58" y="63" width="44" height="7" rx="3.5" fill="${C.grn}"/>
+    </g>
+    <g class="fl" style="--dl:.85s" stroke="${C.grn}" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M38 30q-5 3 0 6t0 6"/><path d="M122 54q5 3 0 6t0 6"/></g>`,
+  bandeja: `
+    <line x1="10" y1="86" x2="150" y2="86" stroke="${C.ink}" stroke-width="3" stroke-linecap="round" opacity=".35"/>
+    <rect x="44" y="77" width="72" height="7" rx="1.5" fill="${C.red}"/>
+    <rect class="a" x="37" y="51" width="7" height="33" rx="1.5" fill="${C.red}" style="--f:rotate(-90deg);--o:100% 100%;--dl:.25s;--du:.6s;--e:cubic-bezier(.4,1.3,.6,1)"/>
+    <g class="a" style="--f:rotate(90deg);--o:0% 100%;--dl:.6s;--du:.6s;--e:cubic-bezier(.4,1.3,.6,1)">
+      <rect x="116" y="40" width="7" height="44" rx="1.5" fill="${C.redd}"/>
+      <rect x="123" y="44" width="3" height="30" rx="1" fill="#fff" opacity=".85"/>
+    </g>
+    <g transform="translate(30 27)">
+      <circle r="14" fill="#fff" stroke="${C.ink}" stroke-width="2.5"/>
+      <rect x="-3" y="-20" width="6" height="4" rx="1" fill="${C.ink}"/>
+      <rect class="a" x="-1.5" y="-10" width="3" height="10" rx="1.5" fill="${C.red}" style="--f:rotate(-360deg);--o:50% 100%;--du:1.4s;--e:linear"/>
+    </g>
+    <text x="52" y="32" font-family="Outfit, sans-serif" font-size="15" font-weight="700" fill="${C.ink}">1 min</text>`,
+  cartao: `
+    <rect x="14" y="40" width="132" height="42" rx="3" fill="${C.red}"/>
+    <g class="a" style="--f:translateY(-48px);--fo:0;--dl:.2s;--du:.8s;--e:cubic-bezier(.3,1.15,.5,1)">
+      <rect x="24" y="49" width="112" height="22" rx="3" fill="${C.crm}"/>
+      <rect x="56" y="56" width="48" height="8" rx="4" fill="${C.red}"/>
+    </g>
+    <rect x="19" y="46" width="122" height="29" rx="2" fill="#fff" fill-opacity=".2" stroke="#fff" stroke-width="2"/>
+    <path d="M71 46a9 9 0 0 0 18 0" fill="${C.red}" stroke="#fff" stroke-width="2"/>
+    <g class="fl" style="--dl:1s" stroke="${C.grn}" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M80 32V12M73 19l7-7 7 7"/></g>`,
+  presilha: `
+    <rect x="6" y="58" width="96" height="8" rx="2" fill="${C.gry}"/>
+    <path d="M101 47h9v30h-9" fill="none" stroke="${C.ink}" stroke-width="3" stroke-linejoin="round"/>
+    <g class="a" style="--f:translateX(30px);--fo:0;--du:.7s;--e:cubic-bezier(.3,1.3,.5,1)">
+      <rect x="103" y="53" width="11" height="18" rx="2" fill="#fff" fill-opacity=".7" stroke="${C.ink}" stroke-width="1.5"/>
+      <rect x="113" y="14" width="40" height="58" rx="10" fill="${C.red}"/>
+      <circle cx="133" cy="35" r="12" fill="#F3D9A4"/>
+      <rect x="121" y="55" width="24" height="6" rx="3" fill="#fff"/>
+    </g>
+    <g class="fl" style="--dl:.65s" stroke="${C.grn}" stroke-width="3" stroke-linecap="round"><path d="M96 41l-5-6M96 83l-5 6"/></g>`,
+  nome: `
+    <rect x="6" y="36" width="148" height="34" rx="4" fill="${C.gry}"/>
+    <rect x="9" y="42" width="142" height="22" fill="${C.brn}"/>
+    <path d="M9 42h142v9q-35 6-71 0t-71 0z" fill="#F1DDBA"/>
+    <rect x="6" y="36" width="148" height="6" rx="2" fill="${C.ink}" opacity=".5"/>
+    <rect x="6" y="64" width="148" height="6" rx="2" fill="${C.ink}" opacity=".5"/>
+    ${tagSvg(16, 42)}
+    <g class="a" style="--f:translateX(-38px);--dl:.85s;--du:.75s;--e:cubic-bezier(.5,0,.3,1)">
+      <g class="a" style="--f:translateY(-30px) scaleY(.7);--fo:0;--du:.6s">
+        <rect x="88" y="44" width="48" height="18" rx="5" fill="${C.crm}" stroke="#C68838" stroke-width="1.5"/>
+        <circle cx="98" cy="53" r="5" fill="#C68838"/>
+        <rect x="107" y="50.5" width="23" height="5" rx="2.5" fill="${C.brn}"/>
+      </g>
+    </g>
+    <g class="fl" style="--dl:1.15s" stroke="${C.grn}" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M88 84h46M94 79l-6 5 6 5M128 79l6 5-6 5"/></g>`,
+  mastro: `
+    <rect x="76" y="44" width="8" height="56" fill="${C.gry}"/>
+    <rect x="44" y="24" width="72" height="28" rx="3" fill="${C.gry}"/>
+    <g class="a" style="--f:translateY(-32px);--fo:0;--dl:.2s;--du:.8s;--e:cubic-bezier(.3,1.25,.5,1)">
+      <rect x="34" y="20" width="92" height="38" rx="4" fill="${C.red}"/>
+      <rect x="38" y="9" width="28" height="22" rx="8" fill="#fff" stroke="${C.red}" stroke-width="3"/>
+      <circle cx="114" cy="16" r="12" fill="${C.crm}" stroke="${C.red}" stroke-width="3"/>
+      <rect x="70" y="36" width="40" height="7" rx="3.5" fill="#fff"/>
+    </g>
+    <g class="fl" style="--dl:.9s" stroke="${C.grn}" stroke-width="3" stroke-linecap="round"><path d="M28 64l-6 5M132 64l6 5"/></g>`,
+  montantes: `
+    <rect x="22" y="40" width="10" height="60" fill="${C.gry}"/>
+    <rect x="128" y="40" width="10" height="60" fill="${C.gry}"/>
+    <g class="a" style="--f:translateY(-32px);--fo:0;--dl:.2s;--du:.8s;--e:cubic-bezier(.3,1.25,.5,1)">
+      <path d="M12 42V22q22-16 46-6t46-6q24-3 44 10v22z" fill="${C.red}"/>
+      <rect x="28" y="27" width="48" height="8" rx="4" fill="#fff"/>
+      <circle cx="122" cy="25" r="8" fill="#fff"/>
+    </g>
+    <path d="M20 42h16M140 42h-16" stroke="${C.ink}" stroke-width="3.5" stroke-linecap="round"/>
+    <g class="fl" style="--dl:.9s" stroke="${C.grn}" stroke-width="3" stroke-linecap="round"><path d="M16 50l-6 4M144 50l6 4"/></g>`,
+};
+$$('.pg[data-pg]').forEach(el => {
+  el.innerHTML = `<svg viewBox="0 0 160 100" aria-hidden="true">${PG[el.dataset.pg] || ''}</svg>`;
+});
+function pgPlay(s) {
+  if (RM) return;
+  $$('.mc', s).forEach((c, i) => {
+    c.style.setProperty('--pd', (.8 + i * .45) + 's');
+    c.classList.remove('play'); void c.offsetWidth; c.classList.add('play');
+  });
+}
+$$('.mc').forEach(c => c.addEventListener('mouseenter', () => {
+  if (RM) return;
+  c.style.setProperty('--pd', '0s');
+  c.classList.remove('play'); void c.offsetWidth; c.classList.add('play');
+}));
 
 /* ---------------------------------------------------------------------
    Palco: 900 de altura, largura que acompanha a janela (1600 a 2100)
    --------------------------------------------------------------------- */
 const qa = parseFloat((location.search.match(/[?&]ar=([\d.]+)/) || [])[1]) || 0; // QA: ?desktop&ar=2.2
 function fit() {
-  if (mobile) return;
-  const vw = innerWidth, vh = innerHeight; if (!vw || !vh) return;
-  const a = qa || vw / vh;
-  let W = 1600, H = 900;
-  if (a > 16 / 9) W = Math.min(2100, Math.round(900 * a));
-  else H = Math.min(1100, Math.round(1600 / a));
-  stage.style.width = W + 'px'; stage.style.height = H + 'px';
-  stage.style.setProperty('--scale', Math.min(vw / W, vh / H).toFixed(4));
-  layoutMedia();
+  if (!mobile) {
+    const vw = innerWidth, vh = innerHeight; if (!vw || !vh) return;
+    const a = qa || vw / vh;
+    let W = 1600, H = 900;
+    if (a > 16 / 9) W = Math.min(2100, Math.round(900 * a));
+    else H = Math.min(1100, Math.round(1600 / a));
+    stage.style.width = W + 'px'; stage.style.height = H + 'px';
+    stage.style.setProperty('--scale', Math.min(vw / W, vh / H).toFixed(4));
+  }
+  layout();
+}
+function layout() { $$('.pair').forEach(layoutPair); $$('.mesa').forEach(fitMesa); }
+
+/* antes e depois lado a lado ou um sobre o outro, o que der a foto maior */
+function layoutPair(p) {
+  const ar = +p.dataset.ar;
+  $$('.ph', p).forEach(f => f.style.setProperty('--ar', ar));
+  if (mobile) { p.classList.toggle('land', ar > 1); return; }
+  const W = p.clientWidth, H = p.clientHeight, g = 40;
+  if (!W || !H) return;
+  const hs = Math.min(H, (W - g) / (2 * ar));
+  const hv = Math.min((H - g) / 2, W / ar);
+  const st = hv > hs * 1.02;
+  const h = Math.floor(st ? hv : hs), w = Math.floor(h * ar);
+  p.classList.toggle('st', st);
+  $$('.ph', p).forEach(f => { f.style.width = w + 'px'; f.style.height = h + 'px'; });
 }
 
-/* comparador: o quadro ocupa a altura útil; a coluna fica na largura da maior vista */
-function layoutMedia() {
-  $$('.space').forEach(s => {
-    const sp = $('.sp', s), media = $('.media', s), cmp = $('.cmp', media), ctl = $('.ctl', media);
-    const H = media.clientHeight - (ctl.offsetHeight || 34) - 12;
-    const maxW = sp.clientWidth * (+s.dataset.maxw || .5);
-    const size = ar => { let h = H, w = h * ar; if (w > maxW) { w = maxW; h = w / ar; } return [Math.round(w), Math.round(h)]; };
-    const ars = $$('.views button', media).map(b => +b.dataset.ar).filter(Boolean);
-    media.style.width = Math.max(...ars.map(a => size(a)[0])) + 'px';
-    const [w, h] = size(+cmp.dataset.ar);
-    cmp.style.width = w + 'px'; cmp.style.height = h + 'px';
-  });
-}
-
-/* ---------------------------------------------------------------------
-   Contadores
-   --------------------------------------------------------------------- */
-function runCounts(s) {
-  $$('[data-count]', s).forEach(el => {
-    const to = +el.dataset.count;
-    if (RM) { el.textContent = to; return; }
-    const t0 = performance.now(), D = 1100;
-    const tick = now => {
-      const k = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - k, 3);
-      el.textContent = Math.round(to * e);
-      if (k < 1) requestAnimationFrame(tick);
-    };
-    el.textContent = '0'; requestAnimationFrame(tick);
-    setTimeout(() => { el.textContent = to; }, D + 400); // valor final garantido se a animação pausar
-  });
-}
-
-/* ---------------------------------------------------------------------
-   Comparador antes × depois
-   --------------------------------------------------------------------- */
-function cmpSet(c, p, anim) {
-  c.classList.toggle('anim', !!anim && !RM);
-  c.style.setProperty('--p', p + '%');
-  c.classList.toggle('no-b', p < 10);
-  c.classList.toggle('no-a', p > 90);
-  const h = $('.handle', c); if (h) h.setAttribute('aria-valuenow', Math.round(100 - p));
-  const ab = c.parentElement.querySelector('.ab');
-  if (ab) $$('button', ab).forEach(b => b.classList.toggle('on', (b.dataset.ab === 'b' && p >= 99) || (b.dataset.ab === 'a' && p <= 1)));
-}
-function cmpFade(c, showB) {
-  c.classList.toggle('show-b', showB);
-  c.classList.toggle('no-b', !showB); c.classList.toggle('no-a', showB);
-  const ab = c.parentElement.querySelector('.ab');
-  if (ab) $$('button', ab).forEach(b => b.classList.toggle('on', (b.dataset.ab === 'b') === showB));
-}
-const cmpTimers = new WeakMap();
-function cmpReveal(c) {
-  clearTimeout(cmpTimers.get(c));
-  if (c.dataset.mode === 'fade') {
-    if (RM) { cmpFade(c, false); return; }
-    cmpFade(c, true);
-    cmpTimers.set(c, setTimeout(() => cmpFade(c, false), 900));
+/* peças na mesma escala: o maior --u (px por cm) que cabe na mesa */
+function fitMesa(m) {
+  const mi = $('.mi', m), cs = getComputedStyle(m);
+  const W = m.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+  const H = m.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+  if (W <= 0) return;
+  // celular: as fileiras quebram linha; a escala sai da peça mais larga
+  if (mobile) {
+    const cm = Math.max(...$$('.pc', m).map(f => parseFloat(f.style.getPropertyValue('--w')) || 0));
+    m.style.setProperty('--u', Math.min(6, W / cm).toFixed(3));
     return;
   }
-  if (RM) { cmpSet(c, 50); return; }
-  cmpSet(c, 100);
-  cmpTimers.set(c, setTimeout(() => cmpSet(c, 50, true), 650));
-}
-$$('.cmp').forEach(c => {
-  const media = c.parentElement;
-  const abBox = $('.ab', media); if (abBox) c.append(abBox); // antes / depois por cima da foto
-  c.style.setProperty('--ar', c.dataset.ar);
-  if (c.dataset.mode === 'fade') cmpFade(c, false); else cmpSet(c, 50);
-  // arrastar
-  if (c.dataset.mode === 'slide') {
-    let drag = false;
-    const at = e => { const r = c.getBoundingClientRect(); return Math.max(0, Math.min(100, (e.clientX - r.left) / r.width * 100)); };
-    c.addEventListener('pointerdown', e => {
-      if (e.target.closest('button')) return;
-      drag = true; clearTimeout(cmpTimers.get(c)); c.setPointerCapture(e.pointerId); cmpSet(c, at(e), false);
-    });
-    c.addEventListener('pointermove', e => { if (drag) cmpSet(c, at(e), false); });
-    const end = () => { drag = false; };
-    c.addEventListener('pointerup', end); c.addEventListener('pointercancel', end);
-    const h = $('.handle', c);
-    h.addEventListener('keydown', e => {
-      const p = parseFloat(c.style.getPropertyValue('--p')) || 50;
-      if (e.key === 'ArrowLeft') { e.preventDefault(); e.stopPropagation(); cmpSet(c, Math.max(0, p - 5)); }
-      else if (e.key === 'ArrowRight') { e.preventDefault(); e.stopPropagation(); cmpSet(c, Math.min(100, p + 5)); }
-    });
+  let lo = .4, hi = 16;
+  for (let i = 0; i < 16; i++) {
+    const u = (lo + hi) / 2;
+    m.style.setProperty('--u', u);
+    const ok = mi.offsetWidth <= W + .5 && mi.offsetHeight <= H + .5;
+    if (ok) lo = u; else hi = u;
   }
-  // antes / depois
-  $$('.ab button', media).forEach(b => b.addEventListener('click', () => {
-    clearTimeout(cmpTimers.get(c));
-    if (c.dataset.mode === 'fade') cmpFade(c, b.dataset.ab === 'b');
-    else cmpSet(c, b.dataset.ab === 'b' ? 100 : 0, true);
-  }));
-  // vistas
-  $$('.views button', media).forEach(b => b.addEventListener('click', () => {
+  m.style.setProperty('--u', lo.toFixed(3));
+}
+
+/* ---------------------------------------------------------------------
+   Antes × depois: vistas, entrada do depois e ampliar
+   --------------------------------------------------------------------- */
+function pairGo(p) { if (RM || !p) return; p.classList.remove('go'); void p.offsetWidth; p.classList.add('go'); }
+$$('.ab').forEach(s => {
+  const p = $('.pair', s), ant = $('.ant img', p), dep = $('.dep img', p);
+  $$('.views button', s).forEach(b => b.addEventListener('click', () => {
     if (b.classList.contains('on')) return;
-    $$('.views button', media).forEach(x => x.classList.toggle('on', x === b));
-    $('.ib', c).src = b.dataset.b; $('.ia', c).src = b.dataset.a;
-    c.dataset.ar = b.dataset.ar; c.style.setProperty('--ar', b.dataset.ar); layoutMedia();
-    cmpReveal(c);
+    $$('.views button', s).forEach(x => x.classList.toggle('on', x === b));
+    ant.src = b.dataset.antes; dep.src = b.dataset.depois;
+    p.dataset.ar = b.dataset.ar; layoutPair(p); pairGo(p);
   }));
-  // ampliar: depois e antes da vista atual
-  $('.cz', c).addEventListener('click', e => {
-    e.stopPropagation();
-    const v = $('.views button.on', media), cap = v?.dataset.cap || '';
-    const t = c.closest('.slide').dataset.title;
-    openLb([{ src: $('.ia', c).src, t: 'Depois · ' + t, d: cap }, { src: $('.ib', c).src, t: 'Antes · ' + t, d: cap }], 0);
-  });
+  $$('.ph', p).forEach(f => f.addEventListener('click', () => {
+    const cap = $('.views button.on', s)?.dataset.cap || '';
+    const t = $('h2', s).textContent;
+    openLb([{ src: dep.src, t: 'Depois · ' + t, d: cap }, { src: ant.src, t: 'Antes · ' + t, d: cap }], f.classList.contains('dep') ? 0 : 1);
+  }));
 });
 
-/* ---------------------------------------------------------------------
-   Diagrama de camadas (tela 07)
-   --------------------------------------------------------------------- */
-const sys = $('.sys');
-let sysTimers = [];
-function sysRun() {
-  sysTimers.forEach(clearTimeout); sysTimers = [];
-  if (RM) { sys.dataset.l = 'all'; return; }
-  sys.dataset.l = '';
-  ['1', '2', '3', 'all'].forEach((l, i) => sysTimers.push(setTimeout(() => { sys.dataset.l = l; }, 700 + i * 900)));
-}
-$$('.layers li', sys).forEach(li => {
-  li.addEventListener('mouseenter', () => { sysTimers.forEach(clearTimeout); sys.dataset.l = li.dataset.l; });
-  li.addEventListener('mouseleave', () => { sys.dataset.l = 'all'; });
-});
-
-const onEnter = {
-  sistema: sysRun,
+const onEnter = s => {
+  if (s.classList.contains('ab')) pairGo($('.pair', s));
+  if (s.classList.contains('pcs')) pgPlay(s);
 };
-$$('.space').forEach(s => { onEnter[s.id] = () => cmpReveal($('.cmp', s)); });
 
 /* ---------------------------------------------------------------------
-   Trilho de preço e placa de corredor
+   Rodapé: espaços e contador
    --------------------------------------------------------------------- */
-const ticks = $('#rail .ticks');
-const pos = i => (i / (mainS.length - 1) * 100) + '%';
-mainS.forEach((s, i) => {
+const SP = { whey: 'Whey', nutricao: 'Nutrição', seca: 'Gôndola seca', pensezero: 'Pense Zero', president: 'Président', sobremesas: 'Sobremesas' };
+const spNav = $('#spaces');
+Object.keys(SP).forEach((k, i) => {
+  const first = slides.find(s => s.dataset.sp === k); if (!first) return;
   const b = document.createElement('button');
-  b.type = 'button'; b.className = 'tick'; b.dataset.goto = s.id; b.style.left = pos(i);
-  b.textContent = pad(i + 1); b.title = `${pad(i + 1)} · ${s.dataset.title}`;
-  b.setAttribute('aria-label', `Tela ${i + 1}: ${s.dataset.title}`);
-  ticks.append(b);
+  b.type = 'button'; b.dataset.goto = first.id; b.dataset.sp = k;
+  b.innerHTML = `<b>${pad(i + 1)}</b>${SP[k]}`;
+  spNav.append(b);
 });
-[1, 2, 3, 4].forEach(c => {
-  const i = mainS.findIndex(s => chOf(s) === c); if (i < 0) return;
-  const l = document.createElement('span'); l.className = 'chl'; l.dataset.ch = c; l.style.left = pos(i); l.textContent = CH[c];
-  ticks.append(l);
-});
-const sign = $('#sign'), signNum = $('#signNum'), signTxt = $('#signTxt');
-function setSign(num, txt, swing) {
-  if (signNum.textContent === num && signTxt.textContent === txt) return;
-  signNum.textContent = num; signTxt.textContent = txt;
-  if (swing && !RM) sign.animate([{ transform: 'rotate(2.6deg)' }, { transform: 'rotate(-1.6deg)' }, { transform: 'rotate(.7deg)' }, { transform: 'rotate(0)' }], { duration: 1100, easing: 'ease-out' });
-}
-
-function chrome(s, swing) {
-  const isApx = s.classList.contains('apx');
-  stage.classList.toggle('in-apx', isApx);
-  stage.classList.toggle('on-cover', s.id === 'capa');
-  $('#backBtn').hidden = !isApx;
-  if (isApx) {
-    const i = apxS.indexOf(s);
-    setSign('A' + (i + 1), 'Material de apoio', swing);
-    $$('.tick', ticks).forEach(b => b.classList.remove('cur'));
-  } else {
-    const i = mainS.indexOf(s), c = chOf(s);
-    setSign(pad(i + 1), s.dataset.sign || CH[c], swing);
-    $$('.tick', ticks).forEach((b, k) => { b.classList.toggle('cur', k === i); b.classList.toggle('done', k < i); });
-    $$('.chl', ticks).forEach(l => l.classList.toggle('cur', +l.dataset.ch === c));
-  }
-  const list = isApx ? apxS : mainS;
-  $('#cnext').hidden = list.indexOf(s) === list.length - 1;
-  $$('#menu ol button').forEach(b => b.classList.toggle('cur', b.dataset.id === s.id));
+function chrome(s) {
+  const i = slides.indexOf(s);
+  $('#count').textContent = `${pad(i + 1)} / ${pad(slides.length)}`;
+  $$('button', spNav).forEach(b => b.classList.toggle('cur', b.dataset.sp === s.dataset.sp));
+  $('#cnext').hidden = i === slides.length - 1;
+  $$('#menuA button').forEach(b => b.classList.toggle('cur', b.dataset.id === s.id));
   if (np.classList.contains('open')) fillNotes(s);
   try { history.replaceState(null, '', '#' + s.id); } catch (e) {}
 }
 
 /* ---------------------------------------------------------------------
-   Transições: a nova tela entra em três faixas (testeira, régua, base)
+   Transição: a nova tela abre do centro, como a porta automática da loja
    --------------------------------------------------------------------- */
 function activate(s) {
   s.classList.add('is-active');
   void s.offsetWidth;
   const enter = () => {
     if (s.classList.contains('is-in') || !s.classList.contains('is-active')) return;
-    s.classList.add('is-in'); runCounts(s); onEnter[s.id]?.();
+    s.classList.add('is-in'); onEnter(s);
   };
   requestAnimationFrame(enter); setTimeout(enter, 120);
 }
@@ -247,25 +322,13 @@ function settle() {
   if (cur) { cur.style.zIndex = ''; cur.getAnimations?.().forEach(a => { if (a.effect?.getKeyframes?.().some(k => k.clipPath)) a.cancel(); }); }
   busy = false;
 }
-const easeIO = t => t < .5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
-function stairFrames(dir) {
-  const N = 18, out = [];
-  for (let k = 0; k <= N; k++) {
-    const t = k / N;
-    const x = [0, 1, 2].map(i => easeIO(Math.max(0, Math.min(1, (t - i * .11) / .78))) * 100);
-    const X = v => (dir > 0 ? 100 - v : v).toFixed(2) + '%';
-    const E = dir > 0 ? '100%' : '0%';
-    out.push({ clipPath: `polygon(${E} 0%, ${X(x[0])} 0%, ${X(x[0])} 33.34%, ${X(x[1])} 33.34%, ${X(x[1])} 66.67%, ${X(x[2])} 66.67%, ${X(x[2])} 100%, ${E} 100%)` });
-  }
-  return out;
-}
 function show(next, dir) {
   if (!next || next === cur) return;
   if (busy && performance.now() - busyT < 1300) return;
   if (busy) settle();
   const prev = cur; cur = next;
   slides.forEach(s => { if (s !== prev && s !== next && s.classList.contains('is-active')) deactivate(s); });
-  chrome(next, !!prev);
+  chrome(next);
   body.dataset.theme = next.dataset.theme;
   if (!prev || RM) {
     if (prev) deactivate(prev);
@@ -280,35 +343,23 @@ function show(next, dir) {
     after(a, 750, settle);
     return;
   }
-  const a = next.animate(stairFrames(dir), { duration: 1050, easing: 'linear' });
-  prev.animate([{ transform: 'translateX(0)', filter: 'brightness(1)' }, { transform: `translateX(${-dir * 4}%)`, filter: 'brightness(.94)' }], { duration: 1050, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' });
-  after(a, 1300, settle);
+  const a = next.animate([{ clipPath: 'inset(0 50% 0 50%)' }, { clipPath: 'inset(0 0% 0 0%)' }], { duration: 950, easing: 'cubic-bezier(.75,0,.2,1)' });
+  prev.animate([{ transform: 'scale(1)', filter: 'brightness(1)' }, { transform: 'scale(.965)', filter: 'brightness(.9)' }], { duration: 950, easing: 'cubic-bezier(.6,0,.3,1)', fill: 'forwards' });
+  after(a, 1200, settle);
 }
 function go(target, dir) {
   if (typeof target === 'string') target = document.getElementById(target);
   if (!target) return;
-  if (mobile) {
-    if (target.classList.contains('apx')) html.classList.add('show-apx');
-    target.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'start' });
-    return;
-  }
-  const fromApx = cur && cur.classList.contains('apx'), toApx = target.classList.contains('apx');
-  if (toApx && cur && !fromApx) returnTo = cur;
-  if (dir === undefined) {
-    if (fromApx !== toApx) dir = 0;
-    else { const list = toApx ? apxS : mainS; const d = list.indexOf(target) - list.indexOf(cur); dir = Math.abs(d) > 1 ? 0 : Math.sign(d); }
-  }
+  if (mobile) { target.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'start' }); return; }
+  if (dir === undefined) { const d = slides.indexOf(target) - slides.indexOf(cur); dir = Math.abs(d) > 1 ? 0 : Math.sign(d); }
   show(target, dir);
 }
 function step(d) {
   if (!cur) return;
-  const list = cur.classList.contains('apx') ? apxS : mainS;
-  const i = list.indexOf(cur) + d;
-  if (i >= 0 && i < list.length) go(list[i], d);
+  const i = slides.indexOf(cur) + d;
+  if (i >= 0 && i < slides.length) go(slides[i], d);
 }
-const back = () => go(returnTo || mainS[0], 0);
 $('#cnext').addEventListener('click', () => step(1));
-$('#backBtn').addEventListener('click', back);
 document.addEventListener('click', e => {
   const g = e.target.closest('[data-goto]'); if (!g) return;
   e.preventDefault(); closeMenu(); go(g.dataset.goto);
@@ -319,15 +370,13 @@ document.addEventListener('click', e => {
    --------------------------------------------------------------------- */
 const menu = $('#menu');
 let menuFocus = null;
-[[mainS, $('#menuA'), (s, i) => pad(i + 1)], [apxS, $('#menuB'), (s, i) => 'A' + (i + 1)]].forEach(([list, ol, n]) => {
-  list.forEach((s, i) => {
-    const li = document.createElement('li'), b = document.createElement('button');
-    b.type = 'button'; b.dataset.goto = s.id; b.dataset.id = s.id;
-    b.innerHTML = `<b>${n(s, i)}</b><span>${s.dataset.title}</span>`;
-    li.append(b); ol.append(li);
-  });
+slides.forEach((s, i) => {
+  const li = document.createElement('li'), b = document.createElement('button');
+  b.type = 'button'; b.dataset.goto = s.id; b.dataset.id = s.id;
+  b.innerHTML = `<b>${pad(i + 1)}</b><span>${s.dataset.title}</span>`;
+  li.append(b); $('#menuA').append(li);
 });
-function openMenu() { menuFocus = document.activeElement; menu.classList.add('open'); setTimeout(() => ($('#menu ol button.cur') || $('#menu ol button'))?.focus(), 60); }
+function openMenu() { menuFocus = document.activeElement; menu.classList.add('open'); setTimeout(() => ($('#menuA button.cur') || $('#menuA button'))?.focus(), 60); }
 function closeMenu() { if (!menu.classList.contains('open')) return; menu.classList.remove('open'); menuFocus?.focus?.(); }
 $('#menuBtn').addEventListener('click', openMenu);
 $('#menuClose').addEventListener('click', closeMenu);
@@ -365,14 +414,6 @@ document.addEventListener('click', e => {
   const g = z.dataset.gallery, els = g ? $$(`[data-zoom][data-gallery="${g}"]`) : [z];
   openLb(els.map(item), els.indexOf(z));
 }, true);
-// coluna estreita: as peças abrem por um botão ao lado das pranchas
-$$('.space').forEach(s => {
-  const tiles = $$('.arts [data-zoom]', s); if (!tiles.length) return;
-  const b = document.createElement('button');
-  b.type = 'button'; b.className = 'pr pc'; b.innerHTML = `As peças <span>${tiles.length}</span>`;
-  b.addEventListener('click', () => openLb(tiles.map(item), 0));
-  $('.btns', s).prepend(b);
-});
 $$('[data-zoom]').forEach(z => { if (!z.getAttribute('aria-label')) z.setAttribute('aria-label', 'Ampliar: ' + ((z.dataset.caption || '').split('|')[0] || '')); });
 
 /* ---------------------------------------------------------------------
@@ -416,14 +457,13 @@ document.addEventListener('keydown', e => {
   }
   if (e.ctrlKey || e.metaKey || e.altKey) return;
   const t = e.target;
-  if (t.closest?.('.handle')) return;
   switch (e.key) {
     case 'ArrowRight': case 'PageDown': case 'ArrowDown': e.preventDefault(); step(1); break;
     case ' ': if (t.matches?.('button,a')) return; e.preventDefault(); step(1); break;
     case 'ArrowLeft': case 'PageUp': case 'ArrowUp': e.preventDefault(); step(-1); break;
-    case 'Home': e.preventDefault(); go(cur?.classList.contains('apx') ? apxS[0] : mainS[0], 0); break;
-    case 'End': e.preventDefault(); go(cur?.classList.contains('apx') ? apxS[apxS.length - 1] : mainS[mainS.length - 1], 0); break;
-    case 'Escape': if (np.classList.contains('open')) np.classList.remove('open'); else if (cur?.classList.contains('apx')) back(); break;
+    case 'Home': e.preventDefault(); go(slides[0], 0); break;
+    case 'End': e.preventDefault(); go(slides[slides.length - 1], 0); break;
+    case 'Escape': np.classList.remove('open'); break;
     case 'm': case 'M': e.preventDefault(); openMenu(); break;
     case 'n': case 'N': toggleNotes(); break;
     case 'f': case 'F': if (!document.fullscreenElement) html.requestFullscreen?.().catch(() => {}); else document.exitFullscreen?.(); break;
@@ -442,7 +482,6 @@ if (!mobile) {
   let tx = 0, ty = 0, tt = 0;
   stage.addEventListener('touchstart', e => { const p = e.changedTouches[0]; tx = p.clientX; ty = p.clientY; tt = Date.now(); }, { passive: true });
   stage.addEventListener('touchend', e => {
-    if (e.target.closest('.cmp')) return;
     const p = e.changedTouches[0], dx = p.clientX - tx, dy = p.clientY - ty;
     if (Date.now() - tt < 800 && Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) step(dx < 0 ? 1 : -1);
   }, { passive: true });
@@ -453,9 +492,8 @@ addEventListener('resize', fit);
    Celular: rolagem vertical com entrada por interseção
    --------------------------------------------------------------------- */
 if (mobile) {
-  body.dataset.theme = 'light';
   const enter = s => {
-    if (!s.classList.contains('is-in')) { s.classList.add('is-active', 'is-in'); runCounts(s); onEnter[s.id]?.(); }
+    if (!s.classList.contains('is-in')) { s.classList.add('is-active', 'is-in'); onEnter(s); }
     cur = s;
   };
   const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) enter(en.target); }), { threshold: .15 });
@@ -463,12 +501,13 @@ if (mobile) {
   let raf = 0;
   const check = () => { raf = 0; const vh = innerHeight; slides.forEach(s => { const r = s.getBoundingClientRect(); if (r.height && r.top < vh * .85 && r.bottom > vh * .15) enter(s); }); };
   addEventListener('scroll', () => { if (!raf) raf = setTimeout(check, 60); }, { passive: true });
+  fit();
+  (document.fonts?.ready || Promise.resolve()).then(layout);
   setTimeout(check, 300);
-  $('#apxOpen').addEventListener('click', () => { html.classList.add('show-apx'); apxS[0].scrollIntoView({ behavior: 'smooth' }); });
   const solo = (location.search.match(/[?&]solo=([\w-]+)/) || [])[1]; // QA: ?solo=whey mostra só uma tela
-  if (solo) slides.forEach(s => { if (s.id !== solo) s.style.display = 'none'; else { s.style.display = 'block'; enter(s); } });
+  if (solo) slides.forEach(s => { if (s.id !== solo) s.style.display = 'none'; else { enter(s); } });
   const h = location.hash.slice(1), t = h && document.getElementById(h);
-  if (t && !solo) { if (t.classList.contains('apx')) html.classList.add('show-apx'); setTimeout(() => { t.scrollIntoView(); check(); }, 60); }
+  if (t && !solo) setTimeout(() => { t.scrollIntoView(); check(); }, 60);
   return;
 }
 
@@ -477,8 +516,8 @@ if (mobile) {
    --------------------------------------------------------------------- */
 fit();
 const start = document.getElementById(location.hash.slice(1));
-show(start && start.classList.contains('slide') ? start : mainS[0], 1);
-(document.fonts?.ready || Promise.resolve()).then(layoutMedia);
-addEventListener('load', layoutMedia);
+show(start && start.classList.contains('slide') ? start : slides[0], 1);
+(document.fonts?.ready || Promise.resolve()).then(layout);
+addEventListener('load', layout);
 addEventListener('hashchange', () => { const t = document.getElementById(location.hash.slice(1)); if (t && t !== cur && t.classList.contains('slide')) go(t); });
 })();
