@@ -22,9 +22,11 @@ Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'a
 
 ## A tela de cada espaço
 
-- **Antes × depois** à esquerda. As duas fotos ficam lado a lado ou uma sobre a outra, o que der a foto maior, em até ~58% da largura. O depois entra com uma cortina. As abas do topo trocam a vista, e clicar em qualquer foto amplia. No Pense Zero o depois é a arte de referência, com outro enquadramento da foto da VT.
-- **As peças** à direita, com uma frase-resumo. A "mesa" mostra as peças soltas, na mesma proporção entre si, só com número e nome. As medidas saíram porque são estimativas até a medição na loja. A escala é calculada para ocupar o espaço (`--u`). Cada peça abre ampliada. A bandeja Président é o render 3D.
-- **Como aplica** embaixo: três quadros com um pictograma animado e uma frase curta. Os pictogramas mostram:
+- **Antes × depois** à esquerda, numa foto só: o antes fica à esquerda do divisor e o depois à direita. Arrastar (mouse ou dedo), clicar na foto ou usar as setas com o divisor em foco leva o divisor para os dois lados. Ao entrar na tela, a foto começa toda no antes e o depois corre até o meio; depois aparece a dica "Arraste para comparar", que some no primeiro arrasto. As abas do topo trocam a vista, e a lupa amplia o depois e o antes. As fotos de antes e depois de cada vista têm o mesmo enquadramento; no Pense Zero o depois é a arte de referência.
+- **As peças** à direita, com uma frase-resumo. A "mesa" mostra as peças soltas, na mesma proporção entre si, com número, nome e preço. As medidas saíram porque são estimativas até a medição na loja. A escala é calculada para ocupar o espaço (`--u`). Cada peça abre ampliada. A bandeja Président é o render 3D.
+- **Investimento estimado** ao lado do resumo: a soma das linhas da planilha "Peças DAVÓ" (outubro de 2026) para o espaço. Cada peça mostra o total da sua linha e a quantidade; peças com mais de uma linha somam as linhas (por exemplo, as bandejas Président juntam as 13 de prateleira e a do poço). No Pense Zero os adesivos externos aparecem como opcionais, fora do total. Base dos seis espaços: R$ 4.023,03 (R$ 4.505,02 com os adesivos externos). O contexto avisa que os valores são estimativas, confirmadas após a medição.
+- **Arrumação:** o layout testa até três arrumações e fica com a que deixa a foto e as peças maiores: o como aplica embaixo das peças, ao lado delas, ou (foto deitada) embaixo da foto.
+- **Como aplica** embaixo ou ao lado das peças: três quadros com um pictograma animado e uma frase curta. Os pictogramas mostram:
   - encaixa no trilho;
   - fita VHB;
   - adesivo sobre a placa;
@@ -46,7 +48,7 @@ A apresentação é enviada ao cliente, sem apresentadora, então ela se explica
 - A capa tem o botão **Começar**, e ao abrir aparece uma dica de como avançar.
 - O contexto explica como ler: cada espaço numa tela, com o antes e depois, as peças e como aplicar.
 - No canto inferior direito ficam o botão de voltar e o **Próximo**, que mostra o nome da tela seguinte (por exemplo, "Próximo · Nutrição esportiva").
-- As abas têm rótulo ("Troque a vista", "Compare os acabamentos"). As fotos têm um ícone de ampliar, e as peças também ampliam no clique.
+- A foto de antes × depois tem o divisor vermelho com setas e a dica "Arraste para comparar". As abas têm rótulo ("Troque a vista", "Compare os acabamentos"). A lupa amplia as fotos, e as peças também ampliam no clique.
 - "Ver de novo" repete a animação de aplicação das peças.
 - O fechamento convida a falar com a Vanessa.
 
@@ -62,6 +64,7 @@ Flags de QA:
 - `&ar=2.2` simula outra proporção.
 - `?static` mostra cada tela no estado final, com os pictogramas já aplicados.
 - `?solo=whey` (no celular) mostra só uma tela.
+- `?lay=lado|largo|sob` força uma arrumação da tela de espaço (a escolhida e as notas de cada uma ficam em `data-lay` no `.sp-body`).
 - `?draft` inclui as telas marcadas com `data-draft` (hoje, a de investimento).
 
 ## Direção de arte
@@ -95,7 +98,7 @@ serve.ps1             servidor local (powershell -File serve.ps1 -Port 8792)
 ## Pendências
 
 - **Escopo:** quais cinco dos seis pontos entram, e a ilha Titanic.
-- **Medidas:** saíram da apresentação porque são estimativas. A VT mistura mm e cm, e as faces D da ilha quadrada e C e D da ilha de nutrição não foram fotografadas. Medidas e quantidades se confirmam na medição da loja; as estimativas estão no README de cada espaço, no job.
+- **Medidas e preços:** as medidas saíram da apresentação porque são estimativas; os preços são estimativas de investimento da planilha "Peças DAVÓ". A VT mistura mm e cm, e as faces D da ilha quadrada e C e D da ilha de nutrição não foram fotografadas. Medidas e quantidades se confirmam na medição da loja; as estimativas estão no README de cada espaço, no job.
 - **Claims e arquivos:**
   - "Triplo Zero" ("0% adição de açúcar") e "21 g de proteína";
   - SKUs e famílias Batavo;
@@ -104,6 +107,7 @@ serve.ps1             servidor local (powershell -File serve.ps1 -Port 8792)
 
   As fotos de alimento das peças são ilustrativas.
 - **Com o D'avó:** onde fica o cartaz "Monte seu combo" e se o material de Outubro Rosa pode sair da ponta Pense Zero.
+- **Preços a conferir:** a testeira Président tem um preço só para as duas opções (ACM e PS), como na planilha; a testeira da gôndola seca e a do Pense Zero estão no preço do PS (o ACM premium não foi orçado). A planilha lista 14 bandejas e 13 bolsos Président.
 - **Investimento:** a tela de investimento já está pronta (`#investimento`, antes do contato), com as fotos Président econômica e premium e o que muda em cada nível. Ela fica escondida (`data-draft`) até chegarem os valores. Depois, é só trocar os dois `R$ —` e tirar o `data-draft`; a apresentação passa a ter 10 telas.
 
 ## Fontes

@@ -220,24 +220,42 @@ function fit() {
   }
   layout();
 }
-function layout() { $$('.pair').forEach(layoutPair); $$('.mesa').forEach(fitMesa); }
+function layout() { $$('.cmp').forEach(layoutCmp); $$('.mesa').forEach(fitMesa); }
 
-/* antes e depois lado a lado ou um sobre o outro, o que der a foto maior */
-function layoutPair(p) {
-  const ar = +p.dataset.ar;
-  $$('.ph', p).forEach(f => f.style.setProperty('--ar', ar));
-  if (mobile) { p.classList.toggle('land', ar > 1); return; }
-  // as fotos ocupam até ~58% da largura; a coluna das peças fica com o resto
-  // g: as duas folgas em volta da seta entre as fotos
-  const box = p.parentElement, W = box.clientWidth * (ar > 1 ? .62 : .56), H = box.clientHeight, g = 2 * 32;
-  if (!W || !H) return;
-  const hs = Math.min(H, (W - g) / (2 * ar));
-  const hv = Math.min((H - g) / 2, W / ar);
-  const st = hv > hs * 1.02;
-  const h = Math.floor(st ? hv : hs), w = Math.floor(h * ar);
-  p.classList.toggle('st', st);
-  p.style.width = (st ? w : 2 * w + g) + 'px';
-  $$('.ph', p).forEach(f => { f.style.width = w + 'px'; f.style.height = h + 'px'; });
+/* antes × depois numa foto só: a altura toda da tela, até ~50% da largura */
+function layoutCmp(c) {
+  const ar = +c.dataset.ar;
+  c.style.setProperty('--ar', ar);
+  if (!mobile) {
+    const box = c.parentElement, side = $('.side', box), how = $('.how', side), m = $('.mesa', side);
+    const W = box.clientWidth * (ar > 1 ? .56 : .5), H = box.clientHeight;
+    if (!W || !H) return;
+    const size = hMax => { let h = hMax, w = h * ar; if (w > W) { w = W; h = w / ar; } c.style.width = Math.floor(w) + 'px'; c.style.height = Math.floor(h) + 'px'; return w * h; };
+    const u = () => { fitMesa(m); return parseFloat(m.style.getPropertyValue('--u')); };
+    // três arrumações; fica a que deixa foto e peças maiores
+    // lado: como aplica embaixo das peças · largo: ao lado das peças · sob: embaixo da foto
+    const ways = {
+      lado: () => { box.classList.remove('under'); side.classList.remove('wide'); return size(H); },
+      largo: () => { box.classList.remove('under'); side.classList.add('wide'); return size(H); },
+      sob: () => {
+        box.classList.add('under'); side.classList.remove('wide');
+        let a = size(H * .7);
+        for (let i = 0; i < 2; i++) a = size(H - how.offsetHeight - 16);
+        return a;
+      },
+    };
+    const pick = (location.search.match(/[?&]lay=(\w+)/) || [])[1]; // QA: ?lay=sob força uma arrumação
+    let best = null;
+    const log = [];
+    for (const k of pick && ways[pick] ? [pick] : ar > 1 ? ['lado', 'largo', 'sob'] : ['lado', 'largo']) {
+      const a = ways[k](), uu = u(), sc = uu * Math.sqrt(a);
+      log.push(`${k} u${uu.toFixed(2)} f${Math.round(Math.sqrt(a))} =${Math.round(sc)}`);
+      if (!best || sc > best.sc * 1.04) best = { k, sc };
+    }
+    ways[best.k](); u();
+    box.dataset.lay = best.k + ' · ' + log.join(' · ');
+  }
+  cmpSet(c, cmpP.get(c) ?? 50);
 }
 
 /* peças na mesma escala: o maior --u (px por cm) que cabe na mesa */
@@ -263,28 +281,82 @@ function fitMesa(m) {
 }
 
 /* ---------------------------------------------------------------------
-   Antes × depois: vistas, entrada do depois e ampliar
+   Antes × depois: arrastar o divisor, vistas, entrada e ampliar
    --------------------------------------------------------------------- */
-function pairGo(p) { if (RM || !p) return; p.classList.remove('go'); void p.offsetWidth; p.classList.add('go'); }
+const cmpP = new WeakMap(), cmpRaf = new WeakMap(), cmpWait = new WeakMap();
+// p: onde está o divisor, em % da largura; à esquerda o antes, à direita o depois
+function cmpSet(c, p) {
+  p = Math.max(0, Math.min(100, p));
+  cmpP.set(c, p);
+  c.style.setProperty('--p', p + '%');
+  // o botão não sai da foto quando o divisor encosta na borda
+  const w = c.clientWidth, x = w * p / 100, r = mobile ? 26 : 30;
+  c.style.setProperty('--k', (w ? Math.max(r, Math.min(w - r, x)) - x : 0) + 'px');
+  c.classList.toggle('no-a', p < 12);
+  c.classList.toggle('no-d', p > 88);
+  $('.handle', c).setAttribute('aria-valuenow', Math.round(100 - p));
+}
+function cmpTo(c, to, D = 1200) {
+  cancelAnimationFrame(cmpRaf.get(c));
+  if (RM) { cmpSet(c, to); c.classList.remove('sweep'); return; }
+  const from = cmpP.get(c) ?? 50, t0 = performance.now();
+  const tick = now => {
+    const k = Math.min(1, (now - t0) / D), e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+    cmpSet(c, from + (to - from) * e);
+    if (k < 1) cmpRaf.set(c, requestAnimationFrame(tick));
+    else c.classList.remove('sweep');
+  };
+  cmpRaf.set(c, requestAnimationFrame(tick));
+}
+// entrada: começa no antes e o depois corre até o meio; a dica aparece quando o divisor para
+function cmpGo(c) {
+  if (!c) return;
+  if (RM || STATIC) { cmpSet(c, 50); return; }
+  c.classList.remove('go'); void c.offsetWidth; c.classList.add('go', 'sweep');
+  cmpSet(c, 100);
+  clearTimeout(cmpWait.get(c));
+  cancelAnimationFrame(cmpRaf.get(c));
+  cmpWait.set(c, setTimeout(() => cmpTo(c, 50, 1200), 500));
+}
 $$('.sp').forEach(s => {
-  const p = $('.pair', s), ant = $('.ant img', p), dep = $('.dep img', p);
+  const c = $('.cmp', s), ant = $('.ia', c), dep = $('.id', c), h = $('.handle', c);
+  cmpSet(c, 50);
+  let drag = false;
+  const at = e => { const r = c.getBoundingClientRect(); return (e.clientX - r.left) / r.width * 100; };
+  c.addEventListener('pointerdown', e => {
+    if (e.button || e.target.closest('button')) return;
+    e.preventDefault(); // sem foco no divisor: as setas do teclado continuam passando as telas
+    drag = true; c.classList.add('drag', 'used'); c.classList.remove('sweep');
+    clearTimeout(cmpWait.get(c)); cancelAnimationFrame(cmpRaf.get(c));
+    c.setPointerCapture(e.pointerId); cmpSet(c, at(e));
+  });
+  c.addEventListener('pointermove', e => { if (drag) cmpSet(c, at(e)); });
+  const end = () => { drag = false; c.classList.remove('drag'); };
+  c.addEventListener('pointerup', end); c.addEventListener('pointercancel', end);
+  c.addEventListener('mousedown', e => e.preventDefault());
+  h.addEventListener('keydown', e => {
+    const d = { ArrowLeft: -5, ArrowRight: 5, Home: -100, End: 100 }[e.key];
+    if (d === undefined) return;
+    e.preventDefault(); e.stopPropagation(); c.classList.add('used'); c.classList.remove('sweep');
+    clearTimeout(cmpWait.get(c)); cancelAnimationFrame(cmpRaf.get(c)); cmpSet(c, (cmpP.get(c) ?? 50) + d);
+  });
   $$('.views button', s).forEach(b => b.addEventListener('click', () => {
     if (b.classList.contains('on')) return;
     $$('.views button', s).forEach(x => x.classList.toggle('on', x === b));
     ant.src = b.dataset.antes; dep.src = b.dataset.depois;
-    p.dataset.ar = b.dataset.ar; layoutPair(p); fitMesa($('.mesa', s)); pairGo(p);
+    c.dataset.ar = b.dataset.ar; layoutCmp(c); fitMesa($('.mesa', s)); cmpGo(c);
   }));
-  $$('.ph', p).forEach(f => f.addEventListener('click', () => {
+  $('.cz', c).addEventListener('click', () => {
     const cap = $('.views button.on', s)?.dataset.cap || '';
     const t = $('h2', s).textContent;
-    openLb([{ src: dep.src, t: 'Depois · ' + t, d: cap }, { src: ant.src, t: 'Antes · ' + t, d: cap }], f.classList.contains('dep') ? 0 : 1);
-  }));
+    openLb([{ src: dep.src, t: 'Depois · ' + t, d: cap }, { src: ant.src, t: 'Antes · ' + t, d: cap }], 0);
+  });
 });
 
 const onEnter = s => {
   if (!s.classList.contains('sp')) return;
-  pairGo($('.pair', s));
-  pgPlay(s, 1.5); // a aplicação começa depois que o depois entra
+  cmpGo($('.cmp', s));
+  pgPlay(s, 2); // a aplicação começa depois que o depois entra
 };
 
 /* ---------------------------------------------------------------------
@@ -503,6 +575,7 @@ if (!mobile) {
   let tx = 0, ty = 0, tt = 0;
   stage.addEventListener('touchstart', e => { const p = e.changedTouches[0]; tx = p.clientX; ty = p.clientY; tt = Date.now(); }, { passive: true });
   stage.addEventListener('touchend', e => {
+    if (e.target.closest('.cmp')) return; // arrastar a foto não troca de tela
     const p = e.changedTouches[0], dx = p.clientX - tx, dy = p.clientY - ty;
     if (Date.now() - tt < 800 && Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) step(dx < 0 ? 1 : -1);
   }, { passive: true });
