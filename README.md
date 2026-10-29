@@ -3,7 +3,7 @@
 Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'avó Oratório: Parmalat Fit (três espaços), Batavo Pense Zero, Président e Sobremesas Batavo. É uma apresentação imagética. Cada espaço tem um antes × depois grande e as peças soltas, na mesma escala, com o jeito de aplicar cada uma. Base: a VT da loja e todo o refit feito no job (`Documents/75LAB/lactalis-davo-oratorio`).
 
 - **Apresentação:** https://projetos.75lab.com.br/lactalis-davo-oratorio/
-- Apresentadora: Vanessa Morelli, Diretora Comercial 75LAB
+- Contato: Vanessa Morelli, Diretora Comercial 75LAB (envia a apresentação ao cliente)
 - A versão estratégica anterior (17 telas e material de apoio) está guardada na tag `v1-estrategica` do git.
 
 ## Roteiro: 15 telas
@@ -42,8 +42,16 @@ Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'a
 
 ## Navegação
 
+A apresentação é enviada ao cliente, sem apresentadora, então ela se explica sozinha:
+- A capa tem o botão **Começar**, e ao abrir aparece uma dica de como avançar.
+- O contexto explica como ler: cada espaço tem duas telas.
+- No canto inferior direito ficam o botão de voltar e o **Próximo**, que mostra o nome da tela seguinte (por exemplo, "Whey · as peças").
+- As abas têm rótulo ("Troque a vista", "Compare os acabamentos"). As fotos têm um ícone de ampliar, e a mesa avisa "clique numa peça para ampliar".
+- "Ver de novo" repete a animação de aplicação das peças.
+- O fechamento convida a falar com a Vanessa.
+
+Teclado e atalhos:
 - `→` `↓` `PageDown` `espaço` avançam; `←` `↑` `PageUp` voltam.
-- A seta no canto inferior direito avança.
 - Os espaços no rodapé levam direto a cada espaço.
 - `Home`/`End` vão para a primeira e a última tela, `M` abre o índice, `N` as notas da apresentadora e `F` a tela cheia. `Esc` fecha.
 - Deep link: `#president` e `#president-pecas`.
@@ -54,6 +62,7 @@ Flags de QA:
 - `&ar=2.2` simula outra proporção.
 - `?static` mostra cada tela no estado final, com os pictogramas já aplicados.
 - `?solo=whey` (no celular) mostra só uma tela.
+- `?draft` inclui as telas marcadas com `data-draft` (hoje, a de investimento).
 
 ## Direção de arte
 
@@ -95,7 +104,7 @@ serve.ps1             servidor local (powershell -File serve.ps1 -Port 8792)
 
   As fotos de alimento das peças são ilustrativas.
 - **Com o D'avó:** onde fica o cartaz "Monte seu combo" e se o material de Outubro Rosa pode sair da ponta Pense Zero.
-- **Investimento:** esta versão não tem tela de investimento. Quando chegarem os valores dos dois níveis, eles entram numa tela só.
+- **Investimento:** a tela de investimento já está pronta (`#investimento`, antes do contato), com as fotos Président econômica e premium e o que muda em cada nível. Ela fica escondida (`data-draft`) até chegarem os valores. Depois, é só trocar os dois `R$ —` e tirar o `data-draft`; a apresentação passa a ter 16 telas.
 
 ## Fontes
 

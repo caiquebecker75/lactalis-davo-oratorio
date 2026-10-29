@@ -32,17 +32,25 @@
     <nav id="spaces" aria-label="Espaços"></nav>
     <span id="count">01 / 15</span>
   </footer>
-  <button id="cnext" type="button" aria-label="Próxima tela"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+  <nav id="pager" aria-label="Navegação">
+    <button id="cprev" type="button" aria-label="Tela anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H6M11 6l-6 6 6 6"/></svg></button>
+    <button id="cnext" type="button"><span><small>Próximo</small><b id="nextT">O contexto</b></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+  </nav>
 
   <!-- ================================================================ 01 CAPA -->
-  <section class="slide cover" id="capa" data-theme="red" data-title="Capa">
+  <section class="slide cover" id="capa" data-short="Capa" data-theme="red" data-title="Capa">
     <div class="wall">
       <div class="sign rv">
         <p class="eyebrow">Proposta 75LAB · Ambientação de categorias</p>
         <h1>Lactalis no D'avó Oratório</h1>
         <p class="lead">Seis espaços, do antes ao depois. Peças simples de aplicar, sobre a estrutura que a loja já tem.</p>
+        <div class="start">
+          <button type="button" class="cta" data-goto="contexto">Começar<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+          <span class="hint-d">ou use as setas <kbd>←</kbd> <kbd>→</kbd> do teclado</span>
+          <span class="hint-m">Role a página para ver os seis espaços</span>
+        </div>
       </div>
-      <p class="by rv" style="--d:2">Apresentação<b>Vanessa Morelli</b>Diretora Comercial · 75LAB</p>
+      <p class="by rv" style="--d:2">Fale com<b>Vanessa Morelli</b>Diretora Comercial · 75LAB</p>
     </div>
     <div class="awning" aria-hidden="true"></div>
     <div class="vitrine">
@@ -57,7 +65,7 @@
   </section>
 
   <!-- ================================================================ 02 CONTEXTO -->
-  <section class="slide ctx" id="contexto" data-theme="cream" data-title="O contexto">
+  <section class="slide ctx" id="contexto" data-short="O contexto" data-theme="cream" data-title="O contexto">
     <div class="pad">
       <div class="ctx-top">
         <div>
@@ -71,7 +79,10 @@
           <li><b>0</b>móvel novo</li>
         </ul>
       </div>
-      <p class="lbl rv" style="--d:4">A loja hoje</p>
+      <div class="ctx-mid rv" style="--d:4">
+        <p class="lbl">A loja hoje</p>
+        <p class="guide">Como ler: cada espaço tem duas telas, <b>1</b>o antes e depois e <b>2</b>as peças, com o jeito de aplicar.</p>
+      </div>
       <div class="today">
         <a href="#whey" data-goto="whey" class="rv" style="--d:4"><img src="assets/img/whey/a-antes.webp" alt="Ilha quadrada hoje" style="object-position:50% 45%"><span><b>01</b>Ilha quadrada<small>Parmalat Fit</small></span></a>
         <a href="#nutricao" data-goto="nutricao" class="rv" style="--d:5"><img src="assets/img/nutricao/a-antes.webp" alt="Ilha de nutrição esportiva hoje" style="object-position:30% 50%"><span><b>02</b>Ilha de nutrição<small>Parmalat Fit</small></span></a>
@@ -85,7 +96,7 @@
   </section>
 
   <!-- ================================================================ 03 WHEY · ANTES E DEPOIS -->
-  <section class="slide ab" id="whey" data-sp="whey" data-theme="cream" data-title="Ilha quadrada Whey · antes e depois" style="--bc:#1E3E94">
+  <section class="slide ab" id="whey" data-short="Whey · antes e depois" data-sp="whey" data-theme="cream" data-title="Ilha quadrada Whey · antes e depois" style="--bc:#1E3E94">
     <div class="pad">
       <div class="a-txt">
         <span class="nr rv">01</span>
@@ -97,6 +108,7 @@
           <li>Nada na frente das aberturas: o produto continua à mão.</li>
         </ul>
         <div class="views rv" style="--d:4" role="group" aria-label="Vistas">
+          <span class="vl">Troque a vista</span>
           <button type="button" class="on" data-antes="assets/img/whey/a-antes.webp" data-depois="assets/img/whey/a-depois.webp" data-ar="0.5625" data-cap="Face A · frente">Frente</button>
           <button type="button" data-antes="assets/img/whey/b-antes.webp" data-depois="assets/img/whey/b-depois.webp" data-ar="0.5625" data-cap="Face B · lateral esquerda">Lateral esquerda</button>
           <button type="button" data-antes="assets/img/whey/c-antes.webp" data-depois="assets/img/whey/c-depois.webp" data-ar="0.5625" data-cap="Face C · lateral direita">Lateral direita</button>
@@ -112,7 +124,7 @@
   </section>
 
   <!-- ================================================================ 04 WHEY · PEÇAS -->
-  <section class="slide pcs" id="whey-pecas" data-sp="whey" data-theme="cream" data-title="Ilha quadrada Whey · as peças" style="--bc:#1E3E94">
+  <section class="slide pcs" id="whey-pecas" data-short="Whey · as peças" data-sp="whey" data-theme="cream" data-title="Ilha quadrada Whey · as peças" style="--bc:#1E3E94">
     <div class="pad">
       <header class="b-head">
         <p class="brand rv"><b>01</b>Ilha quadrada Whey · Parmalat Fit</p>
@@ -135,7 +147,7 @@
             </div>
           </div>
         </div>
-        <span class="scale"><i style="--cm:50"></i>50 cm · peças na mesma escala</span>
+        <span class="scale"><i style="--cm:50"></i>50 cm · peças na mesma escala · clique numa peça para ampliar</span>
       </div>
       <aside class="how">
         <p class="lbl rv" style="--d:3">Como aplica</p>
@@ -148,7 +160,7 @@
   </section>
 
   <!-- ================================================================ 05 NUTRIÇÃO · ANTES E DEPOIS -->
-  <section class="slide ab" id="nutricao" data-sp="nutricao" data-theme="cream" data-title="Ilha de nutrição esportiva · antes e depois" style="--bc:#1E3E94">
+  <section class="slide ab" id="nutricao" data-short="Nutrição · antes e depois" data-sp="nutricao" data-theme="cream" data-title="Ilha de nutrição esportiva · antes e depois" style="--bc:#1E3E94">
     <div class="pad">
       <div class="a-txt">
         <span class="nr rv">02</span>
@@ -160,6 +172,7 @@
           <li>Placas de base só com imagem; os vãos seguem com produto.</li>
         </ul>
         <div class="views rv" style="--d:4" role="group" aria-label="Vistas">
+          <span class="vl">Troque a vista</span>
           <button type="button" class="on" data-antes="assets/img/nutricao/a-antes.webp" data-depois="assets/img/nutricao/a-depois.webp" data-ar="1.0707" data-cap="Lado longo A · trecho Parmalat Fit">Lado longo</button>
           <button type="button" data-antes="assets/img/nutricao/b-antes.webp" data-depois="assets/img/nutricao/b-depois.webp" data-ar="0.535" data-cap="Cabeceira B">Cabeceira</button>
         </div>
@@ -174,7 +187,7 @@
   </section>
 
   <!-- ================================================================ 06 NUTRIÇÃO · PEÇAS -->
-  <section class="slide pcs" id="nutricao-pecas" data-sp="nutricao" data-theme="cream" data-title="Ilha de nutrição esportiva · as peças" style="--bc:#1E3E94">
+  <section class="slide pcs" id="nutricao-pecas" data-short="Nutrição · as peças" data-sp="nutricao" data-theme="cream" data-title="Ilha de nutrição esportiva · as peças" style="--bc:#1E3E94">
     <div class="pad">
       <header class="b-head">
         <p class="brand rv"><b>02</b>Ilha de nutrição esportiva · Parmalat Fit</p>
@@ -194,7 +207,7 @@
             </div>
           </div>
         </div>
-        <span class="scale"><i style="--cm:50"></i>50 cm · peças na mesma escala</span>
+        <span class="scale"><i style="--cm:50"></i>50 cm · peças na mesma escala · clique numa peça para ampliar</span>
       </div>
       <aside class="how">
         <p class="lbl rv" style="--d:3">Como aplica</p>
@@ -207,7 +220,7 @@
   </section>
 
   <!-- ================================================================ 07 GÔNDOLA SECA · ANTES E DEPOIS -->
-  <section class="slide ab" id="seca" data-sp="seca" data-theme="cream" data-title="Gôndola seca · antes e depois" style="--bc:#1E3E94">
+  <section class="slide ab" id="seca" data-short="Gôndola seca · antes e depois" data-sp="seca" data-theme="cream" data-title="Gôndola seca · antes e depois" style="--bc:#1E3E94">
     <div class="pad">
       <div class="a-txt">
         <span class="nr rv">03</span>
@@ -229,7 +242,7 @@
   </section>
 
   <!-- ================================================================ 08 GÔNDOLA SECA · PEÇAS -->
-  <section class="slide pcs" id="seca-pecas" data-sp="seca" data-theme="cream" data-title="Gôndola seca · as peças" style="--bc:#1E3E94">
+  <section class="slide pcs" id="seca-pecas" data-short="Gôndola seca · as peças" data-sp="seca" data-theme="cream" data-title="Gôndola seca · as peças" style="--bc:#1E3E94">
     <div class="pad">
       <header class="b-head">
         <p class="brand rv"><b>03</b>Ponta de gôndola seca · Parmalat Fit</p>
@@ -245,7 +258,7 @@
             <figure class="pc" style="--w:96;--h:56"><button type="button" class="pz" data-zoom="assets/img/seca/p2-moldura.webp" data-gallery="seca" data-caption="2 · Moldura vazada · whey em pó|PS 3 mm · 96 × 56 cm · borda de 3 cm"><img src="assets/img/seca/p2-moldura.webp" alt="Moldura vazada do whey em pó"></button><figcaption><b>2</b><span>Moldura vazada<small>PS 3 mm · 96 × 56 cm · ×1</small></span></figcaption></figure>
           </div>
         </div>
-        <span class="scale"><i style="--cm:50"></i>50 cm · peças na mesma escala</span>
+        <span class="scale"><i style="--cm:50"></i>50 cm · peças na mesma escala · clique numa peça para ampliar</span>
       </div>
       <aside class="how">
         <p class="lbl rv" style="--d:3">Como aplica</p>
@@ -258,7 +271,7 @@
   </section>
 
   <!-- ================================================================ 09 PENSE ZERO · ANTES E DEPOIS -->
-  <section class="slide ab" id="pensezero" data-sp="pensezero" data-theme="cream" data-title="Pense Zero · antes e depois" style="--bc:#0B7FB4">
+  <section class="slide ab" id="pensezero" data-short="Pense Zero · antes e depois" data-sp="pensezero" data-theme="cream" data-title="Pense Zero · antes e depois" style="--bc:#0B7FB4">
     <div class="pad">
       <div class="a-txt">
         <span class="nr rv">04</span>
@@ -281,7 +294,7 @@
   </section>
 
   <!-- ================================================================ 10 PENSE ZERO · PEÇAS -->
-  <section class="slide pcs" id="pensezero-pecas" data-sp="pensezero" data-theme="cream" data-title="Pense Zero · as peças" style="--bc:#0B7FB4">
+  <section class="slide pcs" id="pensezero-pecas" data-short="Pense Zero · as peças" data-sp="pensezero" data-theme="cream" data-title="Pense Zero · as peças" style="--bc:#0B7FB4">
     <div class="pad">
       <header class="b-head">
         <p class="brand rv"><b>04</b>Ponta refrigerada · Batavo Pense Zero</p>
@@ -295,7 +308,7 @@
             <figure class="pc" style="--w:108;--h:40"><div class="stk"><button type="button" class="pz" data-zoom="assets/img/pensezero/p4-regua-cafe.webp" data-gallery="pz" data-caption="4 · Régua · Pro café da manhã|PS 0,5 mm ou PETG · 108 × 5 cm"><img src="assets/img/pensezero/p4-regua-cafe.webp" alt="Régua Pro café da manhã" style="--w:108;--h:5"></button><button type="button" class="pz" data-zoom="assets/img/pensezero/p4-regua-compartilhar.webp" data-gallery="pz" data-caption="4 · Régua · Pra compartilhar|PS 0,5 mm ou PETG · 108 × 5 cm"><img src="assets/img/pensezero/p4-regua-compartilhar.webp" alt="Régua Pra compartilhar" style="--w:108;--h:5"></button><button type="button" class="pz" data-zoom="assets/img/pensezero/p4-regua-tarde.webp" data-gallery="pz" data-caption="4 · Régua · Pro lanche da tarde|PS 0,5 mm ou PETG · 108 × 5 cm"><img src="assets/img/pensezero/p4-regua-tarde.webp" alt="Régua Pro lanche da tarde" style="--w:108;--h:5"></button><button type="button" class="pz" data-zoom="assets/img/pensezero/p4-regua-levar.webp" data-gallery="pz" data-caption="4 · Régua · Pra levar|PS 0,5 mm ou PETG · 108 × 5 cm"><img src="assets/img/pensezero/p4-regua-levar.webp" alt="Régua Pra levar" style="--w:108;--h:5"></button><button type="button" class="pz" data-zoom="assets/img/pensezero/p4-regua-rapido.webp" data-gallery="pz" data-caption="4 · Régua · No seu lanche rápido|PS 0,5 mm ou PETG · 108 × 5 cm"><img src="assets/img/pensezero/p4-regua-rapido.webp" alt="Régua No seu lanche rápido" style="--w:108;--h:5"></button><button type="button" class="pz" data-zoom="assets/img/pensezero/p4-regua-colher.webp" data-gallery="pz" data-caption="4 · Régua · De colher, de sobremesa|PS 0,5 mm ou PETG · 108 × 5 cm"><img src="assets/img/pensezero/p4-regua-colher.webp" alt="Régua De colher" style="--w:108;--h:5"></button></div><figcaption><b>4</b><span>Réguas por ocasião<small>PS 0,5 mm ou PETG para frio · 108 × 5 cm · ×6</small></span></figcaption></figure>
           </div>
         </div>
-        <span class="scale"><i style="--cm:50"></i>50 cm · peças na mesma escala</span>
+        <span class="scale"><i style="--cm:50"></i>50 cm · peças na mesma escala · clique numa peça para ampliar</span>
       </div>
       <aside class="how">
         <p class="lbl rv" style="--d:3">Como aplica</p>
@@ -308,7 +321,7 @@
   </section>
 
   <!-- ================================================================ 11 PRÉSIDENT · ANTES E DEPOIS -->
-  <section class="slide ab" id="president" data-sp="president" data-theme="cream" data-title="Président · antes e depois" style="--bc:#BE0F2D">
+  <section class="slide ab" id="president" data-short="Président · antes e depois" data-sp="president" data-theme="cream" data-title="Président · antes e depois" style="--bc:#BE0F2D">
     <div class="pad">
       <div class="a-txt">
         <span class="nr rv">05</span>
@@ -320,6 +333,7 @@
           <li>Nome da família num cartão trocável na frente da bandeja.</li>
         </ul>
         <div class="views rv" style="--d:4" role="group" aria-label="Nível de acabamento">
+          <span class="vl">Compare os acabamentos</span>
           <button type="button" class="on" data-antes="assets/img/president/antes.webp" data-depois="assets/img/president/premium.webp" data-ar="0.6079" data-cap="Premium · testeira em ACM champanhe">Premium</button>
           <button type="button" data-antes="assets/img/president/antes.webp" data-depois="assets/img/president/economica.webp" data-ar="0.6079" data-cap="Econômica · testeira em PS vermelho">Econômica</button>
         </div>
@@ -334,7 +348,7 @@
   </section>
 
   <!-- ================================================================ 12 PRÉSIDENT · PEÇAS -->
-  <section class="slide pcs" id="president-pecas" data-sp="president" data-theme="cream" data-title="Président · as peças" style="--bc:#BE0F2D">
+  <section class="slide pcs" id="president-pecas" data-short="Président · as peças" data-sp="president" data-theme="cream" data-title="Président · as peças" style="--bc:#BE0F2D">
     <div class="pad">
       <header class="b-head">
         <p class="brand rv"><b>05</b>Gôndola fria · Président</p>
@@ -355,7 +369,7 @@
             </div>
           </div>
         </div>
-        <span class="scale"><i style="--cm:10"></i>10 cm · peças planas na mesma escala</span>
+        <span class="scale"><i style="--cm:10"></i>10 cm · peças planas na mesma escala · clique numa peça para ampliar</span>
       </div>
       <aside class="how">
         <p class="lbl rv" style="--d:3">Como aplica</p>
@@ -368,7 +382,7 @@
   </section>
 
   <!-- ================================================================ 13 SOBREMESAS · ANTES E DEPOIS -->
-  <section class="slide ab" id="sobremesas" data-sp="sobremesas" data-theme="cream" data-title="Sobremesas Batavo · antes e depois" style="--bc:#4E2C1B">
+  <section class="slide ab" id="sobremesas" data-short="Sobremesas · antes e depois" data-sp="sobremesas" data-theme="cream" data-title="Sobremesas Batavo · antes e depois" style="--bc:#4E2C1B">
     <div class="pad">
       <div class="a-txt">
         <span class="nr rv">06</span>
@@ -380,6 +394,7 @@
           <li>Nomes soltos e três stoppers no trilho de preço.</li>
         </ul>
         <div class="views rv" style="--d:4" role="group" aria-label="Vistas">
+          <span class="vl">Troque a vista</span>
           <button type="button" class="on" data-antes="assets/img/sobremesas/f-antes.webp" data-depois="assets/img/sobremesas/f-depois.webp" data-ar="0.5625" data-cap="Vista frontal">Frontal</button>
           <button type="button" data-antes="assets/img/sobremesas/a-antes.webp" data-depois="assets/img/sobremesas/a-depois.webp" data-ar="0.5625" data-cap="Em ângulo">Em ângulo</button>
         </div>
@@ -394,7 +409,7 @@
   </section>
 
   <!-- ================================================================ 14 SOBREMESAS · PEÇAS -->
-  <section class="slide pcs" id="sobremesas-pecas" data-sp="sobremesas" data-theme="cream" data-title="Sobremesas Batavo · as peças" style="--bc:#4E2C1B">
+  <section class="slide pcs" id="sobremesas-pecas" data-short="Sobremesas · as peças" data-sp="sobremesas" data-theme="cream" data-title="Sobremesas Batavo · as peças" style="--bc:#4E2C1B">
     <div class="pad">
       <header class="b-head">
         <p class="brand rv"><b>06</b>Gôndola de sobremesas · Batavo</p>
@@ -410,7 +425,7 @@
             <figure class="pc" style="--w:52;--h:20"><div class="duo"><button type="button" class="pz" data-zoom="assets/img/sobremesas/p5-stopper-pudim.webp" data-gallery="sob" data-caption="5 · Stopper · Pudim e Manjar|PS 2 mm frente e verso · 16 × 20 cm"><img src="assets/img/sobremesas/p5-stopper-pudim.webp" alt="Stopper Pudim e Manjar" style="--w:16;--h:20"></button><button type="button" class="pz" data-zoom="assets/img/sobremesas/p5-stopper-flan.webp" data-gallery="sob" data-caption="5 · Stopper · Flan|PS 2 mm frente e verso · 16 × 20 cm"><img src="assets/img/sobremesas/p5-stopper-flan.webp" alt="Stopper Flan" style="--w:16;--h:20"></button><button type="button" class="pz" data-zoom="assets/img/sobremesas/p5-stopper-creamy.webp" data-gallery="sob" data-caption="5 · Stopper · Creamy|PS 2 mm frente e verso · 16 × 20 cm"><img src="assets/img/sobremesas/p5-stopper-creamy.webp" alt="Stopper Creamy" style="--w:16;--h:20"></button></div><figcaption><b>5</b><span>Stoppers<small>PS 2 mm · 16 × 20 cm · ×3</small></span></figcaption></figure>
           </div>
         </div>
-        <span class="scale"><i style="--cm:10"></i>10 cm · peças na mesma escala</span>
+        <span class="scale"><i style="--cm:10"></i>10 cm · peças na mesma escala · clique numa peça para ampliar</span>
       </div>
       <aside class="how">
         <p class="lbl rv" style="--d:3">Como aplica</p>
@@ -422,13 +437,52 @@
     <aside class="notes" hidden><p>Fácil para o promotor e difícil para a criança: o nome solto fica rente, sem aba para puxar, e sai com a mesma espátula da etiqueta de preço. Oito de cada nome, cinco em uso e três de reserva.</p></aside>
   </section>
 
-  <!-- ================================================================ 15 CONTATO -->
-  <section class="slide close" id="contato" data-theme="green" data-title="Contato">
+  <!-- ================================================================ 15 INVESTIMENTO · entra quando chegarem os valores -->
+  <section class="slide inv" id="investimento" data-short="Investimento" data-theme="cream" data-title="Investimento" data-draft>
+    <div class="pad">
+      <header class="b-head">
+        <p class="eyebrow rv">Investimento</p>
+        <h2 class="rv" style="--d:1">Dois níveis de acabamento, com as mesmas peças.</h2>
+        <p class="sub rv" style="--d:2">A diferença está nas testeiras e em dois extras da premium. Réguas, bandejas, cartões, nomes, stoppers e adesivos são iguais nos dois.</p>
+      </header>
+      <div class="lv">
+        <article class="lvc rv" style="--d:3">
+          <button type="button" class="lvp" data-zoom="assets/img/president/economica.webp" data-gallery="inv" data-caption="Econômica · Président|Testeira em PS vermelho"><img src="assets/img/president/economica.webp" alt="Gôndola Président na versão econômica"></button>
+          <div class="lvb">
+            <div><span class="tag">Econômica</span>
+            <p class="price"><b>R$ —</b><small>valor a confirmar</small></p></div>
+            <ul class="chg">
+              <li>Testeiras em PS impresso com laminação fosca.</li>
+              <li>Todas as outras peças iguais às da premium.</li>
+              <li>Serve de kit para as outras lojas D'avó.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="lvc prem rv" style="--d:4">
+          <button type="button" class="lvp" data-zoom="assets/img/president/premium.webp" data-gallery="inv" data-caption="Premium · Président|Testeira em ACM champanhe escovado"><img src="assets/img/president/premium.webp" alt="Gôndola Président na versão premium"></button>
+          <div class="lvb">
+            <div><span class="tag">Premium</span>
+            <p class="price"><b>R$ —</b><small>valor a confirmar</small></p></div>
+            <ul class="chg">
+              <li>Testeiras em ACM 3 mm: champanhe escovado no Président, ACM no Pense Zero e na gôndola seca.</li>
+              <li>Adesivos externos nos vidros do Pense Zero, voltados para o corredor.</li>
+              <li>Luz só em moldura externa, com ponto elétrico e aval técnico.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <p class="common rv" style="--d:5"><b>Nos dois</b>Guia de implantação e reposição de uma página por ponto. Medidas e quantidades confirmadas na medição da loja.</p>
+    </div>
+    <aside class="notes" hidden><p>Os dois níveis usam as mesmas peças; muda o acabamento das testeiras e entram os adesivos externos do Pense Zero na premium.</p></aside>
+  </section>
+
+  <!-- ================================================================ 16 CONTATO -->
+  <section class="slide close" id="contato" data-short="Contato" data-theme="green" data-title="Contato">
     <div class="pad">
       <div class="cl">
-        <p class="eyebrow rv">Obrigado</p>
+        <p class="eyebrow rv">Próximo passo</p>
         <h2 class="rv" style="--d:1">Do antes ao depois, com o que a loja já tem.</h2>
-        <p class="sub rv" style="--d:2">Próximo passo: medir na loja, fechar o escopo e produzir as peças.</p>
+        <p class="sub rv" style="--d:2">Para tirar dúvidas, fechar o escopo e agendar a medição na loja, fale com a Vanessa.</p>
       </div>
       <div class="card rv" style="--d:3">
         <span class="lbl">Fale com a gente</span>
@@ -454,7 +508,7 @@
   <div class="mc-box">
     <div class="mh"><span class="lbl">Índice</span><button id="menuClose" type="button" aria-label="Fechar o índice">×</button></div>
     <ol id="menuA"></ol>
-    <p class="keys"><b>←</b> <b>→</b> navegar · <b>M</b> índice · <b>N</b> notas · <b>F</b> tela cheia</p>
+    <p class="keys"><b>←</b> <b>→</b> navegar · <b>M</b> índice · <b>F</b> tela cheia · clique nas fotos e nas peças para ampliar</p>
   </div>
 </div>
 

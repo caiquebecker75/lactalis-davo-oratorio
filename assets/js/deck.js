@@ -19,7 +19,10 @@ const mobile = !forceDesk && MQ.matches;
 if (mobile) html.classList.add('m');
 if (!forceDesk) MQ.addEventListener?.('change', () => location.reload());
 
-const slides = $$('.slide', stage);
+// data-draft: tela pronta que só entra quando tiver conteúdo (QA: ?draft mostra)
+const DRAFT = /[?&]draft(=|&|$)/.test(location.search);
+if (DRAFT) $$('.slide[data-draft]', stage).forEach(s => s.removeAttribute('data-draft'));
+const slides = $$('.slide:not([data-draft])', stage);
 const pad = n => String(n).padStart(2, '0');
 let cur = null, busy = false, busyT = 0;
 
@@ -180,10 +183,10 @@ const PG = {
 $$('.pg[data-pg]').forEach(el => {
   el.innerHTML = `<svg viewBox="0 0 160 100" aria-hidden="true">${PG[el.dataset.pg] || ''}</svg>`;
 });
-function pgPlay(s) {
+function pgPlay(s, d0 = .8) {
   if (RM) return;
   $$('.mc', s).forEach((c, i) => {
-    c.style.setProperty('--pd', (.8 + i * .45) + 's');
+    c.style.setProperty('--pd', (d0 + i * .45) + 's');
     c.classList.remove('play'); void c.offsetWidth; c.classList.add('play');
   });
 }
@@ -192,6 +195,14 @@ $$('.mc').forEach(c => c.addEventListener('mouseenter', () => {
   c.style.setProperty('--pd', '0s');
   c.classList.remove('play'); void c.offsetWidth; c.classList.add('play');
 }));
+// quem recebe a apresentação pode rever a aplicação das peças
+$$('.how > .lbl').forEach(l => {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'replay';
+  b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5"/></svg>Ver de novo';
+  b.addEventListener('click', () => pgPlay(l.closest('.slide'), .1));
+  l.append(b);
+});
 
 /* ---------------------------------------------------------------------
    Palco: 900 de altura, largura que acompanha a janela (1600 a 2100)
@@ -288,7 +299,10 @@ function chrome(s) {
   const i = slides.indexOf(s);
   $('#count').textContent = `${pad(i + 1)} / ${pad(slides.length)}`;
   $$('button', spNav).forEach(b => b.classList.toggle('cur', b.dataset.sp === s.dataset.sp));
-  $('#cnext').hidden = i === slides.length - 1;
+  const nx = slides[i + 1];
+  $('#cnext').hidden = !nx;
+  if (nx) { $('#nextT').textContent = nx.dataset.short || nx.dataset.title; $('#cnext').setAttribute('aria-label', 'Próximo: ' + (nx.dataset.short || nx.dataset.title)); }
+  $('#cprev').hidden = i === 0;
   $$('#menuA button').forEach(b => b.classList.toggle('cur', b.dataset.id === s.id));
   if (np.classList.contains('open')) fillNotes(s);
   try { history.replaceState(null, '', '#' + s.id); } catch (e) {}
@@ -360,6 +374,7 @@ function step(d) {
   if (i >= 0 && i < slides.length) go(slides[i], d);
 }
 $('#cnext').addEventListener('click', () => step(1));
+$('#cprev').addEventListener('click', () => step(-1));
 document.addEventListener('click', e => {
   const g = e.target.closest('[data-goto]'); if (!g) return;
   e.preventDefault(); closeMenu(); go(g.dataset.goto);
@@ -426,9 +441,11 @@ function fillNotes(s) {
 }
 function toggleNotes() { if (!cur) return; fillNotes(cur); np.classList.toggle('open'); }
 const toast = $('#toast');
+let toastT = 0;
+function say(msg, ms = 1800) { toast.textContent = msg; toast.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => toast.classList.remove('on'), ms); }
 document.addEventListener('click', e => {
   const c = e.target.closest('[data-copy]'); if (!c) return;
-  const done = () => { toast.textContent = 'Copiado: ' + c.dataset.copy; toast.classList.add('on'); setTimeout(() => toast.classList.remove('on'), 1800); };
+  const done = () => say('Copiado: ' + c.dataset.copy);
   if (navigator.clipboard) navigator.clipboard.writeText(c.dataset.copy).then(done, done); else done();
 });
 
@@ -517,6 +534,8 @@ if (mobile) {
 fit();
 const start = document.getElementById(location.hash.slice(1));
 show(start && start.classList.contains('slide') ? start : slides[0], 1);
+// quem abre o link sozinho precisa saber como avançar
+if (!STATIC) setTimeout(() => say('Dica: use as setas ← → do teclado ou o botão Próximo, no canto inferior direito.', 5200), 1500);
 (document.fonts?.ready || Promise.resolve()).then(layout);
 addEventListener('load', layout);
 addEventListener('hashchange', () => { const t = document.getElementById(location.hash.slice(1)); if (t && t !== cur && t.classList.contains('slide')) go(t); });
