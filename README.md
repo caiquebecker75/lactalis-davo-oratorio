@@ -1,30 +1,30 @@
 # Lactalis no D'avó Oratório × 75LAB · Seis espaços, do antes ao depois
 
-Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'avó Oratório: Parmalat Fit (três espaços), Batavo Pense Zero, Président e Sobremesas Batavo. É uma apresentação imagética. Cada espaço tem um antes × depois grande e as peças soltas, na mesma escala, com o jeito de aplicar cada uma. Base: a VT da loja e todo o refit feito no job (`Documents/75LAB/lactalis-davo-oratorio`).
+Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'avó Oratório: Parmalat Fit (três espaços), Batavo Pense Zero, Président e Sobremesas Batavo. É uma apresentação imagética. Cada espaço cabe numa tela só: o antes × depois grande, as peças soltas e o jeito de aplicar. Base: a VT da loja e todo o refit feito no job (`Documents/75LAB/lactalis-davo-oratorio`).
 
 - **Apresentação:** https://projetos.75lab.com.br/lactalis-davo-oratorio/
 - Contato: Vanessa Morelli, Diretora Comercial 75LAB (envia a apresentação ao cliente)
 - A versão estratégica anterior (17 telas e material de apoio) está guardada na tag `v1-estrategica` do git.
 
-## Roteiro: 15 telas
+## Roteiro: 9 telas
 
 | Tela | Conteúdo |
 |---|---|
 | 01 · Capa | A fachada do D'avó: parede vermelha, placa creme com o título, marquise verde e as seis fotos de depois como vitrines. |
-| 02 · O contexto | Seis espaços que já existem, 132 peças, nenhum móvel novo. Embaixo, "A loja hoje" com as fotos da VT. |
-| 03–04 · Ilha quadrada Whey | Antes × depois nas faces A, B e C, depois 1 testeira e 15 adesivos. |
-| 05–06 · Ilha de nutrição | Lado longo e cabeceira, depois réguas no trilho, placas de base e a testeira em T que fica em pé sozinha. |
-| 07–08 · Gôndola seca | Testeira nos montantes, moldura do whey em pó e 7 réguas padronizadas. |
-| 09–10 · Pense Zero | Antes × arte de referência, depois testeira, adesivos eletrostáticos nos vidros e 6 réguas por ocasião. |
-| 11–12 · Président | Abas premium e econômica, depois bandejas de polionda, cartões trocáveis e testeira. |
-| 13–14 · Sobremesas | Vista frontal e em ângulo, depois régua-base, nomes soltos e stoppers. |
-| 15 · Contato | Vanessa Morelli e os canais da 75LAB. |
+| 02 · O contexto | Seis espaços que já existem, 132 peças, nenhum móvel novo. Embaixo, "A loja hoje" com as fotos da VT e como ler a apresentação. |
+| 03 · Ilha quadrada Whey | Faces A, B e C; 1 testeira e 15 adesivos por cima do que já existe. |
+| 04 · Ilha de nutrição | Lado longo e cabeceira; réguas no trilho, placas de base e a testeira em T que fica em pé sozinha. |
+| 05 · Gôndola seca | Testeira nos montantes, moldura do whey em pó e 7 réguas no trilho. |
+| 06 · Pense Zero | Antes × arte de referência; testeira, adesivos eletrostáticos nos vidros e 6 réguas por ocasião. |
+| 07 · Président | Premium e econômica; bandejas de polionda, cartões trocáveis e testeira. |
+| 08 · Sobremesas | Frontal e em ângulo; régua-base, nomes soltos e stoppers. |
+| 09 · Contato | Vanessa Morelli e os canais da 75LAB. |
 
-## As telas de cada espaço
+## A tela de cada espaço
 
-- **Antes × depois:** as duas fotos aparecem grandes. O layout escolhe lado a lado ou uma sobre a outra, o que der a foto maior. O depois entra com uma cortina. As abas trocam a vista, e clicar em qualquer foto amplia. No Pense Zero o depois é a arte de referência, que tem outro enquadramento da foto da VT.
-- **As peças:** a "mesa" mostra as peças soltas, todas na mesma escala (a barra mostra 50 ou 10 cm). A escala é calculada para ocupar o espaço, com `--u` em px por cm. Cada peça tem número, material, medida e quantidade, e abre ampliada. A bandeja Président é o render 3D, por isso fica fora da escala.
-- **Como aplica:** três cartões por espaço, cada um com um pictograma animado da peça entrando. Os pictogramas mostram:
+- **Antes × depois** à esquerda. As duas fotos ficam lado a lado ou uma sobre a outra, o que der a foto maior, em até ~58% da largura. O depois entra com uma cortina. As abas do topo trocam a vista, e clicar em qualquer foto amplia. No Pense Zero o depois é a arte de referência, com outro enquadramento da foto da VT.
+- **As peças** à direita, com uma frase-resumo. A "mesa" mostra as peças soltas, na mesma proporção entre si, só com número e nome. As medidas saíram porque são estimativas até a medição na loja. A escala é calculada para ocupar o espaço (`--u`). Cada peça abre ampliada. A bandeja Président é o render 3D.
+- **Como aplica** embaixo: três quadros com um pictograma animado e uma frase curta. Os pictogramas mostram:
   - encaixa no trilho;
   - fita VHB;
   - adesivo sobre a placa;
@@ -38,15 +38,15 @@ Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'a
   - mesma fixação da testeira atual;
   - apoio nos montantes.
 
-  Cada cartão indica os números das suas peças. Passar o mouse repete a animação.
+  Cada quadro indica os números das suas peças. Passar o mouse ou clicar em "Ver de novo" repete a animação.
 
 ## Navegação
 
 A apresentação é enviada ao cliente, sem apresentadora, então ela se explica sozinha:
 - A capa tem o botão **Começar**, e ao abrir aparece uma dica de como avançar.
-- O contexto explica como ler: cada espaço tem duas telas.
-- No canto inferior direito ficam o botão de voltar e o **Próximo**, que mostra o nome da tela seguinte (por exemplo, "Whey · as peças").
-- As abas têm rótulo ("Troque a vista", "Compare os acabamentos"). As fotos têm um ícone de ampliar, e a mesa avisa "clique numa peça para ampliar".
+- O contexto explica como ler: cada espaço numa tela, com o antes e depois, as peças e como aplicar.
+- No canto inferior direito ficam o botão de voltar e o **Próximo**, que mostra o nome da tela seguinte (por exemplo, "Próximo · Nutrição esportiva").
+- As abas têm rótulo ("Troque a vista", "Compare os acabamentos"). As fotos têm um ícone de ampliar, e as peças também ampliam no clique.
 - "Ver de novo" repete a animação de aplicação das peças.
 - O fechamento convida a falar com a Vanessa.
 
@@ -54,7 +54,7 @@ Teclado e atalhos:
 - `→` `↓` `PageDown` `espaço` avançam; `←` `↑` `PageUp` voltam.
 - Os espaços no rodapé levam direto a cada espaço.
 - `Home`/`End` vão para a primeira e a última tela, `M` abre o índice, `N` as notas da apresentadora e `F` a tela cheia. `Esc` fecha.
-- Deep link: `#president` e `#president-pecas`.
+- Deep link: `#president`, `#investimento` (com `?draft`).
 - Até 820 px de largura (e em tablet em retrato), a apresentação vira rolagem vertical.
 
 Flags de QA:
@@ -95,7 +95,7 @@ serve.ps1             servidor local (powershell -File serve.ps1 -Port 8792)
 ## Pendências
 
 - **Escopo:** quais cinco dos seis pontos entram, e a ilha Titanic.
-- **Medidas:** a VT mistura mm e cm. As faces D da ilha quadrada e C e D da ilha de nutrição não foram fotografadas. Quantidades e medidas se confirmam depois da medição na loja.
+- **Medidas:** saíram da apresentação porque são estimativas. A VT mistura mm e cm, e as faces D da ilha quadrada e C e D da ilha de nutrição não foram fotografadas. Medidas e quantidades se confirmam na medição da loja; as estimativas estão no README de cada espaço, no job.
 - **Claims e arquivos:**
   - "Triplo Zero" ("0% adição de açúcar") e "21 g de proteína";
   - SKUs e famílias Batavo;
@@ -104,7 +104,7 @@ serve.ps1             servidor local (powershell -File serve.ps1 -Port 8792)
 
   As fotos de alimento das peças são ilustrativas.
 - **Com o D'avó:** onde fica o cartaz "Monte seu combo" e se o material de Outubro Rosa pode sair da ponta Pense Zero.
-- **Investimento:** a tela de investimento já está pronta (`#investimento`, antes do contato), com as fotos Président econômica e premium e o que muda em cada nível. Ela fica escondida (`data-draft`) até chegarem os valores. Depois, é só trocar os dois `R$ —` e tirar o `data-draft`; a apresentação passa a ter 16 telas.
+- **Investimento:** a tela de investimento já está pronta (`#investimento`, antes do contato), com as fotos Président econômica e premium e o que muda em cada nível. Ela fica escondida (`data-draft`) até chegarem os valores. Depois, é só trocar os dois `R$ —` e tirar o `data-draft`; a apresentação passa a ter 10 telas.
 
 ## Fontes
 

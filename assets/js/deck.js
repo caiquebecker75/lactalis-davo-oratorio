@@ -227,13 +227,16 @@ function layoutPair(p) {
   const ar = +p.dataset.ar;
   $$('.ph', p).forEach(f => f.style.setProperty('--ar', ar));
   if (mobile) { p.classList.toggle('land', ar > 1); return; }
-  const W = p.clientWidth, H = p.clientHeight, g = 40;
+  // as fotos ocupam até ~58% da largura; a coluna das peças fica com o resto
+  // g: as duas folgas em volta da seta entre as fotos
+  const box = p.parentElement, W = box.clientWidth * (ar > 1 ? .62 : .56), H = box.clientHeight, g = 2 * 32;
   if (!W || !H) return;
   const hs = Math.min(H, (W - g) / (2 * ar));
   const hv = Math.min((H - g) / 2, W / ar);
   const st = hv > hs * 1.02;
   const h = Math.floor(st ? hv : hs), w = Math.floor(h * ar);
   p.classList.toggle('st', st);
+  p.style.width = (st ? w : 2 * w + g) + 'px';
   $$('.ph', p).forEach(f => { f.style.width = w + 'px'; f.style.height = h + 'px'; });
 }
 
@@ -246,7 +249,7 @@ function fitMesa(m) {
   // celular: as fileiras quebram linha; a escala sai da peça mais larga
   if (mobile) {
     const cm = Math.max(...$$('.pc', m).map(f => parseFloat(f.style.getPropertyValue('--w')) || 0));
-    m.style.setProperty('--u', Math.min(6, W / cm).toFixed(3));
+    m.style.setProperty('--u', Math.min(2.6, W / cm).toFixed(3));
     return;
   }
   let lo = .4, hi = 16;
@@ -263,13 +266,13 @@ function fitMesa(m) {
    Antes × depois: vistas, entrada do depois e ampliar
    --------------------------------------------------------------------- */
 function pairGo(p) { if (RM || !p) return; p.classList.remove('go'); void p.offsetWidth; p.classList.add('go'); }
-$$('.ab').forEach(s => {
+$$('.sp').forEach(s => {
   const p = $('.pair', s), ant = $('.ant img', p), dep = $('.dep img', p);
   $$('.views button', s).forEach(b => b.addEventListener('click', () => {
     if (b.classList.contains('on')) return;
     $$('.views button', s).forEach(x => x.classList.toggle('on', x === b));
     ant.src = b.dataset.antes; dep.src = b.dataset.depois;
-    p.dataset.ar = b.dataset.ar; layoutPair(p); pairGo(p);
+    p.dataset.ar = b.dataset.ar; layoutPair(p); fitMesa($('.mesa', s)); pairGo(p);
   }));
   $$('.ph', p).forEach(f => f.addEventListener('click', () => {
     const cap = $('.views button.on', s)?.dataset.cap || '';
@@ -279,8 +282,9 @@ $$('.ab').forEach(s => {
 });
 
 const onEnter = s => {
-  if (s.classList.contains('ab')) pairGo($('.pair', s));
-  if (s.classList.contains('pcs')) pgPlay(s);
+  if (!s.classList.contains('sp')) return;
+  pairGo($('.pair', s));
+  pgPlay(s, 1.5); // a aplicação começa depois que o depois entra
 };
 
 /* ---------------------------------------------------------------------
