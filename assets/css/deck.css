@@ -221,6 +221,10 @@ kbd { display: inline-block; min-width: 26px; padding: 2px 6px; border-radius: 6
 .kit { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
 .kit .lbl { flex: none; color: var(--green); }
 .kit .sum { flex: 1 1 240px; min-width: 0; font-size: 17px; font-weight: 600; line-height: 1.3; }
+.est { margin-left: auto; flex: none; display: grid; grid-template-columns: auto auto; align-items: baseline; column-gap: 10px; text-align: right; }
+.est small { font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink3); }
+.est b { font-size: 22px; font-weight: 750; letter-spacing: -.01em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.est .opc { grid-column: 1 / -1; margin-top: 1px; font-size: 12.5px; color: var(--ink3); }
 .mesa {
   position: relative; flex: 1; min-width: 0; min-height: 0; overflow: hidden; border-radius: 20px; padding: 22px 26px;
   background: var(--cream2); display: grid; place-items: center; --u: 3;
@@ -235,7 +239,8 @@ kbd { display: inline-block; min-width: 26px; padding: 2px 6px; border-radius: 6
 .pz:hover { transform: translateY(-3px); }
 .stk { display: flex; flex-direction: column; align-items: flex-start; gap: max(calc(var(--u) * 1.4px), 4px); }
 .duo { display: flex; align-items: flex-end; gap: max(calc(var(--u) * 2.4px), 7px); }
-.pc figcaption { display: flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 650; line-height: 1.2; }
+.pc figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 3px 7px; font-size: 13.5px; font-weight: 650; line-height: 1.2; }
+.pc figcaption em { flex-basis: 100%; padding-left: 27px; font-style: normal; font-weight: 600; font-size: 13px; color: var(--green-d); white-space: nowrap; }
 .pc figcaption b { flex: none; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: var(--red); color: #fff; font-size: 11.5px; font-weight: 700; display: grid; place-items: center; }
 
 .how { flex: none; }
@@ -295,14 +300,26 @@ kbd { display: inline-block; min-width: 26px; padding: 2px 6px; border-radius: 6
 .common b { margin-right: 12px; font-weight: 600; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
 
 /* ------------------------------------------------------------- contato */
-.close .pad { display: grid; grid-template-columns: minmax(0, 1fr) 600px; gap: 90px; align-items: center; }
+.close .pad { display: grid; grid-template-columns: minmax(0, 1fr) 520px; gap: 80px; align-items: center; }
 .close .eyebrow { color: var(--sand); }
-.close h2 { margin-top: 18px; font-size: 68px; line-height: 1.02; color: var(--card); max-width: 760px; }
+.close h2 { margin-top: 14px; font-size: 46px; line-height: 1.05; color: var(--card); }
+.tot { margin-top: 26px; }
+.tot a { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: center; gap: 16px; padding: 12px 0 13px; border-top: 1px solid rgba(255, 252, 244, .2); color: var(--card); text-decoration: none; transition: background-color .25s; }
+.tot a:hover { background: rgba(255, 252, 244, .06); }
+.tot b { font-weight: 700; font-size: 15px; color: var(--sand); }
+.tot strong { display: block; font-size: 19px; font-weight: 650; }
+.tot small { display: block; margin-top: 3px; font-size: 14px; line-height: 1.35; color: rgba(255, 252, 244, .72); }
+.tot em { font-style: normal; font-weight: 700; font-size: 21px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.soma { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding-top: 16px; border-top: 2px solid var(--sand); }
+.soma span { font-weight: 650; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--sand); }
+.soma b { font-size: 38px; font-weight: 750; letter-spacing: -.02em; color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.close .nota { margin-top: 10px; font-size: 13.5px; color: rgba(255, 252, 244, .72); }
 .close .sub { margin-top: 24px; color: rgba(255, 252, 244, .82); font-size: 21px; max-width: 640px; }
 .close .card { background: var(--card); color: var(--ink); border-radius: 26px; padding: 40px 44px 34px; box-shadow: 0 40px 70px -40px rgba(0, 30, 20, .7); }
 .close .card .lbl { color: var(--green); }
 .close .card h3 { margin-top: 14px; font-size: 40px; letter-spacing: -.025em; }
 .close .card .role { margin-top: 4px; font-size: 17px; color: var(--ink2); }
+.close .card .intro { margin-top: 16px; font-size: 16px; line-height: 1.45; color: var(--ink2); }
 .close .card ul { margin-top: 26px; display: grid; gap: 2px; }
 .close .card li { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 11px 0; border-top: 1px solid var(--line); font-size: 17px; }
 .close .card li span { font-size: 12.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); }
@@ -411,6 +428,7 @@ html.m .cz { width: 32px; height: 32px; right: 8px; bottom: 8px; background-size
 html.m .side { margin-top: 30px; display: block; }
 html.m .kit { display: block; }
 html.m .kit .sum { margin-top: 6px; font-size: 19px; }
+html.m .est { margin-top: 10px; justify-content: start; text-align: left; }
 html.m .mesa { margin-top: 14px; padding: 18px 16px; display: block; }
 html.m .mi { width: 100%; gap: 18px; }
 html.m .mi .row { flex-wrap: wrap; gap: 16px 14px; }
@@ -425,7 +443,13 @@ html.m .b-head h2 { font-size: 30px; }
 
 html.m .close { background: var(--green); }
 html.m .close .pad { display: block; }
-html.m .close h2 { font-size: 38px; }
+html.m .close h2 { font-size: 32px; }
+html.m .tot a { grid-template-columns: 30px minmax(0, 1fr) auto; gap: 10px; }
+html.m .tot strong { font-size: 16.5px; }
+html.m .tot small { font-size: 13px; }
+html.m .tot em { font-size: 16.5px; }
+html.m .soma { display: block; }
+html.m .soma b { display: block; margin-top: 4px; font-size: 30px; }
 html.m .close .card { margin-top: 30px; padding: 28px 22px; }
 html.m .close .card h3 { font-size: 30px; }
 html.m .close .card li { grid-template-columns: 1fr auto; font-size: 15.5px; }

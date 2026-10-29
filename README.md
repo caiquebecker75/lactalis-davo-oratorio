@@ -18,12 +18,13 @@ Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'a
 | 06 · Pense Zero | Antes × arte de referência; testeira, adesivos eletrostáticos nos vidros e 6 réguas por ocasião. |
 | 07 · Président | Premium e econômica; bandejas de polionda, cartões trocáveis e testeira. |
 | 08 · Sobremesas | Frontal e em ângulo; régua-base, nomes soltos e stoppers. |
-| 09 · Contato | Vanessa Morelli e os canais da 75LAB. |
+| 09 · Resumo e contato | O total de cada espaço, o que entra em cada um e a soma dos seis; ao lado, Vanessa Morelli e os canais da 75LAB. |
 
 ## A tela de cada espaço
 
 - **Antes × depois** à esquerda, numa foto só: o antes fica à esquerda do divisor e o depois à direita. Arrastar (mouse ou dedo), clicar na foto ou usar as setas com o divisor em foco leva o divisor para os dois lados. Ao entrar na tela, a foto começa toda no antes e o depois corre até o meio; depois aparece a dica "Arraste para comparar", que some no primeiro arrasto. As abas do topo trocam a vista, e a lupa amplia o depois e o antes. As fotos de antes e depois de cada vista têm o mesmo enquadramento; no Pense Zero o depois é a arte de referência.
-- **As peças** à direita, com uma frase-resumo. A "mesa" mostra as peças soltas, na mesma proporção entre si, só com número e nome. As medidas saíram porque são estimativas até a medição na loja, e os preços também ficaram de fora. A escala é calculada para ocupar o espaço (`--u`). Cada peça abre ampliada. A bandeja Président é o render 3D.
+- **As peças** à direita, com uma frase-resumo. A "mesa" mostra as peças soltas, na mesma proporção entre si, com número, nome e quantidade (por exemplo, "6 un.", "1 conjunto", "6,7 m" na fita de borda). As medidas saíram porque são estimativas até a medição na loja; as peças não têm preço. A escala é calculada para ocupar o espaço (`--u`). Cada peça abre ampliada. A bandeja Président é o render 3D.
+- **Investimento total** ao lado do resumo das peças, com asterisco e "* Valores estimados" logo abaixo. Os valores são a coluna "Venda c/ opcional" da planilha "DAVÓ · Resumo por projeto · divisor 0,40" (outubro de 2026). No Pense Zero o total inclui os adesivos externos opcionais, e a nota diz isso.
 - **Arrumação:** o layout testa até três arrumações e fica com a que deixa a foto e as peças maiores: o como aplica embaixo das peças, ao lado delas, ou (foto deitada) embaixo da foto.
 - **Como aplica** embaixo ou ao lado das peças: três quadros com um pictograma animado e uma frase curta. Os pictogramas mostram:
   - encaixa no trilho;
@@ -97,7 +98,8 @@ serve.ps1             servidor local (powershell -File serve.ps1 -Port 8792)
 ## Pendências
 
 - **Escopo:** quais cinco dos seis pontos entram, e a ilha Titanic.
-- **Medidas:** saíram da apresentação porque são estimativas. A VT mistura mm e cm, e as faces D da ilha quadrada e C e D da ilha de nutrição não foram fotografadas. Medidas e quantidades se confirmam na medição da loja; as estimativas estão no README de cada espaço, no job.
+- **Medidas:** saíram da apresentação porque são estimativas.
+- **Totais:** a soma dos seis totais arredondados dá R$ 11.262,57; o slide final usa o total geral da planilha, R$ 11.262,55 (a diferença é o arredondamento de cada linha). A VT mistura mm e cm, e as faces D da ilha quadrada e C e D da ilha de nutrição não foram fotografadas. Medidas e quantidades se confirmam na medição da loja; as estimativas estão no README de cada espaço, no job.
 - **Claims e arquivos:**
   - "Triplo Zero" ("0% adição de açúcar") e "21 g de proteína";
   - SKUs e famílias Batavo;
