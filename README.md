@@ -99,7 +99,7 @@ serve.ps1             servidor local (powershell -File serve.ps1 -Port 8792)
 
 - **Escopo:** quais cinco dos seis pontos entram, e a ilha Titanic.
 - **Medidas:** saíram da apresentação porque são estimativas.
-- **Totais:** a soma dos seis totais arredondados dá R$ 11.262,57; o slide final usa o total geral da planilha, R$ 11.262,55 (a diferença é o arredondamento de cada linha). A VT mistura mm e cm, e as faces D da ilha quadrada e C e D da ilha de nutrição não foram fotografadas. Medidas e quantidades se confirmam na medição da loja; as estimativas estão no README de cada espaço, no job.
+- **Totais:** o slide final usa R$ 11.262,57, a soma dos seis totais como aparecem nos slides; o total geral da planilha é R$ 11.262,55 (a diferença de dois centavos é o arredondamento de cada linha). A VT mistura mm e cm, e as faces D da ilha quadrada e C e D da ilha de nutrição não foram fotografadas. Medidas e quantidades se confirmam na medição da loja; as estimativas estão no README de cada espaço, no job.
 - **Claims e arquivos:**
   - "Triplo Zero" ("0% adição de açúcar") e "21 g de proteína";
   - SKUs e famílias Batavo;
