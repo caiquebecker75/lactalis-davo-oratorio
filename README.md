@@ -3,6 +3,7 @@
 Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'avó Oratório: Parmalat Fit (três espaços), Batavo Pense Zero, Président e Sobremesas Batavo. É uma apresentação imagética. Cada espaço cabe numa tela só: o antes × depois grande, as peças soltas e o jeito de aplicar. Base: a VT da loja e todo o refit feito no job (`Documents/75LAB/lactalis-davo-oratorio`).
 
 - **Apresentação:** https://projetos.75lab.com.br/lactalis-davo-oratorio/
+- **Versão com o planejamento (15 telas):** https://projetos.75lab.com.br/lactalis-davo-oratorio/estrategia/
 - Contato: Vanessa Morelli, Diretora Comercial 75LAB (envia a apresentação ao cliente)
 - A versão estratégica anterior (17 telas e material de apoio) está guardada na tag `v1-estrategica` do git.
 
@@ -19,6 +20,25 @@ Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'a
 | 07 · Président | Premium e econômica; bandejas de polionda, cartões trocáveis e testeira. |
 | 08 · Sobremesas | Frontal e em ângulo; régua-base, nomes soltos e stoppers. |
 | 09 · Resumo e contato | O total de cada espaço, o que entra em cada um e a soma dos seis; ao lado, Vanessa Morelli e os canais da 75LAB. |
+
+## Versão com o planejamento: 15 telas
+
+Um segundo link, com o desafio, o shopper e a estratégia antes dos espaços. O conteúdo de planejamento veio da versão estratégica (tag `v1-estrategica`), redesenhado no visual do D'avó.
+
+| Tela | Conteúdo |
+|---|---|
+| 01 · Capa | A mesma fachada, com "Planejamento e ambientação". |
+| 02 · O desafio | "O pedido é ambientar. A necessidade é ajudar a escolher.": o que foi pedido, o que a loja precisa, a oportunidade e as regras do jogo. |
+| 03 · A loja hoje | As seis fotos da visita técnica, cada uma com o problema observado. |
+| 04 · O shopper | Quatro momentos de compra com barreira e resposta, e a tensão central. |
+| 05 · O que aprendemos | Quatro ideias, cada uma com uma foto ou peça. |
+| 06 · A estratégia | "Escolhas que acompanham seu dia": rotina ativa, leveza, refeição e prazer; de, para e através de. |
+| 07 · O sistema | Encontrar, escolher e sustentar, com as peças de cada camada e as quantidades; regras de projeto. |
+| 08 a 13 · Os seis espaços | As mesmas telas do link principal, com o momento do dia e a frase da arte no topo. |
+| 14 · Próximos passos | Seis etapas, sem datas; o que combinar com o D'avó. |
+| 15 · Resumo e contato | O mesmo resumo do investimento e o cartão da Vanessa. |
+
+Os espaços, o investimento (escondido) e o resumo são copiados do `index.html`, então as duas versões mostram sempre as mesmas peças e os mesmos valores. As telas de planejamento ficam em `tools/estrategia.html`. Depois de mudar qualquer um dos dois, rode `node tools/estrategia.mjs` para gerar `estrategia/index.html`. Não edite o `estrategia/index.html` à mão.
 
 ## A tela de cada espaço
 
@@ -91,7 +111,13 @@ assets/img/brand/     logos 75LAB
 assets/img/og.jpg     imagem de compartilhamento (da capa)
 tools/assets.mjs      gera assets/img a partir do job (node tools/assets.mjs)
 serve.ps1             servidor local (powershell -File serve.ps1 -Port 8792)
+estrategia/index.html versão com o planejamento (gerada; não editar)
+estrategia/estrategia.css  telas de planejamento e o momento do dia nos espaços
+tools/estrategia.html modelo das telas de planejamento
+tools/estrategia.mjs  gera estrategia/index.html (node tools/estrategia.mjs)
 ```
+
+No servidor local, abra `http://localhost:8792/estrategia/index.html` (o serve.ps1 não resolve pastas).
 
 `tools/assets.mjs` lê as pastas de `Documents/75LAB/lactalis-davo-oratorio`, recorta os comparativos já alinhados (Président e o lado longo da ilha de nutrição) e grava WebP. Usa o `sharp` instalado em `galbani-kit-pdv-facas`. Depois de uma nova rodada no job, rode o script de novo.
 

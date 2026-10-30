@@ -1,0 +1,214 @@
+/* =========================================================================
+   Lactalis no D'avó Oratório × 75LAB · versão com o planejamento
+   Usa o sistema visual de ../assets/css/deck.css. Aqui ficam só as telas
+   de planejamento e o momento do dia no topo de cada espaço.
+   ========================================================================= */
+
+/* ------------------------------------------------------------- base das telas de planejamento */
+.st .pad { display: flex; flex-direction: column; }
+.st h2 { margin-top: 14px; }
+.st h2 em { font-style: normal; color: var(--red); }
+h2.big { font-size: 64px; line-height: 1.02; letter-spacing: -.035em; }
+.st-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 60px; }
+.st-head .sub { flex: 0 1 520px; font-size: 18.5px; }
+.estrategia h2.big { font-size: 58px; }
+.estrategia .st-head .sub { flex-basis: 420px; }
+.trio > div, .jornada .cd, .ins article, .cam, .etapas li { background: var(--card); box-shadow: 0 14px 30px -26px rgba(60, 30, 10, .5); }
+.seg { margin-top: 18px; font-size: 16.5px; color: var(--ink2); }
+.seg .lbl { margin-right: 14px; color: var(--green); }
+
+/* ------------------------------------------------------------- 02 o desafio */
+.trio { margin-top: 40px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr) auto auto; gap: 0 22px; }
+.trio > div { grid-row: 1 / -1; display: grid; grid-template-rows: subgrid; padding: 30px 36px 36px; border-radius: 24px; }
+.trio .n { font-size: 96px; font-weight: 800; line-height: .9; letter-spacing: -.04em; color: var(--cream2); }
+.trio h3 { padding-top: 18px; font-size: 30px; }
+.trio p { margin-top: 14px; font-size: 20px; line-height: 1.5; color: var(--ink2); }
+.trio .hi { background: var(--red); color: #fff; box-shadow: 0 24px 40px -26px rgba(120, 20, 10, .7); }
+.trio .hi .n { color: rgba(255, 255, 255, .28); }
+.trio .hi p { color: rgba(255, 255, 255, .92); }
+.regras { margin-top: 22px; display: flex; align-items: center; gap: 22px; padding: 14px 18px 14px 22px; border-radius: 18px; background: var(--cream2); }
+.regras .lbl { flex: none; color: var(--green); }
+.regras ul { display: flex; flex-wrap: wrap; gap: 8px; }
+.regras li { display: inline-flex; align-items: center; gap: 8px; padding: 8px 15px 9px; border-radius: 999px; background: var(--card); font-size: 15px; font-weight: 550; }
+.regras li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+
+/* ------------------------------------------------------------- 03 a loja hoje */
+.vt { margin-top: 28px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.vt figure { display: flex; flex-direction: column; min-height: 0; }
+.ph { position: relative; flex: 1; min-height: 0; padding: 0; border: 0; border-radius: 14px; overflow: hidden; background: var(--cream2); cursor: zoom-in; }
+.ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ez); }
+.ph:hover img { transform: scale(1.03); }
+.ph::after {
+  content: ''; position: absolute; right: 9px; bottom: 9px; width: 32px; height: 32px; border-radius: 50%; opacity: .94;
+  background: var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%232B2420' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/g%3E%3C/svg%3E") center / 16px no-repeat; box-shadow: 0 6px 16px -8px rgba(0, 0, 0, .45);
+}
+.vt figcaption { margin-top: 12px; font-size: 17px; font-weight: 650; line-height: 1.25; }
+.vt figcaption b { color: var(--red); margin-right: 8px; }
+.vt figcaption small { display: block; font-size: 13.5px; font-weight: 400; color: var(--ink2); }
+.vt p { margin-top: 8px; min-height: 4.2em; font-size: 15px; line-height: 1.4; color: var(--ink2); }
+
+/* ------------------------------------------------------------- 04 o shopper */
+.shopper .sub { margin-top: 14px; max-width: 1040px; font-size: 19px; }
+.jornada { position: relative; margin-top: 28px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.jornada::before { content: ''; position: absolute; top: 21px; left: calc((100% - 60px) / 8); right: calc((100% - 60px) / 8); border-top: 2px dashed var(--ink3); opacity: .5; }
+.jornada li { position: relative; display: flex; flex-direction: column; min-height: 0; }
+.jornada .sn { position: relative; z-index: 1; align-self: center; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--red); color: #fff; font-size: 18px; font-weight: 750; box-shadow: 0 0 0 7px var(--cream); }
+.jornada .cd { margin-top: 16px; flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 24px 26px 24px; border-radius: 22px; }
+.jornada .mom { font-weight: 650; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
+.jornada h3 { margin-top: 10px; font-size: 26px; line-height: 1.15; }
+.jornada small { display: block; margin-bottom: 4px; font-weight: 650; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink3); }
+.jornada .bar { margin-top: auto; padding-top: 18px; font-size: 16.5px; line-height: 1.4; color: var(--ink2); }
+.jornada .opp { min-height: 94px; margin-top: 14px; padding: 13px 16px 15px; border-radius: 14px; background: var(--green-t); font-size: 16.5px; font-weight: 600; line-height: 1.35; color: var(--green-d); }
+.jornada .opp small { color: var(--green); }
+.tensao { margin-top: 22px; display: flex; align-items: center; gap: 30px; padding: 22px 30px; border-radius: 20px; background: var(--green); color: var(--card); }
+.tensao .lbl { flex: none; color: var(--sand); }
+.tensao p:last-child { font-size: 23px; font-weight: 500; line-height: 1.35; }
+.tensao em { font-style: normal; font-weight: 700; color: #fff; }
+
+/* ------------------------------------------------------------- 05 o que aprendemos */
+.ins { margin-top: 28px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.ins article { min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 40%; gap: 24px; padding: 14px; border-radius: 24px; }
+.ins .tx { display: flex; flex-direction: column; min-height: 0; padding: 16px 4px 16px 20px; }
+.ins .n { font-size: 15px; font-weight: 750; letter-spacing: .1em; color: var(--red); }
+.ins h3 { margin-top: auto; font-size: 31px; line-height: 1.12; letter-spacing: -.02em; }
+.ins p { margin-top: 12px; font-size: 18.5px; line-height: 1.45; color: var(--ink2); }
+.ins figure { position: relative; min-height: 0; border-radius: 16px; overflow: hidden; background: var(--cream2); }
+.ins figure img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ins figure.duas { display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 16px 16px 44px; }
+.ins figure.duas img { position: static; width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 6px 8px rgba(70, 45, 15, .24)); }
+.ins figure.duas span { margin-top: 6px; font-weight: 650; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink2); }
+.ins figcaption { position: absolute; left: 10px; bottom: 10px; padding: 5px 11px 6px; border-radius: 999px; background: rgba(43, 36, 32, .8); color: #fff; font-size: 12.5px; font-weight: 600; }
+
+/* ------------------------------------------------------------- 06 a estratégia: o dia */
+.dia { position: relative; margin-top: 30px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.dia::before { content: ''; position: absolute; left: 0; right: 0; top: 9px; height: 2px; background: linear-gradient(90deg, #F7C531, var(--red) 60%, #4E2C1B); opacity: .55; }
+.dia li { min-height: 0; display: flex; flex-direction: column; }
+.dia a { flex: 1; min-height: 0; display: flex; flex-direction: column; color: inherit; text-decoration: none; }
+.dia .hora { position: relative; z-index: 1; align-self: flex-start; padding: 0 14px 0 30px; background: var(--cream); font-weight: 650; font-size: 13.5px; line-height: 20px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink2); }
+.dia .hora::before { content: ''; position: absolute; left: 0; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--bc); }
+.dia figure { position: relative; margin-top: 16px; flex: 1; min-height: 0; border-radius: 18px; overflow: hidden; background: var(--cream2); }
+.dia figure::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: var(--bc); }
+.dia img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ez); }
+.dia a:hover img { transform: scale(1.03); }
+.dia h3 { margin-top: 16px; font-size: 30px; letter-spacing: -.02em; }
+.dia .mk { margin-top: 3px; font-weight: 650; font-size: 13.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--bc); }
+.dia p { margin-top: 8px; min-height: 2.84em; font-size: 16.5px; line-height: 1.42; color: var(--ink2); }
+.dpa { margin-top: 22px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
+.dpa div { padding: 14px 32px 0 0; }
+.dpa .lbl { color: var(--green); }
+.dpa p:last-child { margin-top: 6px; font-size: 18px; line-height: 1.4; }
+
+/* ------------------------------------------------------------- 07 o sistema: três camadas */
+.sys { margin-top: 26px; flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 22px; }
+.cams { min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr) auto auto auto; gap: 0 20px; }
+.cam { grid-row: 1 / -1; min-height: 0; display: grid; grid-template-rows: subgrid; padding: 14px 14px 20px; border-radius: 24px; }
+.cm { position: relative; min-height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; padding: 18px; border-radius: 16px; background: var(--cream2); overflow: hidden; }
+.cm::before { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 2px 10px rgba(110, 80, 30, .12); pointer-events: none; }
+.cm img { max-width: 100%; object-fit: contain; filter: drop-shadow(0 6px 8px rgba(70, 45, 15, .24)); }
+.cm.enc img { width: auto; }
+.cm.esc { gap: 14px; }
+.cm.esc img { width: 100%; height: auto; }
+.cm.sus { gap: 14px; }
+.cm.sus .bj { width: 70%; height: auto; }
+.cm.sus .cc { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; justify-items: start; gap: 10px 12px; }
+.cm.sus .cc img { width: 100%; height: auto; }
+.cm.sus .cc img[style] { justify-self: center; }
+.cam .ct { margin: 18px 10px 0; display: flex; align-items: center; gap: 12px; }
+.cam .ct b { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--red); color: #fff; font-size: 16px; font-weight: 750; }
+.cam h3 { font-size: 28px; }
+.cam p { margin: 10px 10px 0; font-size: 16.5px; line-height: 1.45; color: var(--ink2); }
+.cam .qt { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 14.5px; font-weight: 550; }
+.cam .qt b { margin-right: 6px; font-size: 22px; font-weight: 800; color: var(--red); }
+.cam .qt span { display: inline-block; margin-right: 14px; white-space: nowrap; }
+.rp { min-height: 0; display: flex; flex-direction: column; padding: 28px 30px; border-radius: 24px; background: var(--green); color: var(--card); }
+.rp .lbl { color: var(--sand); }
+.rp ul { margin-top: 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; }
+.rp li { position: relative; padding-left: 30px; font-size: 18px; line-height: 1.4; }
+.rp li::before {
+  content: ''; position: absolute; left: 0; top: .18em; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%230E8C6C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 13px no-repeat;
+}
+
+/* ------------------------------------------------------------- espaços: o momento do dia e a frase da arte */
+.sp-head > div:first-child { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; column-gap: 22px; }
+.sp-head .brand { grid-column: 1 / -1; }
+.sp-head .brand .mo { color: var(--ink3); }
+.sp-head .brand .mo::before { content: '·'; margin: 0 10px; }
+.sp-head .msg { font-size: 20px; font-weight: 600; line-height: 1.25; color: var(--bc); }
+
+/* ------------------------------------------------------------- 14 próximos passos */
+.etapas { margin-top: 32px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 20px 24px; }
+.etapas li { position: relative; min-height: 0; display: flex; flex-direction: column; padding: 26px 32px 28px; border-radius: 24px; }
+.etapas .n { font-size: 60px; font-weight: 800; line-height: .9; letter-spacing: -.04em; color: var(--red); }
+.etapas h3 { margin-top: auto; padding-top: 14px; font-size: 28px; }
+.etapas p { margin-top: 10px; font-size: 18.5px; line-height: 1.45; color: var(--ink2); }
+.etapas li:not(:nth-child(3n))::after {
+  content: ''; position: absolute; right: -19px; top: 50%; z-index: 1; width: 30px; height: 30px; margin-top: -15px; border-radius: 50%;
+  background: var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12h13M13 6l6 6-6 6' fill='none' stroke='%23E1261C' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+/* ------------------------------------------------------------- celular */
+html.m h2.big { font-size: 38px; }
+html.m .st-head { display: block; }
+html.m .st-head .sub { margin-top: 14px; font-size: 17px; }
+html.m .seg { margin-top: 22px; }
+html.m .seg .lbl { display: block; margin: 0 0 4px; }
+
+html.m .trio { margin-top: 26px; grid-template-columns: 1fr; grid-template-rows: none; gap: 14px; }
+html.m .trio > div { grid-row: auto; display: block; padding: 22px 24px 26px; }
+html.m .trio .n { font-size: 56px; }
+html.m .trio h3 { font-size: 24px; }
+html.m .trio p { font-size: 17px; }
+html.m .regras { display: block; padding: 18px; }
+html.m .regras ul { margin-top: 12px; }
+html.m .regras li { font-size: 15px; }
+
+html.m .vt { margin-top: 22px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; }
+html.m .ph { flex: none; aspect-ratio: 3 / 4; }
+html.m .vt p { min-height: 0; }
+
+html.m .jornada { margin-top: 24px; grid-template-columns: 1fr; gap: 14px; }
+html.m .jornada::before { display: none; }
+html.m .jornada li { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 12px; align-items: start; }
+html.m .jornada .sn { align-self: start; margin-top: 14px; }
+html.m .jornada .cd { margin-top: 0; padding: 18px 20px; }
+html.m .jornada .opp { min-height: 0; }
+html.m .jornada h3 { font-size: 21px; }
+html.m .tensao { display: block; padding: 20px 22px; }
+html.m .tensao p:last-child { margin-top: 8px; font-size: 19px; }
+
+html.m .ins { margin-top: 22px; grid-template-columns: 1fr; grid-template-rows: none; gap: 16px; }
+html.m .ins article { grid-template-columns: 1fr; gap: 0; padding: 10px; }
+html.m .ins figure { order: -1; aspect-ratio: 16 / 10; }
+html.m .ins figure.duas { aspect-ratio: auto; }
+html.m .ins .tx { padding: 16px 10px 10px; }
+html.m .ins h3 { margin-top: 8px; font-size: 24px; }
+html.m .ins p { font-size: 16.5px; }
+
+html.m .dia { margin-top: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
+html.m .dia::before { display: none; }
+html.m .dia .hora { padding-left: 24px; font-size: 11.5px; letter-spacing: .1em; }
+html.m .dia .hora::before { width: 16px; height: 16px; top: 2px; }
+html.m .dia figure { flex: none; aspect-ratio: 3 / 4; margin-top: 10px; }
+html.m .dia h3 { margin-top: 12px; font-size: 21px; }
+html.m .dia .mk { font-size: 11.5px; }
+html.m .dia p { min-height: 0; font-size: 15px; }
+html.m .dpa { margin-top: 26px; grid-template-columns: 1fr; }
+html.m .dpa div { padding: 14px 0 0; }
+
+html.m .sys { margin-top: 22px; display: block; }
+html.m .cams { grid-template-columns: 1fr; grid-template-rows: none; gap: 16px; }
+html.m .cam { grid-row: auto; display: block; }
+html.m .cm { flex: none; height: 210px; }
+html.m .rp { margin-top: 16px; padding: 22px; }
+html.m .rp li { font-size: 16.5px; }
+
+html.m .sp-head > div:first-child { display: block; }
+html.m .sp-head .msg { margin-top: 6px; font-size: 17px; }
+
+html.m .etapas { margin-top: 24px; grid-template-columns: 1fr; grid-template-rows: none; gap: 14px; }
+html.m .etapas li { padding: 22px 24px; }
+html.m .etapas li::after { display: none; }
+html.m .etapas .n { font-size: 40px; }
+html.m .etapas h3 { padding-top: 10px; font-size: 22px; }
+html.m .etapas p { font-size: 16.5px; }
