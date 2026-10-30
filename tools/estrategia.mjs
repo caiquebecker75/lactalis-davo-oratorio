@@ -36,7 +36,11 @@ const espacos = Object.entries(DIA).map(([id, [mo, frase]]) => {
 out = troca(out, '<!-- @espacos -->\n', espacos, 'modelo');
 out = troca(out, '<!-- @investimento -->\n', tela('investimento'), 'modelo');
 out = troca(out, '<!-- @contato -->\n', tela('contato').replace('data-short="Contato"', 'data-short="Resumo e contato"').replace('data-title="Contato"', 'data-title="Resumo e contato"'), 'modelo');
-if (/<!-- @/.test(out)) throw new Error('marcador sem uso no modelo');
+// o total do sumário é o mesmo do resumo do investimento
+const total = (base.match(/<p class="soma[^>]*><span>[^<]*<\/span><b>(R\$ [\d.,]+)\*<\/b>/) || [])[1];
+if (!total) throw new Error('não achei o total no resumo do investimento');
+out = out.replaceAll('{{TOTAL}}', total);
+if (/<!-- @|\{\{/.test(out)) throw new Error('marcador sem uso no modelo');
 
 mkdirSync(new URL('estrategia/', root), { recursive: true });
 writeFileSync(new URL('estrategia/index.html', root), out);

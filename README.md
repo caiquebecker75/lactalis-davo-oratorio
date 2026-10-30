@@ -3,7 +3,7 @@
 Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'avó Oratório: Parmalat Fit (três espaços), Batavo Pense Zero, Président e Sobremesas Batavo. É uma apresentação imagética. Cada espaço cabe numa tela só: o antes × depois grande, as peças soltas e o jeito de aplicar. Base: a VT da loja e todo o refit feito no job (`Documents/75LAB/lactalis-davo-oratorio`).
 
 - **Apresentação:** https://projetos.75lab.com.br/lactalis-davo-oratorio/
-- **Versão com o planejamento (15 telas):** https://projetos.75lab.com.br/lactalis-davo-oratorio/estrategia/
+- **Versão com o planejamento estratégico (19 telas):** https://projetos.75lab.com.br/lactalis-davo-oratorio/estrategia/
 - Contato: Vanessa Morelli, Diretora Comercial 75LAB (envia a apresentação ao cliente)
 - A versão estratégica anterior (17 telas e material de apoio) está guardada na tag `v1-estrategica` do git.
 
@@ -21,24 +21,37 @@ Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'a
 | 08 · Sobremesas | Frontal e em ângulo; régua-base, nomes soltos e stoppers. |
 | 09 · Resumo e contato | O total de cada espaço, o que entra em cada um e a soma dos seis; ao lado, Vanessa Morelli e os canais da 75LAB. |
 
-## Versão com o planejamento: 15 telas
+## Versão com o planejamento estratégico: 19 telas
 
-Um segundo link, com o desafio, o shopper e a estratégia antes dos espaços. O conteúdo de planejamento veio da versão estratégica (tag `v1-estrategica`), redesenhado no visual do D'avó.
+Um segundo link, para quem precisa da estratégia antes dos espaços. O conteúdo vem do documento "Planejamento estratégico Lactalis no D'avó Oratório" (75LAB, 23/10/2026; `Downloads/Planejamento_Estrategico_Lactalis_Davo_Oratorio (1).pdf`) e da pesquisa no local (a visita técnica feita pela 75LAB).
 
 | Tela | Conteúdo |
 |---|---|
-| 01 · Capa | A mesma fachada, com "Planejamento e ambientação". |
-| 02 · O desafio | "O pedido é ambientar. A necessidade é ajudar a escolher.": o que foi pedido, o que a loja precisa, a oportunidade e as regras do jogo. |
-| 03 · A loja hoje | As seis fotos da visita técnica, cada uma com o problema observado. |
-| 04 · O shopper | Quatro momentos de compra com barreira e resposta, e a tensão central. |
-| 05 · O que aprendemos | Quatro ideias, cada uma com uma foto ou peça. |
-| 06 · A estratégia | "Escolhas que acompanham seu dia": rotina ativa, leveza, refeição e prazer; de, para e através de. |
-| 07 · O sistema | Encontrar, escolher e sustentar, com as peças de cada camada e as quantidades; regras de projeto. |
-| 08 a 13 · Os seis espaços | As mesmas telas do link principal, com o momento do dia e a frase da arte no topo. |
-| 14 · Próximos passos | Seis etapas, sem datas; o que combinar com o D'avó. |
-| 15 · Resumo e contato | O mesmo resumo do investimento e o cartão da Vanessa. |
+| 01 · Capa | Título, a promessa, marcas, escopo, base (pesquisa no local) e contato; ao lado, as seis fotos de depois. |
+| 02 · Sumário executivo | A proposta numa página: o pedido, o que vimos na loja, a necessidade, a estratégia, a solução, o papel de cada marca e o próximo passo; números-chave (6, 132, 0 e o total estimado). |
+| 03 · Briefing e objetivos | Decupagem do briefing (desafio declarado × real, objetivos de negócio e de trade, restrições) e o escopo físico. |
+| 04 · Pesquisa no local | "Fomos à loja": as seis fotos da visita técnica com o problema de cada ponto e o que a visita confirmou. |
+| 05 · Marcas e concorrência | Papel no PDV, linguagem, concorrência e espaço de diferenciação de cada marca. |
+| 06 · Shopper e tensão central | Jornada em quatro momentos (necessidade, barreira, resposta), três tensões e a tensão central. |
+| 07 · Insights | Os sete insights e o que cada um muda no projeto. |
+| 08 · Oportunidade e territórios | Oportunidade, "como podemos" e os quatro territórios avaliados, com o recomendado. |
+| 09 · A estratégia | "Escolhas que acompanham seu dia", o papel de cada marca e de, para e através de. |
+| 10 · Pilares e sistema | Encontrar, escolher, valorizar, sustentar e medir, com as peças e as quantidades; regras de projeto. |
+| 11 a 16 · Os seis espaços | As mesmas telas do link principal, com o momento do dia e a frase da arte no topo. |
+| 17 · Critérios técnicos e riscos | Design, produção, refrigeração, luz e digital; decisão de proteção; pré-mortem com mitigação. |
+| 18 · Piloto e próximos passos | Seis passos sem datas, como vamos medir (sem metas antes do baseline) e entregáveis essencial, recomendado e opcional. |
+| 19 · Resumo e contato | O mesmo resumo do investimento e o cartão da Vanessa. |
 
-Os espaços, o investimento (escondido) e o resumo são copiados do `index.html`, então as duas versões mostram sempre as mesmas peças e os mesmos valores. As telas de planejamento ficam em `tools/estrategia.html`. Depois de mudar qualquer um dos dois, rode `node tools/estrategia.mjs` para gerar `estrategia/index.html`. Não edite o `estrategia/index.html` à mão.
+Visual de relatório, para passar credibilidade:
+- Source Serif 4 nos títulos e Inter no texto.
+- Tabelas com filetes, cantos retos e nenhuma sombra.
+- O vermelho do D'avó só como acento e o fechamento em grafite.
+- A troca de tela é um fade (`data-trans="fade"` no body), sem a porta.
+- Cada tela de planejamento traz a fonte no rodapé.
+
+As telas de espaço usam o mesmo motor, com acabamento mais sóbrio (`estrategia/estrategia.css`).
+
+Os espaços, o investimento (escondido) e o resumo são copiados do `index.html`, e o total do sumário sai do resumo do investimento. Assim as duas versões mostram sempre as mesmas peças e os mesmos valores. As telas de planejamento ficam em `tools/estrategia.html`. Depois de mudar qualquer um dos dois, rode `node tools/estrategia.mjs` para gerar `estrategia/index.html`. Não edite o `estrategia/index.html` à mão.
 
 ## A tela de cada espaço
 

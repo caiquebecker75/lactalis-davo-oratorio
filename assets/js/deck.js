@@ -13,6 +13,7 @@ const stage = $('#stage');
 const STATIC = /[?&]static(=|&|$)/.test(location.search); // QA: telas no estado final, sem movimento
 if (STATIC) html.classList.add('static');
 const RM = STATIC || matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FADE = body.dataset.trans === 'fade'; // versão com o planejamento: troca de tela por fade, sem a porta
 const MQ = matchMedia('(max-width: 820px), (orientation: portrait) and (max-width: 1100px)');
 const forceDesk = /[?&]desktop(=|&|$)/.test(location.search);
 const mobile = !forceDesk && MQ.matches;
@@ -428,8 +429,8 @@ function show(next, dir) {
   busy = true; busyT = performance.now();
   next.style.zIndex = 5;
   activate(next);
-  if (dir === 0) {
-    const a = next.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 550, easing: 'ease-out' });
+  if (dir === 0 || FADE) {
+    const a = next.animate([{ opacity: 0 }, { opacity: 1 }], { duration: FADE ? 420 : 550, easing: 'ease-out' });
     after(a, 750, settle);
     return;
   }
