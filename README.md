@@ -3,7 +3,7 @@
 Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'avó Oratório: Parmalat Fit (três espaços), Batavo Pense Zero, Président e Sobremesas Batavo. É uma apresentação imagética. Cada espaço cabe numa tela só: o antes × depois grande, as peças soltas e o jeito de aplicar. Base: a VT da loja e todo o refit feito no job (`Documents/75LAB/lactalis-davo-oratorio`).
 
 - **Apresentação:** https://projetos.75lab.com.br/lactalis-davo-oratorio/
-- **Versão com o planejamento estratégico (26 telas):** https://projetos.75lab.com.br/lactalis-davo-oratorio/estrategia/
+- **Versão com o planejamento estratégico (24 telas):** https://projetos.75lab.com.br/lactalis-davo-oratorio/estrategia/
 - Contato: Vanessa Morelli, Diretora Comercial 75LAB (envia a apresentação ao cliente)
 - A versão estratégica anterior (17 telas e material de apoio) está guardada na tag `v1-estrategica` do git.
 
@@ -21,28 +21,26 @@ Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'a
 | 08 · Sobremesas | Frontal e em ângulo; régua-base, nomes soltos e stoppers. |
 | 09 · Resumo e contato | O total de cada espaço, o que entra em cada um e a soma dos seis; ao lado, Vanessa Morelli e os canais da 75LAB. |
 
-## Versão com o planejamento estratégico: 26 telas
+## Versão com o planejamento estratégico: 24 telas
 
 Um segundo link, para quem precisa da estratégia antes dos espaços. O conteúdo vem do documento "Planejamento estratégico Lactalis no D'avó Oratório" (75LAB, 23/10/2026; `Downloads/Planejamento_Estrategico_Lactalis_Davo_Oratorio (1).pdf`) e da pesquisa no local (a visita técnica feita pela 75LAB).
 
 | Tela | Conteúdo |
 |---|---|
 | 01 · Capa | Título, o slogan "Menos ruído na gôndola. Mais Lactalis no carrinho.", marcas, escopo, base (pesquisa no local) e contato; ao lado, as seis fotos de depois, cada uma na cor da marca. |
-| 02 · Sumário executivo | A proposta numa página: o pedido, o que vimos na loja, a necessidade, a estratégia, a solução, o papel de cada marca e o próximo passo; números-chave (6 espaços, 4 marcas, 132 peças, 0 móvel novo). Sem valores: eles ficam para o fim. |
-| 03 · Briefing e objetivos | Desafio declarado → desafio real em destaque, contexto, marcas, objetivos de negócio e de trade, restrições e o escopo físico (5 no briefing → 6 na visita). |
-| 04 · Pesquisa no local | "Fomos à loja": as seis fotos da visita técnica, com moldura e faixa na cor de cada marca, o problema de cada ponto e o que a visita confirmou. |
-| 05 · Marcas e concorrência | Um cartão por marca, na cor dela, com papel no PDV, testeira, linguagem, concorrência e espaço de diferenciação. |
-| 06 · Shopper e tensão central | Jornada em quatro momentos, com foto da visita, barreira e resposta; painel vermelho com a tensão central e as três tensões. |
-| 07 · Insights | O insight principal em destaque e os outros seis em cartões, cada um com o que muda no projeto. |
-| 08 · Oportunidade e territórios | Oportunidade, "como podemos", o território recomendado numa faixa inteira e os outros três embaixo. |
-| 09 · A estratégia | "Escolhas que acompanham seu dia", o papel de cada marca e de, para e através de. |
-| 10 · Pilares e sistema | Encontrar, escolher, valorizar, sustentar e medir, com as peças e as quantidades; regras de projeto. |
-| 11 a 16 · Os seis espaços | As mesmas telas do link principal, com o momento do dia e a frase da arte no topo. |
-| 17 · Opção upgrade | A 2ª opção: os seis conceitos, os materiais somando os espaços e o que validar antes de orçar. |
-| 18 a 23 · Upgrade por espaço | Letras de luz, Caixa de luz em tecido, Fundo de luz, Letreiro de neon, Queijaria e Confeitaria: hoje × upgrade arrastável, cada material numerado com a quantidade e o que é, e como funciona. |
-| 24 · Critérios técnicos e riscos | Design, produção, refrigeração, luz e digital; decisão de proteção; pré-mortem com mitigação. |
-| 25 · Piloto e próximos passos | Seis passos sem datas, como vamos medir (sem metas antes do baseline) e entregáveis essencial, recomendado e opcional. |
-| 26 · Resumo e contato | O mesmo resumo do investimento e o cartão da Vanessa, com a nota de que o upgrade ainda não está orçado. |
+| 02 · Sumário executivo | A proposta numa página: o pedido, o que vimos na loja, a necessidade, o objetivo, a estratégia, a solução, o papel de cada marca e o próximo passo; números-chave (6 espaços, 4 marcas, 132 peças, 0 móvel novo). Sem valores: eles ficam para o fim. |
+| 03 · Pesquisa no local | "Fomos à loja": o escopo físico, as seis fotos da visita técnica, com moldura e faixa na cor de cada marca, o problema de cada ponto e o que a visita confirmou. |
+| 04 · Marcas e concorrência | Um cartão por marca, na cor dela, com papel no PDV, testeira, linguagem, concorrência e espaço de diferenciação. |
+| 05 · Shopper e tensão central | Jornada em quatro momentos, com foto da visita, barreira e resposta; painel vermelho com a tensão central e as três tensões. |
+| 06 · Insights | O insight principal em destaque e os outros seis em cartões, cada um com o que muda no projeto. |
+| 07 · A estratégia | "Escolhas que acompanham seu dia", recomendado entre os quatro territórios avaliados, o papel de cada marca e de, para e através de. |
+| 08 · Pilares e sistema | Encontrar, escolher, valorizar, sustentar e medir, com as peças e as quantidades; regras de projeto. |
+| 09 a 14 · Os seis espaços | As mesmas telas do link principal, com o momento do dia e a frase da arte no topo. |
+| 15 · Opção upgrade | A 2ª opção: os seis conceitos, os materiais somando os espaços e o que validar antes de orçar. |
+| 16 a 21 · Upgrade por espaço | Letras de luz, Caixa de luz em tecido, Fundo de luz, Letreiro de neon, Queijaria e Confeitaria: hoje × upgrade arrastável, cada material numerado com a quantidade e o que é, e como funciona. |
+| 22 · Critérios técnicos e riscos | Design, produção, refrigeração, luz e digital; decisão de proteção; pré-mortem com mitigação. |
+| 23 · Piloto e próximos passos | Seis passos sem datas, como vamos medir (sem metas antes do baseline) e entregáveis essencial, recomendado e opcional. |
+| 24 · Resumo e contato | O mesmo resumo do investimento e o cartão da Vanessa, com a nota de que o upgrade ainda não está orçado. |
 
 Visual com credibilidade, sem ficar careta:
 - Source Serif 4 nos títulos, com um trecho em itálico vermelho, e Inter no texto.

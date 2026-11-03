@@ -135,41 +135,9 @@ body[data-theme="green"] #cprev { border-color: rgba(255, 255, 255, .35); }
 .qa .hi .nd { border-color: var(--red); background: var(--red); color: #fff; }
 .qa .hi dd { font-family: var(--fs); font-size: 21px; font-weight: 600; line-height: 1.28; color: var(--ink); }
 
-/* ------------------------------------------------------------- 03 briefing */
-.br-g { margin-top: 22px; flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 372px; gap: 32px; }
-.br-l { min-width: 0; min-height: 0; display: flex; flex-direction: column; }
-.shift { position: relative; flex: none; display: grid; grid-template-columns: .82fr 1fr; }
-.shift > div { padding: 18px 28px 22px; }
-.shift p:not(.lbl) { margin-top: 8px; font-family: var(--fs); font-size: 22px; font-weight: 500; line-height: 1.27; }
-.sh-d { background: var(--cream2); }
-.sh-d p:not(.lbl) { color: var(--ink2); }
-.shift .sh-r { padding-left: 44px; background: var(--red); color: #fff; }
-.sh-r .lbl { color: rgba(255, 255, 255, .82); }
-.shift .sh-r p:not(.lbl) { font-size: 25px; font-weight: 600; }
-.shift .ar { position: absolute; left: 45.05%; top: 50%; display: grid; place-items: center; width: 42px; height: 42px; margin: -21px 0 0 -21px; border-radius: 50%; background: var(--cream); color: var(--red); }
-.cells { margin-top: 8px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; column-gap: 32px; }
-.cell { display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 14px; border-bottom: 1px solid var(--line); }
-.cell.full { grid-column: 1 / -1; border-bottom: 0; }
-.cell p:not(.lbl) { margin-top: 3px; font-size: 15.5px; line-height: 1.42; color: var(--ink2); }
-.cell p b { font-weight: 650; }
-.cell .lbl { color: var(--ink); }
-.cell.ob .lbl { color: var(--green); }
-.cell.ob .nd { color: var(--green); background: var(--green-t); border-color: transparent; }
-.side-n { position: relative; min-height: 0; display: flex; flex-direction: column; overflow: hidden; padding: 22px 26px 22px; background: var(--cream2); }
-.side-n > *:not(.gd) { position: relative; }
-.side-n .gd { right: -118px; bottom: -150px; width: 330px; height: 472px; color: rgba(120, 95, 60, .3); -webkit-mask-image: linear-gradient(to bottom, transparent 15%, #000 22%, #000 42%, transparent 48%); mask-image: linear-gradient(to bottom, transparent 15%, #000 22%, #000 42%, transparent 48%); }
-.side-n .lbl { color: var(--red); }
-.cn { margin-top: 10px; display: flex; align-items: center; gap: 16px; }
-.cn b { display: block; font-family: var(--fs); font-weight: 600; font-size: 56px; line-height: 1; font-variant-numeric: lining-nums; color: var(--ink3); }
-.cn span { display: block; margin-top: 3px; font-size: 13px; color: var(--ink2); }
-.cn .r b { color: var(--red); }
-.cn > .ic { width: 24px; height: 24px; margin-bottom: 18px; color: var(--ink3); }
-.side-n .mini { margin-top: 12px; }
-.side-n .mini li { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 15px; font-weight: 500; }
-.side-n .mini b { flex: none; display: grid; place-items: center; width: 26px; height: 22px; background: var(--bc); color: #fff; font-size: 11.5px; font-weight: 650; }
-.side-n .nb { margin-top: auto; padding-top: 10px; font-size: 14.5px; font-weight: 600; line-height: 1.42; color: var(--ink); }
-
-/* ------------------------------------------------------------- 04 pesquisa no local: a cor separa as marcas */
+/* ------------------------------------------------------------- 03 pesquisa no local: a cor separa as marcas */
+.loja .sh .sub { max-width: none; font-size: 17px; }
+.estrategia .sh .sub { max-width: none; font-size: 17px; }
 .vt-br { flex: none; margin-top: 18px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
 .vt-br span { grid-column: span var(--n, 1); padding-top: 6px; border-top: 3px solid var(--bc); font-weight: 650; font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; color: var(--bc); }
 .vt { margin-top: 8px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
@@ -192,7 +160,7 @@ body[data-theme="green"] #cprev { border-color: rgba(255, 255, 255, .35); }
 .fatos b { display: block; font-family: var(--fs); font-weight: 600; font-size: 20px; line-height: 1.15; color: var(--bc); }
 .fatos span { display: block; margin-top: 3px; font-size: 13.5px; line-height: 1.38; color: var(--ink2); }
 
-/* ------------------------------------------------------------- 05 marcas e concorrência */
+/* ------------------------------------------------------------- 04 marcas e concorrência */
 .brs { margin-top: 20px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .brc { min-height: 0; display: flex; flex-direction: column; background: var(--card); }
 .brc header { padding: 14px 20px 15px; background: var(--bc); color: #fff; }
@@ -210,7 +178,7 @@ body[data-theme="green"] #cprev { border-color: rgba(255, 255, 255, .35); }
 .impl { flex: none; margin-top: 12px; padding: 13px 22px; display: grid; grid-template-columns: 112px minmax(0, 1fr); align-items: center; background: var(--ink); font-size: 15.5px; line-height: 1.45; color: #fff; }
 .impl b { font-size: 11.5px; font-weight: 650; letter-spacing: .13em; text-transform: uppercase; color: var(--sand); }
 
-/* ------------------------------------------------------------- 06 shopper */
+/* ------------------------------------------------------------- 05 shopper */
 .shopper .pad { right: calc(var(--px) + 392px + 40px); }
 .shopper .sh .sub { font-size: 17px; }
 .jornada { position: relative; margin-top: 18px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
@@ -236,7 +204,7 @@ body[data-theme="green"] #cprev { border-color: rgba(255, 255, 255, .35); }
 .ten-p li:last-child { border-bottom: 0; padding-bottom: 0; }
 .ten-p li::before { content: counter(t); position: absolute; left: 0; top: 9px; font-family: var(--fs); font-size: 17px; font-weight: 600; color: rgba(255, 255, 255, .8); }
 
-/* ------------------------------------------------------------- 07 insights */
+/* ------------------------------------------------------------- 06 insights */
 .igr { margin-top: 20px; flex: 1; min-height: 0; display: grid; grid-template-columns: 1.22fr repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .inc { position: relative; min-height: 0; display: flex; flex-direction: column; overflow: hidden; padding: 16px 20px 16px; background: var(--card); border-top: 3px solid var(--bc, var(--ink)); }
 .inc .n { font-family: var(--fs); font-weight: 600; font-size: 28px; line-height: 1; color: var(--bc, var(--red)); }
@@ -253,34 +221,7 @@ body[data-theme="green"] #cprev { border-color: rgba(255, 255, 255, .35); }
 .inc.fe .dec { font-size: 18px; color: #fff; }
 .inc.fe .dec small { color: var(--sand); font-size: 11px; }
 
-/* ------------------------------------------------------------- 08 oportunidade e territórios */
-.op-q { flex: none; margin-top: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
-.op-q > div { padding-left: 18px; border-left: 3px solid var(--red); }
-.op-q > div + div { border-left-color: var(--green); }
-.op-q .lbl { color: var(--red); }
-.op-q > div + div .lbl { color: var(--green); }
-.op-q p:not(.lbl) { margin-top: 5px; font-family: var(--fs); font-size: 18.5px; font-weight: 500; line-height: 1.34; color: var(--ink); }
-.ters { margin-top: 18px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto minmax(0, 1fr); gap: 12px; }
-.ter { min-height: 0; display: flex; flex-direction: column; padding: 18px 20px 18px; background: var(--card); }
-.ter h3 { font-family: var(--fs); font-weight: 600; font-size: 25px; line-height: 1.16; }
-.ter .id { margin-top: 8px; font-size: 16px; line-height: 1.42; color: var(--ink); }
-.ter dl { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
-.ter dt, .av small { display: block; font-weight: 650; font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--ink3); }
-.ter dd { margin-top: 3px; font-size: 15px; line-height: 1.42; color: var(--ink2); }
-.av { margin: auto -20px -18px; padding: 11px 20px 13px; background: var(--cream2); font-size: 14.5px; font-weight: 650; line-height: 1.35; color: var(--ink); }
-.av small { margin-bottom: 3px; }
-.tag-r { display: table; margin-bottom: 10px; padding: 4px 10px; background: var(--red); color: #fff; font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-.ter.rec { grid-column: 1 / -1; display: grid; grid-template-columns: 1.3fr 1fr 1.25fr .8fr; align-items: center; gap: 0 30px; padding: 22px 28px; background: var(--ink); color: #fff; }
-.ter.rec h3 { font-size: 33px; line-height: 1.08; letter-spacing: -.012em; }
-.ter.rec .id, .ter.rec .av, .ter.rec dl { margin: 0; padding: 0 0 0 22px; border: 0; background: none; border-left: 1px solid rgba(255, 255, 255, .24); }
-.ter.rec .id { font-size: 15.5px; color: #fff; }
-.ter.rec .id small { display: block; margin-bottom: 3px; font-weight: 650; font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--sand); }
-.ter.rec dt, .ter.rec .av small { color: var(--sand); }
-.ter.rec dd { font-size: 15.5px; color: rgba(255, 255, 255, .86); }
-.ter.rec .av { font-family: var(--fs); font-size: 21px; font-weight: 600; line-height: 1.2; color: #fff; }
-.ter.rec .av small { font-family: var(--f); }
-
-/* ------------------------------------------------------------- 09 a estratégia */
+/* ------------------------------------------------------------- 07 a estratégia */
 .dia { margin-top: 24px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
 .dia li { min-height: 0; display: flex; flex-direction: column; }
 .dia a { flex: 1; min-height: 0; display: flex; flex-direction: column; color: inherit; text-decoration: none; }
@@ -298,7 +239,7 @@ body[data-theme="green"] #cprev { border-color: rgba(255, 255, 255, .35); }
 .dpa .lbl { color: var(--red); }
 .dpa p:last-child { margin-top: 5px; font-size: 16px; line-height: 1.45; color: var(--ink); }
 
-/* ------------------------------------------------------------- 10 pilares e sistema */
+/* ------------------------------------------------------------- 08 pilares e sistema */
 .pil { margin-top: 24px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: auto auto minmax(0, 1fr) auto; gap: 0 18px; }
 .pil article { grid-row: 1 / -1; display: grid; grid-template-rows: subgrid; min-height: 0; padding-top: 12px; border-top: 1.5px solid var(--ink); }
 .pil h3 { font-family: var(--fs); font-weight: 600; font-size: 25px; }
@@ -397,7 +338,7 @@ body[data-theme="green"] #cprev { border-color: rgba(255, 255, 255, .35); }
 .up .pc figcaption em { flex: none; padding-left: 0; font-weight: 700; font-size: 13.5px; color: var(--bc); }
 .up .pc figcaption small { flex-basis: 100%; padding-left: 27px; font-size: 12px; font-weight: 400; line-height: 1.28; color: var(--ink2); }
 
-/* ------------------------------------------------------------- 17 critérios técnicos e riscos */
+/* ------------------------------------------------------------- 22 critérios técnicos e riscos */
 .ex-g { margin-top: 24px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; }
 .ex-g > div { min-height: 0; display: flex; flex-direction: column; }
 .ex-g .tb { flex: 1; }
@@ -408,7 +349,7 @@ body[data-theme="green"] #cprev { border-color: rgba(255, 255, 255, .35); }
 .prot b { display: block; margin-bottom: 3px; font-size: 11.5px; font-weight: 650; letter-spacing: .13em; text-transform: uppercase; color: var(--red); }
 .prot { margin-top: 16px; padding: 14px 18px; background: var(--cream2); box-shadow: inset 3px 0 0 var(--red); font-size: 15px; line-height: 1.5; color: var(--ink); }
 
-/* ------------------------------------------------------------- 18 piloto e próximos passos */
+/* ------------------------------------------------------------- 23 piloto e próximos passos */
 .mp-g { margin-top: 24px; flex: 1; min-height: 0; display: grid; grid-template-columns: 1.1fr .8fr 1fr; gap: 48px; }
 .mp-g > div { min-height: 0; display: flex; flex-direction: column; }
 .mp-g > div > .lbl { margin-bottom: 10px; color: var(--red); }
@@ -456,17 +397,6 @@ html.m .qa dd { margin-top: 8px; }
 html.m .qa .hi { margin: 0 -20px; padding: 16px 20px; }
 html.m .qa .hi dd { font-size: 19px; }
 
-html.m .br-g { display: block; margin-top: 20px; }
-html.m .shift { grid-template-columns: 1fr; }
-html.m .shift .sh-r { padding-left: 28px; }
-html.m .shift .ar { display: none; }
-html.m .shift .sh-r p:not(.lbl) { font-size: 22px; }
-html.m .shift p:not(.lbl) { font-size: 19px; }
-html.m .cells { display: block; margin-top: 10px; }
-html.m .cell { padding: 14px 0; align-items: start; }
-html.m .cell.full { border-bottom: 1px solid var(--line); }
-html.m .side-n { margin-top: 18px; }
-html.m .side-n .nb { margin-top: 12px; }
 
 html.m .vt-br { display: none; }
 html.m .vt { margin-top: 20px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; }
@@ -501,14 +431,6 @@ html.m .inc.fe h3 { font-size: 32px; }
 html.m .inc.fe .n { font-size: 54px; }
 html.m .inc.fe .dec { margin-top: 26px; }
 
-html.m .op-q { grid-template-columns: 1fr; gap: 16px; }
-html.m .ters { display: block; }
-html.m .ter { margin-bottom: 12px; }
-html.m .ter.rec { display: block; padding: 20px; }
-html.m .ter.rec h3 { font-size: 28px; }
-html.m .ter.rec .id, html.m .ter.rec .av, html.m .ter.rec dl { margin-top: 14px; padding: 12px 0 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, .24); }
-html.m .av { margin-top: 12px; }
-html.m .ter.rec .av { background: none; }
 
 html.m .dia { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
 html.m .dia figure { flex: none; aspect-ratio: 3 / 4; }
