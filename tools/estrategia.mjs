@@ -36,10 +36,20 @@ const espacos = Object.entries(DIA).map(([id, [mo, frase]]) => {
 out = troca(out, '<!-- @espacos -->\n', espacos, 'modelo');
 out = troca(out, '<!-- @investimento -->\n', tela('investimento'), 'modelo');
 out = troca(out, '<!-- @contato -->\n', tela('contato').replace('data-short="Contato"', 'data-short="Resumo e contato"').replace('data-title="Contato"', 'data-title="Resumo e contato"'), 'modelo');
-// o total do sumário é o mesmo do resumo do investimento
-const total = (base.match(/<p class="soma[^>]*><span>[^<]*<\/span><b>(R\$ [\d.,]+)\*<\/b>/) || [])[1];
-if (!total) throw new Error('não achei o total no resumo do investimento');
-out = out.replaceAll('{{TOTAL}}', total);
+// desenho de gôndola em traço fino: fundo discreto de algumas telas
+const gondola = () => {
+  const larg = [[30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30], [58, 58, 58, 58, 58, 58], [38, 38, 38, 38, 38, 38, 38, 38, 38], [76, 76, 76, 76, 76], [44, 44, 44, 44, 44, 44, 44, 44]];
+  const alt = [64, 54, 70, 46, 60];
+  let s = '<rect x="6" y="6" width="408" height="588"/><rect x="6" y="6" width="408" height="58"/>';
+  larg.forEach((linha, i) => {
+    const base = 150 + i * 104;
+    let x = 22;
+    linha.forEach(w => { s += `<rect x="${x}" y="${base - alt[i]}" width="${w - 6}" height="${alt[i]}" rx="3"/>`; x += w; });
+    s += `<path d="M6 ${base}h408M6 ${base + 14}h408"/><rect x="${60 + i * 62}" y="${base + 2}" width="26" height="10"/>`;
+  });
+  return `<symbol id="gd" viewBox="0 0 420 600" preserveAspectRatio="xMidYMax slice">${s}</symbol>`;
+};
+out = troca(out, '<!-- @gondola -->', gondola(), 'modelo');
 if (/<!-- @|\{\{/.test(out)) throw new Error('marcador sem uso no modelo');
 
 mkdirSync(new URL('estrategia/', root), { recursive: true });

@@ -27,14 +27,14 @@ Um segundo link, para quem precisa da estratégia antes dos espaços. O conteúd
 
 | Tela | Conteúdo |
 |---|---|
-| 01 · Capa | Título, a promessa, marcas, escopo, base (pesquisa no local) e contato; ao lado, as seis fotos de depois. |
-| 02 · Sumário executivo | A proposta numa página: o pedido, o que vimos na loja, a necessidade, a estratégia, a solução, o papel de cada marca e o próximo passo; números-chave (6, 132, 0 e o total estimado). |
-| 03 · Briefing e objetivos | Decupagem do briefing (desafio declarado × real, objetivos de negócio e de trade, restrições) e o escopo físico. |
-| 04 · Pesquisa no local | "Fomos à loja": as seis fotos da visita técnica com o problema de cada ponto e o que a visita confirmou. |
-| 05 · Marcas e concorrência | Papel no PDV, linguagem, concorrência e espaço de diferenciação de cada marca. |
-| 06 · Shopper e tensão central | Jornada em quatro momentos (necessidade, barreira, resposta), três tensões e a tensão central. |
-| 07 · Insights | Os sete insights e o que cada um muda no projeto. |
-| 08 · Oportunidade e territórios | Oportunidade, "como podemos" e os quatro territórios avaliados, com o recomendado. |
+| 01 · Capa | Título, o slogan "Menos ruído na gôndola. Mais Lactalis no carrinho.", marcas, escopo, base (pesquisa no local) e contato; ao lado, as seis fotos de depois, cada uma na cor da marca. |
+| 02 · Sumário executivo | A proposta numa página: o pedido, o que vimos na loja, a necessidade, a estratégia, a solução, o papel de cada marca e o próximo passo; números-chave (6 espaços, 4 marcas, 132 peças, 0 móvel novo). Sem valores: eles ficam para o fim. |
+| 03 · Briefing e objetivos | Desafio declarado → desafio real em destaque, contexto, marcas, objetivos de negócio e de trade, restrições e o escopo físico (5 no briefing → 6 na visita). |
+| 04 · Pesquisa no local | "Fomos à loja": as seis fotos da visita técnica, com moldura e faixa na cor de cada marca, o problema de cada ponto e o que a visita confirmou. |
+| 05 · Marcas e concorrência | Um cartão por marca, na cor dela, com papel no PDV, testeira, linguagem, concorrência e espaço de diferenciação. |
+| 06 · Shopper e tensão central | Jornada em quatro momentos, com foto da visita, barreira e resposta; painel vermelho com a tensão central e as três tensões. |
+| 07 · Insights | O insight principal em destaque e os outros seis em cartões, cada um com o que muda no projeto. |
+| 08 · Oportunidade e territórios | Oportunidade, "como podemos", o território recomendado numa faixa inteira e os outros três embaixo. |
 | 09 · A estratégia | "Escolhas que acompanham seu dia", o papel de cada marca e de, para e através de. |
 | 10 · Pilares e sistema | Encontrar, escolher, valorizar, sustentar e medir, com as peças e as quantidades; regras de projeto. |
 | 11 a 16 · Os seis espaços | As mesmas telas do link principal, com o momento do dia e a frase da arte no topo. |
@@ -42,16 +42,17 @@ Um segundo link, para quem precisa da estratégia antes dos espaços. O conteúd
 | 18 · Piloto e próximos passos | Seis passos sem datas, como vamos medir (sem metas antes do baseline) e entregáveis essencial, recomendado e opcional. |
 | 19 · Resumo e contato | O mesmo resumo do investimento e o cartão da Vanessa. |
 
-Visual de relatório, para passar credibilidade:
-- Source Serif 4 nos títulos e Inter no texto.
-- Tabelas com filetes, cantos retos e nenhuma sombra.
-- O vermelho do D'avó só como acento e o fechamento em grafite.
-- A troca de tela é um fade (`data-trans="fade"` no body), sem a porta.
-- Cada tela de planejamento traz a fonte no rodapé.
+Visual com credibilidade, sem ficar careta:
+- Source Serif 4 nos títulos, com um trecho em itálico vermelho, e Inter no texto.
+- Blocos de cor (grafite, vermelho e as cores das marcas), ícones de traço e um desenho de gôndola em linha fina, bem discreto.
+- Azul-marinho para Parmalat Fit, azul para Pense Zero, vermelho para Président e marrom para Sobremesas, em toda a apresentação.
+- Cantos retos, sem sombras. A troca de tela é um fade (`data-trans="fade"` no body), sem a porta.
+- Cada tela de planejamento traz a fonte no rodapé. O rodapé não tem os atalhos dos espaços; a navegação é pelo índice e pelo botão Próximo.
+- **Valores sempre por último:** nada de investimento na capa nem no sumário.
 
 As telas de espaço usam o mesmo motor, com acabamento mais sóbrio (`estrategia/estrategia.css`).
 
-Os espaços, o investimento (escondido) e o resumo são copiados do `index.html`, e o total do sumário sai do resumo do investimento. Assim as duas versões mostram sempre as mesmas peças e os mesmos valores. As telas de planejamento ficam em `tools/estrategia.html`. Depois de mudar qualquer um dos dois, rode `node tools/estrategia.mjs` para gerar `estrategia/index.html`. Não edite o `estrategia/index.html` à mão.
+Os espaços, o investimento (escondido) e o resumo são copiados do `index.html`. Assim as duas versões mostram sempre as mesmas peças e os mesmos valores. As telas de planejamento ficam em `tools/estrategia.html`. Depois de mudar qualquer um dos dois, rode `node tools/estrategia.mjs` para gerar `estrategia/index.html`. Não edite o `estrategia/index.html` à mão.
 
 ## A tela de cada espaço
 
