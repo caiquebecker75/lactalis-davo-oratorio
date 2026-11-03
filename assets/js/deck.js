@@ -31,7 +31,7 @@ let cur = null, busy = false, busyT = 0;
    Pictogramas do jeito de aplicar (viewBox 160 × 100)
    O desenho sem animação é a peça já aplicada; .a entra de --f, .fl pisca.
    --------------------------------------------------------------------- */
-const C = { ink: '#2B2420', red: '#E1261C', redd: '#B8170F', grn: '#0E8C6C', crm: '#FFF8EA', gry: '#CDC1AC', tag: '#F7C531', brn: '#5A3322' };
+const C = { ink: '#2B2420', red: '#E1261C', redd: '#B8170F', grn: '#0E8C6C', crm: '#FFF8EA', gry: '#CDC1AC', tag: '#F7C531', brn: '#5A3322', nav: '#1E3E94', glow: '#FFE391', mad: '#7A5230', lat: '#C9A24B' };
 const tagSvg = (x, y) => `<rect x="${x}" y="${y}" width="30" height="22" rx="3" fill="${C.tag}" stroke="${C.ink}" stroke-width="1.5"/><rect x="${x + 6}" y="${y + 8}" width="18" height="6" rx="2" fill="${C.ink}"/>`;
 const PG = {
   trilho: `
@@ -180,6 +180,82 @@ const PG = {
     </g>
     <path d="M20 42h16M140 42h-16" stroke="${C.ink}" stroke-width="3.5" stroke-linecap="round"/>
     <g class="fl" style="--dl:.9s" stroke="${C.grn}" stroke-width="3" stroke-linecap="round"><path d="M16 50l-6 4M144 50l6 4"/></g>`,
+  // opção upgrade: a luz acende (fade) e a peça entra por cima
+  retro: `
+    <rect x="8" y="12" width="144" height="76" rx="4" fill="${C.ink}" opacity=".14"/>
+    <g class="a" style="--fo:0;--dl:0.2s;--du:0.9s;--e:ease-out"><rect x="26" y="22" width="108" height="56" rx="16" fill="${C.glow}" opacity=".55"/><rect x="36" y="28" width="88" height="44" rx="10" fill="${C.glow}"/></g>
+    <rect x="46" y="34" width="20" height="32" rx="2" fill="${C.nav}"/><rect x="70" y="34" width="20" height="32" rx="2" fill="${C.nav}"/><rect x="94" y="34" width="20" height="32" rx="2" fill="${C.nav}"/>`,
+  perfil: `
+    <rect x="6" y="24" width="148" height="12" rx="2" fill="${C.nav}"/>
+    <rect class="a" x="6" y="36" width="148" height="4" fill="#fff" stroke="${C.glow}" stroke-width="1" style="--f:scaleX(0);--o:0% 50%;--du:.9s;--e:cubic-bezier(.6,0,.3,1)"/>
+    <path class="a" style="--fo:0;--dl:0.7s;--du:0.9s;--e:ease-out" d="M6 40h148l-14 34H20z" fill="${C.glow}" opacity=".6"/>
+    <g fill="${C.crm}" stroke="${C.ink}" stroke-width="1.5"><rect x="30" y="52" width="20" height="34" rx="3"/><rect x="58" y="52" width="20" height="34" rx="3"/><rect x="86" y="52" width="20" height="34" rx="3"/><rect x="114" y="52" width="20" height="34" rx="3"/></g>`,
+  acm: `
+    <rect x="22" y="12" width="116" height="76" rx="3" fill="${C.gry}"/>
+    <g class="a" style="--f:translateX(-126px);--du:.95s;--e:cubic-bezier(.3,1.1,.5,1)">
+      <rect x="22" y="12" width="116" height="76" rx="3" fill="${C.nav}"/>
+      <path d="M30 22h100M30 34h100M30 46h100M30 58h100M30 70h100M30 80h100" stroke="#fff" stroke-width="1" opacity=".22"/>
+    </g>`,
+  tecido: `
+    <rect x="10" y="20" width="140" height="60" rx="3" fill="${C.gry}"/>
+    <rect class="a" style="--fo:0;--dl:0.3s;--du:0.9s;--e:ease-out" x="16" y="26" width="128" height="48" fill="${C.glow}"/>
+    <rect x="22" y="32" width="116" height="36" fill="${C.nav}"/>
+    <rect x="32" y="42" width="46" height="7" rx="3.5" fill="#fff"/><rect x="32" y="53" width="30" height="5" rx="2.5" fill="#fff" opacity=".75"/><circle cx="118" cy="50" r="12" fill="${C.crm}"/>
+    <g class="fl" style="--dl:1s" stroke="${C.tag}" stroke-width="2.6" stroke-linecap="round"><path d="M40 14v-6M80 14v-6M120 14v-6"/></g>`,
+  nicho: `
+    <rect x="10" y="14" width="140" height="72" rx="3" fill="${C.nav}"/>
+    <rect x="50" y="26" width="60" height="48" fill="${C.ink}" opacity=".55"/>
+    <path class="a" style="--fo:0;--dl:0.3s;--du:0.9s;--e:ease-out" d="M50 26h60v48H50z" fill="${C.glow}"/>
+    <g fill="${C.crm}" stroke="${C.ink}" stroke-width="1.4"><rect x="58" y="44" width="12" height="30" rx="2"/><rect x="74" y="44" width="12" height="30" rx="2"/><rect x="90" y="44" width="12" height="30" rx="2"/></g>`,
+  painel: `
+    <rect x="16" y="10" width="128" height="80" fill="${C.ink}" opacity=".3"/>
+    <rect class="a" style="--fo:0;--dl:0.25s;--du:0.9s;--e:ease-out" x="16" y="10" width="128" height="80" fill="${C.glow}"/>
+    <g fill="${C.crm}" stroke="${C.ink}" stroke-width="1.6"><path d="M30 26h26l2 58H28z"/><path d="M67 26h26l2 58H65z"/><path d="M104 26h26l2 58h-30z"/></g>
+    <g fill="${C.nav}"><rect x="33" y="52" width="20" height="14"/><rect x="70" y="52" width="20" height="14"/><rect x="107" y="52" width="20" height="14"/></g>`,
+  letras: `
+    <rect x="8" y="22" width="144" height="56" rx="3" fill="${C.nav}"/>
+    <g fill="${C.ink}" opacity=".5"><rect x="27" y="39" width="26" height="30"/><rect x="67" y="39" width="26" height="30"/><rect x="107" y="39" width="26" height="30"/></g>
+    <g class="a" style="--fo:0;--dl:0.3s;--du:0.7s;--e:ease-out"><rect x="24" y="34" width="26" height="30" rx="1" fill="#fff"/></g><g class="a" style="--fo:0;--dl:0.55s;--du:0.7s;--e:ease-out"><rect x="64" y="34" width="26" height="30" rx="1" fill="#fff"/></g><g class="a" style="--fo:0;--dl:0.8s;--du:0.7s;--e:ease-out"><rect x="104" y="34" width="26" height="30" rx="1" fill="#fff"/></g>`,
+  neon: `
+    <rect x="8" y="16" width="144" height="68" rx="4" fill="${C.nav}"/>
+    <path class="a" style="--fo:0;--dl:0.2s;--du:0.9s;--e:ease-out" d="M24 62c8-30 20-34 24-20s-8 28-10 12 16-26 26-16-6 26 4 24 14-26 24-22-8 24 4 22 18-22 30-20" fill="none" stroke="${C.glow}" stroke-width="9" stroke-linecap="round" opacity=".5"/>
+    <path d="M24 62c8-30 20-34 24-20s-8 28-10 12 16-26 26-16-6 26 4 24 14-26 24-22-8 24 4 22 18-22 30-20" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>`,
+  coluna: `
+    <rect x="46" y="10" width="68" height="80" fill="#D6ECF0" stroke="${C.ink}" stroke-width="2"/>
+    <path d="M46 34h68M46 58h68" stroke="${C.ink}" stroke-width="1.6" opacity=".5"/>
+    <g class="a" style="--fo:0;--dl:0.2s;--du:0.9s;--e:ease-out" fill="${C.glow}" opacity=".75"><rect x="26" y="10" width="14" height="80"/><rect x="120" y="10" width="14" height="80"/></g>
+    <rect class="a" x="36" y="10" width="5" height="80" fill="#fff" stroke="${C.ink}" stroke-width="1" style="--f:scaleY(0);--o:50% 100%;--du:.8s"/>
+    <rect class="a" x="119" y="10" width="5" height="80" fill="#fff" stroke="${C.ink}" stroke-width="1" style="--f:scaleY(0);--o:50% 100%;--du:.8s"/>`,
+  halo: `
+    <rect x="8" y="16" width="144" height="68" rx="3" fill="${C.mad}"/>
+    <path d="M8 30h144M8 46h144M8 62h144" stroke="${C.ink}" stroke-width="1.2" opacity=".28"/>
+    <ellipse class="a" style="--fo:0;--dl:0.25s;--du:0.9s;--e:ease-out" cx="80" cy="50" rx="50" ry="31" fill="${C.glow}"/>
+    <ellipse cx="80" cy="50" rx="36" ry="21" fill="${C.lat}" stroke="${C.ink}" stroke-width="1.4"/>
+    <rect x="58" y="46" width="44" height="8" rx="3" fill="${C.redd}"/>`,
+  moldura: `
+    <rect x="38" y="16" width="84" height="70" fill="${C.ink}" opacity=".22"/>
+    <path d="M38 34h84M38 52h84M38 70h84" stroke="${C.ink}" stroke-width="1.6" opacity=".45"/>
+    <rect class="a" style="--fo:0;--dl:0.25s;--du:0.9s;--e:ease-out" x="24" y="6" width="112" height="88" rx="4" fill="none" stroke="${C.glow}" stroke-width="11" opacity=".75"/>
+    <rect x="29" y="10" width="102" height="80" rx="2" fill="none" stroke="${C.mad}" stroke-width="5"/>`,
+  bandejam: `
+    <line x1="8" y1="86" x2="152" y2="86" stroke="${C.ink}" stroke-width="3" stroke-linecap="round" opacity=".35"/>
+    <g class="a" style="--f:translateY(-34px);--fo:0;--du:.8s">
+      <path d="M30 40h100l8 18H22z" fill="${C.mad}"/>
+      <g fill="${C.crm}" stroke="${C.ink}" stroke-width="1.3"><rect x="40" y="22" width="24" height="26" rx="2"/><rect x="68" y="22" width="24" height="26" rx="2"/><rect x="96" y="22" width="24" height="26" rx="2"/></g>
+      <rect x="22" y="56" width="116" height="28" rx="2" fill="${C.ink}"/>
+      <rect x="22" y="56" width="116" height="3" fill="${C.lat}"/>
+      <rect x="54" y="66" width="52" height="7" rx="3.5" fill="${C.lat}"/>
+    </g>`,
+  lampadas: `
+    <rect x="10" y="20" width="140" height="60" rx="4" fill="${C.brn}"/>
+    <rect x="42" y="44" width="76" height="9" rx="4.5" fill="${C.crm}"/>
+    ${[24, 48, 72, 96, 120, 136].map((x, i) => `<circle class="a" cx="${x}" cy="29" r="5" fill="${C.glow}" stroke="#fff" stroke-width="1" style="--fo:0;--dl:${(i * .12).toFixed(2)}s;--du:.4s"/><circle class="a" cx="${x}" cy="71" r="5" fill="${C.glow}" stroke="#fff" stroke-width="1" style="--fo:0;--dl:${(.6 + i * .12).toFixed(2)}s;--du:.4s"/>`).join('')}`,
+  lambrequim: `
+    <rect x="10" y="10" width="140" height="24" rx="2" fill="${C.brn}"/>
+    <rect x="10" y="62" width="140" height="28" fill="${C.ink}" opacity=".16"/>
+    <g class="a" style="--f:translateY(-18px);--fo:0;--dl:.2s;--du:.8s;--e:cubic-bezier(.3,1.3,.5,1)">
+      ${[10, 38, 66, 94, 122].map((x, i) => `<path d="M${x} 34h28v16a14 12 0 0 1-28 0z" fill="${i % 2 ? C.mad : C.crm}"/>`).join('')}
+    </g>`,
 };
 $$('.pg[data-pg]').forEach(el => {
   el.innerHTML = `<svg viewBox="0 0 160 100" aria-hidden="true">${PG[el.dataset.pg] || ''}</svg>`;
@@ -245,7 +321,7 @@ function layoutCmp(c) {
         return a;
       },
     };
-    const pick = (location.search.match(/[?&]lay=(\w+)/) || [])[1]; // QA: ?lay=sob força uma arrumação
+    const pick = c.dataset.lay || (location.search.match(/[?&]lay=(\w+)/) || [])[1]; // data-lay na foto ou, no QA, ?lay=sob forçam uma arrumação
     let best = null;
     const log = [];
     for (const k of pick && ways[pick] ? [pick] : ar > 1 ? ['lado', 'largo', 'sob'] : ['lado', 'largo']) {
@@ -350,7 +426,7 @@ $$('.sp').forEach(s => {
   $('.cz', c).addEventListener('click', () => {
     const cap = $('.views button.on', s)?.dataset.cap || '';
     const t = $('h2', s).textContent;
-    openLb([{ src: dep.src, t: 'Depois · ' + t, d: cap }, { src: ant.src, t: 'Antes · ' + t, d: cap }], 0);
+    openLb([{ src: dep.src, t: $('.td', c).textContent + ' · ' + t, d: cap }, { src: ant.src, t: $('.ta', c).textContent + ' · ' + t, d: cap }], 0);
   });
 });
 

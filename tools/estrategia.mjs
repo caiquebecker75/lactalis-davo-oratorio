@@ -4,6 +4,7 @@
 // para as duas apresentações mostrarem sempre as mesmas peças e os mesmos valores.
 // Uso: node tools/estrategia.mjs
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { UP } from './upgrade-dados.mjs';
 
 const root = new URL('..', import.meta.url);
 const base = readFileSync(new URL('index.html', root), 'utf8');
@@ -35,7 +36,53 @@ const espacos = Object.entries(DIA).map(([id, [mo, frase]]) => {
 
 out = troca(out, '<!-- @espacos -->\n', espacos, 'modelo');
 out = troca(out, '<!-- @investimento -->\n', tela('investimento'), 'modelo');
-out = troca(out, '<!-- @contato -->\n', tela('contato').replace('data-short="Contato"', 'data-short="Resumo e contato"').replace('data-title="Contato"', 'data-title="Resumo e contato"'), 'modelo');
+
+// opção upgrade: uma tela por espaço, no formato das telas de espaço
+const peca = (e, p) => `<figure class="pc" style="--w:${p.w};--h:${p.h};--s:${p.s || 1}"><button type="button" class="pz" data-zoom="../assets/img/upgrade/${e.id}-p${p.n}.webp" data-gallery="up-${e.id}" data-caption="${p.n} · ${p.nome} · ${p.qtd}|${p.mat}"><img src="../assets/img/upgrade/${e.id}-p${p.n}.webp" alt="${p.nome}"></button><figcaption><b>${p.n}</b><span>${p.nome}</span><em>${p.qtd}</em><small>${p.mat}</small></figcaption></figure>`;
+const upgrade = UP.map(e => `  <!-- ================================================================ UPGRADE · ${e.nome.toUpperCase()} -->
+  <section class="slide sp up" id="up-${e.id}" data-short="Upgrade · ${e.nome}" data-theme="cream" data-title="Upgrade · ${e.nome}" style="--bc:${e.bc}">
+    <div class="pad">
+      <header class="sp-head">
+        <div>
+          <p class="brand rv"><b>${e.n}</b>${e.marca}<span class="mo">${e.espaco}</span></p>
+          <h2 class="rv" style="--d:1">${e.nome}</h2>
+          <p class="msg rv" style="--d:2">Opção upgrade</p>
+        </div>
+        <div class="val rv" style="--d:2"><small>A validar</small><b>${e.valida}</b><span>Mais 1 conjunto de fonte e cabos. Quantidades estimadas; fecham na medição da loja.</span></div>
+      </header>
+      <div class="sp-body">
+        <div class="cmp" data-ar="${e.ar}"${e.ar > 1.5 ? ' data-lay="sob"' : ''}>
+          <img class="ia" src="../assets/img/${e.antes}.webp" alt="${e.espaco} hoje" draggable="false">
+          <img class="id" src="../assets/img/upgrade/${e.id}-depois.webp" alt="${e.espaco} na opção upgrade" draggable="false">
+          <span class="tg ta">Hoje</span><span class="tg td">Upgrade</span>
+          <div class="handle" tabindex="0" role="slider" aria-label="Arraste para comparar hoje e o upgrade" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
+          <span class="hint">Arraste para comparar</span>
+          <button type="button" class="cz" aria-label="Ampliar as fotos"></button>
+        </div>
+        <div class="side">
+          <div class="kit rv" style="--d:3">
+            <p class="lbl">Os materiais</p>
+            <p class="sum">${e.sum}</p>
+          </div>
+          <div class="mesa rv" style="--d:3">
+            <div class="mi" style="--cols:${e.cols}">
+${e.linhas.flat().map(p => '              ' + peca(e, p)).join('\n')}
+            </div>
+          </div>
+          <div class="how rv" style="--d:4">
+            <p class="lbl">Como funciona</p>
+            <div class="hw">
+${e.como.map(c => `              <div class="mc"><i class="pg" data-pg="${c.pg}"></i><h3>${c.t}</h3><span class="pn">${c.pn}</span></div>`).join('\n')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes" hidden><p>${e.nota}</p></aside>
+  </section>
+`).join('\n');
+out = troca(out, '<!-- @upgrade -->\n', upgrade, 'modelo');
+out = troca(out, '<!-- @contato -->\n', tela('contato').replace('data-short="Contato"', 'data-short="Resumo e contato"').replace('data-title="Contato"', 'data-title="Resumo e contato"').replace('inclui os adesivos externos opcionais.</p>', 'inclui os adesivos externos opcionais. A opção upgrade ainda não está orçada.</p>'), 'modelo');
 // desenho de gôndola em traço fino: fundo discreto de algumas telas
 const gondola = () => {
   const larg = [[30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30], [58, 58, 58, 58, 58, 58], [38, 38, 38, 38, 38, 38, 38, 38, 38], [76, 76, 76, 76, 76], [44, 44, 44, 44, 44, 44, 44, 44]];

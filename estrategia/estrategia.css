@@ -362,6 +362,41 @@ body[data-theme="green"] #cprev { border-color: rgba(255, 255, 255, .35); }
 .lvc, .lvp { border-radius: 2px; box-shadow: none; }
 .lvb .tag { border-radius: 2px; }
 
+/* ------------------------------------------------------------- opção upgrade: abertura */
+.upi-g { margin-top: 18px; flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 40px; }
+.upi-r { min-height: 0; display: flex; flex-direction: column; }
+.upi-r > .lbl { color: var(--red); }
+.mats { margin-top: 8px; flex: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; column-gap: 26px; border-top: 2px solid var(--ink); }
+.mats li { display: grid; grid-template-columns: 58px minmax(0, 1fr); align-items: center; border-bottom: 1px solid var(--line); }
+.mats b { font-family: var(--fs); font-weight: 600; font-size: 34px; line-height: 1; font-variant-numeric: lining-nums; color: var(--red); }
+.mats strong { display: block; font-size: 15px; font-weight: 650; }
+.mats span { display: block; margin-top: 1px; font-size: 13px; line-height: 1.32; color: var(--ink2); }
+.aval { flex: none; margin-top: 12px; padding: 12px 18px 14px; background: var(--ink); color: #fff; }
+.aval .lbl { color: var(--sand); }
+.aval ul { margin-top: 6px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px 20px; }
+.aval li { position: relative; padding-left: 13px; font-size: 13.5px; line-height: 1.34; color: rgba(255, 255, 255, .9); }
+.aval li::before { content: ''; position: absolute; left: 0; top: .5em; width: 5px; height: 5px; background: var(--sand); }
+
+/* ------------------------------------------------------------- opção upgrade: telas de espaço */
+.val { flex: 0 1 660px; text-align: right; }
+.val small { display: block; font-weight: 650; font-size: 11.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--red); }
+.val b { display: block; margin-top: 3px; font-size: 15.5px; font-weight: 600; line-height: 1.3; }
+.val span { display: block; margin-top: 3px; font-size: 12.5px; line-height: 1.35; color: var(--ink3); }
+.up .msg { color: var(--bc); }
+.up .sp-body.under .how { width: 0; min-width: 100%; }
+.up .mesa { display: block; padding: 14px 16px; }
+.up .mi { width: 100%; height: 100%; display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); grid-auto-rows: minmax(0, 1fr); align-items: stretch; gap: 12px 14px; }
+.up .pc { width: auto; min-width: 0; min-height: 0; grid-column: span var(--s, 1); gap: 6px; }
+.up .pz { position: relative; flex: 1; min-height: 50px; overflow: hidden; border-radius: 2px; }
+.up .pz:hover { transform: none; }
+.up .pz img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: none; transition: transform .5s var(--ez); }
+.up .pz:hover img { transform: scale(1.03); }
+.up .pc figcaption { flex: none; gap: 1px 7px; align-items: baseline; }
+.up .pc figcaption b { align-self: flex-start; }
+.up .pc figcaption span { flex: 1 1 0; min-width: 0; }
+.up .pc figcaption em { flex: none; padding-left: 0; font-weight: 700; font-size: 13.5px; color: var(--bc); }
+.up .pc figcaption small { flex-basis: 100%; padding-left: 27px; font-size: 12px; font-weight: 400; line-height: 1.28; color: var(--ink2); }
+
 /* ------------------------------------------------------------- 17 critérios técnicos e riscos */
 .ex-g { margin-top: 24px; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; }
 .ex-g > div { min-height: 0; display: flex; flex-direction: column; }
@@ -491,6 +526,19 @@ html.m .regras-l .lbl { display: block; margin-bottom: 6px; }
 html.m .regras-l span:not(.lbl) { display: block; padding: 4px 0; }
 html.m .regras-l span:not(.lbl) + span::before { content: none; }
 
+html.m .upi-g { display: block; margin-top: 20px; }
+html.m .upi-g .cv-r { margin: 0 0 24px; }
+html.m .mats { grid-template-columns: 1fr; }
+html.m .mats li { padding: 10px 0; }
+html.m .aval { margin-top: 18px; }
+html.m .aval ul { grid-template-columns: 1fr; }
+html.m .val { margin-top: 14px; text-align: left; }
+html.m .up .mesa { padding: 14px; }
+html.m .up .mi { display: block; height: auto; }
+html.m .up .pc { width: 100%; max-width: none; margin-bottom: 18px; }
+html.m .up .sp-body.under .how { width: auto; min-width: 0; }
+html.m .up .pc:last-child { margin-bottom: 0; }
+html.m .up .pz { flex: none; width: 100%; aspect-ratio: calc(var(--w) / var(--h)); }
 html.m .sp-head > div:first-child { display: block; }
 html.m .sp-head .msg { margin-top: 6px; font-size: 17px; }
 
