@@ -73,23 +73,24 @@ const G1 = 'nutricao';
 const nutricao = espaco({
   id: 'nutricao', n: '01', short: 'Nutrição esportiva', marca: 'Parmalat Fit', titulo: 'Ilha de nutrição esportiva', cor: '#1E3E94', rotulo: 'A mesma ilha, de dois pontos · simulação com as fotos da loja',
   vistas: [
-    { nome: 'Lado A em destaque', antes: 'nutricao/v1-antes', depois: 'nutricao/v1-depois', ar: 1.4545, cap: 'Os lados A e B, com o lado A em destaque. Simulação feita com as fotos da loja.' },
-    { nome: 'Lado B em destaque', antes: 'nutricao/v2-antes', depois: 'nutricao/v2-depois', ar: 1.4545, cap: 'Os lados A e B, com o lado B em destaque. Simulação feita com as fotos da loja.' },
+    { nome: 'Lado longo', antes: 'nutricao/n-longo-antes', depois: 'nutricao/n-longo-depois', ar: 1.7917, cap: 'Lado longo da ilha. Simulação feita com a foto da loja.' },
+    { nome: 'Ponta', antes: 'nutricao/n-ponta-antes', depois: 'nutricao/n-ponta-depois', ar: 0.53, cap: 'Ponta da ilha, com a barra de peso na prateleira. Simulação feita com a foto da loja.' },
   ],
-  resumo: 'A ilha inteira ambientada, com ponta e o destaque 23 g × 15 g.',
+  resumo: 'Testeira em onda, réguas por categoria e a barra de peso com a marca na ponta.',
   mesa: [
-    peca({ gal: G1, n: 3, nome: 'Testeira da ilha', qtd: '1 un., em 2 módulos', mat: 'Placas de PS em L, dupla face, recorte especial', src: 'nutricao/03-testeira-ilha-face-A', w: 236, h: 62 }),
     row(
-      peca({ gal: G1, n: 4, nome: 'Ponta · Whey em pó', qtd: '1 un.', mat: 'Placas de PS em L, virada para a frente; forma um T com a testeira', src: 'nutricao/04-ponta-cabeceira', w: 78, h: 62.4 }),
-      col(
-        pilha({ gal: G1, n: 1, nome: 'Régua · lado longo', qtd: '6 un.', mat: 'PS impresso', w: 130, h: 14, itens: [['nutricao/01-regua-a1-whey-em-po', 'Whey em pó', 130, 4], ['nutricao/01-regua-a2-whey-15g', '15 g pronto para beber', 130, 4], ['nutricao/01-regua-a3-para-levar', 'Para levar', 130, 4]] }),
-        pilha({ gal: G1, n: 5, nome: 'Faixa azul por categoria', qtd: '6 un.', mat: 'PS impresso, só com a categoria', w: 130, h: 14, itens: [['nutricao/05-faixa-1-barra-proteica', 'Barra proteica', 130, 4], ['nutricao/05-faixa-2-creatina', 'Creatina', 130, 4], ['nutricao/05-faixa-3-whey-protein', 'Whey protein', 130, 4]] }),
-      ),
-      pilha({ gal: G1, n: 2, nome: 'Régua · ponta', qtd: '3 un.', mat: 'PS impresso', w: 90, h: 14, itens: [['nutricao/02-regua-b1-whey-em-po', 'Whey em pó', 90, 4], ['nutricao/02-regua-b2-pronto-para-beber', '23 g e 15 g', 90, 4], ['nutricao/02-regua-b3-pronto-para-beber', '23 g', 90, 4]] }),
+      peca({ gal: G1, n: 1, nome: 'Testeira central', qtd: '1 un., dupla face', mat: 'PS com recorte em onda e abas nas pontas', src: 'nutricao/n-1-testeira', w: 236, h: 34.8 }),
+      peca({ gal: G1, n: 4, nome: 'Testeiras perpendiculares', qtd: '2 un., esquerda e direita', mat: 'PS com recorte em onda, em pé na prateleira', src: 'nutricao/n-4-testeira-ponta', w: 110, h: 24.6 }),
+    ),
+    row(
+      pilha({ gal: G1, n: 2, nome: 'Réguas Parmalat Fit', qtd: '6 un., 3 por lado', mat: 'PS impresso, no trilho de preço', w: 110, h: 17, itens: [['nutricao/n-2-regua-whey-em-po', 'Whey em pó', 110, 5.2], ['nutricao/n-2-regua-23g-15g', '23 g Flexforce e 15 g Whey', 110, 4.6], ['nutricao/n-2-regua-pronto-para-beber', 'Pronto para beber', 110, 5]] }),
+      pilha({ gal: G1, n: 3, nome: 'Réguas por categoria', qtd: '6 un., 3 por lado', mat: 'PS impresso, só com a categoria', w: 95, h: 17, itens: [['nutricao/n-3-regua-barras-proteicas', 'Barras proteicas', 95, 5.2], ['nutricao/n-3-regua-creatina', 'Creatina', 95, 4.4], ['nutricao/n-3-regua-whey-protein', 'Whey protein', 95, 4.9]] }),
+      pilha({ gal: G1, n: 6, nome: 'Réguas da ponta', qtd: '2 un.', mat: 'PS impresso, no trilho de preço', w: 85, h: 10, itens: [['nutricao/n-6-regua-ponta-1', '23 g Flexforce', 85, 3.9], ['nutricao/n-6-regua-ponta-2', '23 g Flexforce, com a marca', 85, 4.2]] }),
+      peca({ gal: G1, n: 5, nome: 'Barra de peso', qtd: '1 un.', mat: 'Peça especial em PS recortado, presa na prateleira', src: 'nutricao/n-5-halter', w: 57, h: 16.8 }),
     ),
   ],
-  como: [tile('trilho', 'Encaixa no trilho de preço', 'Peças 1, 2 e 5'), tile('empe', 'Fica em pé sozinha', 'Peças 3 e 4'), tile('caixas', 'A base continua para as caixas', 'Sem comunicação')],
-  nota: 'A ilha inteira puxa a categoria nas cores da marca, inclusive no trecho das outras marcas. A ponta é a peça virada para a frente. As caixas ficam embaixo porque o cliente leva a caixa dali.',
+  como: [tile('empe', 'Testeiras em pé, sobre a prateleira', 'Peças 1 e 4'), tile('trilho', 'Réguas no trilho de preço', 'Peças 2, 3 e 6'), tile('presilha', 'Barra de peso presa na prateleira', 'Peça 5'), tile('caixas', 'A base continua para as caixas', 'Sem comunicação')],
+  nota: 'A testeira em onda puxa a categoria no lado longo e na ponta. As réguas nomeiam o que está em cada prateleira. A barra de peso leva a marca para a altura dos olhos, na ponta. As caixas ficam embaixo porque o cliente leva a caixa dali.',
 });
 
 const G2 = 'seca';
@@ -98,17 +99,17 @@ const seca = espaco({
   vistas: [
     { nome: 'Frontal', antes: 'seca/n-antes', depois: 'seca/n-depois', ar: 0.5675, cap: 'Vista frontal' },
   ],
-  resumo: 'A arte aprovada, agora com luz e o display do Flexforce na prateleira.',
+  resumo: 'A arte aprovada, agora com luz e os stoppers do Flexforce na prateleira.',
   mesa: [
-    peca({ gal: G2, n: 1, nome: 'Testeira em caixa retroiluminada', qtd: '1 un.', mat: 'Caixa com face em acrílico e fita de LED', src: 'seca/caixa-com-testeira', w: 190, h: 96 }),
+    peca({ gal: G2, n: 1, nome: 'Testeira superior com LED', qtd: '1 un.', mat: 'Caixa com face em acrílico e fita de LED', src: 'seca/n-1-testeira', w: 190, h: 48.2 }),
     row(
-      peca({ gal: G2, n: 2, nome: 'Moldura do Whey', qtd: '1 un.', mat: 'PS recortado e fita de LED', src: 'seca/seca-2-moldura-whey', w: 96, h: 56 }),
-      peca({ gal: G2, n: 4, nome: 'Display Flexforce', qtd: '2 un.', mat: 'Flag em PS presa na prateleira, com a embalagem do produto', src: 'seca/flexforce-display', w: 17, h: 35 }),
+      peca({ gal: G2, n: 2, nome: 'Moldura com LED', qtd: '1 un.', mat: 'PS recortado e fita de LED', src: 'seca/seca-2-moldura-whey', w: 96, h: 56 }),
+      peca({ gal: G2, n: 4, nome: 'Stoppers Flexforce', qtd: '2 un., morango e chocolate', mat: 'Flag em PS presa na prateleira, com a embalagem do produto', src: 'seca/flexforce-display', w: 27.5, h: 56 }),
     ),
-    pilha({ gal: G2, n: 3, nome: 'Réguas com selo 23 g ou 15 g', qtd: '6 un.', mat: 'PS impresso, com fita de LED na borda', w: 181, h: 36, itens: [['seca/seca-r1', 'Whey 21 g', 118, 5], ['seca/seca-r3', '23 g Flexforce', 181, 5.2], ['seca/seca-r4', '15 g Whey', 165, 5.2], ['seca/seca-r5', '15 g Whey', 165, 5.2], ['seca/seca-r6', '15 g Whey', 165, 5.2]] }),
+    pilha({ gal: G2, n: 3, nome: 'Réguas de gôndola', qtd: '7 un., 3 com frase e 4 gráficas', mat: 'PS impresso, com fita de LED na borda', w: 181, h: 37, itens: [['seca/n-regua-energia', 'Energia para o seu dia', 181, 8.1], ['seca/n-regua-proteina', 'Proteína líquida', 181, 8.1], ['seca/n-regua-nutricao', 'Nutrição em qualquer rotina', 181, 8.1], ['seca/n-regua-grafica', 'Régua gráfica', 181, 8.1]] }),
   ],
-  como: [tile('retro', 'Caixa de luz atrás da testeira', 'Peça 1'), tile('perfil', 'Fita de LED ilumina o produto', 'Peças 2 e 3'), tile('trilho', 'Réguas no trilho e o display do Flexforce', 'Peças 3 e 4')],
-  nota: 'O projeto aprovado continua igual. Entram a luz e o display do Flexforce, o novo de 23 g de proteína, preso na prateleira.',
+  como: [tile('retro', 'Caixa de luz atrás da testeira', 'Peça 1'), tile('perfil', 'Fita de LED ilumina o produto', 'Peças 2 e 3'), tile('trilho', 'Réguas no trilho e os stoppers na prateleira', 'Peças 3 e 4')],
+  nota: 'O projeto aprovado continua igual. Entram a luz e os stoppers do Flexforce, o novo de 23 g de proteína, presos na prateleira.',
 });
 
 const G3 = 'pz';
@@ -116,45 +117,50 @@ const pensezero = espaco({
   id: 'pensezero', n: '03', short: 'Pense Zero', marca: 'Batavo Pense Zero', titulo: 'Ponta refrigerada', cor: '#0B7FB4', rotulo: 'Troque a vista',
   vistas: [
     { nome: 'Frontal', antes: 'pensezero/n-antes', depois: 'pensezero/n-depois', ar: 1.7778, cap: 'Vista frontal' },
-    { nome: 'Em ângulo', antes: 'pensezero/a-antes', depois: 'pensezero/a-depois', ar: 0.75, cap: 'Vista em ângulo, com o lado de fora do vidro' },
   ],
-  resumo: 'Testeira 20 cm mais alta e com luz, adesivos dos dois lados e o amarelo coberto.',
+  resumo: 'Testeira em PS com LED, adesivos nas duas laterais, réguas por ocasião e a base em onda.',
   mesa: [
-    pilha({ gal: G3, n: 1, nome: 'Testeira em caixa de luz', qtd: '1 un., com a volta lateral', mat: 'Caixa com face em acrílico e fita de LED', w: 220, h: 90, itens: [['pensezero/pz-1-testeira', 'Testeira, frente', 220, 44], ['pensezero/pz-1-testeira-lateral', 'Testeira, volta lateral', 130, 44]] }),
-    peca({ gal: G3, n: 3, nome: 'Adesivo no lugar do amarelo', qtd: '1 kit', mat: 'Vinil laminado, só com a marca', src: 'pensezero/pz-4-base', w: 220, h: 10.8 }),
     row(
-      fileira({ gal: G3, n: 2, nome: 'Adesivos dos vidros', qtd: '4 un., por dentro e por fora', mat: 'Vinil eletrostático', w: 106, h: 84, itens: [['pensezero/pz-5-vidro-heroi', 'O produto', 51.7, 84], ['pensezero/pz-5-vidro-beneficios', 'Os benefícios', 51.7, 84]] }),
-      pilha({ gal: G3, n: 4, nome: 'Réguas por ocasião', qtd: '8 un.', mat: 'PS ou PETG para frio', w: 108, h: 26, itens: [['pensezero/pz-3-r1-esq', 'Pra compartilhar', 108, 4.75], ['pensezero/pz-3-r2-esq', 'Pro café da manhã', 108, 4.75], ['pensezero/pz-3-r3-esq', 'Pro lanche da tarde', 108, 4.75], ['pensezero/pz-3-r4-esq', 'Pro lanche rápido', 108, 4.75]] }),
+      peca({ gal: G3, n: 2, nome: 'Adesivo lateral esquerdo', qtd: '1 un.', mat: 'Vinil eletrostático', src: 'pensezero/n-2-esq', w: 23.9, h: 84 }),
+      peca({ gal: G3, n: 3, nome: 'Adesivo lateral direito', qtd: '1 un.', mat: 'Vinil eletrostático', src: 'pensezero/n-2-dir', w: 29.7, h: 84 }),
+      col(
+        pilha({ gal: G3, n: 1, nome: 'Testeira em PS com LED', qtd: '1 un.', mat: 'PS com recorte em onda e iluminação LED logo abaixo', w: 230, h: 39.5, itens: [['pensezero/n-1-testeira', 'Testeira', 230, 33.6], ['pensezero/n-1-led', 'Iluminação LED', 186, 4.4]] }),
+        pilha({ gal: G3, n: 4, nome: 'Réguas de gôndola', qtd: '6 un.', mat: 'PS ou PETG para frio', w: 140, h: 43, itens: [['pensezero/n-4-regua-cafe', 'Pro café da manhã', 140, 6], ['pensezero/n-4-regua-levar', 'Pra levar', 140, 6], ['pensezero/n-4-regua-compartilhar', 'Pra compartilhar', 140, 6], ['pensezero/n-4-regua-rapido', 'No seu lanche rápido', 140, 6], ['pensezero/n-4-regua-tarde', 'Pro lanche da tarde', 140, 6], ['pensezero/n-4-regua-colher', 'De colher e de sobremesa', 140, 6.6]] }),
+        peca({ gal: G3, n: 5, nome: 'Adesivo inferior da base', qtd: '1 un.', mat: 'Ondas gráficas em azul, branco e rosa, sem texto', src: 'pensezero/n-3-base', w: 230, h: 6.6 }),
+      ),
     ),
   ],
-  como: [tile('retro', 'Caixa de luz sobre a sanefa', 'Peça 1'), tile('estatico', 'Vinil no vidro, dos dois lados', 'Peça 2'), tile('adesivo', 'Adesivo por cima do amarelo', 'Peça 3'), tile('trilho', 'Encaixa no trilho de preço', 'Peça 4')],
-  nota: 'A testeira sobe uns 20 cm, com luz. Os adesivos seguem a arte aprovada: um lado com o produto e o outro com os benefícios, por dentro e por fora. O amarelo da base recebe um adesivo.',
+  como: [tile('perfil', 'Fita de LED logo abaixo da testeira', 'Peça 1'), tile('estatico', 'Vinil nas duas laterais', 'Peças 2 e 3'), tile('trilho', 'Encaixa no trilho de preço', 'Peça 4'), tile('adesivo', 'Adesivo por cima do amarelo', 'Peça 5')],
+  nota: 'A testeira ganha a onda, a luz e a fita de LED logo abaixo. Os adesivos seguem a arte aprovada: um lado com o produto e o outro com os benefícios. O amarelo da base recebe um adesivo em onda.',
 });
 
 const G4 = 'president';
 const president = espaco({
   id: 'president', n: '04', short: 'Président', marca: 'Président', titulo: 'Gôndola fria de queijos', cor: '#BE0F2D', rotulo: 'Compare as versões',
   vistas: [
-    { nome: 'Letras retroiluminadas', antes: 'president/antes', depois: 'president/n-letras', ar: 0.75, cap: 'Testeira com letras retroiluminadas e bandejas com a marca' },
-    { nome: 'Caixa de luz', antes: 'president/antes', depois: 'president/n-caixa', ar: 0.75, cap: 'Testeira em caixa de luz e réguas com o selo' },
+    { nome: 'Testeira retroiluminada', antes: 'president/antes', depois: 'president/n-letras', ar: 0.75, cap: 'Testeira retroiluminada e gancheiras com placa em PS' },
+    { nome: 'Testeira em painel de LED', antes: 'president/antes', depois: 'president/n-caixa', ar: 0.75, cap: 'Testeira em painel de LED e réguas de gôndola' },
   ],
-  resumo: 'A estrela da loja: testeira nova em duas versões, a torre Eiffel por fora e por dentro e madeira clara com LED na base.',
+  resumo: 'A estrela da loja: testeira em duas versões, a torre Eiffel por fora e por dentro e acabamento em madeira clara com LED.',
   mesa: [
     row(
-      peca({ gal: G4, n: 2, nome: 'Painel de fora', qtd: '1 un.', mat: 'Adesivo impresso, com a torre e os queijos', src: 'president/n-2-painel-fora', w: 15.5, h: 60.5 }),
-      peca({ gal: G4, n: 3, nome: 'Adesivo de dentro', qtd: '1 un.', mat: 'Vinil vermelho com a torre em dourado', src: 'president/n-3-adesivo-dentro', w: 6.4, h: 61.2 }),
+      peca({ gal: G4, n: 3, nome: 'Adesivo externo', qtd: '1 un.', mat: 'Adesivo impresso, com a torre e os queijos', src: 'president/p-3-adesivo-externo', w: 16.8, h: 60.5 }),
+      peca({ gal: G4, n: 4, nome: 'Adesivo interno', qtd: '1 un.', mat: 'Vinil vermelho com a torre em dourado', src: 'president/p-4-adesivo-interno', w: 11.1, h: 60.5 }),
       col(
-        pilha({ gal: G4, n: 1, nome: 'Testeira nova · duas versões', qtd: '1 un.', mat: 'Letras douradas retroiluminadas ou caixa de luz com moldura dourada', w: 58, h: 31.6, itens: [['president/n-1-testeira-letras', 'Letras retroiluminadas', 51, 14.6], ['president/n-1-testeira-caixa', 'Caixa de luz', 58, 15.6]] }),
         row(
-          peca({ gal: G4, n: 4, nome: 'Bandeja com a marca', qtd: '14 un., na versão de letras', mat: 'Bandeja vermelha com a frente Président', src: 'president/n-4-bandeja', w: 18.2, h: 10.6 }),
-          peca({ gal: G4, n: 5, nome: 'Régua com o selo', qtd: '4 un., na versão caixa de luz', mat: 'PS para frio, no trilho de preço', src: 'president/n-5-regua', w: 46.5, h: 2 }),
+          peca({ gal: G4, n: 1, nome: 'Testeira retroiluminada', qtd: '1 un.', mat: 'Letras douradas retroiluminadas', src: 'president/p-1-testeira-retroiluminada', w: 42, h: 10.4 }),
+          peca({ gal: G4, n: 2, nome: 'Testeira em painel de LED', qtd: '1 un.', mat: 'Painel de LED com moldura em madeira clara', src: 'president/p-2-testeira-painel-led', w: 42, h: 11.2 }),
         ),
-        peca({ gal: G4, n: 6, nome: 'Base em madeira clara com LED', qtd: '1 un.', mat: 'Madeirado claro e fita de LED quente', src: 'president/n-6-base-madeira', w: 57, h: 4.8 }),
+        row(
+          fileira({ gal: G4, n: 7, nome: 'Gancheira com placa', qtd: '49 un., uma por coluna', mat: 'Gancheira em metal, com placa em PS na frente. Na versão retroiluminada', w: 30, h: 15, itens: [['president/n-4-gancheira', 'Gancheira em metal', 11.6, 15], ['president/n-4-placa', 'Placa em PS na frente', 16, 5.2]] }),
+          pilha({ gal: G4, n: 5, nome: 'Réguas de gôndola', qtd: '4 un.', mat: 'PS para frio, no trilho de preço. Na versão painel de LED', w: 50, h: 13.6, itens: [['president/p-5-regua-1', 'Régua 1', 50, 2.25], ['president/p-5-regua-2', 'Régua 2', 50, 2.3], ['president/p-5-regua-3', 'Régua 3', 50, 2.25], ['president/p-5-regua-4', 'Régua 4', 50, 2.3]] }),
+        ),
+        peca({ gal: G4, n: 6, nome: 'Acabamento inferior + LED', qtd: '1 un.', mat: 'Madeirado claro e fita de LED quente', src: 'president/p-6-acabamento-led', w: 86, h: 4.25 }),
       ),
     ),
   ],
-  como: [tile('retro', 'Testeira no lugar da atual', 'Peça 1'), tile('adesivo', 'Adesivo por fora e por dentro', 'Peças 2 e 3'), tile('trilho', 'Régua no trilho ou bandeja com a marca', 'Peças 4 e 5'), tile('ripado', 'Madeira clara com LED na base', 'Peça 6')],
-  nota: 'É a estrela da vez. Os botões comparam as duas versões: letras douradas retroiluminadas com bandejas, ou caixa de luz com réguas. O painel de fora, o adesivo de dentro e a base de madeira são os mesmos nas duas. Nada avança além do espaço do Président.',
+  como: [tile('retro', 'Testeira nova, em duas versões', 'Peças 1 e 2'), tile('adesivo', 'Adesivo por fora e por dentro', 'Peças 3 e 4'), tile('gancheira', 'Réguas no trilho ou gancheira com placa', 'Peças 5 e 7'), tile('ripado', 'Madeira clara com LED na base', 'Peça 6')],
+  nota: 'É a estrela da vez. Os botões comparam as duas versões: testeira retroiluminada com gancheiras e placa em PS, ou painel de LED com réguas. Os adesivos e o acabamento de madeira são os mesmos nas duas, e a testeira original da loja, Frios fatiados, é mantida. Nada avança além do espaço do Président.',
 });
 
 const G5 = 'sob';
@@ -182,32 +188,32 @@ const sobremesas = espaco({
 });
 
 // ---------- capa, contexto e fechamento ----------
-const janela = (id, n, rot, src, pos, alt, d) => `<a href="#${id}" data-goto="${id}" class="rv" style="--d:${d}"><span>${rot}</span><img src="${img(src)}" alt="${alt}" style="object-position:${pos}"></a>`;
+const janela = (id, rot, cor, src, pos, alt, d) => `<a href="#${id}" data-goto="${id}" class="rv" style="--d:${d};--bc:${cor}"><img src="${img(src)}" alt="${alt}" style="object-position:${pos}"><span>${rot}</span></a>`;
 const capa = `  <!-- ================================================================ CAPA -->
-  <section class="slide cover" id="capa" data-short="Capa" data-theme="red" data-title="Capa">
-    <div class="wall">
-      <div class="sign rv">
-        <p class="eyebrow">Projeto visual · Novembro de 2026</p>
-        <h1>Lactalis no D'avó Oratório</h1>
-        <p class="lead">Cinco espaços, do antes ao depois, com os ajustes da nossa conversa.</p>
-        <div class="start">
+  <section class="slide cover c2" id="capa" data-short="Capa" data-theme="capa" data-title="Capa">
+    <div class="c2-txt">
+      <div class="c2-main">
+        <p class="eyebrow rv">Projeto visual · Novembro de 2026</p>
+        <h1 class="rv" style="--d:1">Lactalis no <em>D'avó Oratório</em></h1>
+        <p class="lead rv" style="--d:2">Cinco espaços, do antes ao depois, com os ajustes da nossa conversa.</p>
+        <div class="start rv" style="--d:3">
           <button type="button" class="cta" data-goto="contexto">Começar<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
           <span class="hint-d">ou use as setas <kbd>←</kbd> <kbd>→</kbd> do teclado</span>
           <span class="hint-m">Role a página para ver os cinco espaços</span>
         </div>
       </div>
-      <p class="by rv" style="--d:2">Fale com<b>Vanessa Morelli</b>Diretora Comercial · 75LAB</p>
+      <p class="c2-by rv" style="--d:4"><small>Fale com</small><b>Vanessa Morelli</b><span>Diretora Comercial · 75LAB</span></p>
     </div>
-    <div class="awning" aria-hidden="true"></div>
-    <div class="vitrine">
-      ${janela('nutricao', 1, 'Parmalat Fit', 'capa-fit', '100% 62%', 'Sabores e leite', 3)}
-      ${janela('pensezero', 3, 'Batavo Pense Zero', 'capa-pensezero', '100% 50%', 'Frutas e iogurte', 4)}
-      ${janela('president', 4, 'Président', 'capa-president', '100% 58%', 'Sanduíche de queijo', 5)}
-      ${janela('sobremesas', 5, 'Sobremesas Batavo', 'capa-sobremesas', '70% 60%', 'Pudins e sobremesas', 6)}
+    <div class="c2-art">
+      ${janela('nutricao', 'Parmalat Fit', '#1E3E94', 'capa-fit', '100% 62%', 'Sabores e leite', 2)}
+      ${janela('pensezero', 'Batavo Pense Zero', '#0B7FB4', 'capa-pensezero', '100% 50%', 'Frutas e iogurte', 3)}
+      ${janela('president', 'Président', '#BE0F2D', 'capa-president', '100% 70%', 'Sanduíche de queijo', 4)}
+      ${janela('sobremesas', 'Sobremesas Batavo', '#4E2C1B', 'capa-sobremesas', '100% 72%', 'Pudins e sobremesas', 5)}
     </div>
     <aside class="notes" hidden><p>Só o projeto visual, para aprovação. Os valores vêm depois.</p></aside>
   </section>
 `;
+
 const hoje = (id, n, a, b, src, pos, alt, d) => `<a href="#${id}" data-goto="${id}" class="rv" style="--d:${d}"><img src="${img(src)}" alt="${alt}" style="object-position:${pos}"><span><b>${n}</b>${a}<small>${b}</small></span></a>`;
 const contexto = `  <!-- ================================================================ CONTEXTO -->
   <section class="slide ctx" id="contexto" data-short="O projeto" data-theme="cream" data-title="O projeto">
@@ -282,6 +288,8 @@ trocar(/<meta name="description" content="[^"]*">/, `<meta name="description" co
 trocar(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${titulo}">`);
 trocar(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${desc}">`);
 trocar(/<meta property="og:image" content="[^"]*">/, '<meta property="og:image" content="https://projetos.75lab.com.br/lactalis-davo-oratorio/assets/img/pv/og.jpg">');
+trocar('<body data-theme="red">', '<body data-theme="capa">');
+trocar(/<meta name="theme-color" content="[^"]*">/, '<meta name="theme-color" content="#F7F0DF">');
 trocar('<link rel="stylesheet" href="assets/css/deck.css">', '<link rel="stylesheet" href="assets/css/deck.css">\n<link rel="stylesheet" href="projeto-visual.css">');
 trocar('01 / 15', '01 / 08');
 const html = (topo + capa + '\n' + contexto + '\n' + nutricao + '\n' + seca + '\n' + pensezero + '\n' + president + '\n' + sobremesas + '\n' + fim + base.slice(MAIN1))

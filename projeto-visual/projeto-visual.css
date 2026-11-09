@@ -3,7 +3,25 @@
    Usa o motor e as telas de ../assets/css/deck.css. Aqui ficam só as diferenças:
    cinco espaços em vez de seis, quatro quadros de "como aplica" e o fechamento sem valores.
    ========================================================================= */
-.cover .vitrine { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+/* capa: o título em creme e as artes de produto em mosaico, do topo ao rodapé */
+body[data-theme="capa"] #foot { opacity: 0; pointer-events: none; }
+body[data-theme="capa"] #pager { display: none; }
+.c2 { display: grid; grid-template-columns: minmax(0, 43%) minmax(0, 1fr); }
+.c2-txt { min-width: 0; display: flex; flex-direction: column; padding: 58px 56px 50px var(--px); }
+.c2-main { margin: auto 0; }
+.c2 h1 { margin-top: 20px; font-size: 76px; line-height: 1; }
+.c2 h1 em { display: block; font-style: normal; color: var(--red); white-space: nowrap; }
+.c2 .lead { margin-top: 26px; max-width: 500px; font-size: 22px; line-height: 1.45; color: var(--ink2); }
+.c2 .start { margin-top: 36px; }
+.c2-by { flex: none; padding-top: 18px; border-top: 1.5px solid var(--line); font-size: 15px; line-height: 1.4; color: var(--ink2); }
+.c2-by small { display: block; font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink3); }
+.c2-by b { margin: 0 10px 0 0; font-size: 21px; font-weight: 700; letter-spacing: -.01em; color: var(--ink); }
+.c2-art { min-width: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.c2-art a { position: relative; display: block; min-height: 0; overflow: hidden; grid-column: span 7; text-decoration: none; }
+.c2-art a:nth-child(2), .c2-art a:nth-child(3) { grid-column: span 5; }
+.c2-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ez); }
+.c2-art a:hover img { transform: scale(1.04); }
+.c2-art span { position: absolute; left: 0; bottom: 0; padding: 9px 18px 10px; background: var(--bc); color: #fff; font-weight: 650; font-size: 13.5px; letter-spacing: .1em; text-transform: uppercase; }
 .today { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 
 .hw.q4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
@@ -18,7 +36,16 @@
 .pv-conf li { position: relative; padding-left: 18px; font-size: 16px; line-height: 1.38; color: rgba(255, 252, 244, .88); }
 .pv-conf li::before { content: ''; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; border-radius: 50%; background: var(--sand); }
 
-html.m .cover .vitrine { grid-template-columns: repeat(2, 1fr); }
+html.m .c2 { display: block; }
+html.m .c2-txt { display: block; padding: 34px 20px 30px; }
+html.m .c2 h1 { font-size: 46px; }
+html.m .c2 h1 em { white-space: normal; }
+html.m .c2 .lead { font-size: 18px; }
+html.m .c2 .start { margin-top: 20px; }
+html.m .c2-by { margin-top: 26px; }
+html.m .c2-art { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; }
+html.m .c2-art a, html.m .c2-art a:nth-child(2), html.m .c2-art a:nth-child(3) { grid-column: auto; aspect-ratio: 1; }
+html.m .c2-art span { padding: 6px 10px 7px; font-size: 10.5px; letter-spacing: .06em; }
 html.m .today { grid-template-columns: repeat(2, 1fr); }
 html.m .hw.q4 { grid-template-columns: 1fr; }
 html.m .close .pvn { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; }
