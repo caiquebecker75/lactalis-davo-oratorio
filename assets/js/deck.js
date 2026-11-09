@@ -324,7 +324,7 @@ function layout() { $$('.cmp').forEach(layoutCmp); $$('.mesa').forEach(fitMesa);
 function layoutCmp(c) {
   const ar = +c.dataset.ar;
   c.style.setProperty('--ar', ar);
-  if (!mobile) {
+  if (!mobile && !c.closest('.duas')) { // em .duas, o CSS dá o tamanho das duas fotos
     const box = c.parentElement, side = $('.side', box), how = $('.how', side), m = $('.mesa', side);
     const W = box.clientWidth * (ar > 1 ? .56 : .5), H = box.clientHeight;
     if (!W || !H) return;
@@ -416,8 +416,8 @@ function cmpGo(c) {
   cancelAnimationFrame(cmpRaf.get(c));
   cmpWait.set(c, setTimeout(() => cmpTo(c, 50, 1200), 500));
 }
-$$('.sp').forEach(s => {
-  const c = $('.cmp', s), ant = $('.ia', c), dep = $('.id', c), h = $('.handle', c);
+$$('.sp').forEach(s => $$('.cmp', s).forEach(c => {
+  const ant = $('.ia', c), dep = $('.id', c), h = $('.handle', c);
   cmpSet(c, 50);
   let drag = false;
   const at = e => { const r = c.getBoundingClientRect(); return (e.clientX - r.left) / r.width * 100; };
@@ -445,15 +445,15 @@ $$('.sp').forEach(s => {
     c.dataset.ar = b.dataset.ar; layoutCmp(c); fitMesa($('.mesa', s)); cmpGo(c);
   }));
   $('.cz', c).addEventListener('click', () => {
-    const cap = $('.views button.on', s)?.dataset.cap || '';
+    const cap = $('.views button.on', s)?.dataset.cap || c.dataset.cap || '';
     const t = $('h2', s).textContent;
     openLb([{ src: dep.src, t: $('.td', c).textContent + ' · ' + t, d: cap }, { src: ant.src, t: $('.ta', c).textContent + ' · ' + t, d: cap }], 0);
   });
-});
+}));
 
 const onEnter = s => {
   if (!s.classList.contains('sp')) return;
-  cmpGo($('.cmp', s));
+  $$('.cmp', s).forEach(c => cmpGo(c));
   pgPlay(s, 2); // a aplicação começa depois que o depois entra
 };
 

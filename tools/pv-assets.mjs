@@ -60,7 +60,7 @@ const LISTA = [
   ['sobremesas/n-depois', `${REU}/pranchas-09-11/sobremesas-depois.jpg`, 'photo'],
   ...['1-testeira', '2-toldo', '3-regua-superior-1', '3-regua-superior-2', '3-regua-flan', '3-regua-creamy-1', '3-regua-creamy-2', '4-base-1', '4-base-2', '5-lateral-esq', '6-lateral-dir'].map(n => [`sobremesas/p-${n}`, `${REU}/pranchas-09-11/pecas/sobremesas/${n}.png`, 'art']),
   // Président, enviadas em 09/11: as duas versões e as peças
-  ['president/n-letras', `${PRES}/imagens-09-11/president-letras-retroiluminadas.jpg`, 'photo'], ['president/n-caixa', `${PRES}/imagens-09-11/president-caixa-de-luz.jpg`, 'photo'],
+  ['president/n-letras', `${PRES}/imagens-09-11/president-retroiluminada-reguas.jpg`, 'photo'], ['president/n-caixa', `${PRES}/imagens-09-11/president-caixa-de-luz.jpg`, 'photo'],
   ...['1-testeira-letras', '1-testeira-caixa', '2-painel-fora', '3-adesivo-dentro', '4-bandeja', '5-regua', '6-base-madeira'].map(n => [`president/n-${n}`, `${PRES}/imagens-09-11/pecas/${n}.png`, 'art']),
   // Pense Zero
   ['pensezero/f-antes', `${REU}/bases/pensezero-frontal.png`, 'photo'], ['pensezero/f-depois', `${REU}/montagens/pensezero-frontal.jpg`, 'photo'],

@@ -20,8 +20,49 @@ const col = (...p) => `<div class="col">${p.join('')}</div>`;
 const tile = (pg, t, pn) => `<div class="mc"><i class="pg" data-pg="${pg}"></i><h3>${t}</h3><span class="pn">${pn}</span></div>`;
 
 // ---------- tela de um espaço ----------
-function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa, como, nota }) {
+function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa, como, nota, duas }) {
   const v0 = vistas[0];
+  const foto = v => `<div class="cmp" data-ar="${v.ar}"${duas ? ` data-cap="${v.cap}"` : ''}>
+          <img class="ia" src="${img(v.antes)}" alt="${titulo}${duas ? `, ${v.nome.toLowerCase()},` : ''} antes" draggable="false">
+          <img class="id" src="${img(v.depois)}" alt="${titulo}${duas ? `, ${v.nome.toLowerCase()},` : ''} depois" draggable="false">
+          <span class="tg ta">Antes</span><span class="tg td">Depois</span>
+          <div class="handle" tabindex="0" role="slider" aria-label="Arraste para comparar o antes e o depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
+          <span class="hint">Arraste para comparar</span>
+          <button type="button" class="cz" aria-label="Ampliar as fotos"></button>
+        </div>`;
+  const kit = `<div class="kit rv" style="--d:3">
+            <p class="lbl">As peças</p>
+            <p class="sum">${resumo}</p>
+          </div>
+          <div class="mesa rv" style="--d:3">
+            <div class="mi">
+            ${mesa.join('\n            ')}
+            </div>
+          </div>`;
+  const how = `<div class="how rv" style="--d:4">
+            <p class="lbl">Como aplica</p>
+            <div class="hw${como.length > 3 ? ' q4' : ''}">
+              ${como.join('\n              ')}
+            </div>
+          </div>`;
+  // duas vistas ao mesmo tempo: as fotos e o como aplica à esquerda, as peças à direita
+  const corpo = duas ? `<div class="sp-body duas">
+        <div class="esq">
+          <div class="fotos" style="grid-template-columns:${vistas.map(v => v.ar + 'fr').join(' ')}">
+            ${vistas.map(v => `<div class="vista"><p class="lbl">${v.nome}</p>${foto(v)}</div>`).join('\n            ')}
+          </div>
+          ${how}
+        </div>
+        <div class="side">
+          ${kit}
+        </div>
+      </div>` : `<div class="sp-body">
+        ${foto(v0)}
+        <div class="side">
+          ${kit}
+          ${how}
+        </div>
+      </div>`;
   return `  <!-- ================================================================ ${n} ${titulo.toUpperCase()} -->
   <section class="slide sp" id="${id}" data-sp="${id}" data-short="${short}" data-theme="cream" data-title="${titulo}" style="--bc:${cor}">
     <div class="pad">
@@ -30,38 +71,12 @@ function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa
           <p class="brand rv"><b>${n}</b>${marca}</p>
           <h2 class="rv" style="--d:1">${titulo}</h2>
         </div>
-        ${vistas.length > 1 ? `<div class="views rv" style="--d:2" role="group" aria-label="${rotulo}">
+        ${duas ? `<div class="views rv" style="--d:2"><span class="vl">${rotulo}</span></div>` : vistas.length > 1 ? `<div class="views rv" style="--d:2" role="group" aria-label="${rotulo}">
           <span class="vl">${rotulo}</span>
           ${vistas.map((v, i) => `<button type="button"${i ? '' : ' class="on"'} data-antes="${img(v.antes)}" data-depois="${img(v.depois)}" data-ar="${v.ar}" data-cap="${v.cap}">${v.nome}</button>`).join('\n          ')}
         </div>` : ''}
       </header>
-      <div class="sp-body">
-        <div class="cmp" data-ar="${v0.ar}">
-          <img class="ia" src="${img(v0.antes)}" alt="${titulo} antes" draggable="false">
-          <img class="id" src="${img(v0.depois)}" alt="${titulo} depois" draggable="false">
-          <span class="tg ta">Antes</span><span class="tg td">Depois</span>
-          <div class="handle" tabindex="0" role="slider" aria-label="Arraste para comparar o antes e o depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
-          <span class="hint">Arraste para comparar</span>
-          <button type="button" class="cz" aria-label="Ampliar as fotos"></button>
-        </div>
-        <div class="side">
-          <div class="kit rv" style="--d:3">
-            <p class="lbl">As peças</p>
-            <p class="sum">${resumo}</p>
-          </div>
-          <div class="mesa rv" style="--d:3">
-            <div class="mi">
-            ${mesa.join('\n            ')}
-            </div>
-          </div>
-          <div class="how rv" style="--d:4">
-            <p class="lbl">Como aplica</p>
-            <div class="hw${como.length > 3 ? ' q4' : ''}">
-              ${como.join('\n              ')}
-            </div>
-          </div>
-        </div>
-      </div>
+      ${corpo}
     </div>
     <aside class="notes" hidden><p>${nota}</p></aside>
   </section>
@@ -71,21 +86,21 @@ function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa
 // ---------- os cinco espaços ----------
 const G1 = 'nutricao';
 const nutricao = espaco({
-  id: 'nutricao', n: '01', short: 'Nutrição esportiva', marca: 'Parmalat Fit', titulo: 'Ilha de nutrição esportiva', cor: '#1E3E94', rotulo: 'A mesma ilha, de dois pontos · simulação com as fotos da loja',
+  id: 'nutricao', n: '01', short: 'Nutrição esportiva', marca: 'Parmalat Fit', titulo: 'Ilha de nutrição esportiva', cor: '#1E3E94', rotulo: 'A mesma ilha, de dois pontos · simulação com as fotos da loja', duas: true,
   vistas: [
     { nome: 'Lado longo', antes: 'nutricao/n-longo-antes', depois: 'nutricao/n-longo-depois', ar: 1.7917, cap: 'Lado longo da ilha. Simulação feita com a foto da loja.' },
     { nome: 'Ponta', antes: 'nutricao/n-ponta-antes', depois: 'nutricao/n-ponta-depois', ar: 0.53, cap: 'Ponta da ilha, com a barra de peso na prateleira. Simulação feita com a foto da loja.' },
   ],
-  resumo: 'Testeira em onda, réguas por categoria e a barra de peso com a marca na ponta.',
+  resumo: 'Testeira em onda, réguas por categoria e a barra de peso na ponta.',
   mesa: [
+    peca({ gal: G1, n: 1, nome: 'Testeira central', qtd: '1 un.', mat: 'PS com recorte em onda', src: 'nutricao/p-1-testeira-central', w: 236, h: 45.3 }),
     row(
-      peca({ gal: G1, n: 1, nome: 'Testeira central', qtd: '1 un.', mat: 'PS com recorte em onda', src: 'nutricao/p-1-testeira-central', w: 236, h: 45.3 }),
       fileira({ gal: G1, n: 2, nome: 'Testeiras perpendiculares', qtd: '2 un., esquerda e direita', mat: 'PS em L, em pé na prateleira', w: 117, h: 42, itens: [['nutricao/p-2-perpendicular-esq', 'Esquerda', 51.5, 42], ['nutricao/p-2-perpendicular-dir', 'Direita', 61.5, 42]] }),
+      peca({ gal: G1, n: 3, nome: 'Barra de peso', qtd: '1 un.', mat: 'Peça especial em PS recortado, com a régua de 23 g na base', src: 'nutricao/p-3-barra-de-peso', w: 106, h: 42.1 }),
     ),
     row(
-      peca({ gal: G1, n: 3, nome: 'Barra de peso', qtd: '1 un.', mat: 'Peça especial em PS recortado, com a régua de 23 g na base', src: 'nutricao/p-3-barra-de-peso', w: 110, h: 43.7 }),
-      pilha({ gal: G1, n: 4, nome: 'Réguas por produto', qtd: '4 un.', mat: 'PS impresso, no trilho de preço', w: 122, h: 40.6, itens: [['nutricao/p-4-regua-whey-em-po', 'Whey em pó', 122, 9.1], ['nutricao/p-4-regua-15g', '15 g Whey', 122, 9.1], ['nutricao/p-4-regua-23g', '23 g Flexforce', 122, 9.1], ['nutricao/p-4-regua-pronto-para-beber', 'Pronto para beber', 122, 9.1]] }),
-      pilha({ gal: G1, n: 5, nome: 'Réguas por categoria', qtd: '3 un.', mat: 'PS impresso, no trilho de preço', w: 122, h: 30.1, itens: [['nutricao/p-5-regua-barras-proteicas', 'Barras proteicas', 122, 9.1], ['nutricao/p-5-regua-creatina', 'Creatina', 122, 9.1], ['nutricao/p-5-regua-whey-protein', 'Whey protein', 122, 9.1]] }),
+      pilha({ gal: G1, n: 4, nome: 'Réguas por produto', qtd: '4 un.', mat: 'PS impresso, no trilho de preço', w: 112, h: 37.4, itens: [['nutricao/p-4-regua-whey-em-po', 'Whey em pó', 112, 8.35], ['nutricao/p-4-regua-15g', '15 g Whey', 112, 8.35], ['nutricao/p-4-regua-23g', '23 g Flexforce', 112, 8.35], ['nutricao/p-4-regua-pronto-para-beber', 'Pronto para beber', 112, 8.35]] }),
+      pilha({ gal: G1, n: 5, nome: 'Réguas por categoria', qtd: '3 un.', mat: 'PS impresso, no trilho de preço', w: 112, h: 27.8, itens: [['nutricao/p-5-regua-barras-proteicas', 'Barras proteicas', 112, 8.35], ['nutricao/p-5-regua-creatina', 'Creatina', 112, 8.35], ['nutricao/p-5-regua-whey-protein', 'Whey protein', 112, 8.35]] }),
     ),
   ],
   como: [tile('empe', 'Testeiras em pé, sobre a prateleira', 'Peças 1 e 2'), tile('trilho', 'Réguas no trilho de preço', 'Peças 4 e 5'), tile('presilha', 'Barra de peso presa na prateleira', 'Peça 3'), tile('caixas', 'A base continua para as caixas', 'Sem comunicação')],
@@ -137,7 +152,7 @@ const G4 = 'president';
 const president = espaco({
   id: 'president', n: '04', short: 'Président', marca: 'Président', titulo: 'Gôndola fria de queijos', cor: '#BE0F2D', rotulo: 'Compare as versões',
   vistas: [
-    { nome: 'Testeira retroiluminada', antes: 'president/antes', depois: 'president/n-letras', ar: 0.75, cap: 'Testeira retroiluminada e gancheiras com placa em PS' },
+    { nome: 'Testeira retroiluminada', antes: 'president/antes', depois: 'president/n-letras', ar: 0.75, cap: 'Testeira retroiluminada e réguas de gôndola' },
     { nome: 'Testeira em painel de LED', antes: 'president/antes', depois: 'president/n-caixa', ar: 0.75, cap: 'Testeira em painel de LED e réguas de gôndola' },
   ],
   resumo: 'A estrela da loja: testeira em duas versões, a torre Eiffel por fora e por dentro e acabamento em madeira clara com LED.',
@@ -151,15 +166,15 @@ const president = espaco({
           peca({ gal: G4, n: 2, nome: 'Testeira em painel de LED', qtd: '1 un.', mat: 'Painel de LED com moldura em madeira clara', src: 'president/p-2-testeira-painel-led', w: 42, h: 11.2 }),
         ),
         row(
-          fileira({ gal: G4, n: 7, nome: 'Gancheira com placa', qtd: '49 un., uma por coluna', mat: 'Gancheira em metal, com placa em PS na frente. Na versão retroiluminada', w: 30, h: 15, itens: [['president/n-4-gancheira', 'Gancheira em metal', 11.6, 15], ['president/n-4-placa', 'Placa em PS na frente', 16, 5.2]] }),
-          pilha({ gal: G4, n: 5, nome: 'Réguas de gôndola', qtd: '4 un.', mat: 'PS para frio, no trilho de preço. Na versão painel de LED', w: 50, h: 13.6, itens: [['president/p-5-regua-1', 'Régua 1', 50, 2.25], ['president/p-5-regua-2', 'Régua 2', 50, 2.3], ['president/p-5-regua-3', 'Régua 3', 50, 2.25], ['president/p-5-regua-4', 'Régua 4', 50, 2.3]] }),
+          fileira({ gal: G4, n: 7, nome: 'Gancheira com placa', qtd: '49 un., uma por coluna', mat: 'Gancheira em metal, com placa em PS na frente', w: 30, h: 15, itens: [['president/n-4-gancheira', 'Gancheira em metal', 11.6, 15], ['president/n-4-placa', 'Placa em PS na frente', 16, 5.2]] }),
+          pilha({ gal: G4, n: 5, nome: 'Réguas de gôndola', qtd: '4 un.', mat: 'PS para frio, no trilho de preço', w: 50, h: 13.6, itens: [['president/p-5-regua-1', 'Régua 1', 50, 2.25], ['president/p-5-regua-2', 'Régua 2', 50, 2.3], ['president/p-5-regua-3', 'Régua 3', 50, 2.25], ['president/p-5-regua-4', 'Régua 4', 50, 2.3]] }),
         ),
         peca({ gal: G4, n: 6, nome: 'Acabamento inferior + LED', qtd: '1 un.', mat: 'Madeirado claro e fita de LED quente', src: 'president/p-6-acabamento-led', w: 86, h: 4.25 }),
       ),
     ),
   ],
-  como: [tile('retro', 'Testeira nova, em duas versões', 'Peças 1 e 2'), tile('adesivo', 'Adesivo por fora e por dentro', 'Peças 3 e 4'), tile('gancheira', 'Réguas no trilho ou gancheira com placa', 'Peças 5 e 7'), tile('ripado', 'Madeira clara com LED na base', 'Peça 6')],
-  nota: 'É a estrela da vez. Os botões comparam as duas versões: testeira retroiluminada com gancheiras e placa em PS, ou painel de LED com réguas. Os adesivos e o acabamento de madeira são os mesmos nas duas, e a testeira original da loja, Frios fatiados, é mantida. Nada avança além do espaço do Président.',
+  como: [tile('retro', 'Testeira nova, em duas versões', 'Peças 1 e 2'), tile('adesivo', 'Adesivo por fora e por dentro', 'Peças 3 e 4'), tile('gancheira', 'Réguas no trilho e gancheira com placa', 'Peças 5 e 7')],
+  nota: 'É a estrela da vez. Os botões comparam as duas versões: testeira retroiluminada ou painel de LED. As réguas, os adesivos e o acabamento de madeira são os mesmos nas duas, e a testeira original da loja, Frios fatiados, é mantida. Nada avança além do espaço do Président.',
 });
 
 const G5 = 'sob';
