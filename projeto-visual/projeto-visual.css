@@ -1,0 +1,25 @@
+/* =========================================================================
+   Lactalis no D'avó Oratório × 75LAB · link "Projeto visual"
+   Usa o motor e as telas de ../assets/css/deck.css. Aqui ficam só as diferenças:
+   cinco espaços em vez de seis, quatro quadros de "como aplica" e o fechamento sem valores.
+   ========================================================================= */
+.cover .vitrine { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.today { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+.hw.q4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.hw.q4 .mc h3 { font-size: 14.5px; }
+.side.wide .hw.q4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* fechamento: passos e o que falta confirmar */
+.close .pvn { display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 16px; padding: 12px 0 13px; border-top: 1px solid rgba(255, 252, 244, .2); }
+.pv-conf { margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255, 252, 244, .2); }
+.pv-conf .lbl { color: var(--sand); }
+.pv-conf ul { margin-top: 10px; display: grid; gap: 7px; }
+.pv-conf li { position: relative; padding-left: 18px; font-size: 16px; line-height: 1.38; color: rgba(255, 252, 244, .88); }
+.pv-conf li::before { content: ''; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; border-radius: 50%; background: var(--sand); }
+
+html.m .cover .vitrine { grid-template-columns: repeat(2, 1fr); }
+html.m .today { grid-template-columns: repeat(2, 1fr); }
+html.m .hw.q4 { grid-template-columns: 1fr; }
+html.m .close .pvn { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; }
+html.m .pv-conf li { font-size: 15px; }

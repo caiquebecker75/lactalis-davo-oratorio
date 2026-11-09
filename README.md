@@ -7,6 +7,16 @@ Apresentação da 75LAB para a Lactalis com a ambientação de categorias no D'a
 - Contato: Vanessa Morelli, Diretora Comercial 75LAB (envia a apresentação ao cliente)
 - A versão estratégica anterior (17 telas e material de apoio) está guardada na tag `v1-estrategica` do git.
 
+## Projeto visual · retorno da reunião de 05/11: 8 telas
+
+Terceiro link, só com o projeto visual e sem valores, para a cliente levar à diretoria. Os dois links anteriores continuam como estão.
+
+- **Endereço:** https://projetos.75lab.com.br/lactalis-davo-oratorio/projeto-visual/ (publicado em 09/11/2026)
+- **Telas:** capa (com as artes de produto, sem as soluções), o projeto, ilha de nutrição, gôndola seca, Pense Zero, Président (as duas testeiras para comparar), Sobremesas, e próximos passos com o contato da Vanessa.
+- **Como gerar:** `node tools/pv-assets.mjs` copia as imagens do job para `assets/img/pv/` e `node tools/projeto-visual.mjs` monta `projeto-visual/index.html`. O motor, o cabeçalho e o rodapé vêm do `index.html`. O script para se aparecer algum valor em reais.
+- A ilha usa as vistas de canto, com os lados A e B juntos; o rótulo da tela diz que é uma simulação com as fotos da loja.
+- **Imagens trocadas em 06/11:** as imagens enviadas entram na gôndola seca (vista frontal sobre a foto da VT e o display Flexforce como peça 4, no lugar dos destaques 23 g e 15 g), no Pense Zero (vista frontal sobre a foto da VT) e nas Sobremesas (vista em ângulo). A gôndola seca e as Sobremesas ficaram com uma vista só, para não mostrar dois desenhos. Os originais e os pares alinhados estão em `reuniao-05-11/imagens-06-11/` no job, com as pendências. Em 09/11, as peças das Sobremesas passaram a sair da imagem nova (`decupar-sobremesas.mjs`, na mesma pasta).
+
 ## Roteiro: 9 telas
 
 | Tela | Conteúdo |

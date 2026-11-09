@@ -256,6 +256,27 @@ const PG = {
     <g class="a" style="--f:translateY(-18px);--fo:0;--dl:.2s;--du:.8s;--e:cubic-bezier(.3,1.3,.5,1)">
       ${[10, 38, 66, 94, 122].map((x, i) => `<path d="M${x} 34h28v16a14 12 0 0 1-28 0z" fill="${i % 2 ? C.mad : C.crm}"/>`).join('')}
     </g>`,
+  caixas: `
+    <rect x="8" y="88" width="144" height="5" rx="2" fill="${C.ink}" opacity=".55"/>
+    ${[[14, 58], [58, 58], [102, 58], [36, 26], [80, 26]].map(([x, y], i) => `<g class="a" style="--f:translateY(-46px);--fo:0;--dl:${i * .12}s;--du:.6s"><rect x="${x}" y="${y}" width="44" height="30" rx="2" fill="${C.lat}" stroke="${C.mad}" stroke-width="1.6"/><path d="M${x + 16} ${y}v10h12v-10" fill="none" stroke="${C.mad}" stroke-width="1.4"/></g>`).join('')}`,
+  gancheira: `
+    <rect x="6" y="88" width="148" height="6" rx="2" fill="${C.gry}"/>
+    <path d="M80 20v10" stroke="${C.red}" stroke-width="3.5" stroke-linecap="round"/>
+    <g class="a" style="--f:translateX(-46px);--fo:0;--du:.8s">
+      <rect x="62" y="20" width="56" height="56" rx="4" fill="${C.redd}" opacity=".45"/>
+      <rect x="54" y="24" width="56" height="56" rx="4" fill="${C.redd}" opacity=".7"/>
+    </g>
+    <g class="a" style="--f:translateX(-60px);--fo:0;--dl:.25s;--du:.8s">
+      <rect x="46" y="28" width="56" height="56" rx="4" fill="${C.crm}" stroke="${C.red}" stroke-width="3"/>
+      <rect x="54" y="40" width="40" height="9" rx="2" fill="${C.red}"/>
+      <ellipse cx="74" cy="64" rx="16" ry="8" fill="${C.tag}"/>
+    </g>
+    <path d="M36 92l4-14q38-8 80 0l4 14z" fill="${C.red}"/>`,
+  ripado: `
+    <rect x="8" y="14" width="144" height="46" fill="${C.mad}"/>
+    ${Array.from({ length: 9 }, (_, i) => `<rect class="a" x="${10 + i * 16}" y="14" width="12" height="46" fill="${C.lat}" style="--f:translateY(-26px);--fo:0;--dl:${i * .06}s;--du:.5s"/>`).join('')}
+    <rect class="a" x="8" y="60" width="144" height="3.5" fill="#fff" stroke="${C.glow}" stroke-width="1" style="--f:scaleX(0);--o:0% 50%;--dl:.7s;--du:.8s;--e:cubic-bezier(.6,0,.3,1)"/>
+    <path class="a" style="--fo:0;--dl:1.2s;--du:.9s;--e:ease-out" d="M8 63h144l-14 28H22z" fill="${C.glow}" opacity=".6"/>`,
 };
 $$('.pg[data-pg]').forEach(el => {
   el.innerHTML = `<svg viewBox="0 0 160 100" aria-hidden="true">${PG[el.dataset.pg] || ''}</svg>`;
@@ -441,11 +462,12 @@ const onEnter = s => {
    --------------------------------------------------------------------- */
 const SP = { whey: 'Whey', nutricao: 'Nutrição', seca: 'Gôndola seca', pensezero: 'Pense Zero', president: 'Président', sobremesas: 'Sobremesas' };
 const spNav = $('#spaces');
-Object.keys(SP).forEach((k, i) => {
+let spN = 0;
+Object.keys(SP).forEach(k => {
   const first = slides.find(s => s.dataset.sp === k); if (!first) return;
   const b = document.createElement('button');
   b.type = 'button'; b.dataset.goto = first.id; b.dataset.sp = k;
-  b.innerHTML = `<b>${pad(i + 1)}</b>${SP[k]}`;
+  b.innerHTML = `<b>${pad(++spN)}</b>${SP[k]}`;
   spNav.append(b);
 });
 function chrome(s) {
