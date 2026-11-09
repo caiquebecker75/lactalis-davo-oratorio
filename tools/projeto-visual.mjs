@@ -133,26 +133,28 @@ const pensezero = espaco({
 
 const G4 = 'president';
 const president = espaco({
-  id: 'president', n: '04', short: 'Président', marca: 'Président', titulo: 'Gôndola fria de queijos', cor: '#BE0F2D', rotulo: 'Compare as testeiras',
+  id: 'president', n: '04', short: 'Président', marca: 'Président', titulo: 'Gôndola fria de queijos', cor: '#BE0F2D', rotulo: 'Compare as versões',
   vistas: [
-    { nome: 'Retroiluminada', antes: 'president/antes', depois: 'president/retroiluminada', ar: 0.75, cap: 'Testeira retroiluminada' },
-    { nome: 'Painel de LED', antes: 'president/antes', depois: 'president/painel-led', ar: 0.75, cap: 'Testeira com painel de LED' },
+    { nome: 'Letras retroiluminadas', antes: 'president/antes', depois: 'president/n-letras', ar: 0.75, cap: 'Testeira com letras retroiluminadas e bandejas com a marca' },
+    { nome: 'Caixa de luz', antes: 'president/antes', depois: 'president/n-caixa', ar: 0.75, cap: 'Testeira em caixa de luz e réguas com o selo' },
   ],
-  resumo: 'A estrela da loja: madeira ripada, muita luz e gancheiras na ordem do planograma.',
+  resumo: 'A estrela da loja: testeira nova em duas versões, a torre Eiffel por fora e por dentro e madeira clara com LED na base.',
   mesa: [
-    fileira({ gal: G4, n: 2, nome: 'Testeira nova · duas versões', qtd: '1 un.', mat: 'Retroiluminada ou painel de LED', w: 268, h: 39, itens: [['president/pr-testeira-luz', 'Testeira retroiluminada', 132, 39], ['president/pr-testeira-tela', 'Testeira com painel de LED', 132, 39]] }),
     row(
-      peca({ gal: G4, n: 5, nome: 'Painel de fora, com a torre', qtd: '1 un.', mat: 'Adesivo impresso', src: 'president/painel-torre', w: 41, h: 146 }),
-      peca({ gal: G4, n: 6, nome: 'Adesivo de dentro', qtd: '1 un.', mat: 'Vinil vermelho, só com o claim', src: 'president/adesivo-dentro', w: 21, h: 146 }),
+      peca({ gal: G4, n: 2, nome: 'Painel de fora', qtd: '1 un.', mat: 'Adesivo impresso, com a torre e os queijos', src: 'president/n-2-painel-fora', w: 15.5, h: 60.5 }),
+      peca({ gal: G4, n: 3, nome: 'Adesivo de dentro', qtd: '1 un.', mat: 'Vinil vermelho com a torre em dourado', src: 'president/n-3-adesivo-dentro', w: 6.4, h: 61.2 }),
       col(
-        peca({ gal: G4, n: 1, nome: 'Gancheira com placa', qtd: '49 colunas', mat: 'Modelo da foto de referência; placa em PS', src: 'president/gancheiras', w: 66, h: 42 }),
-        pilha({ gal: G4, n: 3, nome: 'Ripado em madeira clara', qtd: 'em cima e embaixo', mat: 'No espaço exato do Président', w: 170, h: 24, itens: [['president/pr-ripado-cima', 'Ripado de cima', 170, 14], ['president/pr-ripado-baixo', 'Ripado de baixo', 146, 9]] }),
-        peca({ gal: G4, n: 4, nome: 'Fita de LED', qtd: 'balcão, trilhos, poste e base', mat: 'Luz quente', src: 'fita-led', w: 170, h: 5.4 }),
+        pilha({ gal: G4, n: 1, nome: 'Testeira nova · duas versões', qtd: '1 un.', mat: 'Letras douradas retroiluminadas ou caixa de luz com moldura dourada', w: 58, h: 31.6, itens: [['president/n-1-testeira-letras', 'Letras retroiluminadas', 51, 14.6], ['president/n-1-testeira-caixa', 'Caixa de luz', 58, 15.6]] }),
+        row(
+          peca({ gal: G4, n: 4, nome: 'Bandeja com a marca', qtd: '14 un., na versão de letras', mat: 'Bandeja vermelha com a frente Président', src: 'president/n-4-bandeja', w: 18.2, h: 10.6 }),
+          peca({ gal: G4, n: 5, nome: 'Régua com o selo', qtd: '4 un., na versão caixa de luz', mat: 'PS para frio, no trilho de preço', src: 'president/n-5-regua', w: 46.5, h: 2 }),
+        ),
+        peca({ gal: G4, n: 6, nome: 'Base em madeira clara com LED', qtd: '1 un.', mat: 'Madeirado claro e fita de LED quente', src: 'president/n-6-base-madeira', w: 57, h: 4.8 }),
       ),
     ),
   ],
-  como: [tile('gancheira', 'Gancheira na ordem do planograma', 'Peça 1'), tile('retro', 'Testeira no lugar da atual', 'Peça 2'), tile('ripado', 'Ripado com fita de LED', 'Peças 3 e 4'), tile('adesivo', 'Adesivo por fora e por dentro', 'Peças 5 e 6')],
-  nota: 'É a estrela da vez. A torre foi para o lado de fora e, por dentro, ficou só o adesivo vermelho com um claim, para não poluir. Nada avança além do espaço do Président. As duas testeiras podem ser comparadas nos botões.',
+  como: [tile('retro', 'Testeira no lugar da atual', 'Peça 1'), tile('adesivo', 'Adesivo por fora e por dentro', 'Peças 2 e 3'), tile('trilho', 'Régua no trilho ou bandeja com a marca', 'Peças 4 e 5'), tile('ripado', 'Madeira clara com LED na base', 'Peça 6')],
+  nota: 'É a estrela da vez. Os botões comparam as duas versões: letras douradas retroiluminadas com bandejas, ou caixa de luz com réguas. O painel de fora, o adesivo de dentro e a base de madeira são os mesmos nas duas. Nada avança além do espaço do Président.',
 });
 
 const G5 = 'sob';
