@@ -168,22 +168,21 @@ const sobremesas = espaco({
   vistas: [
     { nome: 'Em ângulo', antes: 'sobremesas/a-antes', depois: 'sobremesas/n-depois', ar: 0.75, cap: 'Vista em ângulo' },
   ],
-  resumo: 'A geladeira vira uma vitrine de confeitaria: frontão em onda com luz, lambrequim e a linha toda nas réguas.',
+  resumo: 'A geladeira vira uma vitrine de confeitaria: testeira em onda com luz, toldo, réguas por produto e artes nas laterais.',
   mesa: [
     row(
-      peca({ gal: G5, n: 3, nome: 'Lateral', qtd: '1 un.', mat: 'Adesivo em vinil, no lado do corredor, por fora do frio', src: 'sobremesas/n-3-lateral', w: 26, h: 76 }),
+      peca({ gal: G5, n: 5, nome: 'Arte lateral esquerda', qtd: '1 un.', mat: 'Adesivo em vinil, inteiro, por fora do frio', src: 'sobremesas/p-5-lateral-esq', w: 19.9, h: 78 }),
       col(
-        peca({ gal: G5, n: 1, nome: 'Frontão em caixa de luz, recorte em onda', qtd: '1 un.', mat: 'Caixa com face em acrílico e LED no contorno', src: 'sobremesas/n-1-frontao', w: 130, h: 45.5 }),
-        peca({ gal: G5, n: 2, nome: 'Lambrequim', qtd: '1 un.', mat: 'PS recortado, creme e chocolate', src: 'sobremesas/n-2-lambrequim', w: 130, h: 16 }),
-        row(
-          peca({ gal: G5, n: 4, nome: 'Adesivo da base em onda', qtd: '2 un., uma por porta', mat: 'Vinil, na parte de baixo do vidro', src: 'sobremesas/n-4-base', w: 64, h: 20 }),
-          pilha({ gal: G5, n: 5, nome: 'Réguas com o nome', qtd: '8 un.', mat: 'PS para frio; nomes conforme o planograma', w: 64, h: 22, itens: [['sobremesas/n-5-regua-brigadeirao', 'Brigadeirão', 64, 7.2], ['sobremesas/n-5-regua-flan', 'Flan', 64, 7], ['sobremesas/n-5-regua-creamy', 'Creamy', 64, 5]] }),
-        ),
+        peca({ gal: G5, n: 1, nome: 'Testeira em PS com LED', qtd: '1 un.', mat: 'PS com faca especial ondulada e LED superior e inferior', src: 'sobremesas/p-1-testeira', w: 130, h: 36.9 }),
+        peca({ gal: G5, n: 2, nome: 'Toldo eletrostático', qtd: '2 un., um por porta', mat: 'Vinil eletrostático plano', src: 'sobremesas/p-2-toldo', w: 130, h: 8.4 }),
+        pilha({ gal: G5, n: 3, nome: 'Réguas com o nome', qtd: '5 un.', mat: 'PS para frio, com logo e espaço de preço; nomes conforme o planograma', w: 130, h: 34.4, itens: [['sobremesas/p-3-regua-superior-1', 'Superior 1 · brigadeirão, pudim e Creamy Chantilly', 130, 5.75], ['sobremesas/p-3-regua-superior-2', 'Superior 2 · brigadeirão, pudim e Creamy Chantilly', 130, 5.75], ['sobremesas/p-3-regua-flan', 'Inferior 1 · Flan', 130, 5.75], ['sobremesas/p-3-regua-creamy-1', 'Inferior 2 · Creamy', 130, 5.75], ['sobremesas/p-3-regua-creamy-2', 'Inferior 3 · Creamy', 130, 5.75]] }),
+        fileira({ gal: G5, n: 4, nome: 'Adesivo para base do vidro', qtd: '2 un., um por porta', mat: 'Vinil, na parte de baixo do vidro', w: 128, h: 8.3, itens: [['sobremesas/p-4-base-1', 'Porta 1', 63, 8.3], ['sobremesas/p-4-base-2', 'Porta 2', 62, 8.3]] }),
       ),
+      peca({ gal: G5, n: 6, nome: 'Arte lateral direita', qtd: '1 un.', mat: 'Adesivo em vinil, inteiro, por fora do frio', src: 'sobremesas/p-6-lateral-dir', w: 19.9, h: 78 }),
     ),
   ],
-  como: [tile('retro', 'Frontão em caixa de luz, com LED no contorno', 'Peça 1'), tile('lambrequim', 'Lambrequim curto, sem descer no vidro', 'Peça 2'), tile('adesivo', 'Adesivo na lateral e na base do vidro', 'Peças 3 e 4'), tile('nome', 'Régua com o nome de cada sobremesa', 'Peça 5')],
-  nota: 'A geladeira indicada no ponto de sobremesas vira uma vitrine de confeitaria. As peças saíram da imagem nova e foram endireitadas; o lambrequim foi redesenhado nas mesmas cores. Medidas e nomes se confirmam na medição e no planograma.',
+  como: [tile('retro', 'Testeira com LED em cima e embaixo', 'Peça 1'), tile('lambrequim', 'Toldo eletrostático, sem descer no vidro', 'Peça 2'), tile('nome', 'Régua com o nome de cada sobremesa', 'Peça 3'), tile('adesivo', 'Adesivo na base do vidro e nas laterais', 'Peças 4, 5 e 6')],
+  nota: 'A geladeira indicada no ponto de sobremesas vira uma vitrine de confeitaria. As peças saíram da prancha de materiais. Medidas e nomes se confirmam na medição e no planograma.',
 });
 
 // ---------- capa, contexto e fechamento ----------
