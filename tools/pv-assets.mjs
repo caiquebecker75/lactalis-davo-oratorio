@@ -33,11 +33,10 @@ const LISTA = [
   // Enviadas em 09/11: ilha nova (ilha-nutricao-esportiva-4-vistas/imagens-09-11), já alinhada com as fotos da VT
   ['nutricao/n-longo-antes', `${ILHA}/imagens-09-11/lado-longo-antes.jpg`, 'photo'], ['nutricao/n-longo-depois', `${ILHA}/imagens-09-11/lado-longo-depois.jpg`, 'photo'],
   ['nutricao/n-ponta-antes', `${ILHA}/imagens-09-11/ponta-antes.jpg`, 'photo'], ['nutricao/n-ponta-depois', `${ILHA}/imagens-09-11/ponta-depois.jpg`, 'photo'],
-  ...['1-testeira', '2-regua-whey-em-po', '2-regua-23g-15g', '2-regua-pronto-para-beber', '3-regua-barras-proteicas', '3-regua-creatina', '3-regua-whey-protein', '4-testeira-ponta', '5-halter', '6-regua-ponta-1', '6-regua-ponta-2'].map(n => [`nutricao/n-${n}`, `${ILHA}/imagens-09-11/pecas/${n}.png`, 'art']),
+  ...['1-testeira-central', '2-perpendicular-esq', '2-perpendicular-dir', '3-barra-de-peso', '4-regua-whey-em-po', '4-regua-15g', '4-regua-23g', '4-regua-pronto-para-beber', '5-regua-barras-proteicas', '5-regua-creatina', '5-regua-whey-protein'].map(n => [`nutricao/p-${n}`, `${REU}/pranchas-09-11/pecas/ilha/${n}.png`, 'art']),
   // Réguas e testeira da seca iguais à prancha
   ['seca/n-1-testeira', 'gondola-seca-vista-frontal/pecas/1-testeira.png', 'art'],
-  ['seca/n-regua-energia', 'gondola-seca-vista-frontal/pecas/3-2-regua-energia-para-o-seu-dia.png', 'art'], ['seca/n-regua-proteina', 'gondola-seca-vista-frontal/pecas/3-4-regua-proteina-liquida.png', 'art'],
-  ['seca/n-regua-nutricao', 'gondola-seca-vista-frontal/pecas/3-6-regua-nutricao-em-qualquer-rotina.png', 'art'], ['seca/n-regua-grafica', 'gondola-seca-vista-frontal/pecas/3-regua-grafica.png', 'art'],
+  ...['2-moldura', '4-stopper-morango', '4-stopper-chocolate', '3-regua-1', '3-regua-2', '3-regua-3', '3-regua-4', '3-regua-5', '3-regua-6', '3-regua-7'].map(n => [`seca/p-${n}`, `${REU}/pranchas-09-11/pecas/seca/${n}.png`, 'art']),
   // Pense Zero igual à referência
   ...['1-testeira', '1-led', '3-base', '4-regua-cafe', '4-regua-compartilhar', '4-regua-tarde', '4-regua-levar', '4-regua-rapido', '4-regua-colher'].map(n => [`pensezero/n-${n}`, `${REU}/imagens-06-11/pecas-pensezero/${n}.png`, 'art']),
   ['pensezero/n-2-esq', 'pense-zero-vista-frontal/pecas/2-adesivo-lateral-esquerdo.png', 'art'], ['pensezero/n-2-dir', 'pense-zero-vista-frontal/pecas/2-adesivo-lateral-direito.png', 'art'],
@@ -58,7 +57,7 @@ const LISTA = [
   ['seca/n-antes', `${REU}/imagens-06-11/seca-frontal-antes.jpg`, 'photo'], ['seca/n-depois', `${REU}/imagens-06-11/seca-frontal-depois.jpg`, 'photo'],
   ['seca/flexforce-display', `${REU}/imagens-06-11/flexforce-display-peca.png`, 'art'],
   ['pensezero/n-antes', `${REU}/imagens-06-11/pensezero-frontal-antes.jpg`, 'photo'], ['pensezero/n-depois', `${REU}/imagens-06-11/pensezero-frontal-depois.jpg`, 'photo'],
-  ['sobremesas/n-depois', `${REU}/imagens-06-11/sobremesas-angulo-depois.jpg`, 'photo'],
+  ['sobremesas/n-depois', `${REU}/pranchas-09-11/sobremesas-depois.jpg`, 'photo'],
   ...['1-frontao', '2-lambrequim', '3-lateral', '4-base', '5-regua-brigadeirao', '5-regua-flan', '5-regua-creamy'].map(n => [`sobremesas/n-${n}`, `${REU}/imagens-06-11/pecas-sobremesas/${n}.png`, 'art']),
   // Président, enviadas em 09/11: as duas versões e as peças
   ['president/n-letras', `${PRES}/imagens-09-11/president-letras-retroiluminadas.jpg`, 'photo'], ['president/n-caixa', `${PRES}/imagens-09-11/president-caixa-de-luz.jpg`, 'photo'],

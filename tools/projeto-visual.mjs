@@ -79,17 +79,16 @@ const nutricao = espaco({
   resumo: 'Testeira em onda, réguas por categoria e a barra de peso com a marca na ponta.',
   mesa: [
     row(
-      peca({ gal: G1, n: 1, nome: 'Testeira central', qtd: '1 un., dupla face', mat: 'PS com recorte em onda e abas nas pontas', src: 'nutricao/n-1-testeira', w: 236, h: 34.8 }),
-      peca({ gal: G1, n: 4, nome: 'Testeiras perpendiculares', qtd: '2 un., esquerda e direita', mat: 'PS com recorte em onda, em pé na prateleira', src: 'nutricao/n-4-testeira-ponta', w: 110, h: 24.6 }),
+      peca({ gal: G1, n: 1, nome: 'Testeira central', qtd: '1 un.', mat: 'PS com recorte em onda', src: 'nutricao/p-1-testeira-central', w: 236, h: 45.3 }),
+      fileira({ gal: G1, n: 2, nome: 'Testeiras perpendiculares', qtd: '2 un., esquerda e direita', mat: 'PS em L, em pé na prateleira', w: 117, h: 42, itens: [['nutricao/p-2-perpendicular-esq', 'Esquerda', 51.5, 42], ['nutricao/p-2-perpendicular-dir', 'Direita', 61.5, 42]] }),
     ),
     row(
-      pilha({ gal: G1, n: 2, nome: 'Réguas Parmalat Fit', qtd: '6 un., 3 por lado', mat: 'PS impresso, no trilho de preço', w: 110, h: 17, itens: [['nutricao/n-2-regua-whey-em-po', 'Whey em pó', 110, 5.2], ['nutricao/n-2-regua-23g-15g', '23 g Flexforce e 15 g Whey', 110, 4.6], ['nutricao/n-2-regua-pronto-para-beber', 'Pronto para beber', 110, 5]] }),
-      pilha({ gal: G1, n: 3, nome: 'Réguas por categoria', qtd: '6 un., 3 por lado', mat: 'PS impresso, só com a categoria', w: 95, h: 17, itens: [['nutricao/n-3-regua-barras-proteicas', 'Barras proteicas', 95, 5.2], ['nutricao/n-3-regua-creatina', 'Creatina', 95, 4.4], ['nutricao/n-3-regua-whey-protein', 'Whey protein', 95, 4.9]] }),
-      pilha({ gal: G1, n: 6, nome: 'Réguas da ponta', qtd: '2 un.', mat: 'PS impresso, no trilho de preço', w: 85, h: 10, itens: [['nutricao/n-6-regua-ponta-1', '23 g Flexforce', 85, 3.9], ['nutricao/n-6-regua-ponta-2', '23 g Flexforce, com a marca', 85, 4.2]] }),
-      peca({ gal: G1, n: 5, nome: 'Barra de peso', qtd: '1 un.', mat: 'Peça especial em PS recortado, presa na prateleira', src: 'nutricao/n-5-halter', w: 57, h: 16.8 }),
+      peca({ gal: G1, n: 3, nome: 'Barra de peso', qtd: '1 un.', mat: 'Peça especial em PS recortado, com a régua de 23 g na base', src: 'nutricao/p-3-barra-de-peso', w: 110, h: 43.7 }),
+      pilha({ gal: G1, n: 4, nome: 'Réguas por produto', qtd: '4 un.', mat: 'PS impresso, no trilho de preço', w: 122, h: 40.6, itens: [['nutricao/p-4-regua-whey-em-po', 'Whey em pó', 122, 9.1], ['nutricao/p-4-regua-15g', '15 g Whey', 122, 9.1], ['nutricao/p-4-regua-23g', '23 g Flexforce', 122, 9.1], ['nutricao/p-4-regua-pronto-para-beber', 'Pronto para beber', 122, 9.1]] }),
+      pilha({ gal: G1, n: 5, nome: 'Réguas por categoria', qtd: '3 un.', mat: 'PS impresso, no trilho de preço', w: 122, h: 30.1, itens: [['nutricao/p-5-regua-barras-proteicas', 'Barras proteicas', 122, 9.1], ['nutricao/p-5-regua-creatina', 'Creatina', 122, 9.1], ['nutricao/p-5-regua-whey-protein', 'Whey protein', 122, 9.1]] }),
     ),
   ],
-  como: [tile('empe', 'Testeiras em pé, sobre a prateleira', 'Peças 1 e 4'), tile('trilho', 'Réguas no trilho de preço', 'Peças 2, 3 e 6'), tile('presilha', 'Barra de peso presa na prateleira', 'Peça 5'), tile('caixas', 'A base continua para as caixas', 'Sem comunicação')],
+  como: [tile('empe', 'Testeiras em pé, sobre a prateleira', 'Peças 1 e 2'), tile('trilho', 'Réguas no trilho de preço', 'Peças 4 e 5'), tile('presilha', 'Barra de peso presa na prateleira', 'Peça 3'), tile('caixas', 'A base continua para as caixas', 'Sem comunicação')],
   nota: 'A testeira em onda puxa a categoria no lado longo e na ponta. As réguas nomeiam o que está em cada prateleira. A barra de peso leva a marca para a altura dos olhos, na ponta. As caixas ficam embaixo porque o cliente leva a caixa dali.',
 });
 
@@ -103,12 +102,12 @@ const seca = espaco({
   mesa: [
     peca({ gal: G2, n: 1, nome: 'Testeira superior com LED', qtd: '1 un.', mat: 'Caixa com face em acrílico e fita de LED', src: 'seca/n-1-testeira', w: 190, h: 48.2 }),
     row(
-      peca({ gal: G2, n: 2, nome: 'Moldura com LED', qtd: '1 un.', mat: 'PS recortado e fita de LED', src: 'seca/seca-2-moldura-whey', w: 96, h: 56 }),
-      peca({ gal: G2, n: 4, nome: 'Stoppers Flexforce', qtd: '2 un., morango e chocolate', mat: 'Flag em PS presa na prateleira, com a embalagem do produto', src: 'seca/flexforce-display', w: 27.5, h: 56 }),
+      peca({ gal: G2, n: 2, nome: 'Moldura com LED', qtd: '1 un.', mat: 'PS recortado e fita de LED', src: 'seca/p-2-moldura', w: 120, h: 35.7 }),
+      fileira({ gal: G2, n: 4, nome: 'Stoppers Flexforce', qtd: '2 un., morango e chocolate', mat: 'Stopper preso na prateleira, com a embalagem do produto', w: 60, h: 40, itens: [['seca/p-4-stopper-morango', 'Morango', 27.5, 40], ['seca/p-4-stopper-chocolate', 'Chocolate', 27.7, 40]] }),
     ),
-    pilha({ gal: G2, n: 3, nome: 'Réguas de gôndola', qtd: '7 un., 3 com frase e 4 gráficas', mat: 'PS impresso, com fita de LED na borda', w: 181, h: 37, itens: [['seca/n-regua-energia', 'Energia para o seu dia', 181, 8.1], ['seca/n-regua-proteina', 'Proteína líquida', 181, 8.1], ['seca/n-regua-nutricao', 'Nutrição em qualquer rotina', 181, 8.1], ['seca/n-regua-grafica', 'Régua gráfica', 181, 8.1]] }),
+    pilha({ gal: G2, n: 3, nome: 'Réguas de gôndola', qtd: '7 un., 3 com frase e 4 gráficas', mat: 'PS impresso, com fita de LED na borda', w: 181, h: 46.2, itens: [['seca/p-3-regua-1', 'Régua gráfica', 181, 5.3], ['seca/p-3-regua-2', 'Energia para o seu dia', 181, 5.5], ['seca/p-3-regua-3', 'Régua gráfica', 181, 5.3], ['seca/p-3-regua-4', 'Proteína líquida', 181, 5.4], ['seca/p-3-regua-5', 'Régua gráfica', 181, 5.3], ['seca/p-3-regua-6', 'Nutrição em qualquer rotina', 181, 5.4], ['seca/p-3-regua-7', 'Régua gráfica', 181, 5.3]] }),
   ],
-  como: [tile('retro', 'Caixa de luz atrás da testeira', 'Peça 1'), tile('perfil', 'Fita de LED ilumina o produto', 'Peças 2 e 3'), tile('trilho', 'Réguas no trilho e os stoppers na prateleira', 'Peças 3 e 4')],
+  como: [tile('retro', 'Testeira com LED', 'Peça 1'), tile('perfil', 'Fita de LED ilumina o produto', 'Peças 2 e 3'), tile('trilho', 'Réguas no trilho e os stoppers na prateleira', 'Peças 3 e 4')],
   nota: 'O projeto aprovado continua igual. Entram a luz e os stoppers do Flexforce, o novo de 23 g de proteína, presos na prateleira.',
 });
 
