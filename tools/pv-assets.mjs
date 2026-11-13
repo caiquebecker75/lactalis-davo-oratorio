@@ -33,6 +33,8 @@ const LISTA = [
   // Enviadas em 09/11: ilha nova (ilha-nutricao-esportiva-4-vistas/imagens-09-11), já alinhada com as fotos da VT
   ['nutricao/n-longo-antes', `${ILHA}/imagens-09-11/lado-longo-antes.jpg`, 'photo'], ['nutricao/n-longo-depois', `${ILHA}/imagens-09-11/lado-longo-depois.jpg`, 'photo'],
   ['nutricao/n-ponta-antes', `${ILHA}/imagens-09-11/ponta-antes.jpg`, 'photo'], ['nutricao/n-ponta-depois', `${ILHA}/imagens-09-11/ponta-depois.jpg`, 'photo'],
+  // KV de referência enviado pelo cliente (13/11)
+  ['nutricao/kv-1', `${ILHA}/kv-cliente/7319_Backlight_Parmalat_Fit_Madi_100x115cm_v4.jpg`, 'art'], ['nutricao/kv-2', `${ILHA}/kv-cliente/7349_ParmalatFit_Allmayer_576x960px_v3.jpg`, 'art'],
   ...['1-testeira-central', '2-perpendicular-esq', '2-perpendicular-dir', '3-barra-de-peso', '4-regua-whey-em-po', '4-regua-15g', '4-regua-23g', '4-regua-pronto-para-beber', '5-regua-barras-proteicas', '5-regua-creatina', '5-regua-whey-protein'].map(n => [`nutricao/p-${n}`, `${REU}/pranchas-09-11/pecas/ilha/${n}.png`, 'art']),
   // Réguas e testeira da seca iguais à prancha
   ['seca/n-1-testeira', 'gondola-seca-vista-frontal/pecas/1-testeira.png', 'art'],
@@ -58,7 +60,9 @@ const LISTA = [
   ['seca/flexforce-display', `${REU}/imagens-06-11/flexforce-display-peca.png`, 'art'],
   ['pensezero/n-antes', `${REU}/imagens-06-11/pensezero-frontal-antes.jpg`, 'photo'], ['pensezero/n-depois', `${REU}/imagens-06-11/pensezero-frontal-depois.jpg`, 'photo'],
   ['sobremesas/n-depois', `${REU}/pranchas-09-11/sobremesas-depois.jpg`, 'photo'],
-  ...['1-testeira', '2-toldo', '3-regua-superior-1', '3-regua-superior-2', '3-regua-flan', '3-regua-creamy-1', '3-regua-creamy-2', '4-base-1', '4-base-2', '5-lateral-esq', '6-lateral-dir'].map(n => [`sobremesas/p-${n}`, `${REU}/pranchas-09-11/pecas/sobremesas/${n}.png`, 'art']),
+  // KV de referência enviado pelo cliente (13/11)
+  ['sobremesas/kv-1', `${REU}/kv-cliente-sobremesas/kv-pudim-lovers-savegnago.jpg`, 'art'], ['sobremesas/kv-2', `${REU}/kv-cliente-sobremesas/kv-feliz-dia-do-pudim.jpg`, 'art'],
+  ...['7-faixa-frontal', '1-testeira', '2-toldo', '3-regua-superior-1', '3-regua-superior-2', '3-regua-flan', '3-regua-creamy-1', '3-regua-creamy-2', '4-base-1', '4-base-2', '5-lateral-esq', '6-lateral-dir'].map(n => [`sobremesas/p-${n}`, `${REU}/pranchas-09-11/pecas/sobremesas/${n}.png`, 'art']),
   // Président, enviadas em 09/11: as duas versões e as peças
   ['president/n-letras', `${PRES}/imagens-09-11/president-retroiluminada-reguas.jpg`, 'photo'], ['president/n-caixa', `${PRES}/imagens-09-11/president-caixa-de-luz.jpg`, 'photo'],
   ...['1-testeira-letras', '1-testeira-caixa', '2-painel-fora', '3-adesivo-dentro', '4-bandeja', '5-regua', '6-base-madeira'].map(n => [`president/n-${n}`, `${PRES}/imagens-09-11/pecas/${n}.png`, 'art']),

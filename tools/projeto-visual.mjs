@@ -20,7 +20,7 @@ const col = (...p) => `<div class="col">${p.join('')}</div>`;
 const tile = (pg, t, pn) => `<div class="mc"><i class="pg" data-pg="${pg}"></i><h3>${t}</h3><span class="pn">${pn}</span></div>`;
 
 // ---------- tela de um espaço ----------
-function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa, como, nota, duas }) {
+function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa, como, nota, duas, kv, kvTopo }) {
   const v0 = vistas[0];
   const foto = v => `<div class="cmp" data-ar="${v.ar}"${duas ? ` data-cap="${v.cap}"` : ''}>
           <img class="ia" src="${img(v.antes)}" alt="${titulo}${duas ? `, ${v.nome.toLowerCase()},` : ''} antes" draggable="false">
@@ -38,7 +38,11 @@ function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa
             <div class="mi">
             ${mesa.join('\n            ')}
             </div>
-          </div>`;
+          </div>${kv && !kvTopo ? `
+          <div class="kv rv" style="--d:4">
+            <p class="lbl">KV referência<br>enviado pelo cliente</p>
+            ${kv.map(([src, t]) => `<button type="button" class="kvz" data-zoom="${img(src)}" data-gallery="kv-${id}" data-caption="KV referência enviado pelo cliente|${t}"><img src="${img(src)}" alt="KV referência enviado pelo cliente: ${t}"></button>`).join('')}
+          </div>` : ''}`;
   const how = `<div class="how rv" style="--d:4">
             <p class="lbl">Como aplica</p>
             <div class="hw${como.length > 3 ? ' q4' : ''}">
@@ -74,6 +78,9 @@ function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa
         ${duas ? `<div class="views rv" style="--d:2"><span class="vl">${rotulo}</span></div>` : vistas.length > 1 ? `<div class="views rv" style="--d:2" role="group" aria-label="${rotulo}">
           <span class="vl">${rotulo}</span>
           ${vistas.map((v, i) => `<button type="button"${i ? '' : ' class="on"'} data-antes="${img(v.antes)}" data-depois="${img(v.depois)}" data-ar="${v.ar}" data-cap="${v.cap}">${v.nome}</button>`).join('\n          ')}
+        </div>` : kvTopo ? `<div class="kv kv-topo rv" style="--d:2">
+          <p class="lbl">KV referência<br>enviado pelo cliente</p>
+          ${kv.map(([src, t]) => `<button type="button" class="kvz" data-zoom="${img(src)}" data-gallery="kv-${id}" data-caption="KV referência enviado pelo cliente|${t}"><img src="${img(src)}" alt="KV referência enviado pelo cliente: ${t}"></button>`).join('')}
         </div>` : ''}
       </header>
       ${corpo}
@@ -87,24 +94,25 @@ function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa
 const G1 = 'nutricao';
 const nutricao = espaco({
   id: 'nutricao', n: '01', short: 'Nutrição esportiva', marca: 'Parmalat Fit', titulo: 'Ilha de nutrição esportiva', cor: '#1E3E94', rotulo: 'A mesma ilha, de dois pontos · simulação com as fotos da loja', duas: true,
+  kv: [['nutricao/kv-1', 'Linha Parmalat Fit · iogurtes'], ['nutricao/kv-2', 'Linha Parmalat Fit · Whey 15 g e Flexforce 23 g']],
   vistas: [
     { nome: 'Lado longo', antes: 'nutricao/n-longo-antes', depois: 'nutricao/n-longo-depois', ar: 1.7917, cap: 'Lado longo da ilha. Simulação feita com a foto da loja.' },
     { nome: 'Ponta', antes: 'nutricao/n-ponta-antes', depois: 'nutricao/n-ponta-depois', ar: 0.53, cap: 'Ponta da ilha, com a barra de peso na prateleira. Simulação feita com a foto da loja.' },
   ],
-  resumo: 'Testeira em onda, réguas por categoria e a barra de peso na ponta.',
+  resumo: 'Na linguagem da campanha Tem Fit com você: testeiras com a linha 15 g e 23 g, réguas por categoria e a barra de peso na ponta.',
   mesa: [
     peca({ gal: G1, n: 1, nome: 'Testeira central', qtd: '1 un.', mat: 'PS com recorte em onda', src: 'nutricao/p-1-testeira-central', w: 236, h: 45.3 }),
     row(
-      fileira({ gal: G1, n: 2, nome: 'Testeiras perpendiculares', qtd: '2 un., esquerda e direita', mat: 'PS em L, em pé na prateleira', w: 117, h: 42, itens: [['nutricao/p-2-perpendicular-esq', 'Esquerda', 51.5, 42], ['nutricao/p-2-perpendicular-dir', 'Direita', 61.5, 42]] }),
-      peca({ gal: G1, n: 3, nome: 'Barra de peso', qtd: '1 un.', mat: 'Peça especial em PS recortado, com a régua de 23 g na base', src: 'nutricao/p-3-barra-de-peso', w: 106, h: 42.1 }),
+      fileira({ gal: G1, n: 2, nome: 'Testeiras perpendiculares', qtd: '2 un., esquerda e direita', mat: 'PS em L, em pé na prateleira', w: 117, h: 42, itens: [['nutricao/p-2-perpendicular-esq', 'Esquerda', 51.4, 42], ['nutricao/p-2-perpendicular-dir', 'Direita', 62.1, 42]] }),
+      peca({ gal: G1, n: 3, nome: 'Barra de peso', qtd: '1 un.', mat: 'Peça especial em PS recortado, com a régua de 23 g na base', src: 'nutricao/p-3-barra-de-peso', w: 106, h: 42.3 }),
     ),
     row(
-      pilha({ gal: G1, n: 4, nome: 'Réguas por produto', qtd: '4 un.', mat: 'PS impresso, no trilho de preço', w: 112, h: 37.4, itens: [['nutricao/p-4-regua-whey-em-po', 'Whey em pó', 112, 8.35], ['nutricao/p-4-regua-15g', '15 g Whey', 112, 8.35], ['nutricao/p-4-regua-23g', '23 g Flexforce', 112, 8.35], ['nutricao/p-4-regua-pronto-para-beber', 'Pronto para beber', 112, 8.35]] }),
-      pilha({ gal: G1, n: 5, nome: 'Réguas por categoria', qtd: '3 un.', mat: 'PS impresso, no trilho de preço', w: 112, h: 27.8, itens: [['nutricao/p-5-regua-barras-proteicas', 'Barras proteicas', 112, 8.35], ['nutricao/p-5-regua-creatina', 'Creatina', 112, 8.35], ['nutricao/p-5-regua-whey-protein', 'Whey protein', 112, 8.35]] }),
+      pilha({ gal: G1, n: 4, nome: 'Réguas por produto', qtd: '4 un.', mat: 'PS impresso, no trilho de preço', w: 112, h: 40.4, itens: [['nutricao/p-4-regua-whey-em-po', 'Whey em pó', 112, 9.1], ['nutricao/p-4-regua-15g', '15 g Whey', 112, 9.1], ['nutricao/p-4-regua-23g', '23 g Flexforce', 112, 9.1], ['nutricao/p-4-regua-pronto-para-beber', 'Pronto para beber', 112, 9.1]] }),
+      pilha({ gal: G1, n: 5, nome: 'Réguas por categoria', qtd: '3 un.', mat: 'PS impresso, no trilho de preço', w: 112, h: 30, itens: [['nutricao/p-5-regua-barras-proteicas', 'Barras proteicas', 112, 9.1], ['nutricao/p-5-regua-creatina', 'Creatina', 112, 9.1], ['nutricao/p-5-regua-whey-protein', 'Whey protein', 112, 9.1]] }),
     ),
   ],
   como: [tile('empe', 'Testeiras em pé, sobre a prateleira', 'Peças 1 e 2'), tile('trilho', 'Réguas no trilho de preço', 'Peças 4 e 5'), tile('presilha', 'Barra de peso presa na prateleira', 'Peça 3'), tile('caixas', 'A base continua para as caixas', 'Sem comunicação')],
-  nota: 'A testeira em onda puxa a categoria no lado longo e na ponta. As réguas nomeiam o que está em cada prateleira. A barra de peso leva a marca para a altura dos olhos, na ponta. As caixas ficam embaixo porque o cliente leva a caixa dali.',
+  nota: 'As peças seguem o KV da campanha Tem Fit com você, enviado pelo cliente. A testeira em onda puxa a categoria no lado longo e na ponta. As réguas nomeiam o que está em cada prateleira. A barra de peso leva a marca para a altura dos olhos, na ponta. As caixas ficam embaixo porque o cliente leva a caixa dali.',
 });
 
 const G2 = 'seca';
@@ -180,24 +188,28 @@ const president = espaco({
 const G5 = 'sob';
 const sobremesas = espaco({
   id: 'sobremesas', n: '05', short: 'Sobremesas', marca: 'Sobremesas Batavo', titulo: 'Ponto de sobremesas', cor: '#4E2C1B', rotulo: 'Troque a vista',
+  kv: [['sobremesas/kv-1', 'Pudim Lovers · cartaz'], ['sobremesas/kv-2', 'Pudim Lovers · Feliz Dia do Pudim']], kvTopo: true,
   vistas: [
     { nome: 'Em ângulo', antes: 'sobremesas/a-antes', depois: 'sobremesas/n-depois', ar: 0.75, cap: 'Vista em ângulo' },
   ],
-  resumo: 'A geladeira vira uma vitrine de confeitaria: testeira em onda com luz, toldo, réguas por produto e artes nas laterais.',
+  resumo: 'Hora da sobremesa no clima Pudim Lovers: testeira em onda com luz, toldo, réguas por produto, artes nas laterais e faixa frontal.',
   mesa: [
     row(
-      peca({ gal: G5, n: 5, nome: 'Arte lateral esquerda', qtd: '1 un.', mat: 'Adesivo em vinil, inteiro, por fora do frio', src: 'sobremesas/p-5-lateral-esq', w: 19.9, h: 78 }),
+      peca({ gal: G5, n: 5, nome: 'Arte lateral esquerda', qtd: '1 un.', mat: 'Adesivo em vinil, inteiro, por fora do frio', src: 'sobremesas/p-5-lateral-esq', w: 22.7, h: 78 }),
       col(
-        peca({ gal: G5, n: 1, nome: 'Testeira em PS com LED', qtd: '1 un.', mat: 'PS com faca especial ondulada e LED superior e inferior', src: 'sobremesas/p-1-testeira', w: 130, h: 36.9 }),
-        peca({ gal: G5, n: 2, nome: 'Toldo eletrostático', qtd: '2 un., um por porta', mat: 'Vinil eletrostático plano', src: 'sobremesas/p-2-toldo', w: 130, h: 8.4 }),
-        pilha({ gal: G5, n: 3, nome: 'Réguas com o nome', qtd: '5 un.', mat: 'PS para frio, com logo e espaço de preço; nomes conforme o planograma', w: 130, h: 34.4, itens: [['sobremesas/p-3-regua-superior-1', 'Superior 1 · brigadeirão, pudim e Creamy Chantilly', 130, 5.75], ['sobremesas/p-3-regua-superior-2', 'Superior 2 · brigadeirão, pudim e Creamy Chantilly', 130, 5.75], ['sobremesas/p-3-regua-flan', 'Inferior 1 · Flan', 130, 5.75], ['sobremesas/p-3-regua-creamy-1', 'Inferior 2 · Creamy', 130, 5.75], ['sobremesas/p-3-regua-creamy-2', 'Inferior 3 · Creamy', 130, 5.75]] }),
-        fileira({ gal: G5, n: 4, nome: 'Adesivo para base do vidro', qtd: '2 un., um por porta', mat: 'Vinil, na parte de baixo do vidro', w: 128, h: 8.3, itens: [['sobremesas/p-4-base-1', 'Porta 1', 63, 8.3], ['sobremesas/p-4-base-2', 'Porta 2', 62, 8.3]] }),
+        peca({ gal: G5, n: 1, nome: 'Testeira em PS com LED', qtd: '1 un.', mat: 'PS com faca especial ondulada e LED superior e inferior', src: 'sobremesas/p-1-testeira', w: 130, h: 38.3 }),
+        peca({ gal: G5, n: 2, nome: 'Toldo eletrostático', qtd: '2 un., um por porta', mat: 'Vinil eletrostático plano', src: 'sobremesas/p-2-toldo', w: 130, h: 7.6 }),
+        pilha({ gal: G5, n: 3, nome: 'Réguas com o nome', qtd: '5 un.', mat: 'PS para frio, com logo e espaço de preço; nomes conforme o planograma', w: 130, h: 28.5, itens: [['sobremesas/p-3-regua-superior-1', 'Superior 1 · brigadeirão, pudim e Creamy Chantilly', 130, 5.3], ['sobremesas/p-3-regua-superior-2', 'Superior 2 · brigadeirão, pudim e Creamy Chantilly', 130, 5], ['sobremesas/p-3-regua-flan', 'Inferior 1 · Flan', 130, 4.8], ['sobremesas/p-3-regua-creamy-1', 'Inferior 2 · Creamy', 130, 4.8], ['sobremesas/p-3-regua-creamy-2', 'Inferior 3 · Creamy', 130, 4.6]] }),
       ),
-      peca({ gal: G5, n: 6, nome: 'Arte lateral direita', qtd: '1 un.', mat: 'Adesivo em vinil, inteiro, por fora do frio', src: 'sobremesas/p-6-lateral-dir', w: 19.9, h: 78 }),
+      peca({ gal: G5, n: 6, nome: 'Arte lateral direita', qtd: '1 un.', mat: 'Adesivo em vinil, inteiro, por fora do frio', src: 'sobremesas/p-6-lateral-dir', w: 22.9, h: 78 }),
+    ),
+    row(
+      fileira({ gal: G5, n: 4, nome: 'Adesivo para base do vidro', qtd: '2 un., um por porta', mat: 'Vinil, na parte de baixo do vidro', w: 130, h: 7.2, itens: [['sobremesas/p-4-base-1', 'Porta 1', 63, 7.2], ['sobremesas/p-4-base-2', 'Porta 2', 63, 7.2]] }),
+      peca({ gal: G5, n: 7, nome: 'Adesivo da faixa frontal inferior', qtd: '1 un.', mat: 'Vinil, complementar, na faixa preta abaixo das portas', src: 'sobremesas/p-7-faixa-frontal', w: 130, h: 7.7 }),
     ),
   ],
-  como: [tile('retro', 'Testeira com LED em cima e embaixo', 'Peça 1'), tile('lambrequim', 'Toldo eletrostático, sem descer no vidro', 'Peça 2'), tile('nome', 'Régua com o nome de cada sobremesa', 'Peça 3'), tile('adesivo', 'Adesivo na base do vidro e nas laterais', 'Peças 4, 5 e 6')],
-  nota: 'A geladeira indicada no ponto de sobremesas vira uma vitrine de confeitaria. As peças saíram da prancha de materiais. Medidas e nomes se confirmam na medição e no planograma.',
+  como: [tile('retro', 'Testeira com LED em cima e embaixo', 'Peça 1'), tile('lambrequim', 'Toldo eletrostático, sem descer no vidro', 'Peça 2'), tile('nome', 'Régua com o nome de cada sobremesa', 'Peça 3'), tile('adesivo', 'Adesivos no vidro, na faixa frontal e nas laterais', 'Peças 4 a 7')],
+  nota: 'A geladeira vira uma vitrine de confeitaria, na linguagem Pudim Lovers dos KVs enviados pelo cliente. As peças saíram da prancha de materiais. Medidas e nomes se confirmam na medição e no planograma.',
 });
 
 // ---------- capa, contexto e fechamento ----------
