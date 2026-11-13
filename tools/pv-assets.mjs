@@ -41,6 +41,9 @@ const LISTA = [
   ...['2-moldura', '4-stopper-morango', '4-stopper-chocolate', '3-regua-1', '3-regua-2', '3-regua-3', '3-regua-4', '3-regua-5', '3-regua-6', '3-regua-7'].map(n => [`seca/p-${n}`, `${REU}/pranchas-09-11/pecas/seca/${n}.png`, 'art']),
   // Pense Zero igual à referência
   ...['1-testeira', '1-led', '3-base', '4-regua-cafe', '4-regua-compartilhar', '4-regua-tarde', '4-regua-levar', '4-regua-rapido', '4-regua-colher'].map(n => [`pensezero/n-${n}`, `${REU}/imagens-06-11/pecas-pensezero/${n}.png`, 'art']),
+  // Pense Zero, prancha e KVs de 13/11
+  ['pensezero/kv-1', `${REU}/kv-cliente-pensezero/7334_PenseZero_Palato_Desktop_1920x450px_v2.jpg`, 'art'], ['pensezero/kv-2', `${REU}/kv-cliente-pensezero/7334_PenseZero_Palato_Mobile_600x400px_v3.jpg`, 'art'],
+  ...['1-painel-topo', '2-lateral-esq', '3-lateral-dir', '4-faixa-cafe', '4-faixa-compartilhar', '4-faixa-tarde', '4-faixa-levar', '4-faixa-rapido', '4-faixa-colher', '4-faixa-sobremesa', '5-rodape'].map(n => [`pensezero/p-${n}`, `${REU}/pranchas-09-11/pecas/pensezero/${n}.png`, 'art']),
   ['pensezero/n-2-esq', 'pense-zero-vista-frontal/pecas/2-adesivo-lateral-esquerdo.png', 'art'], ['pensezero/n-2-dir', 'pense-zero-vista-frontal/pecas/2-adesivo-lateral-direito.png', 'art'],
   // Président: peças da prancha de materiais enviada em 09/11
   ...['1-testeira-retroiluminada', '2-testeira-painel-led', '3-adesivo-externo', '4-adesivo-interno', '5-regua-1', '5-regua-2', '5-regua-3', '5-regua-4', '6-acabamento-led'].map(n => [`president/p-${n}`, `${PRES}/imagens-09-11/pecas-prancha/${n}.png`, 'art']),
@@ -58,7 +61,7 @@ const LISTA = [
   // Enviadas em 06/11: já alinhadas com o antes em reuniao-05-11/imagens-06-11
   ['seca/n-antes', `${REU}/imagens-06-11/seca-frontal-antes.jpg`, 'photo'], ['seca/n-depois', `${REU}/imagens-06-11/seca-frontal-depois.jpg`, 'photo'],
   ['seca/flexforce-display', `${REU}/imagens-06-11/flexforce-display-peca.png`, 'art'],
-  ['pensezero/n-antes', `${REU}/imagens-06-11/pensezero-frontal-antes.jpg`, 'photo'], ['pensezero/n-depois', `${REU}/imagens-06-11/pensezero-frontal-depois.jpg`, 'photo'],
+  ['pensezero/n-antes', `${REU}/imagens-06-11/pensezero-frontal-antes.jpg`, 'photo'], ['pensezero/n-depois', `${REU}/pranchas-09-11/pensezero-depois.jpg`, 'photo'],
   ['sobremesas/n-depois', `${REU}/pranchas-09-11/sobremesas-depois.jpg`, 'photo'],
   // KV de referência enviado pelo cliente (13/11)
   ['sobremesas/kv-1', `${REU}/kv-cliente-sobremesas/kv-pudim-lovers-savegnago.jpg`, 'art'], ['sobremesas/kv-2', `${REU}/kv-cliente-sobremesas/kv-feliz-dia-do-pudim.jpg`, 'art'],

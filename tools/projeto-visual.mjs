@@ -137,23 +137,22 @@ const seca = espaco({
 const G3 = 'pz';
 const pensezero = espaco({
   id: 'pensezero', n: '03', short: 'Pense Zero', marca: 'Batavo Pense Zero', titulo: 'Ponta refrigerada', cor: '#0B7FB4', rotulo: 'Troque a vista',
+  kv: [['pensezero/kv-1', 'Pense Zero · Se parar pra pensar, pense zero'], ['pensezero/kv-2', 'Pense Zero · versão para celular']], kvTopo: true,
   vistas: [
     { nome: 'Frontal', antes: 'pensezero/n-antes', depois: 'pensezero/n-depois', ar: 1.7778, cap: 'Vista frontal' },
   ],
-  resumo: 'Testeira em PS com LED, adesivos nas duas laterais, réguas por ocasião e a base em onda.',
+  resumo: 'Na linguagem da campanha Se parar pra pensar, pense zero: painel de topo com luz, as duas laterais, faixas por ocasião e rodapé.',
   mesa: [
+    peca({ gal: G3, n: 1, nome: 'Painel de topo (backlight)', qtd: '1 un.', mat: 'Caixa de luz com face impressa, recorte em onda', src: 'pensezero/p-1-painel-topo', w: 230, h: 28.9 }),
     row(
-      peca({ gal: G3, n: 2, nome: 'Adesivo lateral esquerdo', qtd: '1 un.', mat: 'Vinil eletrostático', src: 'pensezero/n-2-esq', w: 23.9, h: 84 }),
-      peca({ gal: G3, n: 3, nome: 'Adesivo lateral direito', qtd: '1 un.', mat: 'Vinil eletrostático', src: 'pensezero/n-2-dir', w: 29.7, h: 84 }),
-      col(
-        pilha({ gal: G3, n: 1, nome: 'Testeira em PS com LED', qtd: '1 un.', mat: 'PS com recorte em onda e iluminação LED logo abaixo', w: 230, h: 39.5, itens: [['pensezero/n-1-testeira', 'Testeira', 230, 33.6], ['pensezero/n-1-led', 'Iluminação LED', 186, 4.4]] }),
-        pilha({ gal: G3, n: 4, nome: 'Réguas de gôndola', qtd: '6 un.', mat: 'PS ou PETG para frio', w: 140, h: 43, itens: [['pensezero/n-4-regua-cafe', 'Pro café da manhã', 140, 6], ['pensezero/n-4-regua-levar', 'Pra levar', 140, 6], ['pensezero/n-4-regua-compartilhar', 'Pra compartilhar', 140, 6], ['pensezero/n-4-regua-rapido', 'No seu lanche rápido', 140, 6], ['pensezero/n-4-regua-tarde', 'Pro lanche da tarde', 140, 6], ['pensezero/n-4-regua-colher', 'De colher e de sobremesa', 140, 6.6]] }),
-        peca({ gal: G3, n: 5, nome: 'Adesivo inferior da base', qtd: '1 un.', mat: 'Ondas gráficas em azul, branco e rosa, sem texto', src: 'pensezero/n-3-base', w: 230, h: 6.6 }),
-      ),
+      peca({ gal: G3, n: 2, nome: 'Lateral esquerda', qtd: '1 un.', mat: 'Adesivo em vinil, na coluna esquerda', src: 'pensezero/p-2-lateral-esq', w: 19.9, h: 84 }),
+      peca({ gal: G3, n: 3, nome: 'Lateral direita', qtd: '1 un.', mat: 'Adesivo em vinil, na coluna direita', src: 'pensezero/p-3-lateral-dir', w: 22.6, h: 84 }),
+      pilha({ gal: G3, n: 4, nome: 'Faixas de prateleira', qtd: '7 un., 5 longas e 2 curtas', mat: 'PS ou PETG para frio, no trilho de preço', w: 140, h: 91.5, itens: [['pensezero/p-4-faixa-cafe', 'Pro café da manhã', 140, 13], ['pensezero/p-4-faixa-compartilhar', 'Pra compartilhar', 140, 12], ['pensezero/p-4-faixa-tarde', 'Pro lanche da tarde', 140, 12], ['pensezero/p-4-faixa-levar', 'Pra levar', 140, 11], ['pensezero/p-4-faixa-rapido', 'No seu lanche rápido', 140, 11], ['pensezero/p-4-faixa-colher', 'De colher', 68, 12.1], ['pensezero/p-4-faixa-sobremesa', 'De sobremesa', 68, 12]] }),
     ),
+    peca({ gal: G3, n: 5, nome: 'Rodapé frontal', qtd: '1 un.', mat: 'Adesivo em vinil, por cima do amarelo da base', src: 'pensezero/p-5-rodape', w: 230, h: 22 }),
   ],
-  como: [tile('perfil', 'Fita de LED logo abaixo da testeira', 'Peça 1'), tile('estatico', 'Vinil nas duas laterais', 'Peças 2 e 3'), tile('trilho', 'Encaixa no trilho de preço', 'Peça 4'), tile('adesivo', 'Adesivo por cima do amarelo', 'Peça 5')],
-  nota: 'A testeira ganha a onda, a luz e a fita de LED logo abaixo. Os adesivos seguem a arte aprovada: um lado com o produto e o outro com os benefícios. O amarelo da base recebe um adesivo em onda.',
+  como: [tile('retro', 'Painel de topo com luz', 'Peça 1'), tile('adesivo', 'Adesivo nas duas laterais', 'Peças 2 e 3'), tile('trilho', 'Faixas no trilho de preço', 'Peça 4'), tile('adesivo', 'Rodapé por cima do amarelo', 'Peça 5')],
+  nota: 'As peças seguem o KV Se parar pra pensar, pense zero, enviado pelo cliente. O painel de topo tem luz; as laterais, as faixas e o rodapé são aplicados sobre o móvel atual. Medidas se confirmam na medição.',
 });
 
 const G4 = 'president';
