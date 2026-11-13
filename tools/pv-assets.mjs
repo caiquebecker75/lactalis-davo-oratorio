@@ -38,7 +38,7 @@ const LISTA = [
   ...['1-testeira-central', '2-perpendicular-esq', '2-perpendicular-dir', '3-barra-de-peso', '4-regua-whey-em-po', '4-regua-15g', '4-regua-23g', '4-regua-pronto-para-beber', '5-regua-barras-proteicas', '5-regua-creatina', '5-regua-whey-protein'].map(n => [`nutricao/p-${n}`, `${REU}/pranchas-09-11/pecas/ilha/${n}.png`, 'art']),
   // Réguas e testeira da seca iguais à prancha
   ['seca/n-1-testeira', 'gondola-seca-vista-frontal/pecas/1-testeira.png', 'art'],
-  ...['2-moldura', '4-stopper-morango', '4-stopper-chocolate', '3-regua-1', '3-regua-2', '3-regua-3', '3-regua-4', '3-regua-5', '3-regua-6', '3-regua-7'].map(n => [`seca/p-${n}`, `${REU}/pranchas-09-11/pecas/seca/${n}.png`, 'art']),
+  ...['1-testeira', '2-moldura', '3-regua-energia', '4-regua-23g', '5-regua-proteina', '6-regua-nutricao', '7-regua-complementar', '8-stopper-morango', '8-stopper-chocolate'].map(n => [`seca/p-${n}`, `${REU}/pranchas-09-11/pecas/seca/${n}.png`, 'art']),
   // Pense Zero igual à referência
   ...['1-testeira', '1-led', '3-base', '4-regua-cafe', '4-regua-compartilhar', '4-regua-tarde', '4-regua-levar', '4-regua-rapido', '4-regua-colher'].map(n => [`pensezero/n-${n}`, `${REU}/imagens-06-11/pecas-pensezero/${n}.png`, 'art']),
   // Pense Zero, prancha e KVs de 13/11
@@ -59,7 +59,7 @@ const LISTA = [
   ['seca/a-antes', `${REU}/bases/seca-angulo.png`, 'photo'], ['seca/a-depois', `${REU}/montagens/seca-angulo.jpg`, 'photo'],
   ...['seca-2-moldura-whey', 'seca-r1', 'seca-r3', 'seca-r4', 'seca-r5', 'seca-r6', 'seca-destaque-23', 'seca-destaque-15'].map(n => [`seca/${n}`, `${REU}/pecas/${n}.png`, 'art']),
   // Enviadas em 06/11: já alinhadas com o antes em reuniao-05-11/imagens-06-11
-  ['seca/n-antes', `${REU}/imagens-06-11/seca-frontal-antes.jpg`, 'photo'], ['seca/n-depois', `${REU}/imagens-06-11/seca-frontal-depois.jpg`, 'photo'],
+  ['seca/n-antes', `${REU}/imagens-06-11/seca-frontal-antes.jpg`, 'photo'], ['seca/n-depois', `${REU}/pranchas-09-11/seca-depois.jpg`, 'photo'],
   ['seca/flexforce-display', `${REU}/imagens-06-11/flexforce-display-peca.png`, 'art'],
   ['pensezero/n-antes', `${REU}/imagens-06-11/pensezero-frontal-antes.jpg`, 'photo'], ['pensezero/n-depois', `${REU}/pranchas-09-11/pensezero-depois.jpg`, 'photo'],
   ['sobremesas/n-depois', `${REU}/pranchas-09-11/sobremesas-depois.jpg`, 'photo'],

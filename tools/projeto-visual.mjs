@@ -119,19 +119,19 @@ const G2 = 'seca';
 const seca = espaco({
   id: 'seca', n: '02', short: 'Gôndola seca', marca: 'Parmalat Fit', titulo: 'Ponta de gôndola seca', cor: '#1E3E94', rotulo: 'Troque a vista',
   vistas: [
-    { nome: 'Frontal', antes: 'seca/n-antes', depois: 'seca/n-depois', ar: 0.5675, cap: 'Vista frontal' },
+    { nome: 'Frontal', antes: 'seca/n-antes', depois: 'seca/n-depois', ar: 0.5675, cap: 'Vista frontal. Simulação feita com a foto da loja.' },
   ],
-  resumo: 'A arte aprovada, agora com luz e os stoppers do Flexforce na prateleira.',
+  resumo: 'Mais que proteína para a sua rotina: testeira ondulada iluminada, moldura de luz no whey, réguas por benefício e stoppers do Flexforce.',
   mesa: [
-    peca({ gal: G2, n: 1, nome: 'Testeira superior com LED', qtd: '1 un.', mat: 'Caixa com face em acrílico e fita de LED', src: 'seca/n-1-testeira', w: 190, h: 48.2 }),
+    peca({ gal: G2, n: 1, nome: 'Testeira superior ondulada iluminada', qtd: '1 un.', mat: 'PS com recorte ondulado e iluminação', src: 'seca/p-1-testeira', w: 190, h: 40.3 }),
     row(
-      peca({ gal: G2, n: 2, nome: 'Moldura com LED', qtd: '1 un.', mat: 'PS recortado e fita de LED', src: 'seca/p-2-moldura', w: 120, h: 35.7 }),
-      fileira({ gal: G2, n: 4, nome: 'Stoppers Flexforce', qtd: '2 un., morango e chocolate', mat: 'Stopper preso na prateleira, com a embalagem do produto', w: 60, h: 40, itens: [['seca/p-4-stopper-morango', 'Morango', 27.5, 40], ['seca/p-4-stopper-chocolate', 'Chocolate', 27.7, 40]] }),
+      peca({ gal: G2, n: 2, nome: 'Moldura luminosa para whey em pó', qtd: '1 un.', mat: 'Moldura com LED em volta das duas prateleiras do whey', src: 'seca/p-2-moldura', w: 120, h: 41.4 }),
+      fileira({ gal: G2, n: 8, nome: 'Stoppers giratórios', qtd: '2 un.', mat: 'Stopper giratório preso na prateleira, com a embalagem Flexforce, sabores morango e chocolate', w: 28.5, h: 26.8, itens: [['seca/p-8-stopper-morango', 'Morango', 13, 26.8], ['seca/p-8-stopper-chocolate', 'Chocolate', 13.5, 26.8]] }),
     ),
-    pilha({ gal: G2, n: 3, nome: 'Réguas de gôndola', qtd: '7 un., 3 com frase e 4 gráficas', mat: 'PS impresso, com fita de LED na borda', w: 181, h: 46.2, itens: [['seca/p-3-regua-1', 'Régua gráfica', 181, 5.3], ['seca/p-3-regua-2', 'Energia para o seu dia', 181, 5.5], ['seca/p-3-regua-3', 'Régua gráfica', 181, 5.3], ['seca/p-3-regua-4', 'Proteína líquida', 181, 5.4], ['seca/p-3-regua-5', 'Régua gráfica', 181, 5.3], ['seca/p-3-regua-6', 'Nutrição em qualquer rotina', 181, 5.4], ['seca/p-3-regua-7', 'Régua gráfica', 181, 5.3]] }),
+    pilha({ gal: G2, n: '3 a 7', nome: 'Réguas de gôndola', qtd: '7 un.: 4 com frase e 3 complementares', mat: 'PS impresso, no trilho de preço', w: 150, h: 67.2, itens: [['seca/p-3-regua-energia', 'Energia para o seu dia', 150, 13.4], ['seca/p-4-regua-23g', '23 g de proteína', 150, 13.2], ['seca/p-5-regua-proteina', 'Proteína líquida', 150, 12.2], ['seca/p-6-regua-nutricao', 'Nutrição em qualquer rotina', 150, 12.6], ['seca/p-7-regua-complementar', 'Régua complementar', 150, 10.2]] }),
   ],
-  como: [tile('retro', 'Testeira com LED', 'Peça 1'), tile('perfil', 'Fita de LED ilumina o produto', 'Peças 2 e 3'), tile('trilho', 'Réguas no trilho e os stoppers na prateleira', 'Peças 3 e 4')],
-  nota: 'O projeto aprovado continua igual. Entram a luz e os stoppers do Flexforce, o novo de 23 g de proteína, presos na prateleira.',
+  como: [tile('retro', 'Testeira iluminada no topo', 'Peça 1'), tile('perfil', 'Moldura de LED em volta do whey', 'Peça 2'), tile('trilho', 'Réguas no trilho de preço', 'Peças 3 a 7'), tile('presilha', 'Stoppers presos na prateleira', 'Peça 8')],
+  nota: 'A testeira, a moldura e as réguas falam de proteína para cada momento do dia. Os stoppers giratórios destacam o Flexforce 23 g, o novo da linha. As réguas complementares, só com grafismos, ficam nas prateleiras sem frase.',
 });
 
 const G3 = 'pz';
