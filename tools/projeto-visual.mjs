@@ -20,12 +20,13 @@ const col = (...p) => `<div class="col">${p.join('')}</div>`;
 const tile = (pg, t, pn) => `<div class="mc"><i class="pg" data-pg="${pg}"></i><h3>${t}</h3><span class="pn">${pn}</span></div>`;
 
 // ---------- tela de um espaço ----------
-function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa, como, nota, duas, kv, kvTopo }) {
+function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa, como, nota, duas, kv, kvTopo, lay }) {
+  const ta = vistas[0].ta || 'Antes';
   const v0 = vistas[0];
-  const foto = v => `<div class="cmp" data-ar="${v.ar}"${duas ? ` data-cap="${v.cap}"` : ''}>
+  const foto = v => `<div class="cmp" data-ar="${v.ar}"${lay ? ` data-lay="${lay}"` : ""}${duas ? ` data-cap="${v.cap}"` : ''}>
           <img class="ia" src="${img(v.antes)}" alt="${titulo}${duas ? `, ${v.nome.toLowerCase()},` : ''} antes" draggable="false">
           <img class="id" src="${img(v.depois)}" alt="${titulo}${duas ? `, ${v.nome.toLowerCase()},` : ''} depois" draggable="false">
-          <span class="tg ta">Antes</span><span class="tg td">Depois</span>
+          <span class="tg ta">${ta}</span><span class="tg td">Depois</span>
           <div class="handle" tabindex="0" role="slider" aria-label="Arraste para comparar o antes e o depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
           <span class="hint">Arraste para comparar</span>
           <button type="button" class="cz" aria-label="Ampliar as fotos"></button>
@@ -78,7 +79,7 @@ function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa
         ${duas ? `<div class="views rv" style="--d:2"><span class="vl">${rotulo}</span></div>` : vistas.length > 1 ? `<div class="views rv" style="--d:2" role="group" aria-label="${rotulo}">
           <span class="vl">${rotulo}</span>
           ${vistas.map((v, i) => `<button type="button"${i ? '' : ' class="on"'} data-antes="${img(v.antes)}" data-depois="${img(v.depois)}" data-ar="${v.ar}" data-cap="${v.cap}">${v.nome}</button>`).join('\n          ')}
-        </div>` : kvTopo ? `<div class="kv kv-topo rv" style="--d:2">
+        </div>` : kvTopo ? `<div class="kv kv-topo${kv && kv.length > 2 ? ' kv3' : ''} rv" style="--d:2">
           <p class="lbl">KV referência<br>enviado pelo cliente</p>
           ${kv.map(([src, t]) => `<button type="button" class="kvz" data-zoom="${img(src)}" data-gallery="kv-${id}" data-caption="KV referência enviado pelo cliente|${t}"><img src="${img(src)}" alt="KV referência enviado pelo cliente: ${t}"></button>`).join('')}
         </div>` : ''}
@@ -157,31 +158,26 @@ const pensezero = espaco({
 
 const G4 = 'president';
 const president = espaco({
-  id: 'president', n: '04', short: 'Président', marca: 'Président', titulo: 'Gôndola fria de queijos', cor: '#BE0F2D', rotulo: 'Compare as versões',
+  id: 'president', n: '04', short: 'Président', marca: 'Président', titulo: 'Gôndola fria de queijos', cor: '#BE0F2D', rotulo: 'Troque a vista',
+  kv: [['president/kv-1', 'Encarte Président · Mambo'], ['president/kv-2', 'Encarte Président · Condor'], ['president/kv-3', 'Encarte Président · Condor, fechado']], kvTopo: true, lay: 'lado',
   vistas: [
-    { nome: 'Testeira retroiluminada', antes: 'president/antes', depois: 'president/n-letras', ar: 0.75, cap: 'Testeira retroiluminada e réguas de gôndola' },
-    { nome: 'Testeira em painel de LED', antes: 'president/antes', depois: 'president/n-caixa', ar: 0.75, cap: 'Testeira em painel de LED e réguas de gôndola' },
+    { nome: 'Frente', ta: 'Planograma', antes: 'president/p13-antes', depois: 'president/p13-depois', ar: 1.3173, cap: 'Simulação feita sobre a imagem do planograma enviada pelo cliente.' },
   ],
-  resumo: 'A estrela da loja: testeira em duas versões, a torre Eiffel por fora e por dentro e acabamento em madeira clara com LED.',
+  resumo: 'A estrela da loja: testeira iluminada, a torre Eiffel por dentro, o queijo por fora, stopper na divisa e réguas com a marca.',
   mesa: [
     row(
-      peca({ gal: G4, n: 3, nome: 'Adesivo externo', qtd: '1 un.', mat: 'Adesivo impresso, com a torre e os queijos', src: 'president/p-3-adesivo-externo', w: 16.8, h: 60.5 }),
-      peca({ gal: G4, n: 4, nome: 'Adesivo interno', qtd: '1 un.', mat: 'Vinil vermelho com a torre em dourado', src: 'president/p-4-adesivo-interno', w: 11.1, h: 60.5 }),
+      peca({ gal: G4, n: 2, nome: 'Adesivo lateral externo', qtd: '1 un.', mat: 'Adesivo em vinil, na lateral de fora', src: 'president/p13-2-adesivo-externo', w: 49.9, h: 150 }),
+      peca({ gal: G4, n: 3, nome: 'Adesivo lateral interno', qtd: '1 un.', mat: 'Vinil vermelho com a torre em dourado, na lateral de dentro', src: 'president/p13-3-adesivo-interno', w: 26.7, h: 142 }),
+      peca({ gal: G4, n: 4, nome: 'Stopper vertical', qtd: '1 un.', mat: 'PS recortado, na divisa entre o Président e a Sadia', src: 'president/p13-4-stopper-vertical', w: 22.4, h: 124 }),
       col(
-        row(
-          peca({ gal: G4, n: 1, nome: 'Testeira retroiluminada', qtd: '1 un.', mat: 'Letras douradas retroiluminadas', src: 'president/p-1-testeira-retroiluminada', w: 42, h: 10.4 }),
-          peca({ gal: G4, n: 2, nome: 'Testeira em painel de LED', qtd: '1 un.', mat: 'Painel de LED com moldura em madeira clara', src: 'president/p-2-testeira-painel-led', w: 42, h: 11.2 }),
-        ),
-        row(
-          fileira({ gal: G4, n: 7, nome: 'Gancheira com placa', qtd: '49 un., uma por coluna', mat: 'Gancheira em metal, com placa em PS na frente', w: 30, h: 15, itens: [['president/n-4-gancheira', 'Gancheira em metal', 11.6, 15], ['president/n-4-placa', 'Placa em PS na frente', 16, 5.2]] }),
-          pilha({ gal: G4, n: 5, nome: 'Réguas de gôndola', qtd: '4 un.', mat: 'PS para frio, no trilho de preço', w: 50, h: 13.6, itens: [['president/p-5-regua-1', 'Régua 1', 50, 2.25], ['president/p-5-regua-2', 'Régua 2', 50, 2.3], ['president/p-5-regua-3', 'Régua 3', 50, 2.25], ['president/p-5-regua-4', 'Régua 4', 50, 2.3]] }),
-        ),
-        peca({ gal: G4, n: 6, nome: 'Acabamento inferior + LED', qtd: '1 un.', mat: 'Madeirado claro e fita de LED quente', src: 'president/p-6-acabamento-led', w: 86, h: 4.25 }),
+        peca({ gal: G4, n: 1, nome: 'Testeira superior', qtd: '1 un.', mat: 'Caixa de luz com face impressa e moldura dourada', src: 'president/p13-1-testeira', w: 150, h: 45.7 }),
+        peca({ gal: G4, n: 5, nome: 'Réguas de gôndola', qtd: '4 un., uma por prateleira', mat: 'PS para frio, no trilho de preço', src: 'president/p13-5-regua', w: 128, h: 7.6 }),
+        peca({ gal: G4, n: 6, nome: 'Faixa de base', qtd: '1 un.', mat: 'Adesivo em vinil vermelho com filete dourado', src: 'president/p13-6-faixa-base', w: 150, h: 12.3 }),
       ),
     ),
   ],
-  como: [tile('retro', 'Testeira nova, em duas versões', 'Peças 1 e 2'), tile('adesivo', 'Adesivo por fora e por dentro', 'Peças 3 e 4'), tile('gancheira', 'Réguas no trilho e gancheira com placa', 'Peças 5 e 7')],
-  nota: 'É a estrela da vez. Os botões comparam as duas versões: testeira retroiluminada ou painel de LED. As réguas, os adesivos e o acabamento de madeira são os mesmos nas duas, e a testeira original da loja, Frios fatiados, é mantida. Nada avança além do espaço do Président.',
+  como: [tile('retro', 'Testeira iluminada no topo', 'Peça 1'), tile('adesivo', 'Adesivo nas duas laterais', 'Peças 2 e 3'), tile('presilha', 'Stopper na divisa com a Sadia', 'Peça 4'), tile('trilho', 'Réguas no trilho e faixa na base', 'Peças 5 e 6')],
+  nota: 'É a estrela da vez. A simulação foi feita sobre a imagem do planograma que o cliente enviou, por isso a comparação é com o planograma e não com a loja de hoje. Os KVs ao lado são os encartes de referência do cliente.',
 });
 
 const G5 = 'sob';

@@ -85,3 +85,5 @@ html.m .kvz { height: 150px; }
 html.m .kv-topo { margin-top: 16px; }
 html.m .kv-topo .lbl { text-align: left; }
 html.m .kv-topo .kvz { height: 88px; }
+.kv-topo.kv3 .kvz { height: 62px; }
+html.m .kv-topo.kv3 .kvz { height: 56px; }

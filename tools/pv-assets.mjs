@@ -45,6 +45,10 @@ const LISTA = [
   ['pensezero/kv-1', `${REU}/kv-cliente-pensezero/7334_PenseZero_Palato_Desktop_1920x450px_v2.jpg`, 'art'], ['pensezero/kv-2', `${REU}/kv-cliente-pensezero/7334_PenseZero_Palato_Mobile_600x400px_v3.jpg`, 'art'],
   ...['1-painel-topo', '2-lateral-esq', '3-lateral-dir', '4-faixa-cafe', '4-faixa-compartilhar', '4-faixa-tarde', '4-faixa-levar', '4-faixa-rapido', '4-faixa-colher', '4-faixa-sobremesa', '5-rodape'].map(n => [`pensezero/p-${n}`, `${REU}/pranchas-09-11/pecas/pensezero/${n}.png`, 'art']),
   ['pensezero/n-2-esq', 'pense-zero-vista-frontal/pecas/2-adesivo-lateral-esquerdo.png', 'art'], ['pensezero/n-2-dir', 'pense-zero-vista-frontal/pecas/2-adesivo-lateral-direito.png', 'art'],
+  // Président, 13/11: par planograma × simulação, prancha e KVs do cliente
+  ['president/p13-antes', `${REU}/pranchas-09-11/president-planograma.jpg`, 'photo'], ['president/p13-depois', `${REU}/pranchas-09-11/president-depois.jpg`, 'photo'],
+  ...['1-testeira', '2-adesivo-externo', '3-adesivo-interno', '4-stopper-vertical', '5-regua', '6-faixa-base'].map(n => [`president/p13-${n}`, `${REU}/pranchas-09-11/pecas/president/${n}.png`, 'art']),
+  ['president/kv-1', `${REU}/kv-cliente-president/7118_President_EncarteMambo_260x71,25mm_v2.jpg`, 'art'], ['president/kv-2', `${REU}/kv-cliente-president/6976_Encarte_President_Condor_26x6,8cm.jpg`, 'art'], ['president/kv-3', `${REU}/kv-cliente-president/6976_Encarte_President_Condor_26x6,8cm_FECHADO.jpg`, 'art'],
   // Président: peças da prancha de materiais enviada em 09/11
   ...['1-testeira-retroiluminada', '2-testeira-painel-led', '3-adesivo-externo', '4-adesivo-interno', '5-regua-1', '5-regua-2', '5-regua-3', '5-regua-4', '6-acabamento-led'].map(n => [`president/p-${n}`, `${PRES}/imagens-09-11/pecas-prancha/${n}.png`, 'art']),
   // Gancheira com placa, a partir da foto da loja
