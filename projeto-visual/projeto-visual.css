@@ -87,3 +87,11 @@ html.m .kv-topo .lbl { text-align: left; }
 html.m .kv-topo .kvz { height: 88px; }
 .kv-topo.kv3 .kvz { height: 62px; }
 html.m .kv-topo.kv3 .kvz { height: 56px; }
+/* botões das versões e KVs juntos no cabeçalho */
+.sp-head:has(.kv-c) { justify-content: flex-start; }
+.sp-head:has(.kv-c) > div:first-child { margin-right: auto; }
+.kv-topo.kv-c .kvz { height: 62px; }
+html.m .kv-topo.kv-c .kvz { height: 56px; }
+.sp-head:has(.kv-c) > div:first-child { flex: none; }
+.sp-head:has(.kv-c) .views { flex: 0 1 auto; max-width: 340px; }
+html.m .sp-head:has(.kv-c) .views { max-width: none; }
