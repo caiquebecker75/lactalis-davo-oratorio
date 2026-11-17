@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Testeira Parmalat Fit 3D</title>
+<style>
+  :root { --bg0:#e9e9e7; --bg1:#cfcfcd; --ink:#14285a; --muted:#5d6472; --chip:#ffffffd9; --accent:#0a9fe3; }
+  html,body { margin:0; height:100%; background:var(--bg1); font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; color:var(--ink); overflow:hidden; }
+  #wrap { position:fixed; inset:0; background: radial-gradient(ellipse at 50% 42%, var(--bg0) 0%, var(--bg1) 78%); }
+  canvas { display:block; }
+  .cap { position:fixed; left:50%; bottom:92px; transform:translateX(-50%); text-align:center; max-width:min(92vw,720px); pointer-events:none; }
+  .cap h2 { margin:0 0 6px; font-size:clamp(18px,2.6vw,28px); letter-spacing:.02em; }
+  .cap p { margin:0; font-size:clamp(13px,1.6vw,16px); color:var(--muted); line-height:1.4; }
+  .bar { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); display:flex; gap:8px; flex-wrap:wrap; justify-content:center; max-width:calc(100vw - 32px); }
+  .bar button { border:0; background:var(--chip); color:var(--ink); font-weight:700; font-size:14px; padding:10px 16px; border-radius:999px; cursor:pointer; box-shadow:0 1px 6px #0002; }
+  .bar button.on { background:var(--ink); color:#fff; }
+  .tag { position:fixed; top:20px; left:24px; font-size:12px; letter-spacing:.14em; color:var(--muted); font-weight:700; }
+  .hint { position:fixed; top:20px; right:24px; font-size:12px; color:var(--muted); }
+  body.em .tag, body.em .hint { display:none; }
+  body.em .cap { bottom: 46px; } body.em .cap h2 { font-size: 15px; margin:0; } body.em .cap p { display:none; }
+  body.em .bar { bottom: 10px; gap:6px; } body.em .bar button { font-size: 11.5px; padding: 6px 11px; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+               "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="wrap"></div>
+<div class="tag">PARMALAT FIT · TESTEIRA CENTRAL</div>
+<div class="hint">arraste para girar</div>
+<div class="cap"><h2 id="t">Frente</h2><p id="d"></p></div>
+<div class="bar">
+  <button data-s="0">Frente</button><button data-s="1">Verso</button><button data-s="2">Costa com costa</button><button data-s="3">Girar</button>
+</div>
+<script>if (location.search.includes('embed')) document.addEventListener('DOMContentLoaded', () => document.body.classList.add('em'));</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const wrap = document.getElementById('wrap');
+const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+wrap.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+const sun = new THREE.DirectionalLight(0xffffff, 1.2); sun.position.set(1.2, 2.5, 1.8); sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left:-1.5, right:1.5, top:1.5, bottom:-1.5 });
+scene.add(sun);
+const sun2 = new THREE.DirectionalLight(0xffffff, 0.6); sun2.position.set(-1.2, 2.0, -1.8); scene.add(sun2);
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(8, 8), new THREE.ShadowMaterial({ opacity:0.18 }));
+floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+
+const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, 0.01, 50);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.enablePan = false; controls.minDistance = 1.4; controls.maxDistance = 7;
+controls.maxPolarAngle = Math.PI * 0.49; controls.target.set(0, 0.10, 0);
+
+const STEPS = [
+  { t:'Frente', d:'Uma peça só em PS: o painel e as duas abas dobradas para a frente viram divisórias e seguram os pouches.' , az: 0.35, r: 3.1 },
+  { t:'Verso', d:'O verso também é impresso: a peça é frente e verso e funciona sozinha na prateleira.', az: Math.PI - 0.35, r: 3.1 },
+  { t:'Costa com costa', d:'Duas peças iguais, uma de costas para a outra: nas pontas, a aba de produtos de uma encontra a aba do logo da outra e os dois lados da ilha ficam comunicados por igual.', az: 0.9, r: 3.9 },
+  { t:'Girar', d:'Arraste para ver de qualquer ângulo.', az: null, r: 3.9 },
+];
+let rGoal = 3.1, A, B, step = 0, bTarget = 0, bPos = 0, azGoal = STEPS[0].az, auto = false;
+const GAP = 0.002, START = -1.4;
+
+new GLTFLoader().load('testeira.glb', (g) => {
+  A = g.scene;
+  A.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.material.side = THREE.DoubleSide; } });
+  B = A.clone(true); B.rotation.y = Math.PI; B.visible = false;
+  scene.add(A, B);
+  setStep(0);
+  resize(); loop();
+});
+
+function setStep(s) {
+  step = s; document.querySelectorAll('.bar button').forEach(b => b.classList.toggle('on', +b.dataset.s === s));
+  document.getElementById('t').textContent = STEPS[s].t; document.getElementById('d').textContent = STEPS[s].d;
+  auto = s === 3; controls.autoRotate = auto; controls.autoRotateSpeed = 1.6;
+  bTarget = (s >= 2) ? 1 : 0;
+  if (STEPS[s].az !== null) azGoal = STEPS[s].az; else azGoal = null;
+  rGoal = STEPS[s].r * (innerWidth / innerHeight < 1 ? 1.45 : 1);
+}
+document.querySelectorAll('.bar button').forEach(b => b.onclick = () => setStep(+b.dataset.s));
+
+const sph = new THREE.Spherical();
+function resize() {
+  renderer.setSize(innerWidth, innerHeight); camera.aspect = innerWidth / innerHeight;
+  const dist = innerWidth / innerHeight < 1 ? 3.6 : 2.4;
+  if (!resize.done) { camera.position.set(Math.sin(0.35) * dist, 0.75, Math.cos(0.35) * dist); resize.done = true; }
+  camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize);
+let dragging = false;
+controls.addEventListener('start', () => { dragging = true; azGoal = null; });
+controls.addEventListener('end', () => { dragging = false; });
+
+function loop() {
+  requestAnimationFrame(loop);
+  // peça B entra por trás e encosta costa com costa
+  bPos += (bTarget - bPos) * 0.06;
+  if (B) { B.visible = bPos > 0.01; B.position.z = THREE.MathUtils.lerp(START, -GAP, easeOut(bPos)); }
+  // giro suave até o ângulo de cada passo
+  if (!dragging) {
+    const off = camera.position.clone().sub(controls.target); sph.setFromVector3(off);
+    sph.radius += (rGoal - sph.radius) * 0.05;
+    if (azGoal !== null) {
+    let da = azGoal - sph.theta; da = Math.atan2(Math.sin(da), Math.cos(da));
+    sph.theta += da * 0.05; sph.phi += (1.22 - sph.phi) * 0.05; }
+    camera.position.copy(controls.target).add(new THREE.Vector3().setFromSpherical(sph));
+  }
+  controls.update(); renderer.render(scene, camera);
+}
+function easeOut(t) { t = Math.min(1, Math.max(0, t)); return 1 - Math.pow(1 - t, 3); }
+</script>
+</body>
+</html>

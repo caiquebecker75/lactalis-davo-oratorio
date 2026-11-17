@@ -1,0 +1,24 @@
+/* =========================================================================
+   v2 · telas de 3D antes de cada espaço (hero + vistas + destaques + testeira interativa)
+   ========================================================================= */
+.t3-body { margin-top: 22px; flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr); gap: 28px; }
+.t3-hero { position: relative; display: block; min-height: 0; padding: 0; border: 0; border-radius: 18px; overflow: hidden; background: #d9d9d7; cursor: zoom-in; }
+.t3-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ez); }
+.t3-hero:hover img { transform: scale(1.025); }
+.t3-tag { position: absolute; left: 16px; bottom: 16px; padding: 8px 14px 9px; border-radius: 999px; background: var(--bc); color: #fff; font-weight: 700; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+.t3-side { min-width: 0; min-height: 0; display: flex; flex-direction: column; gap: 14px; }
+.t3-vistas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.t3-vistas:has(> :nth-child(3):last-child) > :first-child { grid-column: span 2; aspect-ratio: 2.1; }
+.v3 { position: relative; padding: 0; border: 0; border-radius: 12px; overflow: hidden; aspect-ratio: 1.25; background: #d9d9d7; cursor: zoom-in; }
+.v3 img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.v3 span { position: absolute; left: 8px; bottom: 8px; padding: 5px 10px 6px; border-radius: 999px; background: rgba(255, 252, 244, .92); color: var(--ink); font-weight: 650; font-size: 12px; }
+.t3-dest { display: grid; gap: 8px; margin-top: auto; }
+.t3-dest li { display: grid; gap: 2px; padding: 10px 14px 11px; border-left: 4px solid var(--bc); background: var(--card); border-radius: 0 10px 10px 0; }
+.t3-dest b { font-size: 15.5px; } .t3-dest span { font-size: 13.5px; color: var(--ink2); line-height: 1.3; }
+.t3-live { display: flex; flex-direction: column; gap: 6px; }
+.t3-live .lbl { color: var(--green); }
+.t3-live iframe { width: 100%; aspect-ratio: 1.6; border: 0; border-radius: 12px; background: #d9d9d7; }
+.t3d:has(.t3-live) .t3-vistas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.t3d:has(.t3-live) .t3-vistas > :first-child { grid-column: auto; aspect-ratio: 1.25; }
+html.m .t3-body { display: flex; flex-direction: column; }
+html.m .t3-hero { aspect-ratio: 1.25; }
