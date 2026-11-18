@@ -57,7 +57,7 @@ const sun = new THREE.DirectionalLight(0xffffff, 1.2); sun.position.set(1.2, 2.5
 sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left:-1.5, right:1.5, top:1.5, bottom:-1.5 });
 scene.add(sun);
 const sun2 = new THREE.DirectionalLight(0xffffff, 0.6); sun2.position.set(-1.2, 2.0, -1.8); scene.add(sun2);
-const floor = new THREE.Mesh(new THREE.PlaneGeometry(8, 8), new THREE.ShadowMaterial({ opacity:0.18 }));
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.ShadowMaterial({ opacity:0.18 }));
 floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
 
 const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, 0.01, 50);
@@ -66,7 +66,7 @@ controls.enableDamping = true; controls.enablePan = false; controls.minDistance 
 controls.maxPolarAngle = Math.PI * 0.49; controls.target.set(0, 0.24, 0);
 
 const STEPS = [
-  { t:'Frente', d:'Uma peça só em PS: o painel e as duas abas dobradas para a frente viram divisórias e seguram os pouches.' , az: 0.35, r: 2.0 },
+  { t:'Frente', d:'Uma peça só em PS: o painel e as duas abas dobradas para a frente viram divisórias e seguram os pouches.' , az: 0.0, r: 2.2 },
   { t:'Verso', d:'O verso também é impresso: a peça é frente e verso e funciona sozinha na prateleira.', az: Math.PI - 0.35, r: 2.0 },
   { t:'Costa com costa', d:'Duas peças iguais, uma de costas para a outra: nas pontas, a aba de produtos de uma encontra a aba do logo da outra e os dois lados da ilha ficam comunicados por igual.', az: 0.9, r: 2.5 },
   { t:'Girar', d:'Arraste para ver de qualquer ângulo.', az: null, r: 2.5 },
@@ -74,9 +74,9 @@ const STEPS = [
 let rGoal = 3.1, A, B, step = 0, bTarget = 0, bPos = 0, azGoal = STEPS[0].az, auto = false;
 const GAP = 0.002, START = -1.4;
 
-new GLTFLoader().load('testeira.glb', (g) => {
+new GLTFLoader().load('testeira-v3.glb', (g) => {
   A = g.scene;
-  A.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.material.side = THREE.FrontSide; } });
+  A.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.material.side = THREE.DoubleSide; } });
   B = A.clone(true); B.rotation.y = Math.PI; B.visible = false;
   scene.add(A, B);
   setStep(3);

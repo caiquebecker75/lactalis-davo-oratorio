@@ -95,7 +95,7 @@ function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa
 const BODY_W = 1456, BODY_H = 610;
 // tela de 3D: hero à esquerda; à direita o 3D interativo (quando houver) e as outras vistas
 function tela3d({ id, n, short, marca, titulo, cor, rotulo, hero, vistas, iframe, nota }) {
-  const th = ([src, cap]) => src.startsWith('iframe:') ? `<div class="v3 v3-live" data-cursor><iframe src="${src.slice(7)}" title="${cap}" loading="lazy"></iframe><span>${cap}</span></div>` : `<button type="button" class="pz v3" data-zoom="${img(src)}" data-gallery="3d-${id}" data-caption="${cap}|${titulo}"><img src="${img(src)}" alt="${cap}" loading="lazy"><span>${cap}</span></button>`;
+  const th = ([src, cap]) => src.startsWith('iframe:') ? `<div class="v3 v3-live" data-cursor><iframe src="${src.slice(7)}" title="${cap}" loading="lazy"></iframe><span>${cap}</span><button type="button" class="amp" data-live="${src.slice(7)}" aria-label="Ampliar"></button></div>` : `<button type="button" class="pz v3" data-zoom="${img(src)}" data-gallery="3d-${id}" data-caption="${cap}|${titulo}"><img src="${img(src)}" alt="${cap}" loading="lazy"><span>${cap}</span></button>`;
   return `  <!-- ================================================================ ${n} ${titulo.toUpperCase()} · 3D -->
   <section class="slide sp t3d" id="${id}-3d" data-sp="${id}-3d" data-short="${short} · 3D" data-theme="cream" data-title="${titulo} · 3D" style="--bc:${cor}">
     <div class="pad">
@@ -109,7 +109,7 @@ function tela3d({ id, n, short, marca, titulo, cor, rotulo, hero, vistas, iframe
       <div class="t3-body${iframe ? ' com-live' : ''}${vistas.length ? '' : ' so-hero'}">
         <button type="button" class="pz t3-hero" data-zoom="${img(hero[0])}" data-gallery="3d-${id}" data-caption="${hero[1]}|${titulo}"><img src="${img(hero[0])}" alt="${hero[1]}"><span class="t3-tag">${hero[1]}</span></button>
         ${iframe || vistas.length ? `<div class="t3-side">
-          ${iframe ? `<div class="t3-live" data-cursor><iframe src="${iframe}" title="Testeira em 3D" loading="lazy"></iframe></div>` : ''}
+          ${iframe ? `<div class="t3-live" data-cursor><iframe src="${iframe}" title="Testeira em 3D" loading="lazy"></iframe><button type="button" class="amp" data-live="${iframe}" aria-label="Ampliar"></button></div>` : ''}
           ${vistas.length ? `<div class="t3-vistas n${vistas.length}">${vistas.map(th).join('')}</div>` : ''}
         </div>` : ''}
       </div>
@@ -165,7 +165,7 @@ const P2 = 'pv2/';
 const nutricao3d = tela3d({ id: 'nutricao', n: '01', short: 'Nutrição esportiva', marca: 'Parmalat Fit', titulo: 'Ilha de nutrição esportiva', cor: '#1E3E94',
   rotulo: 'Modelada nas medidas da loja · concorrência em cinza', hero: [P2 + '3d/ilha-34', 'Lado longo e ponta'],
   vistas: [[P2 + '3d/ilha-testeira', 'Testeiras costa com costa'], [P2 + '3d/ilha-ponta', 'Ponta com a faixa do peso'], [P2 + '3d/ilha-reguas', 'Réguas por prateleira']],
-  iframe: 'testeira-3d/?embed=1', nota: 'As duas testeiras são a mesma peça, de costas uma para a outra.' });
+  iframe: 'testeira-3d/?embed=1&v=4', nota: 'As duas testeiras são a mesma peça, de costas uma para a outra.' });
 const nutricao = espaco2({ id: 'nutricao', n: '01', short: 'Nutrição esportiva', marca: 'Parmalat Fit', titulo: 'Ilha de nutrição esportiva', cor: '#1E3E94', cols: 1, fotoW: 1030,
   vistas: [{ nome: 'Lado longo', antes: P2 + 'ad/ilha-longo-antes', depois: P2 + 'ad/ilha-longo-depois', ar: 1.6277, cap: 'Lado longo. Simulação com a foto da loja.' },
            { nome: 'Ponta', antes: P2 + 'ad/ilha-ponta-antes', depois: P2 + 'ad/ilha-ponta-depois', ar: 0.53, cap: 'Ponta. Simulação com a foto da loja.' }],
@@ -177,7 +177,7 @@ const nutricao = espaco2({ id: 'nutricao', n: '01', short: 'Nutrição esportiva
 // ---------------- 02 gôndola seca
 const seca3d = tela3d({ id: 'seca', n: '02', short: 'Gôndola seca', marca: 'Parmalat Fit', titulo: 'Gôndola seca', cor: '#1E3E94',
   rotulo: 'Três módulos · Parmalat Fit no centro · concorrência em cinza', hero: [P2 + '3d/seca-34', 'O módulo ambientado'],
-  vistas: [[P2 + '3d/seca-frente', 'Vista frontal'], ['iframe:produto-3d/', 'Produto girando na lateral'], [P2 + '3d/seca-moldura', 'Moldura Whey 21 g'], [P2 + '3d/seca-produto', 'Produto encaixado no recorte']],
+  vistas: [[P2 + '3d/seca-frente', 'Vista frontal'], ['iframe:produto-3d/?v=4', 'Produto girando na lateral'], [P2 + '3d/seca-moldura', 'Moldura Whey 21 g'], [P2 + '3d/seca-produto', 'Produto encaixado no recorte']],
   nota: '' });
 const seca = espaco2({ id: 'seca', n: '02', short: 'Gôndola seca', marca: 'Parmalat Fit', titulo: 'Gôndola seca', cor: '#1E3E94', cols: 3, fotoW: 420,
   vistas: [{ nome: 'Frontal', antes: P2 + 'ad/seca-antes', depois: P2 + 'ad/seca-depois', ar: 0.5573, cap: 'Simulação com a foto da loja.' }],
@@ -194,7 +194,7 @@ const pensezero3d = tela3d({ id: 'pensezero', n: '03', short: 'Pense Zero', marc
   rotulo: 'A ponta refrigerada em 3D, com LED', hero: [P2 + '3d/pensezero-34', 'Perspectiva com LED'],
   vistas: [[P2 + '3d/pensezero-frente', 'Vista frontal'], [P2 + '3d/pensezero-testeira', 'Testeira com LED'], [P2 + '3d/pensezero-faixas', 'Réguas por ocasião'], [P2 + '3d/pensezero-semled', 'Sem LED']], nota: '' });
 const pensezero = espaco2({ id: 'pensezero', n: '03', short: 'Pense Zero', marca: 'Batavo Pense Zero', titulo: 'Ponta refrigerada', cor: '#0B7FB4', cols: 3, fotoW: 760,
-  vistas: [{ nome: 'Frontal', antes: P2 + 'ad/pensezero-antes', depois: P2 + 'ad/pensezero-depois', ar: 1.7821, cap: 'Simulação com a foto da loja.' }],
+  vistas: [{ nome: 'Frontal', antes: P2 + 'ad/pensezero-antes', depois: P2 + 'ad/pensezero-depois', ar: 1.3913, cap: 'Simulação com a foto da loja.' }],
   cards: [
     { n: 1, nome: 'Testeira com LED', qtd: '1 un. · 256 x 40 cm', imgs: [[P2 + 'pensezero/testeira', '']], span: 3 },
     { n: 2, nome: 'Laterais', qtd: '2 un. · 35 x 150 cm', imgs: [[P2 + 'pensezero/lateral1', 'Esquerda'], [P2 + 'pensezero/lateral2', 'Direita']] },
@@ -205,8 +205,8 @@ const pensezero = espaco2({ id: 'pensezero', n: '03', short: 'Pense Zero', marca
 const president3d = tela3d({ id: 'president', n: '04', short: 'Président', marca: 'Président', titulo: 'Ponta refrigerada de queijos', cor: '#BE0F2D',
   rotulo: 'O expositor como na loja · Président no módulo da ponta', hero: [P2 + '3d/president-esquina', 'A esquina da ponta refrigerada'],
   vistas: [[P2 + '3d/president-testeira', 'Logo em aplique iluminado'], [P2 + '3d/president-34', 'Lateral externa'], [P2 + '3d/president-bob', 'Bandeja do Stick'], [P2 + '3d/president-modulo', 'O módulo Président']], nota: '' });
-const president = espaco2({ id: 'president', n: '04', short: 'Président', marca: 'Président', titulo: 'Ponta refrigerada de queijos', cor: '#BE0F2D', cols: 3, fotoW: 600,
-  vistas: [{ nome: 'Ponta', antes: P2 + 'ad/president-antes', depois: P2 + 'ad/president-depois', ar: 0.75, cap: 'Simulação com a foto da loja.' }],
+const president = espaco2({ id: 'president', n: '04', short: 'Président', marca: 'Président', titulo: 'Ponta refrigerada de queijos', cor: '#BE0F2D', cols: 3, fotoW: 700,
+  vistas: [{ nome: 'Ponta', antes: P2 + 'ad/president-antes', depois: P2 + 'ad/president-depois', ar: 1.2276, ta: 'Planograma', cap: 'Simulação sobre o planograma enviado pelo cliente.' }],
   cards: [
     { n: 1, nome: 'Testeira com aplique iluminado', qtd: '1 un. · 125 x 44 cm', imgs: [[P2 + 'president/p-testeira', '']], span: 2 },
     { n: 2, nome: 'Base', qtd: '1 un. · 125 x 25 cm', imgs: [[P2 + 'president/p-base', '']] },
@@ -221,7 +221,7 @@ const sobremesas3d = tela3d({ id: 'sobremesas', n: '05', short: 'Sobremesas', ma
   rotulo: 'A geladeira ambientada em 3D', hero: [P2 + '3d/sobremesas-34', 'Perspectiva'],
   vistas: [[P2 + '3d/sobremesas-frente', 'Vista frontal'], [P2 + '3d/sobremesas-testeira', 'Testeira'], [P2 + '3d/sobremesas-lateral', 'Lateral'], [P2 + '3d/sobremesas-reguas', 'Réguas com o nome']], nota: '' });
 const sobremesas = espaco2({ id: 'sobremesas', n: '05', short: 'Sobremesas', marca: 'Sobremesas Batavo', titulo: 'Ponto de sobremesas', cor: '#4E2C1B', cols: 3, fotoW: 560,
-  vistas: [{ nome: 'Em ângulo', antes: P2 + 'ad/sobremesas-antes', depois: P2 + 'ad/sobremesas-depois', ar: 0.7492, cap: 'Simulação com a foto da loja.' }],
+  vistas: [{ nome: 'Em ângulo', antes: P2 + 'ad/sobremesas-antes', depois: P2 + 'ad/sobremesas-depois', ar: 0.75, cap: 'Simulação com a foto da loja.' }],
   cards: [
     { n: 1, nome: 'Testeira com LED', qtd: '1 un. · 133 x 40 cm', imgs: [[P2 + 'sobremesas/testeira-133x40cm', '']], span: 3 },
     { n: 2, nome: 'Frame', qtd: '1 un. · 62,5 x 173 cm', imgs: [[P2 + 'sobremesas/frame-62-5x173cm', '']] },
@@ -335,9 +335,14 @@ trocar('<body data-theme="red">', '<body data-theme="capa">');
 trocar(/<meta name="theme-color" content="[^"]*">/, '<meta name="theme-color" content="#F7F0DF">');
 trocar('<link rel="stylesheet" href="assets/css/deck.css">', '<link rel="stylesheet" href="assets/css/deck.css">\n<link rel="stylesheet" href="projeto-visual.css">\n<link rel="stylesheet" href="projeto-visual-v2.css">');
 trocar('01 / 15', '01 / 13');
-const html = (topo + capa + '\n' + contexto + '\n' + nutricao3d + '\n' + nutricao + '\n' + seca3d + '\n' + seca + '\n' + pensezero3d + '\n' + pensezero + '\n' + president3d + '\n' + president + '\n' + sobremesas3d + '\n' + sobremesas + '\n' + fim + base.slice(MAIN1))
+let html = (topo + capa + '\n' + contexto + '\n' + nutricao3d + '\n' + nutricao + '\n' + seca3d + '\n' + seca + '\n' + pensezero3d + '\n' + pensezero + '\n' + president3d + '\n' + president + '\n' + sobremesas3d + '\n' + sobremesas + '\n' + fim + base.slice(MAIN1))
   .replace(/(["(])assets\//g, '$1../assets/');
 if (/R\$/.test(html)) throw new Error('apareceu valor na apresentação');
+const V = Date.now().toString(36);
+html = html.replace(/(\.(?:webp|css|js|jpg|png))(["')])/g, `$1?v=${V}$2`)
+  .replace('</body>', `<div id="live3d" hidden><iframe title="3D ampliado"></iframe><button type="button" aria-label="Fechar">×</button></div>
+<script>(function(){const o=document.getElementById('live3d'),f=o.querySelector('iframe');document.addEventListener('click',e=>{const b=e.target.closest('.amp');if(b){e.preventDefault();e.stopPropagation();f.src=b.dataset.live.replace('embed=1','x=1');o.hidden=false;}if(e.target.closest('#live3d button')){o.hidden=true;f.src='about:blank';}},true);document.addEventListener('keydown',e=>{if(!o.hidden&&e.key==='Escape'){o.hidden=true;f.src='about:blank';e.stopPropagation();}},true);})();</script>
+</body>`);
 mkdirSync(new URL('projeto-visual-v2/', root), { recursive: true });
 writeFileSync(new URL('projeto-visual-v2/index.html', root), html);
 console.log('projeto-visual-v2/index.html', Math.round(html.length / 1024) + ' KB');
