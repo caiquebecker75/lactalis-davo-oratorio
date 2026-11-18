@@ -194,7 +194,7 @@ const pensezero3d = tela3d({ id: 'pensezero', n: '03', short: 'Pense Zero', marc
   rotulo: 'A ponta refrigerada em 3D, com LED', hero: [P2 + '3d/pensezero-34', 'Perspectiva com LED'],
   vistas: [[P2 + '3d/pensezero-frente', 'Vista frontal'], [P2 + '3d/pensezero-testeira', 'Testeira com LED'], [P2 + '3d/pensezero-faixas', 'Réguas por ocasião'], [P2 + '3d/pensezero-semled', 'Sem LED']], nota: '' });
 const pensezero = espaco2({ id: 'pensezero', n: '03', short: 'Pense Zero', marca: 'Batavo Pense Zero', titulo: 'Ponta refrigerada', cor: '#0B7FB4', cols: 3, fotoW: 760,
-  vistas: [{ nome: 'Frontal', antes: P2 + 'ad/pensezero-antes', depois: P2 + 'ad/pensezero-depois', ar: 1.3913, cap: 'Simulação com a foto da loja.' }],
+  vistas: [{ nome: 'Frontal', antes: P2 + 'ad/pensezero-antes', depois: P2 + 'ad/pensezero-depois', ar: 1.7778, cap: 'Simulação com a foto da loja.' }],
   cards: [
     { n: 1, nome: 'Testeira com LED', qtd: '1 un. · 256 x 40 cm', imgs: [[P2 + 'pensezero/testeira', '']], span: 3 },
     { n: 2, nome: 'Laterais', qtd: '2 un. · 35 x 150 cm', imgs: [[P2 + 'pensezero/lateral1', 'Esquerda'], [P2 + 'pensezero/lateral2', 'Direita']] },
