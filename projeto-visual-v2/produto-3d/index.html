@@ -44,7 +44,7 @@ lat.rotation.y = Math.PI / 2; lat.position.set(0, 1.16, 31.1 * K / 2); lat.castS
 scene.add(lat);
 // produto giratório: PS dupla face, 18,5 x 65,9 cm, eixo no recorte (z = 15 cm, centro a 117 cm)
 const prod = new THREE.Group(); prod.position.set(0, 1.17, 0.15); scene.add(prod);
-const pt = tex('produto.png'); pt.wrapS = pt.wrapT = THREE.ClampToEdgeWrapping;
+const pt = tex('produto-1.png'); pt.wrapS = pt.wrapT = THREE.ClampToEdgeWrapping;
 const pb = pt.clone(); pb.wrapS = THREE.RepeatWrapping; pb.repeat.x = -1; pb.offset.x = 1; pb.needsUpdate = true;
 const mf = new THREE.MeshStandardMaterial({ map: pt, alphaTest: 0.5, roughness: 0.45 });
 const mb = new THREE.MeshStandardMaterial({ map: pb, alphaTest: 0.5, roughness: 0.45 });

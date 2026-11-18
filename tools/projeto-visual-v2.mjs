@@ -177,15 +177,15 @@ const nutricao = espaco2({ id: 'nutricao', n: '01', short: 'Nutrição esportiva
 // ---------------- 02 gôndola seca
 const seca3d = tela3d({ id: 'seca', n: '02', short: 'Gôndola seca', marca: 'Parmalat Fit', titulo: 'Gôndola seca', cor: '#1E3E94',
   rotulo: 'Três módulos · Parmalat Fit no centro · concorrência em cinza', hero: [P2 + '3d/seca-34', 'O módulo ambientado'],
-  vistas: [[P2 + '3d/seca-frente', 'Vista frontal'], ['iframe:produto-3d/?v=8', 'Produto girando na lateral'], [P2 + '3d/seca-moldura', 'Moldura Whey 21 g'], [P2 + '3d/seca-produto', 'Produto encaixado no recorte']],
+  vistas: [[P2 + '3d/seca-frente', 'Vista frontal'], ['iframe:produto-3d/?v=9', 'Produto girando na lateral'], [P2 + '3d/seca-moldura', 'Moldura Flexforce 23 g'], [P2 + '3d/seca-produto', 'Produto encaixado no recorte']],
   nota: '' });
 const seca = espaco2({ id: 'seca', n: '02', short: 'Gôndola seca', marca: 'Parmalat Fit', titulo: 'Gôndola seca', cor: '#1E3E94', cols: 3, fotoW: 420,
   vistas: [{ nome: 'Frontal', antes: P2 + 'ad/seca-antes', depois: P2 + 'ad/seca-depois', ar: 0.5573, cap: 'Simulação com a foto da loja.' }],
   cards: [
     { n: 1, nome: 'Laterais com neonflex', qtd: '2 un. · 30 x 232 cm', imgs: [[P2 + 'seca/p-lateral-frente', 'Frente'], [P2 + 'seca/p-lateral-verso', 'Verso']] },
     { n: 2, nome: 'Testeira', qtd: '1 un. · 136 x 54 cm', imgs: [[P2 + 'seca/p-testeira', '']], span: 2 },
-    { n: 3, nome: 'Produto giratório', qtd: '2 un. · 18 x 66 cm', imgs: [[P2 + 'seca/p-produto-giratorio', '']] },
-    { n: 4, nome: 'Moldura Whey 21 g', qtd: '1 un. · 62 x 47 cm', imgs: [[P2 + 'seca/p-moldura', '']] },
+    { n: 3, nome: 'Produto giratório', qtd: '2 un., um por lateral · 18 x 66 cm', imgs: [[P2 + 'seca/p-produto-1', 'Morango'], [P2 + 'seca/p-produto-2', 'Chocolate']] },
+    { n: 4, nome: 'Moldura Flexforce 23 g', qtd: '1 un. · 62 x 47 cm', imgs: [[P2 + 'seca/p-moldura', '']] },
     { n: 5, nome: 'Adesivo de chão', qtd: '1 un. · 136 x 68 cm', imgs: [[P2 + 'seca/p-adesivo-chao', '']] },
     { n: 6, nome: 'Base', qtd: '1 un. · 136 x 19,5 cm', imgs: [[P2 + 'seca/p-base', '']], span: 3 },
   ], nota: 'As réguas são as mesmas da ilha, 3 por prateleira.' });
@@ -206,7 +206,7 @@ const president3d = tela3d({ id: 'president', n: '04', short: 'Président', marc
   rotulo: 'O expositor como na loja · Président no módulo da ponta', hero: [P2 + '3d/president-esquina', 'A esquina da ponta refrigerada'],
   vistas: [[P2 + '3d/president-testeira', 'Logo em aplique iluminado'], [P2 + '3d/president-34', 'Lateral externa'], [P2 + '3d/president-bob', 'Bandeja do Stick'], [P2 + '3d/president-modulo', 'O módulo Président']], nota: '' });
 const president = espaco2({ id: 'president', n: '04', short: 'Président', marca: 'Président', titulo: 'Ponta refrigerada de queijos', cor: '#BE0F2D', cols: 3, fotoW: 700,
-  vistas: [{ nome: 'Ponta', antes: P2 + 'ad/president-antes', depois: P2 + 'ad/president-depois', ar: 1.3159, ta: 'Planograma', cap: 'Simulação sobre o planograma enviado pelo cliente.' }],
+  vistas: [{ nome: 'Ponta', antes: P2 + 'ad/president-antes', depois: P2 + 'ad/president-depois', ar: 1.3333, ta: 'Planograma', cap: 'Simulação sobre o planograma enviado pelo cliente.' }],
   cards: [
     { n: 1, nome: 'Testeira com aplique iluminado', qtd: '1 un. · 125 x 44 cm', imgs: [[P2 + 'president/p-testeira', '']], span: 2 },
     { n: 2, nome: 'Base', qtd: '1 un. · 125 x 25 cm', imgs: [[P2 + 'president/p-base', '']] },
