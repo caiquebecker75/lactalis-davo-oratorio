@@ -6,7 +6,7 @@
 <title>Produto giratório 3D</title>
 <style>
   html, body { margin: 0; height: 100%; overflow: hidden; background: #cfcfcd; }
-  #w { position: fixed; inset: 0; background: radial-gradient(ellipse at 50% 45%, #e6e6e4 0%, #c9c9c7 80%); }
+  #w { position: fixed; inset: 0; background: #d2d2d0; }
   canvas { display: block; }
 </style>
 <script type="importmap">
@@ -22,7 +22,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 const w = document.getElementById('w');
-const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false }); renderer.setClearColor(0xd2d2d0, 1);
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.NeutralToneMapping;
@@ -38,18 +38,19 @@ const tex = (src) => { const t = tl.load(src); t.colorSpace = THREE.SRGBColorSpa
 const K = 0.01; // cm -> m
 // lateral: 31,1 x 232 cm, no plano YZ; a borda reta (lado da gôndola) em z = 0
 const lat = new THREE.Mesh(new THREE.PlaneGeometry(31.1 * K, 232 * K),
-  new THREE.MeshStandardMaterial({ map: tex('lateral.png'), alphaTest: 0.5, side: THREE.DoubleSide, roughness: 0.55 }));
+  new THREE.MeshStandardMaterial({ map: tex('lateral-v2.png'), alphaTest: 0.5, side: THREE.DoubleSide, roughness: 0.55 }));
 lat.rotation.y = Math.PI / 2; lat.position.set(0, 1.16, 31.1 * K / 2); lat.castShadow = false; lat.receiveShadow = false;
 
 scene.add(lat);
 // produto giratório: PS dupla face, 18,5 x 65,9 cm, eixo no recorte (z = 15 cm, centro a 117 cm)
 const prod = new THREE.Group(); prod.position.set(0, 1.17, 0.15); scene.add(prod);
 const pt = tex('produto.png'); pt.wrapS = pt.wrapT = THREE.ClampToEdgeWrapping;
-const pm = new THREE.MeshStandardMaterial({ map: pt, alphaTest: 0.5, roughness: 0.45, side: THREE.FrontSide });
+const pb = pt.clone(); pb.wrapS = THREE.RepeatWrapping; pb.repeat.x = -1; pb.offset.x = 1; pb.needsUpdate = true;
+const mf = new THREE.MeshStandardMaterial({ map: pt, alphaTest: 0.5, roughness: 0.45 });
+const mb = new THREE.MeshStandardMaterial({ map: pb, alphaTest: 0.5, roughness: 0.45 });
 const geo = new THREE.PlaneGeometry(18.5 * K, 65.9 * K);
-// PS dupla face colado (sem vão): frente e verso no mesmo plano, cada um para um lado
-const f1 = new THREE.Mesh(geo, pm); f1.castShadow = true;
-const f2 = new THREE.Mesh(geo, pm); f2.rotation.y = Math.PI; f2.castShadow = true;
+const f1 = new THREE.Mesh(geo, mf); f1.position.z = 0.0008;
+const f2 = new THREE.Mesh(geo, mb); f2.rotation.y = Math.PI; f2.position.z = -0.0008;
 prod.add(f1, f2);
 // eixo só acima e abaixo do produto (entra na lateral), nunca na frente da arte
 const em = new THREE.MeshStandardMaterial({ color: 0x9a9a9c, metalness: 0.8, roughness: 0.3 });
@@ -62,10 +63,10 @@ const floor = new THREE.Mesh(new THREE.PlaneGeometry(6, 6), new THREE.ShadowMate
 floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
 
 const camera = new THREE.PerspectiveCamera(30, 1, 0.01, 30);
-camera.position.set(1.15, 1.24, 0.5);
+camera.position.set(4.6, 1.3, 1.6);
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(0, 1.17, 0.14); controls.enablePan = false; controls.enableDamping = true;
-controls.minDistance = 0.35; controls.maxDistance = 5;
+controls.target.set(0, 1.16, 0.14); controls.enablePan = false; controls.enableZoom = false; controls.enableDamping = true;
+controls.minDistance = 0.35; controls.maxDistance = 7;
 
 function resize() { const W = innerWidth, H = innerHeight; renderer.setSize(W, H); camera.aspect = W / H; camera.updateProjectionMatrix(); }
 addEventListener('resize', resize); resize();

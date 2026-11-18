@@ -95,7 +95,7 @@ function espaco({ id, n, short, marca, titulo, cor, rotulo, vistas, resumo, mesa
 const BODY_W = 1456, BODY_H = 610;
 // tela de 3D: hero à esquerda; à direita o 3D interativo (quando houver) e as outras vistas
 function tela3d({ id, n, short, marca, titulo, cor, rotulo, hero, vistas, iframe, nota }) {
-  const th = ([src, cap]) => src.startsWith('iframe:') ? `<div class="v3 v3-live" data-cursor><iframe src="${src.slice(7)}" title="${cap}" loading="lazy"></iframe><span>${cap}</span><button type="button" class="amp" data-live="${src.slice(7)}" aria-label="Ampliar"></button></div>` : `<button type="button" class="pz v3" data-zoom="${img(src)}" data-gallery="3d-${id}" data-caption="${cap}|${titulo}"><img src="${img(src)}" alt="${cap}" loading="lazy"><span>${cap}</span></button>`;
+  const th = ([src, cap]) => src.startsWith('iframe:') ? `<div class="v3 v3-live" data-cursor><iframe src="${src.slice(7)}" title="${cap}" loading="lazy"></iframe><span>${cap}</span></div>` : `<button type="button" class="pz v3" data-zoom="${img(src)}" data-gallery="3d-${id}" data-caption="${cap}|${titulo}"><img src="${img(src)}" alt="${cap}" loading="lazy"><span>${cap}</span></button>`;
   return `  <!-- ================================================================ ${n} ${titulo.toUpperCase()} · 3D -->
   <section class="slide sp t3d" id="${id}-3d" data-sp="${id}-3d" data-short="${short} · 3D" data-theme="cream" data-title="${titulo} · 3D" style="--bc:${cor}">
     <div class="pad">
@@ -177,7 +177,7 @@ const nutricao = espaco2({ id: 'nutricao', n: '01', short: 'Nutrição esportiva
 // ---------------- 02 gôndola seca
 const seca3d = tela3d({ id: 'seca', n: '02', short: 'Gôndola seca', marca: 'Parmalat Fit', titulo: 'Gôndola seca', cor: '#1E3E94',
   rotulo: 'Três módulos · Parmalat Fit no centro · concorrência em cinza', hero: [P2 + '3d/seca-34', 'O módulo ambientado'],
-  vistas: [[P2 + '3d/seca-frente', 'Vista frontal'], ['iframe:produto-3d/?v=6', 'Produto girando na lateral'], [P2 + '3d/seca-moldura', 'Moldura Whey 21 g'], [P2 + '3d/seca-produto', 'Produto encaixado no recorte']],
+  vistas: [[P2 + '3d/seca-frente', 'Vista frontal'], ['iframe:produto-3d/?v=8', 'Produto girando na lateral'], [P2 + '3d/seca-moldura', 'Moldura Whey 21 g'], [P2 + '3d/seca-produto', 'Produto encaixado no recorte']],
   nota: '' });
 const seca = espaco2({ id: 'seca', n: '02', short: 'Gôndola seca', marca: 'Parmalat Fit', titulo: 'Gôndola seca', cor: '#1E3E94', cols: 3, fotoW: 420,
   vistas: [{ nome: 'Frontal', antes: P2 + 'ad/seca-antes', depois: P2 + 'ad/seca-depois', ar: 0.5573, cap: 'Simulação com a foto da loja.' }],
