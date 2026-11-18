@@ -165,7 +165,7 @@ const P2 = 'pv2/';
 const nutricao3d = tela3d({ id: 'nutricao', n: '01', short: 'Nutrição esportiva', marca: 'Parmalat Fit', titulo: 'Ilha de nutrição esportiva', cor: '#1E3E94',
   rotulo: 'Modelada nas medidas da loja · concorrência em cinza', hero: [P2 + '3d/ilha-34', 'Lado longo e ponta'],
   vistas: [[P2 + '3d/ilha-testeira', 'Testeiras costa com costa'], [P2 + '3d/ilha-ponta', 'Ponta com a faixa do peso'], [P2 + '3d/ilha-reguas', 'Réguas por prateleira']],
-  iframe: 'testeira-3d/?embed=1&v=4', nota: 'As duas testeiras são a mesma peça, de costas uma para a outra.' });
+  iframe: 'testeira-3d/?embed=1&v=5', nota: 'As duas testeiras são a mesma peça, de costas uma para a outra.' });
 const nutricao = espaco2({ id: 'nutricao', n: '01', short: 'Nutrição esportiva', marca: 'Parmalat Fit', titulo: 'Ilha de nutrição esportiva', cor: '#1E3E94', cols: 1, fotoW: 1030,
   vistas: [{ nome: 'Lado longo', antes: P2 + 'ad/ilha-longo-antes', depois: P2 + 'ad/ilha-longo-depois', ar: 1.6277, cap: 'Lado longo. Simulação com a foto da loja.' },
            { nome: 'Ponta', antes: P2 + 'ad/ilha-ponta-antes', depois: P2 + 'ad/ilha-ponta-depois', ar: 0.53, cap: 'Ponta. Simulação com a foto da loja.' }],

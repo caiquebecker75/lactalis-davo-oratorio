@@ -74,7 +74,7 @@ const STEPS = [
 let rGoal = 3.1, A, B, step = 0, bTarget = 0, bPos = 0, azGoal = STEPS[0].az, auto = false;
 const GAP = 0.002, START = -1.4;
 
-new GLTFLoader().load('testeira-v3.glb', (g) => {
+new GLTFLoader().load('testeira-v4.glb', (g) => {
   A = g.scene;
   A.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.material.side = THREE.DoubleSide; } });
   B = A.clone(true); B.rotation.y = Math.PI; B.visible = false;
