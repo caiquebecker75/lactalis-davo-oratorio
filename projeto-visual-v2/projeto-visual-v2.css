@@ -1,24 +1,46 @@
 /* =========================================================================
-   v2 · telas de 3D antes de cada espaço (hero + vistas + destaques + testeira interativa)
+   Projeto visual v2 · estrutura própria das telas de espaço (e2) e de 3D (t3d)
+   Palco 1600 x 900; corpo da tela: 1456 x 610 abaixo do cabeçalho.
    ========================================================================= */
-.t3-body { margin-top: 22px; flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr); gap: 28px; }
-.t3-hero { position: relative; display: block; min-height: 0; padding: 0; border: 0; border-radius: 18px; overflow: hidden; background: #d9d9d7; cursor: zoom-in; }
-.t3-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ez); }
-.t3-hero:hover img { transform: scale(1.025); }
-.t3-tag { position: absolute; left: 16px; bottom: 16px; padding: 8px 14px 9px; border-radius: 999px; background: var(--bc); color: #fff; font-weight: 700; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
-.t3-side { min-width: 0; min-height: 0; display: flex; flex-direction: column; gap: 14px; }
-.t3-vistas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.t3-vistas:has(> :nth-child(3):last-child) > :first-child { grid-column: span 2; aspect-ratio: 2.1; }
-.v3 { position: relative; padding: 0; border: 0; border-radius: 12px; overflow: hidden; aspect-ratio: 1.25; background: #d9d9d7; cursor: zoom-in; }
+/* ---------- tela de 3D ---------- */
+.t3-body { position: absolute; left: 0; right: 0; top: 112px; bottom: 0; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 18px; }
+.t3-body.so-hero { grid-template-columns: 1fr; }
+.t3-hero { position: relative; min-height: 0; padding: 0; border: 0; border-radius: 16px; overflow: hidden; background: #d4d4d2; cursor: zoom-in; }
+.t3-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.t3-tag { position: absolute; left: 14px; bottom: 14px; padding: 7px 13px 8px; border-radius: 999px; background: var(--bc); color: #fff; font-weight: 700; font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; }
+.t3-side { min-width: 0; min-height: 0; display: flex; flex-direction: column; gap: 12px; }
+.t3-live { flex: 1.25; min-height: 0; border-radius: 14px; overflow: hidden; background: #d4d4d2; }
+.t3-live iframe { display: block; width: 100%; height: 100%; border: 0; }
+.t3-vistas { flex: 1; min-height: 0; display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(0, 1fr); }
+.com-live .t3-vistas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.t3-vistas.n3 > :first-child { grid-column: span 2; }
+.com-live .t3-vistas.n3 > :first-child { grid-column: auto; }
+.v3 { position: relative; min-height: 0; padding: 0; border: 0; border-radius: 12px; overflow: hidden; background: #d4d4d2; cursor: zoom-in; }
 .v3 img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.v3 span { position: absolute; left: 8px; bottom: 8px; padding: 5px 10px 6px; border-radius: 999px; background: rgba(255, 252, 244, .92); color: var(--ink); font-weight: 650; font-size: 12px; }
-.t3-dest { display: grid; gap: 8px; margin-top: auto; }
-.t3-dest li { display: grid; gap: 2px; padding: 10px 14px 11px; border-left: 4px solid var(--bc); background: var(--card); border-radius: 0 10px 10px 0; }
-.t3-dest b { font-size: 15.5px; } .t3-dest span { font-size: 13.5px; color: var(--ink2); line-height: 1.3; }
-.t3-live { display: flex; flex-direction: column; gap: 6px; }
-.t3-live .lbl { color: var(--green); }
-.t3-live iframe { width: 100%; aspect-ratio: 1.6; border: 0; border-radius: 12px; background: #d9d9d7; }
-.t3d:has(.t3-live) .t3-vistas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.t3d:has(.t3-live) .t3-vistas > :first-child { grid-column: auto; aspect-ratio: 1.25; }
-html.m .t3-body { display: flex; flex-direction: column; }
+.v3 span { position: absolute; left: 8px; bottom: 8px; padding: 4px 10px 5px; border-radius: 999px; background: rgba(255, 252, 244, .94); color: var(--ink); font-weight: 650; font-size: 12px; white-space: nowrap; }
+
+/* ---------- tela do espaço ---------- */
+.e2-body { position: absolute; left: 0; right: 0; top: 112px; bottom: 0; display: flex; gap: 26px; }
+.e2-fotos { flex: none; display: flex; gap: 14px; align-items: flex-start; }
+.e2-fotos .vista .lbl { margin-bottom: 8px; color: var(--green); }
+.e2 .e2-body .cmp { flex: none; aspect-ratio: auto; }
+.e2-pecas { flex: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; gap: 10px; }
+.e2-pecas > .lbl { color: var(--green); }
+.cards { flex: 1; min-height: 0; display: grid; gap: 10px; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); grid-auto-rows: minmax(0, 1fr); }
+.cd { grid-column: span var(--sp); min-height: 0; display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border-radius: 12px; background: var(--cream2); }
+.cd-imgs { flex: 1; min-height: 0; display: flex; gap: 8px; align-items: stretch; justify-content: center; }
+.cd-imgs:has(> :nth-child(3)) { flex-direction: column; gap: 4px; }
+.cd-imgs .pz { flex: 1 1 0; min-width: 0; min-height: 0; padding: 0; border: 0; background: none; cursor: zoom-in; display: flex; align-items: center; justify-content: center; }
+.cd-imgs img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(70, 45, 15, .22)); }
+.cd figcaption { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 7px; font-size: 13px; font-weight: 650; line-height: 1.2; }
+.cd figcaption b { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--bc); color: #fff; font-size: 11.5px; }
+.cd figcaption em { flex-basis: 100%; padding-left: 27px; font-style: normal; font-weight: 600; font-size: 12px; color: var(--green-d); }
+
+html.m .t3-body, html.m .e2-body { position: static; display: flex; flex-direction: column; margin-top: 16px; }
 html.m .t3-hero { aspect-ratio: 1.25; }
+html.m .t3-live { aspect-ratio: 1.4; }
+html.m .e2-fotos { width: 100% !important; flex-direction: column; }
+html.m .e2 .cmp { width: 100% !important; height: auto !important; aspect-ratio: var(--ar) !important; }
+html.m .cards { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+.v3-live { cursor: grab; }
+.v3-live iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }

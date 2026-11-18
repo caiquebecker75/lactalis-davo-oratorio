@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Produto giratório 3D</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #cfcfcd; }
+  #w { position: fixed; inset: 0; background: radial-gradient(ellipse at 50% 45%, #e6e6e4 0%, #c9c9c7 80%); }
+  canvas { display: block; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+               "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="w"></div>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const w = document.getElementById('w');
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.NeutralToneMapping;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+w.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+const sun = new THREE.DirectionalLight(0xffffff, 1.1); sun.position.set(1.5, 2.6, 1.6); sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -1, right: 1, top: 2.5, bottom: -0.2 }); scene.add(sun); scene.add(new THREE.HemisphereLight(0xffffff, 0x9a9a98, 0.9));
+
+const tl = new THREE.TextureLoader();
+const tex = (src) => { const t = tl.load(src); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t; };
+const K = 0.01; // cm -> m
+// lateral: 31,1 x 232 cm, no plano YZ; a borda reta (lado da gôndola) em z = 0
+const lat = new THREE.Mesh(new THREE.PlaneGeometry(31.1 * K, 232 * K),
+  new THREE.MeshStandardMaterial({ map: tex('lateral.png'), alphaTest: 0.5, side: THREE.DoubleSide, roughness: 0.55 }));
+lat.rotation.y = Math.PI / 2; lat.position.set(0, 1.16, 31.1 * K / 2); lat.castShadow = true; lat.receiveShadow = true;
+
+scene.add(lat);
+// produto giratório: PS dupla face, 18,5 x 65,9 cm, eixo no recorte (z = 15 cm, centro a 117 cm)
+const prod = new THREE.Group(); prod.position.set(0, 1.17, 0.15); scene.add(prod);
+const pm = new THREE.MeshStandardMaterial({ map: tex('produto.png'), alphaTest: 0.5, roughness: 0.45 });
+const geo = new THREE.PlaneGeometry(18.5 * K, 65.9 * K);
+const f1 = new THREE.Mesh(geo, pm); f1.position.z = 0.0015; f1.castShadow = true;
+const f2 = new THREE.Mesh(geo, pm); f2.rotation.y = Math.PI; f2.position.z = -0.0015; f2.castShadow = true;
+prod.add(f1, f2);
+const eixo = new THREE.Mesh(new THREE.CylinderGeometry(0.002, 0.002, 0.70, 12), new THREE.MeshStandardMaterial({ color: 0x9a9a9c, metalness: 0.8, roughness: 0.3 }));
+eixo.position.copy(prod.position); scene.add(eixo);
+// chão com sombra
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(6, 6), new THREE.ShadowMaterial({ opacity: 0.16 }));
+floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+
+const camera = new THREE.PerspectiveCamera(30, 1, 0.01, 30);
+camera.position.set(2.0, 1.28, 0.62);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 1.16, 0.13); controls.enablePan = false; controls.enableDamping = true;
+controls.minDistance = 0.6; controls.maxDistance = 5;
+
+function resize() { const W = innerWidth, H = innerHeight; renderer.setSize(W, H); camera.aspect = W / H; camera.updateProjectionMatrix(); }
+addEventListener('resize', resize); resize();
+const clock = new THREE.Clock();
+(function loop() {
+  requestAnimationFrame(loop);
+  prod.rotation.y += clock.getDelta() * 0.9;   // giro suave e contínuo
+  controls.update(); renderer.render(scene, camera);
+})();
+</script>
+</body>
+</html>

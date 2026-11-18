@@ -18,7 +18,7 @@
   .tag { position:fixed; top:20px; left:24px; font-size:12px; letter-spacing:.14em; color:var(--muted); font-weight:700; }
   .hint { position:fixed; top:20px; right:24px; font-size:12px; color:var(--muted); }
   body.em .tag, body.em .hint { display:none; }
-  body.em .cap { bottom: 46px; } body.em .cap h2 { font-size: 15px; margin:0; } body.em .cap p { display:none; }
+  body.em .cap { display:none; }
   body.em .bar { bottom: 10px; gap:6px; } body.em .bar button { font-size: 11.5px; padding: 6px 11px; }
 </style>
 <script type="importmap">
@@ -62,24 +62,24 @@ floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
 
 const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, 0.01, 50);
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true; controls.enablePan = false; controls.minDistance = 1.4; controls.maxDistance = 7;
-controls.maxPolarAngle = Math.PI * 0.49; controls.target.set(0, 0.10, 0);
+controls.enableDamping = true; controls.enablePan = false; controls.minDistance = 1.0; controls.maxDistance = 7;
+controls.maxPolarAngle = Math.PI * 0.49; controls.target.set(0, 0.24, 0);
 
 const STEPS = [
-  { t:'Frente', d:'Uma peça só em PS: o painel e as duas abas dobradas para a frente viram divisórias e seguram os pouches.' , az: 0.35, r: 3.1 },
-  { t:'Verso', d:'O verso também é impresso: a peça é frente e verso e funciona sozinha na prateleira.', az: Math.PI - 0.35, r: 3.1 },
-  { t:'Costa com costa', d:'Duas peças iguais, uma de costas para a outra: nas pontas, a aba de produtos de uma encontra a aba do logo da outra e os dois lados da ilha ficam comunicados por igual.', az: 0.9, r: 3.9 },
-  { t:'Girar', d:'Arraste para ver de qualquer ângulo.', az: null, r: 3.9 },
+  { t:'Frente', d:'Uma peça só em PS: o painel e as duas abas dobradas para a frente viram divisórias e seguram os pouches.' , az: 0.35, r: 2.0 },
+  { t:'Verso', d:'O verso também é impresso: a peça é frente e verso e funciona sozinha na prateleira.', az: Math.PI - 0.35, r: 2.0 },
+  { t:'Costa com costa', d:'Duas peças iguais, uma de costas para a outra: nas pontas, a aba de produtos de uma encontra a aba do logo da outra e os dois lados da ilha ficam comunicados por igual.', az: 0.9, r: 2.5 },
+  { t:'Girar', d:'Arraste para ver de qualquer ângulo.', az: null, r: 2.5 },
 ];
 let rGoal = 3.1, A, B, step = 0, bTarget = 0, bPos = 0, azGoal = STEPS[0].az, auto = false;
 const GAP = 0.002, START = -1.4;
 
 new GLTFLoader().load('testeira.glb', (g) => {
   A = g.scene;
-  A.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.material.side = THREE.DoubleSide; } });
+  A.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.material.side = THREE.FrontSide; } });
   B = A.clone(true); B.rotation.y = Math.PI; B.visible = false;
   scene.add(A, B);
-  setStep(0);
+  setStep(3);
   resize(); loop();
 });
 
@@ -87,7 +87,7 @@ function setStep(s) {
   step = s; document.querySelectorAll('.bar button').forEach(b => b.classList.toggle('on', +b.dataset.s === s));
   document.getElementById('t').textContent = STEPS[s].t; document.getElementById('d').textContent = STEPS[s].d;
   auto = s === 3; controls.autoRotate = auto; controls.autoRotateSpeed = 1.6;
-  bTarget = (s >= 2) ? 1 : 0;
+  bTarget = (s === 2) ? 1 : 0;
   if (STEPS[s].az !== null) azGoal = STEPS[s].az; else azGoal = null;
   rGoal = STEPS[s].r * (innerWidth / innerHeight < 1 ? 1.45 : 1);
 }
