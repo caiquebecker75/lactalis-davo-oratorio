@@ -206,7 +206,7 @@ const president3d = tela3d({ id: 'president', n: '04', short: 'Président', marc
   rotulo: 'O expositor como na loja · Président no módulo da ponta', hero: [P2 + '3d/president-esquina', 'A esquina da ponta refrigerada'],
   vistas: [[P2 + '3d/president-testeira', 'Logo em aplique iluminado'], [P2 + '3d/president-34', 'Lateral externa'], [P2 + '3d/president-bob', 'Bandeja do Stick'], [P2 + '3d/president-modulo', 'O módulo Président']], nota: '' });
 const president = espaco2({ id: 'president', n: '04', short: 'Président', marca: 'Président', titulo: 'Ponta refrigerada de queijos', cor: '#BE0F2D', cols: 3, fotoW: 700,
-  vistas: [{ nome: 'Ponta', antes: P2 + 'ad/president-antes', depois: P2 + 'ad/president-depois', ar: 1.3173, ta: 'Planograma', cap: 'Simulação sobre o planograma enviado pelo cliente.' }],
+  vistas: [{ nome: 'Ponta', antes: P2 + 'ad/president-antes', depois: P2 + 'ad/president-depois', ar: 1.3159, ta: 'Planograma', cap: 'Simulação sobre o planograma enviado pelo cliente.' }],
   cards: [
     { n: 1, nome: 'Testeira com aplique iluminado', qtd: '1 un. · 125 x 44 cm', imgs: [[P2 + 'president/p-testeira', '']], span: 2 },
     { n: 2, nome: 'Base', qtd: '1 un. · 125 x 25 cm', imgs: [[P2 + 'president/p-base', '']] },
