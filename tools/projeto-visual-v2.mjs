@@ -167,7 +167,7 @@ const nutricao3d = tela3d({ id: 'nutricao', n: '01', short: 'Nutrição esportiv
   vistas: [[P2 + '3d/ilha-testeira', 'Testeiras costa com costa'], [P2 + '3d/ilha-ponta', 'Ponta com a faixa do peso'], [P2 + '3d/ilha-reguas', 'Réguas por prateleira']],
   iframe: 'testeira-3d/?embed=1&v=5', nota: 'As duas testeiras são a mesma peça, de costas uma para a outra.' });
 const nutricao = espaco2({ id: 'nutricao', n: '01', short: 'Nutrição esportiva', marca: 'Parmalat Fit', titulo: 'Ilha de nutrição esportiva', cor: '#1E3E94', cols: 1, fotoW: 1030,
-  vistas: [{ nome: 'Lado longo', antes: P2 + 'ad/ilha-longo-antes', depois: P2 + 'ad/ilha-longo-depois', ar: 1.6277, cap: 'Lado longo. Simulação com a foto da loja.' },
+  vistas: [{ nome: 'Lado longo', antes: P2 + 'ad/ilha-longo-antes', depois: P2 + 'ad/ilha-longo-depois', ar: 1.5052, cap: 'Lado longo. Simulação com a foto da loja.' },
            { nome: 'Ponta', antes: P2 + 'ad/ilha-ponta-antes', depois: P2 + 'ad/ilha-ponta-depois', ar: 0.53, cap: 'Ponta. Simulação com a foto da loja.' }],
   cards: [
     { n: 1, nome: 'Testeira com abas', qtd: '2 un. · 195 x 60 cm planificada', imgs: [[P2 + 'nutricao/p-testeira-frente', 'Frente'], [P2 + 'nutricao/p-testeira-verso', 'Verso']], span: 2 },
@@ -177,7 +177,7 @@ const nutricao = espaco2({ id: 'nutricao', n: '01', short: 'Nutrição esportiva
 // ---------------- 02 gôndola seca
 const seca3d = tela3d({ id: 'seca', n: '02', short: 'Gôndola seca', marca: 'Parmalat Fit', titulo: 'Gôndola seca', cor: '#1E3E94',
   rotulo: 'Três módulos · Parmalat Fit no centro · concorrência em cinza', hero: [P2 + '3d/seca-34', 'O módulo ambientado'],
-  vistas: [[P2 + '3d/seca-frente', 'Vista frontal'], ['iframe:produto-3d/?v=4', 'Produto girando na lateral'], [P2 + '3d/seca-moldura', 'Moldura Whey 21 g'], [P2 + '3d/seca-produto', 'Produto encaixado no recorte']],
+  vistas: [[P2 + '3d/seca-frente', 'Vista frontal'], ['iframe:produto-3d/?v=6', 'Produto girando na lateral'], [P2 + '3d/seca-moldura', 'Moldura Whey 21 g'], [P2 + '3d/seca-produto', 'Produto encaixado no recorte']],
   nota: '' });
 const seca = espaco2({ id: 'seca', n: '02', short: 'Gôndola seca', marca: 'Parmalat Fit', titulo: 'Gôndola seca', cor: '#1E3E94', cols: 3, fotoW: 420,
   vistas: [{ nome: 'Frontal', antes: P2 + 'ad/seca-antes', depois: P2 + 'ad/seca-depois', ar: 0.5573, cap: 'Simulação com a foto da loja.' }],
@@ -206,7 +206,7 @@ const president3d = tela3d({ id: 'president', n: '04', short: 'Président', marc
   rotulo: 'O expositor como na loja · Président no módulo da ponta', hero: [P2 + '3d/president-esquina', 'A esquina da ponta refrigerada'],
   vistas: [[P2 + '3d/president-testeira', 'Logo em aplique iluminado'], [P2 + '3d/president-34', 'Lateral externa'], [P2 + '3d/president-bob', 'Bandeja do Stick'], [P2 + '3d/president-modulo', 'O módulo Président']], nota: '' });
 const president = espaco2({ id: 'president', n: '04', short: 'Président', marca: 'Président', titulo: 'Ponta refrigerada de queijos', cor: '#BE0F2D', cols: 3, fotoW: 700,
-  vistas: [{ nome: 'Ponta', antes: P2 + 'ad/president-antes', depois: P2 + 'ad/president-depois', ar: 1.2276, ta: 'Planograma', cap: 'Simulação sobre o planograma enviado pelo cliente.' }],
+  vistas: [{ nome: 'Ponta', antes: P2 + 'ad/president-antes', depois: P2 + 'ad/president-depois', ar: 1.3173, ta: 'Planograma', cap: 'Simulação sobre o planograma enviado pelo cliente.' }],
   cards: [
     { n: 1, nome: 'Testeira com aplique iluminado', qtd: '1 un. · 125 x 44 cm', imgs: [[P2 + 'president/p-testeira', '']], span: 2 },
     { n: 2, nome: 'Base', qtd: '1 un. · 125 x 25 cm', imgs: [[P2 + 'president/p-base', '']] },

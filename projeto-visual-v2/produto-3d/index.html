@@ -39,18 +39,24 @@ const K = 0.01; // cm -> m
 // lateral: 31,1 x 232 cm, no plano YZ; a borda reta (lado da gôndola) em z = 0
 const lat = new THREE.Mesh(new THREE.PlaneGeometry(31.1 * K, 232 * K),
   new THREE.MeshStandardMaterial({ map: tex('lateral.png'), alphaTest: 0.5, side: THREE.DoubleSide, roughness: 0.55 }));
-lat.rotation.y = Math.PI / 2; lat.position.set(0, 1.16, 31.1 * K / 2); lat.castShadow = true; lat.receiveShadow = true;
+lat.rotation.y = Math.PI / 2; lat.position.set(0, 1.16, 31.1 * K / 2); lat.castShadow = false; lat.receiveShadow = false;
 
 scene.add(lat);
 // produto giratório: PS dupla face, 18,5 x 65,9 cm, eixo no recorte (z = 15 cm, centro a 117 cm)
 const prod = new THREE.Group(); prod.position.set(0, 1.17, 0.15); scene.add(prod);
-const pm = new THREE.MeshStandardMaterial({ map: tex('produto.png'), alphaTest: 0.5, roughness: 0.45 });
+const pt = tex('produto.png'); pt.wrapS = pt.wrapT = THREE.ClampToEdgeWrapping;
+const pm = new THREE.MeshStandardMaterial({ map: pt, alphaTest: 0.5, roughness: 0.45, side: THREE.FrontSide });
 const geo = new THREE.PlaneGeometry(18.5 * K, 65.9 * K);
-const f1 = new THREE.Mesh(geo, pm); f1.position.z = 0.0015; f1.castShadow = true;
-const f2 = new THREE.Mesh(geo, pm); f2.rotation.y = Math.PI; f2.position.z = -0.0015; f2.castShadow = true;
+// PS dupla face colado (sem vão): frente e verso no mesmo plano, cada um para um lado
+const f1 = new THREE.Mesh(geo, pm); f1.castShadow = true;
+const f2 = new THREE.Mesh(geo, pm); f2.rotation.y = Math.PI; f2.castShadow = true;
 prod.add(f1, f2);
-const eixo = new THREE.Mesh(new THREE.CylinderGeometry(0.002, 0.002, 0.70, 12), new THREE.MeshStandardMaterial({ color: 0x9a9a9c, metalness: 0.8, roughness: 0.3 }));
-eixo.position.copy(prod.position); scene.add(eixo);
+// eixo só acima e abaixo do produto (entra na lateral), nunca na frente da arte
+const em = new THREE.MeshStandardMaterial({ color: 0x9a9a9c, metalness: 0.8, roughness: 0.3 });
+for (const s of [1, -1]) {
+  const e = new THREE.Mesh(new THREE.CylinderGeometry(0.003, 0.003, 0.03, 12), em);
+  e.position.set(0, prod.position.y + s * (65.9 * K / 2 + 0.015), prod.position.z); scene.add(e);
+}
 // chão com sombra
 const floor = new THREE.Mesh(new THREE.PlaneGeometry(6, 6), new THREE.ShadowMaterial({ opacity: 0.16 }));
 floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
